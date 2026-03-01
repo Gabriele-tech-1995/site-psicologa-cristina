@@ -1,0 +1,68 @@
+:root {
+    --brand: #5b7f77;
+    --brand-dark: #2f4a45;
+    --bg-soft: #f6f4ef;
+    --text: #1f2937;
+}
+
+body {
+    background: var(--bg-soft);
+    color: var(--text);
+}
+
+a {
+    color: var(--brand-dark);
+}
+a:hover {
+    color: var(--brand);
+}
+
+/* spazio */
+.section {
+    padding: 3rem 0;
+}
+
+/* card */
+.card {
+    border: 0;
+    border-radius: 1rem;
+}
+.shadow-soft {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* bottoni */
+.btn-brand {
+    background: var(--brand);
+    border-color: var(--brand);
+    color: #fff;
+}
+.btn-brand:hover {
+    background: var(--brand-dark);
+    border-color: var(--brand-dark);
+    color: #fff;
+}
+
+.badge-soft {
+    background: rgba(91, 127, 119, 0.12);
+    color: var(--brand-dark);
+}
+
+/* whatsapp flottante */
+.whatsapp-float {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+    border-radius: 999px;
+    padding: 12px 16px;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.18);
+    font-weight: 600;
+}
+.whatsapp-float:hover {
+    color: #fff;
+    opacity: 0.92;
+}
