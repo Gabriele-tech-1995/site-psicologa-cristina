@@ -15,5 +15,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'basic.auth' => \App\Http\Middleware\BasicAuth::class,
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions) {})
+    ->withExceptions(function (Exceptions $exceptions) {
+        //
+    })
     ->create();

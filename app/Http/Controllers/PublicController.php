@@ -147,7 +147,7 @@ class PublicController extends Controller
         ]);
 
         // 2) Invio email (in dev con MAIL_MAILER=log finisce nei log)
-        Mail::to('cpacifici07@gmail.com')->send(new ContactRequestMail($contact));
+        Mail::to('Dott.ssapacifici24@gmail.com')->send(new ContactRequestMail($contact));
 
         return redirect()
             ->route('contacts')

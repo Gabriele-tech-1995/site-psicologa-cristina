@@ -26,8 +26,8 @@
             <div class="col-md-4">
                 <h6 class="fw-bold mb-2">Contatti</h6>
                 <p class="mb-1 small">
-                    Email: <a href="mailto:cpacifici07@gmail.com" class="text-decoration-none">
-                        cpacifici07@gmail.com
+                    Email: <a href="mailto:Dott.ssapacifici24@gmail.com" class="text-decoration-none">
+                        Dott.ssapacifici24@gmail.com
                     </a>
                 </p>
                 <p class="mb-1 small">

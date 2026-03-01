@@ -11,14 +11,14 @@
                 <div class="card shadow-soft p-4 mb-4">
                     <h5 class="mb-3">Contatti diretti</h5>
                     <p class="mb-2"><strong>Email:</strong> <a
-                            href="mailto:cpacifici07@gmail.com">cpacifici07@gmail.com</a>
+                            href="mailto:Dott.ssapacifici24@gmail.com">Dott.ssapacifici24@gmail.com</a>
                     </p>
                     <p class="mb-3"><strong>Telefono / WhatsApp:</strong> <a target="_blank"
                             href="https://wa.me/3441122785">3441122785</a></p>
 
                     <div class="d-flex gap-2 flex-wrap">
                         <a class="btn btn-brand" target="_blank" href="https://wa.me/3441122785">WhatsApp</a>
-                        <a class="btn btn-outline-secondary" href="mailto:cpacifici07@gmail.com">Email</a>
+                        <a class="btn btn-outline-secondary" href="mailto:Dott.ssapacifici24@gmail.com">Email</a>
                     </div>
 
                     <hr class="my-4">
