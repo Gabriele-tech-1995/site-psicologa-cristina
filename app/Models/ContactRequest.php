@@ -12,5 +12,7 @@ class ContactRequest extends Model
         'phone',
         'message',
         'consent_privacy',
+        'is_read',
+
     ];
 }

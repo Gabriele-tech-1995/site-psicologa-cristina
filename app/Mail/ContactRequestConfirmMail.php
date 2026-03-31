@@ -4,10 +4,10 @@ namespace App\Mail;
 
 use App\Models\ContactRequest;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Mail\Mailable;
+use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class ContactRequestMail extends Mailable
+class ContactRequestConfirmMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,9 +16,8 @@ class ContactRequestMail extends Mailable
     public function build()
     {
         return $this
-            ->subject('Nuova richiesta dal sito')
-            ->replyTo($this->contactRequest->email, $this->contactRequest->name)
-            ->view('emails.contact-request', [
+            ->subject('Richiesta ricevuta - Dott.ssa Cristina Pacifici')
+            ->view('emails.contact-confirm', [
                 'contactRequest' => $this->contactRequest,
             ]);
     }

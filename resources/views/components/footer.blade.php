@@ -1,51 +1,45 @@
-<footer class="bg-light border-top mt-5">
-    <div class="container py-4">
-        <div class="row gy-3">
+<footer class="footer-minimal border-top mt-5">
+    <div class="container py-5">
+        <div class="row gy-4">
 
-            <!-- Info professionali -->
             <div class="col-md-4">
-                <h6 class="fw-bold mb-2">Dott.ssa Cristina Pacifici</h6>
-                <p class="mb-1 small">
+                <h6 class="footer-title">Dott.ssa Cristina Pacifici</h6>
+                <p class="small mb-1">
                     Psicologa – Specializzanda in psicoterapia
-                    umanistico-esperienziale
+                    umanistico-esperienziale - ASPIC
                 </p>
-                <p class="mb-1 small">
-                    Iscrizione Albo Psicologi Lazio n. 32019
+                <p class="small mb-0">
+                    Iscrizione Albo Psicologi del Lazio n. 32019
                 </p>
             </div>
 
-            <!-- Modalità di lavoro-->
             <div class="col-md-4">
-                <h6 class="fw-bold mb-2">Riceve</h6>
-                <p class="mb-1 small">Online e in presenza a Tivoli</p>
-                <p class="mb-1 small">Dal lunedì al venerdì</p>
-                <p class="mb-0 small">Durata seduta: 50 minuti</p>
+                <h6 class="footer-title">Riceve</h6>
+                <p class="small mb-1">Online e in presenza a Tivoli</p>
+                <p class="small mb-1">Dal lunedì al venerdì</p>
+                <p class="small mb-0">Durata seduta: 50 minuti</p>
             </div>
 
-            <!-- Contatti -->
             <div class="col-md-4">
-                <h6 class="fw-bold mb-2">Contatti</h6>
-                <p class="mb-1 small">
-                    Email: <a href="mailto:Dott.ssapacifici24@gmail.com" class="text-decoration-none">
+                <h6 class="footer-title">Contatti</h6>
+                <p class="small mb-1">
+                    <a href="mailto:dott.ssapacifici24@gmail.com">
                         Dott.ssapacifici24@gmail.com
                     </a>
                 </p>
-                <p class="mb-1 small">
-                    Tel / WhatsApp:
-                    <a href="https://wa.me/3441122785" target="_blank" class="whatsapp-float">
+                <p class="small mb-1">
+                    <a href="https://wa.me/3441122785" target="_blank">
                         344 11 22 785
                     </a>
                 </p>
-                <p class="mb-0 small">
+                <p class="small mb-0">
                     Cancellazione entro 24 ore
                 </p>
             </div>
 
         </div>
 
-        <hr class="my-4">
-
-        <div class="text-center small text-muted">
+        <div class="footer-bottom text-center mt-4 pt-3">
             © {{ date('Y') }} Dott.ssa Cristina Pacifici · Tutti i diritti riservati
         </div>
     </div>

@@ -16,3 +16,14 @@ Route::middleware('basic.auth')->prefix('admin')->name('admin.')->group(function
     Route::get('/contatti', [ContactRequestController::class, 'index'])->name('contacts.index');
     Route::get('/contatti/{contactRequest}', [ContactRequestController::class, 'show'])->name('contacts.show');
 });
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/contatti', [ContactRequestController::class, 'index'])->name('contacts.index');
+    Route::get('/contatti/{contactRequest}', [ContactRequestController::class, 'show'])->name('contacts.show');
+
+    Route::patch('/contatti/{contactRequest}/read', [ContactRequestController::class, 'markAsRead'])
+        ->name('contacts.read');
+
+    Route::delete('/contatti/{contactRequest}', [ContactRequestController::class, 'destroy'])
+        ->name('contacts.destroy');
+});

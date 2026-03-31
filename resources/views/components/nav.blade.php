@@ -1,18 +1,41 @@
-<nav class="navbar navbar-expand-lg bg-white border-bottom shadow-sm">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ route('home') }}">
+            Dott.ssa Cristina Pacifici
+            <small>Psicologa • Tivoli</small>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+            aria-controls="mainNavbar" aria-expanded="false" aria-label="Apri menu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{ route('about') }}">Chi Sono</a>
-                <a class="nav-link" href="{{ route('areas') }}">Aree Di Lavoro</a>
-                <a class="nav-link" href="{{ route('services') }}">Servizi</a>
-                <a class="nav-link" href="{{ route('contacts') }}">Contatti</a>
 
-            </div>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item">
+                    <a class="nav-link @if (request()->routeIs('home')) active @endif"
+                        href="{{ route('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @if (request()->routeIs('about')) active @endif" href="{{ route('about') }}">Chi
+                        sono</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @if (request()->routeIs('areas')) active @endif"
+                        href="{{ route('areas') }}">Aree</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link @if (request()->routeIs('services')) active @endif"
+                        href="{{ route('services') }}">Servizi</a>
+                </li>
+
+                <li class="nav-item ms-lg-2">
+                    <a class="btn btn-brand btn-contatti @if (request()->routeIs('contacts')) active @endif"
+                        href="{{ route('contacts') }}">
+                        Contatti
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactRequestConfirmMail;
 use App\Mail\ContactRequestMail;
 use App\Models\ContactRequest;
 use Illuminate\Http\Request;
@@ -137,7 +138,6 @@ class PublicController extends Controller
             ]
         );
 
-        // 1) Salvo sul DB
         $contact = ContactRequest::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
@@ -146,8 +146,21 @@ class PublicController extends Controller
             'consent_privacy' => true,
         ]);
 
-        // 2) Invio email (in dev con MAIL_MAILER=log finisce nei log)
-        Mail::to('Dott.ssapacifici24@gmail.com')->send(new ContactRequestMail($contact));
+        $adminAddress = config('mail.contact.address');
+        $adminName = config('mail.contact.name');
+
+        logger()->info('mail debug', [
+            'admin_to' => $adminAddress,
+            'user_to' => $contact->email,
+        ]);
+
+        // 1) mail a lei (con reply-to già nel Mailable ContactRequestMail)
+        Mail::to($adminAddress, $adminName)
+            ->send(new ContactRequestMail($contact));
+
+        // 2) conferma all'utente
+        Mail::to($contact->email, $contact->name)
+            ->send(new ContactRequestConfirmMail($contact));
 
         return redirect()
             ->route('contacts')
