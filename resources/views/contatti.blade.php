@@ -39,7 +39,7 @@
 
                         <div class="mb-3">
                             <strong>Centro Imago</strong>
-                            <div class="small text-muted">Piazza Santa Croce 12,Tivoli(RM)</div>
+                            <div class="small text-muted">Piazza Santa Croce 12,Tivoli (RM)</div>
                             <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
                                 href="https://maps.google.com/?q=Centro+Imago+Tivoli">
                                 Apri su google maps
@@ -48,7 +48,7 @@
 
                         <div class="mb-3">
                             <strong>Centro Empathia</strong>
-                            <div class="small text-muted">Piazzale delle Nazioni Unite 16, Tivoli(RM)</div>
+                            <div class="small text-muted">Piazzale delle Nazioni Unite 16, Tivoli (RM)</div>
                             <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
                                 href="https://maps.google.com/?q=Centro+Empatica+Tivoli">
                                 Apri su google maps

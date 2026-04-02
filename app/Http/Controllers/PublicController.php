@@ -90,7 +90,7 @@ class PublicController extends Controller
 
         return redirect()
             ->route('contacts')
-            ->with('success', 'Richiesta inviata correttamente. Ti ricontatterò il prima possibile.');
+            ->with('success', 'Richiesta inviata correttamente. La ricontatterò il prima possibile.');
     }
 
     private function getAreas(): array

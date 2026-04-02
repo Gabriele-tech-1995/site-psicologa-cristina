@@ -1,17 +1,34 @@
-<h2>Richiesta ricevuta</h2>
-
-<p>Ciao {{ $contactRequest->name }},</p>
+<h2 style="margin-bottom: 12px;">
+    Richiesta ricevuta correttamente
+</h2>
 
 <p>
-    Grazie per avermi scritto. Ho ricevuto la tua richiesta e ti ricontatterò il prima possibile.
+    Gentile {{ $contactRequest->name }},
 </p>
 
-<hr>
+<p>
+    La ringrazio per avermi contattato.
+    Ho ricevuto la sua richiesta e la ricontatterò il prima possibile
+    utilizzando i recapiti indicati.
+</p>
 
-<p><strong>Riepilogo:</strong></p>
-<p><strong>Telefono:</strong> {{ $contactRequest->phone }}</p>
-<p><strong>Email:</strong> {{ $contactRequest->email }}</p>
+<p>
+    Nel frattempo, se desidera aggiungere ulteriori informazioni
+    o comunicare eventuali disponibilità orarie,
+    può rispondere direttamente a questa email.
+</p>
 
-<p style="margin-top:16px;">
-    Dott.ssa Cristina Pacifici
+<hr style="margin: 20px 0;">
+
+<p><strong>Riepilogo dei dati inviati:</strong></p>
+
+<p>
+    <strong>Telefono:</strong> {{ $contactRequest->phone }}<br>
+    <strong>Email:</strong> {{ $contactRequest->email }}
+</p>
+
+<p style="margin-top: 24px;">
+    Cordiali saluti,<br>
+    <strong>Dott.ssa Cristina Pacifici</strong><br>
+    Psicologa
 </p>

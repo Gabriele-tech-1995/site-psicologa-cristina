@@ -4,7 +4,7 @@ namespace App\Mail;
 
 use App\Models\ContactRequest;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Mail\Mailable;
+use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
 class ContactRequestMail extends Mailable

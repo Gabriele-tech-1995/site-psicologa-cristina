@@ -114,10 +114,11 @@
                                 <li>Potenziamento cognitivo e degli apprendimenti</li>
                             </ul>
 
-                            <a class="btn btn-outline-secondario btn-sm mt-4 align-self-start btn-aree"
-                                href="{{ route('areas') }}">
-                                Scopri tutte le aree
-                            </a>
+                            <div class="d-flex justify-content-center mt-4">
+                                <a class="btn btn-outline-secondario btn-sm btn-aree" href="{{ route('areas') }}">
+                                    Scopri tutte le aree
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

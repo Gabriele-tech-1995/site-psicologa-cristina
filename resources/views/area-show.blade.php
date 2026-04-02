@@ -9,7 +9,7 @@
         </div>
 
         <div class="row g-4 align-items-stretch area-detail-layout">
-            <div class="col-lg-7 d-flex">
+            <div class="col-lg-7 d-flex area-text-col">
                 <div class="card shadow-soft p-4 card-area-detail w-100">
                     <div class="area-detail-block mb-4">
                         <h4 class="area-detail-title">Di cosa si tratta</h4>
@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-5">
+            <div class="col-lg-5 area-image-col">
                 <div class="area-image-sticky">
                     <div class="card shadow-soft p-3 card-area-image-wrap">
                         <img src="{{ $area['image'] }}" alt="{{ $area['title'] }}"
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="mt-4 d-flex gap-2 flex-wrap">
+        <div class="mt-4 d-flex justify-content-center gap-2 flex-wrap area-actions">
             <a href="{{ route('areas') }}" class="btn btn-outline-secondario">
                 Torna alle aree
             </a>
