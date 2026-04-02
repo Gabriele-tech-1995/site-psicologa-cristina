@@ -1,75 +1,77 @@
 <x-layout>
     <section class="section page-head">
-        <span class="badge badge-soft mb-3">contatti</span>
-        <h1 class="mb-2 page-title">contatti</h1>
+        <span class="badge badge-soft mb-3">Contatti</span>
+        <h1 class="mb-2 page-title">Contatti</h1>
         <p class="page-lead">
-            ricevo online e in presenza a tivoli, dal lunedì al venerdì.
+            Ricevo online e in presenza a tivoli, dal lunedì al venerdì.
         </p>
 
-        <div class="row g-4 mt-1">
-            <div class="col-lg-5">
-                <div class="card shadow-soft p-4 mb-4 card-info">
-                    <h5 class="mb-3">contatti diretti</h5>
+        <div class="row g-4 mt-1 align-items-stretch contacts-row">
+            <div class="col-lg-5 d-flex">
+                <div class="contacts-left d-flex flex-column w-100 h-100">
+                    <div class="card shadow-soft p-4 mb-4 card-info">
+                        <h5 class="mb-3">Contatti diretti</h5>
 
-                    <p class="mb-2">
-                        <strong>email:</strong>
-                        <a href="mailto:Dott.ssapacifici24@gmail.com">Dott.ssapacifici24@gmail.com</a>
-                    </p>
+                        <p class="mb-2">
+                            <strong>Email:</strong>
+                            <a href="mailto:Dott.ssapacifici24@gmail.com">Dott.ssapacifici24@gmail.com</a>
+                        </p>
 
-                    <p class="mb-3">
-                        <strong>telefono / whatsapp:</strong>
-                        <a target="_blank" href="https://wa.me/3441122785">3441122785</a>
-                    </p>
+                        <p class="mb-3">
+                            <strong>Telefono / Whatsapp:</strong>
+                            <a target="_blank" href="https://wa.me/3441122785">3441122785</a>
+                        </p>
 
-                    <div class="d-flex gap-2 flex-wrap">
-                        <a class="btn btn-brand" target="_blank" href="https://wa.me/3441122785">whatsapp</a>
-                        <a class="btn btn-outline-secondario" href="mailto:Dott.ssapacifici24@gmail.com">email</a>
+                        <div class="d-flex gap-2 flex-wrap">
+                            <a class="btn btn-brand" target="_blank" href="https://wa.me/3441122785">Whatsapp</a>
+                            <a class="btn btn-outline-secondario" href="mailto:Dott.ssapacifici24@gmail.com">Email</a>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <p class="mb-0 small text-muted">
+                            Cancellazione entro 24 ore. durata seduta: 50 minuti.
+                        </p>
                     </div>
 
-                    <hr class="my-4">
+                    <div class="card shadow-soft p-4 card-sedi flex-grow-1">
+                        <h5 class="mb-3">Sedi (Tivoli)</h5>
 
-                    <p class="mb-0 small text-muted">
-                        cancellazione entro 24 ore. durata seduta: 50 minuti.
-                    </p>
-                </div>
+                        <div class="mb-3">
+                            <strong>Centro Imago</strong>
+                            <div class="small text-muted">Piazza Santa Croce 12,Tivoli(RM)</div>
+                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
+                                href="https://maps.google.com/?q=Centro+Imago+Tivoli">
+                                Apri su google maps
+                            </a>
+                        </div>
 
-                <div class="card shadow-soft p-4 card-sedi">
-                    <h5 class="mb-3">sedi (tivoli)</h5>
+                        <div class="mb-3">
+                            <strong>Centro Empathia</strong>
+                            <div class="small text-muted">Piazzale delle Nazioni Unite 16, Tivoli(RM)</div>
+                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
+                                href="https://maps.google.com/?q=Centro+Empatica+Tivoli">
+                                Apri su google maps
+                            </a>
+                        </div>
 
-                    <div class="mb-3">
-                        <strong>centro imago</strong>
-                        <div class="small text-muted">indirizzo da inserire</div>
-                        <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
-                            href="https://maps.google.com/?q=Centro+Imago+Tivoli">
-                            apri su google maps
-                        </a>
-                    </div>
-
-                    <div class="mb-3">
-                        <strong>centro empatica</strong>
-                        <div class="small text-muted">indirizzo da inserire</div>
-                        <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
-                            href="https://maps.google.com/?q=Centro+Empatica+Tivoli">
-                            apri su google maps
-                        </a>
-                    </div>
-
-                    <div>
-                        <strong>centro liberamente</strong>
-                        <div class="small text-muted">indirizzo da inserire</div>
-                        <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
-                            href="https://maps.google.com/?q=Centro+Liberamente+Tivoli">
-                            apri su google maps
-                        </a>
+                        <div>
+                            <strong>Centro Liberamente</strong>
+                            <div class="small text-muted">Via Tito Bernardini 13, Villanova (RM)</div>
+                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
+                                href="https://maps.google.com/?q=Centro+Liberamente+Tivoli">
+                                Apri su google maps
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-7">
-                <div class="card shadow-soft p-4 card-form">
-                    <h4 class="mb-3">richiedi un primo colloquio</h4>
+            <div class="col-lg-7 d-flex">
+                <div class="card shadow-soft p-4 card-form w-100 h-100">
+                    <h4 class="mb-3">Richiedi un primo colloquio</h4>
                     <p class="text-muted">
-                        compila il modulo e verrai ricontattato/a il prima possibile.
+                        Compila il modulo e verrai ricontattato/a il prima possibile.
                     </p>
 
                     @if (session('success'))
@@ -78,12 +80,19 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('contacts.submit') }}">
+                    @if (session('success'))
+                        <div id="toast" class="custom-toast">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    <form method="POST" action="{{ route('contacts.submit') }}"
+                        class="contact-form-layout h-100 d-flex flex-column">
                         @csrf
 
-                        <div class="row g-3">
+                        <div class="row g-3 flex-grow-1">
                             <div class="col-md-6">
-                                <label class="form-label">nome e cognome</label>
+                                <label class="form-label">Nome e Cognome</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     name="name" value="{{ old('name') }}">
 
@@ -93,7 +102,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">telefono</label>
+                                <label class="form-label">Telefono</label>
                                 <input type="text" class="form-control @error('phone') is-invalid @enderror"
                                     name="phone" value="{{ old('phone') }}">
 
@@ -103,7 +112,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label class="form-label">email</label>
+                                <label class="form-label">Email</label>
                                 <input type="email" class="form-control @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}">
 
@@ -113,7 +122,7 @@
                             </div>
 
                             <div class="col-12">
-                                <label class="form-label">messaggio</label>
+                                <label class="form-label">Messaggio</label>
                                 <textarea class="form-control @error('message') is-invalid @enderror" name="message" rows="5">{{ old('message') }}</textarea>
 
                                 @error('message')
@@ -128,7 +137,7 @@
                                         @checked(old('privacy'))>
 
                                     <label class="form-check-label" for="privacy">
-                                        acconsento al trattamento dei dati personali secondo la normativa vigente.
+                                        Acconsento al trattamento dei dati personali secondo la normativa vigente.
                                     </label>
 
                                     @error('privacy')
@@ -137,15 +146,15 @@
                                 </div>
 
                                 <div class="small text-muted mt-2">
-                                    si invita a non inserire nel primo messaggio informazioni cliniche dettagliate.
+                                    Si invita a non inserire nel primo messaggio informazioni cliniche dettagliate.
                                 </div>
                             </div>
 
-                            <div class="col-12 d-flex gap-2 flex-wrap">
-                                <button type="submit" class="btn btn-brand">invia richiesta</button>
+                            <div class="col-12 d-flex gap-2 flex-wrap contact-actions align-items-center">
+                                <button type="submit" class="btn btn-brand">Invia richiesta</button>
 
                                 <a class="btn btn-outline-secondario" target="_blank" href="https://wa.me/3441122785">
-                                    scrivimi su whatsapp
+                                    Scrivimi su whatsapp
                                 </a>
                             </div>
                         </div>

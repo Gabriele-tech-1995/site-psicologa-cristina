@@ -26,9 +26,7 @@ Psicologa a Tivoli per supporto su ansia, stress, difficoltà relazionali e geni
 
     <x-footer />
 
-    <div id="toast" class="custom-toast">
-        Messaggio inviato correttamente.
-    </div>
+
     <a href="https://wa.me/393441122785" target="_blank" class="whatsapp-float" aria-label="Scrivimi su WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
             <path

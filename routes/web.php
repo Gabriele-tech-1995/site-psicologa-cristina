@@ -6,8 +6,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/chi-sono', [PublicController::class, 'about'])->name('about');
-Route::get('/aree', [PublicController::class, 'areas'])->name('areas');
-Route::get('/servizi', [PublicController::class, 'services'])->name('services');
+Route::get('/aree', [PublicController::class, 'areas'])
+    ->name('areas');
+
+Route::get('/aree/{slug}', [PublicController::class, 'areaShow'])
+    ->name('areas.show');
 
 Route::get('/contatti', [PublicController::class, 'contact'])->name('contacts');
 Route::post('/contatti', [PublicController::class, 'submit'])->name('contacts.submit');

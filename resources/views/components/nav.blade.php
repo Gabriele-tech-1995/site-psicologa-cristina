@@ -24,10 +24,6 @@
                     <a class="nav-link @if (request()->routeIs('areas')) active @endif"
                         href="{{ route('areas') }}">Aree</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link @if (request()->routeIs('services')) active @endif"
-                        href="{{ route('services') }}">Servizi</a>
-                </li>
 
                 <li class="nav-item ms-lg-2">
                     <a class="btn btn-brand btn-contatti @if (request()->routeIs('contacts')) active @endif"

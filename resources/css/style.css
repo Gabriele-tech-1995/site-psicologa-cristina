@@ -1,6 +1,6 @@
 :root {
     --sfondo-body: #6f4a2f;
-    --sfondo-navbar-card: #e6dccf;
+    --sfondo-navbar-card: #e0cfbd;
     --accent-soft: #c7a27c;
     --accent-forte: #5c0029;
 
@@ -316,14 +316,6 @@ textarea::placeholder {
     padding: 0;
 }
 
-/* desktop: linea verticale */
-@media (min-width: 992px) {
-    .formazione-box + .formazione-box {
-        border-left: 1px solid rgba(199, 162, 124, 0.45);
-        padding-left: 3.2rem;
-    }
-}
-
 .formazione-title {
     font-family: var(--font-titoli);
     font-size: 1.55rem;
@@ -424,7 +416,7 @@ textarea::placeholder {
 /* card principali home */
 
 .card-aree {
-    background: var(--sfondo-navbar-card);
+    background: #e0cfbd;
     border: 1px solid rgba(111, 74, 47, 0.18);
     border-radius: var(--raggio);
     box-shadow: var(--ombra-soft);
@@ -467,6 +459,18 @@ textarea::placeholder {
     margin: 0;
     color: rgba(247, 242, 234, 0.88);
 }
+.contacts-row > [class*="col-"] {
+    display: flex;
+}
+
+.contacts-left {
+    width: 100%;
+}
+
+.card-form {
+    display: flex;
+    flex-direction: column;
+}
 
 /* override cards specifiche */
 
@@ -476,7 +480,7 @@ textarea::placeholder {
 .card-servizio,
 .card-chi,
 .card-note {
-    background: var(--sfondo-navbar-card);
+    background: #e0cfbd;
     border: 1px solid rgba(111, 74, 47, 0.18);
 }
 
@@ -509,6 +513,105 @@ textarea::placeholder {
     border: 1px solid rgba(199, 162, 124, 0.45);
     color: rgba(92, 0, 41, 0.95);
     border-radius: var(--raggio);
+}
+
+.about-sidebar-sticky {
+    position: sticky;
+    top: 130px;
+    align-self: flex-start;
+}
+
+/* =========================
+   aree preview
+========================= */
+
+.card-area-preview {
+    background: #e0cfbd;
+    border: 1px solid rgba(111, 74, 47, 0.18);
+}
+
+.area-card-title {
+    color: rgba(92, 0, 41, 0.95);
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.area-preview-text {
+    color: rgba(43, 27, 18, 0.78);
+    line-height: 1.7;
+}
+/* =========================
+   dettaglio area
+========================= */
+
+.area-show-head {
+    max-width: 980px;
+}
+
+.card-area-detail {
+    background: #e0cfbd;
+    border: 1px solid rgba(111, 74, 47, 0.18);
+    padding: 2rem !important;
+}
+
+.area-image-sticky {
+    position: sticky;
+    top: 120px;
+}
+
+.card-area-image-wrap {
+    background: #e0cfbd;
+    border: 1px solid rgba(111, 74, 47, 0.18);
+    overflow: hidden;
+}
+
+.area-detail-image {
+    width: 100%;
+    height: 640px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.9rem;
+}
+
+.area-detail-block + .area-detail-block {
+    border-top: 1px solid rgba(111, 74, 47, 0.14);
+    padding-top: 1.15rem;
+}
+
+.area-detail-title {
+    font-size: 1.08rem;
+    color: rgba(92, 0, 41, 0.95);
+    margin-bottom: 0.65rem;
+}
+
+.area-detail-block p {
+    color: rgba(43, 27, 18, 0.82);
+    line-height: 1.8;
+}
+
+.area-detail-list {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.area-detail-list li {
+    color: rgba(43, 27, 18, 0.82);
+    line-height: 1.8;
+    margin-bottom: 0.4rem;
+}
+
+.area-detail-closing {
+    background: rgba(255, 255, 255, 0.22);
+    border-radius: 0.9rem;
+    padding: 1rem 1.1rem;
+}
+
+.area-show-head .page-title {
+    max-width: 16ch;
+}
+
+.area-show-head .page-lead {
+    max-width: 60ch;
 }
 
 /* footer */
@@ -786,5 +889,50 @@ textarea::placeholder {
         padding-left: 0;
         border-top: 1px solid rgba(199, 162, 124, 0.45);
         padding-top: 2.2rem;
+    }
+}
+/* desktop: linea verticale */
+@media (min-width: 992px) {
+    .formazione-box + .formazione-box {
+        border-left: 1px solid rgba(199, 162, 124, 0.45);
+        padding-left: 3.2rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .about-sidebar-sticky {
+        position: static;
+        top: auto;
+    }
+}
+@media (max-width: 991.98px) {
+    .contacts-row > [class*="col-"] {
+        display: block;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .area-detail-image {
+        height: 500px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .area-image-sticky {
+        position: static;
+        top: auto;
+    }
+
+    .card-area-detail {
+        padding: 1.35rem !important;
+    }
+
+    .area-detail-image {
+        height: 320px;
+    }
+
+    .area-show-head .page-title,
+    .area-show-head .page-lead {
+        max-width: 100%;
     }
 }

@@ -91,7 +91,9 @@
 
                         <div class="hero-actions mt-4 d-flex gap-2 flex-wrap justify-content-center">
                             <a class="btn btn-brand" href="{{ route('contacts') }}">Richiedi un primo colloquio</a>
-                            <a class="btn btn-outline-secondario" href="{{ route('services') }}">Vedi i servizi</a>
+                            <a class="btn btn-outline-secondario" target="_blank" href="https://wa.me/3441122785">
+                                Scrivimi su whatsapp
+                            </a>
                         </div>
                     </div>
 
