@@ -19,7 +19,7 @@
 
     --ombra-soft: 0 14px 34px rgba(17, 24, 39, 0.08);
     --ombra-hover: 0 20px 48px rgba(17, 24, 39, 0.12);
-    --ombra-navbar: 0 10px 28px rgba(17, 24, 39, 0.08);
+    --ombra-navbar: 0 12px 30px rgba(17, 24, 39, 0.14);
 }
 
 /* base layout */
@@ -193,7 +193,7 @@ hr {
     color: var(--testo-principale);
 }
 
-/* testi dentro card: override */
+/* testi dentro card */
 .card h1,
 .card h2,
 .card h3,
@@ -491,10 +491,6 @@ textarea::placeholder {
 
 /* page head contatti aree servizi */
 
-.page-head {
-    padding-top: 2.2rem;
-}
-
 .page-title {
     margin-bottom: 0.4rem;
 }
@@ -566,9 +562,7 @@ textarea::placeholder {
     align-self: flex-start;
 }
 
-/* =========================
-   aree preview
-========================= */
+/* aree preview */
 
 .card-area-preview {
     background: #e0cfbd;
@@ -585,9 +579,7 @@ textarea::placeholder {
     color: rgba(43, 27, 18, 0.78);
     line-height: 1.7;
 }
-/* =========================
-   dettaglio area
-========================= */
+/* dettaglio area */
 
 .area-show-head {
     max-width: 980px;
@@ -686,7 +678,7 @@ textarea::placeholder {
     color: rgba(111, 74, 47, 0.9);
 }
 
-/* animazioni reveal */
+/* animazioni reveal card appaiono in modo fluido */
 
 .reveal {
     opacity: 0;
@@ -753,9 +745,7 @@ textarea::placeholder {
     box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
     color: #ffffff;
 }
-/* =========================
-   admin contatti
-========================= */
+/* admin contatti */
 
 .admin-card {
     background: var(--sfondo-navbar-card);
@@ -829,9 +819,7 @@ textarea::placeholder {
     color: #fff;
 }
 
-/* =========================
-   admin dettaglio richiesta
-========================= */
+/* admin dettaglio richiesta */
 
 .admin-detail-card {
     background: var(--sfondo-navbar-card);
@@ -910,10 +898,6 @@ textarea::placeholder {
     .intro-photo img {
         width: 150px;
         height: 150px;
-    }
-
-    .page-head {
-        padding-top: 1.6rem;
     }
 
     .page-lead {
@@ -1007,7 +991,7 @@ textarea::placeholder {
     }
 }
 
-/* sotto 1798: immagine sopra */
+/* immagine area dettagli sopra */
 @media (max-width: 1798px) {
     .area-image-col {
         order: -1;
@@ -1037,7 +1021,6 @@ textarea::placeholder {
     }
 }
 
-/* tablet */
 @media (max-width: 991.98px) {
     .card-area-detail {
         padding: 1.35rem !important;
@@ -1055,9 +1038,12 @@ textarea::placeholder {
     .area-show-head .page-lead {
         max-width: 100%;
     }
+    .container-btn {
+        display: flex;
+        justify-content: center;
+    }
 }
 
-/* mobile */
 @media (max-width: 575.98px) {
     .card-area-image-wrap {
         max-width: 100%;

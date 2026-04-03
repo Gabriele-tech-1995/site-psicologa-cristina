@@ -144,7 +144,6 @@
                                         <div class="text-danger small mt-2">{{ $message }}</div>
                                     @enderror
                                 </div>
-
                                 <div class="small text-muted mt-2">
                                     Si invita a non inserire nel primo messaggio informazioni cliniche dettagliate.
                                 </div>

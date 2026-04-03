@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="mt-4 d-flex justify-content-center gap-2 flex-wrap area-actions">
+        <div class="mt-4 d-flex  gap-2 flex-wrap container-btn area-actions">
             <a href="{{ route('areas') }}" class="btn btn-outline-secondario">
                 Torna alle aree
             </a>

@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <div class="mt-4 d-flex justify-content-center gap-2 flex-wrap">
+        <div class="mt-4 d-flex container-btn gap-2 flex-wrap">
             <a class="btn btn-brand" href="{{ route('contacts') }}">
                 Richiedi un primo colloquio
             </a>

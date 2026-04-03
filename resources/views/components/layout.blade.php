@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="
-Psicologa a Tivoli per supporto su ansia, stress, difficoltà relazionali e genitorialità. Colloqui in presenza e online.
-">
+        content="Psicologa a Tivoli per supporto su ansia, stress, difficoltà relazionali e genitorialità. Colloqui in presenza e online.">
     <title>Dott.ssa Cristina Pacifici | Psicologa a Tivoli</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
