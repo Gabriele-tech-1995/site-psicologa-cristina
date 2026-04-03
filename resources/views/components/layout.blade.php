@@ -1,12 +1,34 @@
+@props([
+    'metaTitle' => 'Dott.ssa Cristina Pacifici | Psicologa a Tivoli',
+    'metaDescription' =>
+        'Psicologa a Tivoli per supporto su ansia, stress, difficoltà relazionali e genitorialità. Colloqui in presenza e online.',
+])
+
 <!DOCTYPE html>
 <html lang="it">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Psicologa a Tivoli per supporto su ansia, stress, difficoltà relazionali e genitorialità. Colloqui in presenza e online.">
-    <title>Dott.ssa Cristina Pacifici | Psicologa a Tivoli</title>
+
+    <title>{{ $metaTitle }}</title>
+    <meta name="description" content="{{ $metaDescription }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <meta property="og:title" content="{{ $metaTitle }}">
+    <meta property="og:description" content="{{ $metaDescription }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('img/og-image.jpg') }}">
+    <meta property="og:site_name" content="Dott.ssa Cristina Pacifici">
+    <meta property="og:locale" content="it_IT">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $metaTitle }}">
+    <meta name="twitter:description" content="{{ $metaDescription }}">
+    <meta name="twitter:image" content="{{ asset('img/og-image.jpg') }}">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
@@ -18,12 +40,11 @@
 
     <x-nav />
 
-    <main class="px-4">
+    <main>
         {{ $slot }}
     </main>
 
     <x-footer />
-
 
     <a href="https://wa.me/393441122785" target="_blank" class="whatsapp-float" aria-label="Scrivimi su WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">

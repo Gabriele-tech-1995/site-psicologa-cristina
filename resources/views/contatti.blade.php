@@ -1,9 +1,9 @@
-<x-layout>
-    <section class="section page-head">
+<x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription">
+    <section class="section page-head p-3">
         <span class="badge badge-soft mb-3">Contatti</span>
         <h1 class="mb-2 page-title">Contatti</h1>
         <p class="page-lead">
-            Ricevo online e in presenza a tivoli, dal lunedì al venerdì.
+            Ricevo online e in presenza a Tivoli, dal lunedì al venerdì.
         </p>
 
         <div class="row g-4 mt-1 align-items-stretch contacts-row">

@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription">
     <section class="intro-section">
         <div class="container">
             <div class="intro-wrapper">

@@ -1,5 +1,5 @@
 <x-layout>
-    <section class="section">
+    <section class="section p-3">
         <div class="page-head">
             <span class="badge badge-soft mb-3">Aree di intervento</span>
             <h1 class="page-title mb-2">Aree di intervento</h1>
@@ -30,11 +30,5 @@
             @endforeach
         </div>
 
-        <div class="card shadow-soft p-4 mt-4 card-note">
-            <p class="mb-0">
-                Se vuoi, possiamo capire insieme quale area descrive meglio il tuo momento e costruire un percorso su
-                misura.
-            </p>
-        </div>
     </section>
 </x-layout>

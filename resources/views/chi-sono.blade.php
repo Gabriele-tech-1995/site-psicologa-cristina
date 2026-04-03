@@ -1,5 +1,5 @@
-<x-layout>
-    <section class="section">
+<x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription">
+    <section class="section p-3">
         <div class="page-head">
             <span class="badge badge-soft mb-3">Chi sono</span>
             <h1 class="page-title mb-2">Dott.ssa Cristina Pacifici</h1>
@@ -14,34 +14,52 @@
 
                 <div class="card shadow-soft p-4 mb-4 card-chi">
                     <p class="mb-3">
-                        Sono la <strong>Dott.ssa Cristina Pacifici</strong>, Psicologa iscritta all’Albo degli
-                        Psicologi del Lazio (<strong>n. 32019</strong>) e specializzanda in Psicoterapia ad
-                        orientamento umanistico-esperienziale. Ogni persona porta con sé una storia, delle fragilità e
-                        delle risorse che meritano uno spazio di ascolto autentico. Nel mio lavoro metto al centro la
-                        relazione, creando un ambiente accogliente e rispettoso in cui bambini, adolescenti e genitori
-                        possano sentirsi compresi e sostenuti.
+                        Sono la <strong>Dott.ssa Cristina Pacifici</strong>,
+                        <strong>psicologa a Tivoli</strong> iscritta all’Albo degli Psicologi del Lazio
+                        (<strong>n. 32019</strong>) e specializzanda in <strong>psicoterapia ad orientamento
+                            umanistico-esperienziale</strong>.
+                        Ogni persona porta con sé una storia, delle fragilità e delle risorse che meritano uno spazio di
+                        ascolto autentico.
+                    </p>
 
-                        Offro sostegno psicologico nei momenti di difficoltà, disorientamento o cambiamento,
-                        accompagnando la persona in un percorso di maggiore consapevolezza e stabilità emotiva.
-                        Credo che il benessere nasca dall’incontro tra comprensione profonda e strumenti concreti, tra
-                        ascolto e intervento.
+                    <p class="mb-3">
+                        Nel mio lavoro metto al centro la <strong>relazione terapeutica</strong>, creando un ambiente
+                        accogliente e rispettoso
+                        in cui <strong>bambini, adolescenti e genitori</strong> possano sentirsi compresi e sostenuti.
+                        Offro <strong>sostegno psicologico</strong> nei momenti di difficoltà, disorientamento o
+                        cambiamento,
+                        accompagnando la persona in un percorso di maggiore <strong>consapevolezza emotiva</strong> e
+                        stabilità.
+                    </p>
 
-                        Mi occupo di valutazione e trattamento dei disturbi del neurosviluppo, in particolare dei
-                        Disturbi Specifici dell’Apprendimento, integrando il lavoro sugli aspetti cognitivi con
-                        un’attenzione costante alla dimensione emotiva e relazionale. Realizzo percorsi di
-                        potenziamento degli apprendimenti e delle funzioni esecutive, così come valutazioni
-                        psicodiagnostiche finalizzate a comprendere in modo chiaro e condiviso il funzionamento della
-                        persona.
+                    <p class="mb-3">
+                        Mi occupo di <strong>valutazione e trattamento dei disturbi del neurosviluppo</strong>,
+                        con particolare attenzione ai <strong>Disturbi Specifici dell’Apprendimento (DSA)</strong>.
+                        Integro il lavoro sugli aspetti cognitivi con una costante attenzione alla dimensione emotiva e
+                        relazionale,
+                        promuovendo un approccio globale al benessere della persona.
+                    </p>
 
-                        Affianco inoltre i genitori con percorsi di sostegno dedicati, offrendo uno spazio di
-                        confronto e orientamento nel delicato compito educativo.
+                    <p class="mb-3">
+                        Realizzo <strong>valutazioni psicodiagnostiche</strong>, percorsi di
+                        <strong>potenziamento degli apprendimenti</strong> e delle
+                        <strong>funzioni esecutive</strong>, con l’obiettivo di comprendere in modo chiaro e condiviso
+                        il funzionamento della persona e individuare strategie efficaci e sostenibili nel tempo.
+                    </p>
 
+                    <p class="mb-3">
+                        Affianco inoltre i genitori attraverso percorsi di
+                        <strong>sostegno alla genitorialità</strong>, offrendo uno spazio di confronto e orientamento
+                        nel delicato compito educativo e nella gestione delle difficoltà evolutive dei figli.
+                    </p>
+
+                    <p class="mb-0">
                         Attualmente mi sto specializzando in psicoterapia presso una scuola ad orientamento
-                        umanistico-esperienziale, che considera la relazione terapeutica e l’esperienza emotiva
+                        <strong>umanistico-esperienziale</strong>, che considera la relazione terapeutica e l’esperienza
+                        emotiva
                         elementi centrali del cambiamento.
-
-                        Ogni percorso è costruito con cura, nel rispetto dei tempi e dell’unicità di chi ho di
-                        fronte.
+                        <strong>Ogni percorso è costruito su misura</strong>, nel rispetto dei tempi e dell’unicità di
+                        chi ho di fronte.
                     </p>
                 </div>
 
