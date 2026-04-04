@@ -1,5 +1,6 @@
 /* =========================================================
-   1. ROOT / TOKENS
+   1. ROOT / DESIGN TOKENS
+   Colori, font, raggi, ombre, spazi
 ========================================================= */
 :root {
     /* sfondi */
@@ -56,6 +57,7 @@
 
 /* =========================================================
    2. BASE LAYOUT
+   Struttura generale pagina
 ========================================================= */
 body {
     background: linear-gradient(
@@ -70,6 +72,7 @@ body {
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
 }
+
 .section {
     padding: 1.6rem 0;
 }
@@ -82,6 +85,7 @@ hr {
 
 /* =========================================================
    3. TYPOGRAPHY
+   Titoli, paragrafi, link
 ========================================================= */
 h1,
 h2,
@@ -90,22 +94,26 @@ h3 {
     color: var(--color-oro);
     letter-spacing: -0.35px;
 }
+
 h4,
 h5 {
     font-family: var(--font-titoli);
     color: var(--color-salvia);
     letter-spacing: -0.2px;
 }
+
 h1 {
     font-weight: 600;
     line-height: 1.05;
     margin-bottom: 0.55rem;
 }
+
 h2 {
     font-weight: 600;
     line-height: 1.1;
     margin-bottom: 0.45rem;
 }
+
 h3,
 h4,
 h5 {
@@ -113,12 +121,14 @@ h5 {
     line-height: 1.18;
     margin-bottom: 0.4rem;
 }
+
 p,
 li {
     color: var(--testo-principale);
     line-height: 1.55;
     margin-bottom: 0.6rem;
 }
+
 a {
     color: var(--color-salvia);
     text-decoration: underline;
@@ -129,6 +139,7 @@ a {
         color 0.2s ease,
         text-decoration-color 0.2s ease;
 }
+
 a:hover {
     color: var(--color-salvia-hover);
     text-decoration-color: var(--color-salvia-hover);
@@ -136,43 +147,70 @@ a:hover {
 
 /* =========================================================
    4. UTILITIES
+   Classi di supporto riutilizzabili
 ========================================================= */
 .text-muted {
     color: var(--testo-secondario) !important;
 }
+
 .lead {
     color: var(--testo-principale) !important;
     line-height: 1.55;
 }
+
 .small {
     color: var(--color-salvia);
 }
+
 .shadow-soft {
     box-shadow: var(--ombra-soft);
 }
+
 .container-btn {
     display: flex;
     justify-content: center;
 }
 
 /* =========================================================
-   5. NAVBAR
+   5. PAGE HEAD
+   Titoli e intro pagina standard
+========================================================= */
+.page-title {
+    margin-bottom: 0.25rem;
+}
+
+.page-lead {
+    max-width: 58ch;
+    margin: 0;
+    color: var(--testo-principale);
+
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.72;
+}
+
+/* =========================================================
+   6. NAVBAR
+   Header e navigazione
 ========================================================= */
 .navbar-custom {
     background: rgba(252, 248, 242, 0.94);
     backdrop-filter: blur(10px);
-    border-bottom: none; /* bordo rimosso */
+    border-bottom: none;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     transition:
         padding 0.25s ease,
         box-shadow 0.25s ease;
 }
+
 .navbar-custom.scrolled {
     box-shadow: var(--ombra-navbar);
     padding-top: 0.42rem;
     padding-bottom: 0.42rem;
 }
+
 .navbar-brand {
     display: flex;
     align-items: center;
@@ -182,6 +220,7 @@ a:hover {
     letter-spacing: 0.1px;
     color: var(--color-salvia) !important;
 }
+
 .navbar-logo {
     width: 42px;
     height: 42px;
@@ -191,12 +230,14 @@ a:hover {
     background: #fff;
     flex-shrink: 0;
 }
+
 .brand-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     line-height: 1;
 }
+
 .brand-title {
     font-size: 1.35rem;
     font-weight: 700;
@@ -204,12 +245,14 @@ a:hover {
     font-family: var(--font-titoli);
     letter-spacing: -0.2px;
 }
+
 .brand-text small {
     font-size: 0.72rem;
     color: var(--testo-secondario);
     margin-top: 0.1rem;
     font-family: var(--font-testo);
 }
+
 .navbar-nav .nav-link {
     color: var(--testo-principale);
     font-weight: 500;
@@ -221,10 +264,12 @@ a:hover {
         color 0.2s,
         border-color 0.2s;
 }
+
 .navbar-nav .nav-link:hover {
     color: var(--color-salvia);
     background: rgba(93, 119, 103, 0.08);
 }
+
 .navbar-nav .nav-link.active {
     color: var(--color-salvia-active);
     background: rgba(93, 119, 103, 0.08);
@@ -232,7 +277,8 @@ a:hover {
 }
 
 /* =========================================================
-   6. BUTTONS
+   7. BUTTONS
+   Bottoni globali del sito
 ========================================================= */
 .btn,
 .btn-brand,
@@ -252,11 +298,13 @@ a:hover {
     text-decoration: none !important;
     box-shadow: none;
 }
+
 .btn:hover {
     background: var(--color-salvia-hover) !important;
     border-color: var(--color-salvia-hover) !important;
     transform: translateY(-1px);
 }
+
 .btn:focus,
 .btn:active {
     background: var(--color-salvia-active) !important;
@@ -265,7 +313,8 @@ a:hover {
 }
 
 /* =========================================================
-   7. BADGES
+   8. BADGES
+   Badge e pill decorative/informative
 ========================================================= */
 .badge-soft {
     background: var(--color-salvia) !important;
@@ -276,7 +325,8 @@ a:hover {
 }
 
 /* =========================================================
-   8. CARDS
+   9. CARDS
+   Card generiche e card aree
 ========================================================= */
 .card {
     background: var(--sfondo-navbar-card);
@@ -285,24 +335,29 @@ a:hover {
     color: var(--testo-principale);
     box-shadow: var(--ombra-soft);
 }
+
 .card h1,
 .card h2,
 .card h3 {
     color: var(--color-oro);
 }
+
 .card h4,
 .card h5 {
     color: var(--color-salvia);
 }
+
 .card p,
 .card li {
     color: var(--testo-principale);
 }
+
 .card .text-muted,
 .card .lead,
 .card .small {
     color: rgba(32, 38, 33, 0.7) !important;
 }
+
 .card-aree {
     background: var(--sfondo-navbar-card);
     border: 1px solid var(--bordo-soft);
@@ -316,6 +371,7 @@ a:hover {
         box-shadow 0.22s ease,
         border-color 0.22s ease;
 }
+
 .card-aree:hover {
     transform: translateY(-2px);
     box-shadow: var(--ombra-hover);
@@ -323,7 +379,8 @@ a:hover {
 }
 
 /* =========================================================
-   9. FORMS
+   10. FORMS
+   Input, select, checkbox, stati focus
 ========================================================= */
 .form-control,
 .form-select {
@@ -333,52 +390,49 @@ a:hover {
     color: var(--testo-principale);
     padding: 0.56rem 0.72rem;
 }
+
 .form-control::placeholder,
 textarea::placeholder {
     color: rgba(100, 113, 105, 0.72);
 }
+
 .form-control:focus,
 .form-select:focus {
     border-color: rgba(93, 119, 103, 0.42);
     box-shadow: 0 0 0 0.16rem rgba(93, 119, 103, 0.1);
 }
+
 .form-check {
     display: flex;
     align-items: flex-start;
     gap: 0.45rem;
 }
+
 .form-check-input {
     margin-top: 0.2rem;
     width: 1rem;
     height: 1rem;
     border: 1px solid var(--bordo-soft-strong);
 }
+
 .form-check-input:checked {
     background-color: var(--color-salvia);
     border-color: var(--color-salvia);
 }
+
 .form-check-label {
     color: var(--testo-principale);
     line-height: 1.42;
 }
-/* =========================================================
-   10. PAGE HEAD
-========================================================= */
-.page-title {
-    margin-bottom: 0.25rem;
-}
-.page-lead {
-    max-width: 58ch;
-    margin: 0;
-    color: var(--testo-principale);
-}
 
 /* =========================================================
    11. HOME
+   Intro, hero, liste principali
 ========================================================= */
 .intro-section {
     padding: 1.2rem 0 0.75rem;
 }
+
 .intro-wrapper {
     display: flex;
     align-items: center;
@@ -386,6 +440,7 @@ textarea::placeholder {
     gap: 1.35rem;
     text-align: left;
 }
+
 .intro-photo img {
     width: 148px;
     height: 148px;
@@ -394,9 +449,11 @@ textarea::placeholder {
     border: 2px solid rgba(157, 119, 67, 0.22);
     box-shadow: 0 12px 24px rgba(28, 37, 31, 0.08);
 }
+
 .intro-text {
     max-width: 470px;
 }
+
 .intro-quote {
     font-family: var(--font-titoli);
     font-size: 1.55rem;
@@ -404,6 +461,7 @@ textarea::placeholder {
     color: var(--color-oro);
     margin: 0;
 }
+
 .intro-name {
     margin-top: 0.55rem;
     font-size: 0.82rem;
@@ -411,9 +469,11 @@ textarea::placeholder {
     text-transform: uppercase;
     color: var(--color-salvia);
 }
+
 .hero {
     padding: 1.8rem 0;
 }
+
 .hero-box {
     background: var(--sfondo-navbar-card);
     border: 1px solid var(--bordo-soft);
@@ -421,6 +481,7 @@ textarea::placeholder {
     padding: 1.35rem;
     box-shadow: 0 14px 30px rgba(28, 37, 31, 0.06);
 }
+
 .hero-kicker {
     display: inline-flex;
     align-items: center;
@@ -433,6 +494,7 @@ textarea::placeholder {
     border-radius: var(--raggio-pill);
     font-size: 0.88rem;
 }
+
 .hero-title {
     font-family: var(--font-titoli);
     color: var(--color-oro);
@@ -441,13 +503,16 @@ textarea::placeholder {
     line-height: 1.02;
     margin-bottom: 0.55rem;
 }
+
 .hero-subtitle,
 .hero-point {
     color: var(--testo-principale);
 }
+
 .hero-subtitle {
     margin-bottom: 0.7rem;
 }
+
 .hero-dot {
     width: 8px;
     height: 8px;
@@ -456,46 +521,56 @@ textarea::placeholder {
     margin-top: 5px;
     flex: 0 0 auto;
 }
+
 .lista-aree {
     margin: 0;
     padding-left: 0.95rem;
     line-height: 1.55;
     color: var(--testo-principale);
 }
+
 .lista-aree li {
     margin-bottom: 0.28rem;
 }
+
 .lista-aree li::marker {
     color: var(--color-oro);
 }
 
 /* =========================================================
-   12. CHI SONO
+   12. CHI SONO
+   Sidebar, info, formazione
 ========================================================= */
 .section-subtitle {
     color: var(--color-oro);
 }
+
 .info-list li,
 .collaborazione-list li {
     margin-bottom: 0.38rem;
     color: var(--testo-principale);
 }
+
 .info-list strong {
     color: var(--color-salvia);
 }
+
 .about-sidebar-sticky {
     position: sticky;
     top: 88px;
     align-self: flex-start;
 }
+
 .formazione-section {
     padding: 1.9rem 0;
 }
+
 .formazione-wrapper {
     display: flex;
     gap: 1.8rem;
     align-items: flex-start;
 }
+
 .formazione-box {
     flex: 1;
     background: transparent;
@@ -503,6 +578,7 @@ textarea::placeholder {
     box-shadow: none;
     padding: 0;
 }
+
 .formazione-title {
     font-family: var(--font-titoli);
     font-size: 1.26rem;
@@ -511,6 +587,7 @@ textarea::placeholder {
     letter-spacing: -0.2px;
     display: inline-block;
 }
+
 .formazione-title::after {
     content: "";
     display: block;
@@ -520,17 +597,20 @@ textarea::placeholder {
     background: rgba(157, 119, 67, 0.65);
     border-radius: 999px;
 }
+
 .formazione-list {
     list-style: none;
     margin: 0.55rem 0 0;
     padding: 0;
 }
+
 .formazione-list li {
     position: relative;
     padding-left: 0.9rem;
     margin-bottom: 0.38rem;
     line-height: 1.5;
 }
+
 .formazione-list li::before {
     content: "";
     position: absolute;
@@ -543,86 +623,206 @@ textarea::placeholder {
 }
 
 /* =========================================================
-   13. AREE — HERO ILLUSTRATA
+   13. DETTAGLIO AREA - BASE TESTI / STRUTTURA
+   Regole base dell'area prima del responsive
 ========================================================= */
-.area-card-title {
-    font-size: 1.08rem;
-    line-height: 1.18;
-    color: var(--color-oro);
-}
-.area-preview-text {
-    color: var(--testo-principale);
-    line-height: 1.52;
+.area-page-title,
+.area-page-lead,
+.area-detail-content,
+.area-detail-content p,
+.area-detail-content li,
+.area-detail-content h2,
+.area-detail-content h3,
+.area-hero-text,
+.area-show-head {
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
-/* Hero illustrata */
+.area-page-title {
+    line-height: 1.12;
+}
+
+.area-page-lead,
+.area-detail-content p,
+.area-detail-content li {
+    line-height: 1.72;
+}
+
+.area-detail-content {
+    max-width: 34rem;
+}
+
+.area-detail-content > * + * {
+    margin-top: 0.95rem;
+}
+
+.area-detail-content h2,
+.area-detail-content h3 {
+    color: var(--color-salvia-active);
+    font-size: clamp(1.18rem, 1.8vw, 1.55rem);
+    line-height: 1.25;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.area-detail-content h4,
+.area-detail-content h5 {
+    color: var(--color-salvia);
+    margin-bottom: 0.28rem;
+}
+
+.area-detail-content p {
+    max-width: 34rem;
+    margin-bottom: 0.72rem;
+    font-size: 0.98rem;
+    color: var(--testo-principale);
+}
+
+.area-detail-content ul,
+.area-detail-content ol {
+    max-width: 32rem;
+    margin: 0.08rem 0 1rem;
+    padding-left: 1.2rem;
+}
+
+.area-detail-content li {
+    margin-bottom: 0.28rem;
+    color: var(--testo-principale);
+}
+
+.area-detail-content li + li {
+    margin-top: 0.45rem;
+}
+
+.area-detail-content ul li::marker,
+.area-detail-content ol li::marker {
+    color: var(--color-salvia);
+}
+
+.area-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    align-items: center;
+    margin-top: 1.2rem;
+}
+
+.area-actions .btn {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
+    padding: 0.82rem 1.2rem;
+    min-height: 48px;
+}
+
+/* =========================================================
+   14. DETTAGLIO AREA - HERO ILLUSTRATA DESKTOP
+   Hero con sfondo, gradienti e colonna testo
+========================================================= */
 .area-hero-illustrata {
     position: relative;
-    background-position: 65% center;
-    background-repeat: no-repeat;
-    background-size: cover;
     min-height: 720px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 84% center;
     color: var(--testo-principale);
 }
-/* sfumatura mantenuta */
+
 .area-hero-gradient {
     position: absolute;
     inset: 0;
+    z-index: 1;
+    pointer-events: none;
     background:
         linear-gradient(
             90deg,
             rgba(248, 244, 237, 1) 0%,
-            rgba(248, 244, 237, 0.94) 30%,
-            rgba(248, 244, 237, 0.55) 50%,
-            rgba(248, 244, 237, 0.15) 78%,
+            rgba(248, 244, 237, 1) 34%,
+            rgba(248, 244, 237, 0.96) 46%,
+            rgba(248, 244, 237, 0.84) 58%,
+            rgba(248, 244, 237, 0.62) 68%,
+            rgba(248, 244, 237, 0.34) 80%,
+            rgba(248, 244, 237, 0.08) 92%,
             rgba(248, 244, 237, 0) 100%
         ),
         linear-gradient(
             to top,
-            rgba(248, 244, 237, 0.92) 0%,
-            rgba(248, 244, 237, 0.65) 15%,
-            rgba(248, 244, 237, 0.25) 35%,
-            rgba(248, 244, 237, 0) 60%
+            rgba(248, 244, 237, 0.88) 0%,
+            rgba(248, 244, 237, 0.52) 16%,
+            rgba(248, 244, 237, 0.16) 34%,
+            rgba(248, 244, 237, 0) 58%
         );
-    z-index: 1;
-    pointer-events: none;
 }
-.area-hero-wrapper {
-    position: relative;
-    z-index: 2;
-    max-width: 1300px;
-    padding: 4rem 2rem;
-}
-.area-hero-text {
-    max-width: 600px;
-}
-.area-hero-text .area-page-title {
-    color: var(--color-oro);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    margin-bottom: 0.7rem;
-}
-.area-hero-text .area-page-lead {
-    font-size: 1.1rem;
-    color: var(--testo-principale);
-    font-style: italic;
-    opacity: 0.9;
-    margin-bottom: 1.5rem;
-}
-/* filtro caldo / layer sopra immagine */
+
 .area-hero-illustrata::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(221, 192, 148, 0.18);
+    background: rgba(221, 192, 148, 0.12);
     mix-blend-mode: multiply;
     z-index: 0;
 }
+
+.area-hero-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1320px;
+    padding: 2.4rem 2rem;
+}
+
+.area-hero-text {
+    max-width: 580px;
+}
+
+.area-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.34rem 0.62rem;
+    margin-bottom: 0.45rem;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+}
+
+.area-hero-text .area-page-title {
+    color: var(--color-oro);
+    font-size: clamp(2.1rem, 3.5vw, 3.1rem);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+    max-width: 11ch;
+}
+
+.area-hero-text .area-page-lead {
+    max-width: 34rem;
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--testo-principale);
+    margin-bottom: 1rem;
+    opacity: 0.95;
+}
+
+.area-hero-image-mobile {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    object-fit: cover;
+    box-shadow: 0 8px 22px rgba(28, 37, 31, 0.08);
+}
+
 /* =========================================================
-   14. CONTATTI
+   15. CONTATTI
+   Layout pagina contatti e messaggi feedback
 ========================================================= */
 .contacts-row > [class*="col-"] {
     display: flex;
@@ -646,13 +846,15 @@ textarea::placeholder {
 }
 
 /* =========================================================
-   15. ADMIN
+   16. ADMIN
+   Tabelle, dettagli, messaggi, paginazione
 ========================================================= */
 .admin-card,
 .admin-detail-card {
     background: var(--sfondo-navbar-card);
     border: 1px solid var(--bordo-soft);
 }
+
 .admin-table {
     --bs-table-bg: transparent;
     --bs-table-striped-bg: transparent;
@@ -660,6 +862,7 @@ textarea::placeholder {
     --bs-table-border-color: rgba(93, 119, 103, 0.14);
     color: var(--testo-principale);
 }
+
 .admin-table thead th {
     font-size: 0.8rem;
     font-weight: 700;
@@ -671,28 +874,35 @@ textarea::placeholder {
     padding-bottom: 0.6rem;
     white-space: nowrap;
 }
+
 .admin-table tbody td {
     vertical-align: middle;
     padding-top: 0.68rem;
     padding-bottom: 0.68rem;
 }
+
 .admin-table tbody tr:hover {
     background: rgba(93, 119, 103, 0.03);
 }
+
 .table-date {
     color: var(--testo-secondario);
     white-space: nowrap;
 }
+
 .empty-state p {
     color: rgba(32, 38, 33, 0.68);
 }
+
 .admin-pagination nav {
     display: flex;
     justify-content: center;
 }
+
 .admin-pagination .pagination {
     gap: 0.26rem;
 }
+
 .admin-pagination .page-link {
     border-radius: 999px !important;
     border: 1px solid rgba(93, 119, 103, 0.16);
@@ -701,26 +911,31 @@ textarea::placeholder {
     text-decoration: none;
     padding: 0.38rem 0.62rem;
 }
+
 .admin-pagination .page-link:hover {
     background: rgba(93, 119, 103, 0.08);
     color: var(--color-salvia-hover);
 }
+
 .admin-pagination .page-item.active .page-link {
     background: var(--color-salvia);
     border-color: var(--color-salvia);
     color: #fff;
 }
+
 .admin-detail-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.8rem;
 }
+
 .admin-detail-item {
     padding: 0.72rem 0.82rem;
     border: 1px solid rgba(93, 119, 103, 0.14);
     border-radius: 0.72rem;
     background: rgba(255, 255, 255, 0.28);
 }
+
 .admin-label {
     font-size: 0.74rem;
     font-weight: 700;
@@ -728,10 +943,12 @@ textarea::placeholder {
     text-transform: uppercase;
     color: var(--color-oro);
 }
+
 .admin-value {
     margin-top: 0.22rem;
     font-size: 0.94rem;
 }
+
 .admin-value-link {
     display: inline-block;
     margin-top: 0.22rem;
@@ -739,10 +956,12 @@ textarea::placeholder {
     font-weight: 600;
     word-break: break-word;
 }
+
 .admin-message-box {
     border-top: 1px solid rgba(93, 119, 103, 0.14);
     padding-top: 0.85rem;
 }
+
 .admin-message-content {
     padding: 0.78rem 0.85rem;
     border-radius: 0.72rem;
@@ -753,7 +972,8 @@ textarea::placeholder {
 }
 
 /* =========================================================
-   16. FOOTER
+   17. FOOTER
+   Footer minimale e parte bassa
 ========================================================= */
 .footer-minimal {
     background: var(--sfondo-navbar-card);
@@ -761,17 +981,21 @@ textarea::placeholder {
     padding-top: 1rem;
     padding-bottom: 0.35rem;
 }
+
 .footer-title {
     font-weight: 600;
     color: var(--color-oro);
     margin-bottom: 0.45rem;
 }
+
 .footer-minimal a {
     color: var(--testo-principale);
 }
+
 .footer-minimal a:hover {
     color: var(--color-salvia);
 }
+
 .footer-bottom {
     border-top: 1px solid var(--bordo-soft);
     font-size: 0.8rem;
@@ -781,7 +1005,8 @@ textarea::placeholder {
 }
 
 /* =========================================================
-   17. ANIMATIONS
+   18. ANIMATIONS
+   Reveal iniziale per entrata elementi
 ========================================================= */
 .reveal {
     opacity: 0;
@@ -790,13 +1015,15 @@ textarea::placeholder {
         opacity 0.4s ease,
         transform 0.4s ease;
 }
+
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
 /* =========================================================
-   18. FLOATING ELEMENTS
+   19. FLOATING ELEMENTS
+   Toast e pulsante WhatsApp flottante
 ========================================================= */
 .custom-toast {
     position: fixed;
@@ -815,10 +1042,12 @@ textarea::placeholder {
     z-index: 2000;
     font-size: 0.92rem;
 }
+
 .custom-toast.show {
     opacity: 1;
     transform: translateX(-50%) translateY(-4px);
 }
+
 .whatsapp-float {
     position: fixed;
     right: 14px;
@@ -839,104 +1068,59 @@ textarea::placeholder {
         box-shadow 0.2s ease;
     max-width: calc(100vw - 28px);
 }
+
 .whatsapp-float:hover {
     transform: translateY(-3px);
     box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
     color: #fff;
 }
+
 /* =========================================================
    20. RESPONSIVE
+   Tutte le media query stanno qui in fondo
 ========================================================= */
 
-/* ---------- FIX GENERALI TESTI / SPAZI / BOTTONI ---------- */
-.area-page-title,
-.area-page-lead,
-.area-detail-content,
-.area-detail-content p,
-.area-detail-content li,
-.area-detail-content h2,
-.area-detail-content h3,
-.area-hero-text,
-.area-show-head,
-.page-lead {
-    word-break: normal;
-    overflow-wrap: break-word;
-    hyphens: auto;
+/* =========================================================
+   20.1 DESKTOP XL
+   Da 1400px in su
+   Hero con immagine di sfondo laterale
+========================================================= */
+@media (min-width: 1400px) {
+    /* Hero desktop classica */
+    .area-hero-illustrata {
+        background-position: 84% center;
+        min-height: 720px;
+    }
+
+    .area-hero-wrapper {
+        padding: 2.4rem 2rem;
+    }
+
+    .area-hero-text {
+        max-width: 580px;
+    }
+
+    /* Immagine interna nascosta su desktop grande */
+    .area-hero-image-mobile-wrap,
+    .area-hero-image-mobile {
+        display: none !important;
+    }
+
+    /* Formazione desktop */
+    .formazione-box + .formazione-box {
+        border-left: 2px solid rgba(157, 119, 67, 0.32);
+        padding-left: 2.6rem;
+    }
 }
 
-.area-page-title {
-    line-height: 1.12;
-}
-
-.area-page-lead,
-.page-lead,
-.area-detail-content p,
-.area-detail-content li {
-    line-height: 1.72;
-}
-
-.area-detail-content h2,
-.area-detail-content h3 {
-    line-height: 1.25;
-    margin-bottom: 0.75rem;
-}
-
-.area-detail-content ul,
-.area-detail-content ol {
-    padding-left: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-.area-detail-content li + li {
-    margin-top: 0.45rem;
-}
-
-.area-detail-content > * + * {
-    margin-top: 0.95rem;
-}
-
-.area-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.9rem;
-    margin-top: 1.2rem;
-}
-
-.area-actions .btn {
-    white-space: normal;
-    text-align: center;
-    line-height: 1.35;
-    padding: 0.82rem 1.2rem;
-    min-height: 48px;
-}
-
-/* ---------- ≥1400px ---------- */
+/* =========================================================
+   20.2 SOTTO I 1400px
+   Layout centrato con immagine sopra e contenuto allineato
+========================================================= */
 @media (max-width: 1399.98px) {
-    .area-image-col {
-        background-position: 76% center;
-    }
-}
-
-/* ---------- ≥1200px ---------- */
-@media (max-width: 1199.98px) {
-    .area-detail-layout,
-    .area-image-col {
-        min-height: 520px;
-    }
-
-    .area-text-panel::after {
-        right: -150px;
-        width: 260px;
-    }
-
-    .area-detail-content {
-        max-width: 31rem;
-    }
-}
-
-/* ---------- ≤991.98px TABLET / MOBILE ---------- */
-@media (max-width: 991.98px) {
-    /* layout adaptive base */
+    /* -------------------------
+       Layout generali
+    ------------------------- */
     .admin-detail-grid {
         grid-template-columns: 1fr;
     }
@@ -950,6 +1134,9 @@ textarea::placeholder {
         display: block;
     }
 
+    /* -------------------------
+       Navbar
+    ------------------------- */
     .navbar-custom {
         padding-top: 0.46rem;
         padding-bottom: 0.46rem;
@@ -972,6 +1159,9 @@ textarea::placeholder {
         margin-top: 0.6rem;
     }
 
+    /* -------------------------
+       Formazione
+    ------------------------- */
     .formazione-wrapper {
         flex-direction: column;
         gap: 1.15rem;
@@ -984,40 +1174,17 @@ textarea::placeholder {
         padding-top: 1rem;
     }
 
-    .area-show-head,
-    .area-page-title,
-    .area-page-lead,
-    .area-detail-content,
-    .area-detail-content ul,
-    .area-detail-content ol,
-    .page-lead {
-        max-width: 100%;
-    }
-
-    .area-detail-layout {
-        min-height: auto;
-    }
-
-    .area-text-panel {
-        padding: 1.05rem;
-    }
-
-    .area-text-panel::after {
-        right: -110px;
-        width: 180px;
-    }
-
-    .area-image-col {
-        min-height: 380px;
-        background-position: 72% center;
-    }
-
-    /* --- HERO ILLUSTRATA su TABLET/MOBILE --- */
+    /* -------------------------
+       Hero illustrata -> stacked
+       sotto 1400 niente background hero
+    ------------------------- */
     .area-hero-illustrata {
         background: none !important;
         background-image: none !important;
+        background-color: #f8f4ed;
         min-height: auto;
-        padding-top: 2rem;
+        padding-top: 0;
+        align-items: flex-start;
     }
 
     .area-hero-illustrata::before,
@@ -1032,54 +1199,141 @@ textarea::placeholder {
         background: none !important;
     }
 
+    /* -------------------------
+       Wrapper principale centrato
+    ------------------------- */
     .area-hero-wrapper {
-        justify-content: center;
         display: flex;
         flex-direction: column;
-        gap: 1.8rem;
-        padding: 1.8rem 1.15rem 0 1.15rem;
+        align-items: center;
+        gap: 1.25rem;
+        padding: 1.5rem 1.25rem 1.4rem;
     }
 
+    /* -------------------------
+       Colonna contenuto
+       unico binario centrato
+    ------------------------- */
     .area-hero-text {
-        order: 1;
-        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 860px;
         margin: 0 auto;
     }
 
-    .area-hero-text .area-page-title {
-        line-height: 1.14;
-        margin-bottom: 0.9rem;
+    /* tutti i blocchi principali
+       stessa larghezza e centrati */
+    .area-hero-text .area-page-title,
+    .area-hero-image-mobile-wrap,
+    .area-hero-text .area-page-lead,
+    .area-detail-content,
+    .area-hero-text .area-actions {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
 
-    .area-hero-text .area-page-lead {
-        line-height: 1.7;
-        margin-bottom: 1rem;
+    /* -------------------------
+       Titolo
+    ------------------------- */
+    .area-hero-text .area-page-title {
+        order: 1;
+        line-height: 1.08;
+        margin-bottom: 0.55rem;
+        text-align: center;
+    }
+
+    /* -------------------------
+       Immagine sopra
+       stessa larghezza del testo
+    ------------------------- */
+    .area-hero-image-mobile-wrap {
+        order: 2;
+        display: block !important;
+        margin-bottom: 0.95rem;
     }
 
     .area-hero-image-mobile {
-        order: 2;
-        display: block;
+        display: block !important;
         width: 100%;
-        max-width: 420px;
-        margin: 0 auto 1rem auto;
+        max-width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        object-fit: cover;
+        box-shadow: 0 8px 22px rgba(28, 37, 31, 0.08);
     }
 
+    /* -------------------------
+       Preview
+    ------------------------- */
+    .area-hero-text .area-page-lead {
+        order: 3;
+        font-size: 1rem;
+        line-height: 1.68;
+        margin-bottom: 0.9rem;
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    /* -------------------------
+       Body contenuto
+    ------------------------- */
+    .area-detail-content {
+        order: 4;
+        max-width: 100%;
+    }
+
+    .area-detail-content p,
+    .area-detail-content li,
+    .area-detail-content ul,
+    .area-detail-content ol,
+    .area-detail-content h2,
+    .area-detail-content h3,
+    .area-detail-content h4,
+    .area-detail-content h5 {
+        max-width: 100%;
+    }
+
+    .area-detail-content p,
+    .area-detail-content li {
+        text-align: justify;
+        text-justify: inter-word;
+    }
+
+    /* -------------------------
+       Bottoni
+    ------------------------- */
     .area-hero-text .area-actions {
-        justify-content: center;
-        gap: 0.85rem;
+        order: 5;
+        justify-content: flex-start;
+        gap: 0.8rem;
     }
 }
 
-/* ---------- ≥992px DESKTOP LARGE ---------- */
-@media (min-width: 992px) {
-    .formazione-box + .formazione-box {
-        border-left: 2px solid rgba(157, 119, 67, 0.32);
-        padding-left: 2.6rem;
+/* =========================================================
+   20.3 DESKTOP / LAPTOP STRETTO
+   Fino a 1199.98px
+   Solo affinamento spazi
+========================================================= */
+@media (max-width: 1199.98px) {
+    .area-hero-wrapper {
+        padding: 1.3rem 1.05rem 1.3rem;
+    }
+
+    .area-hero-text {
+        max-width: 780px;
     }
 }
 
-/* ---------- ≤768px TABLET VERTICALE ---------- */
+/* =========================================================
+   20.4 TABLET VERTICALE
+   Fino a 768px
+========================================================= */
 @media (max-width: 768px) {
+    /* Sezioni generali più compatte */
     .section {
         padding: 1.3rem 0;
     }
@@ -1092,6 +1346,7 @@ textarea::placeholder {
         padding: 1rem;
     }
 
+    /* Intro home in colonna */
     .intro-wrapper {
         flex-direction: column;
         text-align: center;
@@ -1107,19 +1362,30 @@ textarea::placeholder {
         max-width: 100%;
     }
 
+    /* Hero area */
     .area-hero-wrapper {
-        padding: 2.4rem 1.2rem;
-        gap: 1.4rem;
+        padding: 1.05rem 0.95rem 1.15rem;
+        gap: 1rem;
+    }
+
+    .area-hero-text {
+        max-width: 100%;
     }
 
     .area-hero-text .area-page-title {
-        font-size: 2rem;
-        line-height: 1.12;
+        font-size: 1.95rem;
+        line-height: 1.08;
     }
 
     .area-hero-text .area-page-lead {
-        font-size: 1rem;
-        line-height: 1.68;
+        font-size: 0.96rem;
+        line-height: 1.58;
+        text-align: left;
+    }
+
+    .area-detail-content p,
+    .area-detail-content li {
+        text-align: left;
     }
 
     .area-actions {
@@ -1127,70 +1393,58 @@ textarea::placeholder {
     }
 }
 
-/* ---------- ≤767.98px MOBILE PICCOLO ---------- */
+/* =========================================================
+   20.5 MOBILE
+   Fino a 767.98px
+========================================================= */
 @media (max-width: 767.98px) {
-    .area-detail-layout {
-        border-radius: 0.9rem;
-    }
-
+    /* Titolo e intro area più compatti */
     .area-page-title {
         font-size: 1.85rem;
         max-width: 100%;
-        line-height: 1.1;
+        line-height: 1.08;
     }
 
     .area-page-lead {
         font-size: 0.96rem;
-        margin-bottom: 0.8rem;
-        line-height: 1.65;
+        margin-bottom: 0.75rem;
+        line-height: 1.58;
     }
 
-    .area-text-panel {
-        padding: 0.95rem;
-    }
-
-    .area-text-panel::after {
-        display: none;
-    }
-
-    .area-image-col {
-        min-height: 240px;
-        background-position: center center;
-    }
-
+    /* Testi interni area */
     .area-detail-content h2,
     .area-detail-content h3 {
-        font-size: 1.22rem;
-        margin-top: 0.95rem;
+        font-size: 1.18rem;
+        margin-top: 0.9rem;
     }
 
     .area-detail-content p,
     .area-detail-content li {
         font-size: 0.96rem;
-        line-height: 1.68;
+        line-height: 1.62;
     }
 
+    /* Bottoni in colonna */
     .area-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.85rem;
-        margin-top: 1.1rem;
+        gap: 0.8rem;
+        margin-top: 1rem;
     }
 
     .area-actions .btn {
         width: 100%;
-        padding: 0.9rem 1rem;
+        padding: 0.88rem 1rem;
         line-height: 1.35;
     }
 
-    /* Hero mobile refinement */
+    /* Hero */
     .area-hero-illustrata {
         border-radius: 0;
-        background-position: center top !important;
     }
 
     .area-hero-wrapper {
-        padding: 2.5rem 1.1rem;
+        padding: 1rem 0.9rem 1.1rem;
     }
 
     .area-hero-text .area-page-title {
@@ -1200,47 +1454,58 @@ textarea::placeholder {
     .area-hero-text .area-page-lead {
         font-size: 0.95rem;
     }
+
+    .area-hero-image-mobile-wrap,
+    .area-hero-image-mobile {
+        max-width: 100%;
+    }
+
+    .area-hero-image-mobile {
+        border-radius: 0.9rem;
+    }
 }
 
-/* ---------- ≤575.98px SMARTPHONE ---------- */
+/* =========================================================
+   20.6 SMARTPHONE PICCOLO
+   Fino a 575.98px
+========================================================= */
 @media (max-width: 575.98px) {
+    /* Sezione dettaglio area più stretta */
     .area-detail-section {
         padding: 1.2rem 0 1.4rem;
     }
 
+    /* Titoli ancora più compatti */
     .area-page-title {
-        font-size: 1.75rem;
-    }
-
-    .area-detail-image img {
-        max-height: 280px;
-        border-radius: 0.9rem;
+        font-size: 1.72rem;
     }
 
     .area-hero-wrapper {
-        padding: 2rem 1rem;
-        gap: 1.2rem;
+        padding: 0.95rem 0.85rem 1rem;
+        gap: 0.95rem;
     }
 
     .area-hero-text .area-page-title {
-        font-size: 1.7rem;
+        font-size: 1.68rem;
         line-height: 1.08;
     }
 
     .area-hero-text .area-page-lead {
-        font-size: 0.97rem;
-        line-height: 1.62;
+        font-size: 0.94rem;
+        line-height: 1.56;
     }
 
+    /* Bottoni più contenuti */
     .area-actions {
         gap: 0.75rem;
     }
 
     .area-actions .btn {
-        padding: 0.88rem 1rem;
+        padding: 0.85rem 0.95rem;
         font-size: 0.95rem;
     }
 
+    /* Sicurezza */
     .area-hero-gradient,
     .area-hero-overlay {
         display: none !important;

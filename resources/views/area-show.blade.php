@@ -9,8 +9,10 @@
                 <h1 class="page-title area-page-title">
                     {{ $area['title'] }}
                 </h1>
-                <img src="{{ $area['image'] }}" alt="{{ $area['title'] }}"
-                    class="area-hero-image-mobile d-block d-lg-none">
+
+                <div class="area-hero-image-mobile-wrap d-block d-lg-none">
+                    <img src="{{ $area['image'] }}" alt="{{ $area['title'] }}" class="area-hero-image-mobile">
+                </div>
 
                 <p class="page-lead area-page-lead">
                     {{ $area['preview'] }}
@@ -24,6 +26,7 @@
                     <a href="{{ route('areas') }}" class="btn btn-outline-secondario">
                         Torna alle aree
                     </a>
+
                     <a href="{{ route('contacts') }}" class="btn btn-brand">
                         Richiedi un primo colloquio
                     </a>
