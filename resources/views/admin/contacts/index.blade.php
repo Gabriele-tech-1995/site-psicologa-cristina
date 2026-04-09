@@ -1,5 +1,5 @@
 <x-layout>
-    <section class="section">
+    <section class="section p-4">
         <div class="page-head mb-4">
             <span class="badge badge-soft mb-3">Admin</span>
             <h1 class="page-title">Richieste di contatto</h1>
@@ -7,6 +7,8 @@
                 Qui puoi visualizzare e gestire tutte le richieste inviate dal modulo contatti.
             </p>
         </div>
+
+        @include('admin.partials.nav')
 
         @if (session('admin_success'))
             <div class="alert alert-success mb-4">

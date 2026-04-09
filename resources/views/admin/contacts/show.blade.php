@@ -1,18 +1,14 @@
 <x-layout>
-    <section class="section">
-        <div class="page-head mb-4 d-flex justify-content-between align-items-start flex-wrap gap-3">
-            <div>
-                <span class="badge badge-soft mb-3">Admin</span>
-                <h1 class="page-title mb-2">Dettaglio richiesta</h1>
-                <p class="page-lead mb-0">
-                    Ricevuta il {{ $contactRequest->created_at->format('d/m/Y H:i') }}
-                </p>
-            </div>
-
-            <a class="btn btn-outline-secondary" href="{{ route('admin.contacts.index') }}">
-                ← Torna alla lista
-            </a>
+    <section class="section p-4">
+        <div class="page-head mb-4">
+            <span class="badge badge-soft mb-3">Admin</span>
+            <h1 class="page-title mb-2">Dettaglio richiesta</h1>
+            <p class="page-lead mb-0">
+                Ricevuta il {{ $contactRequest->created_at->format('d/m/Y H:i') }}
+            </p>
         </div>
+
+        @include('admin.partials.nav')
 
         @if (session('admin_success'))
             <div class="alert alert-success mb-4">
@@ -49,8 +45,12 @@
                 </div>
             </div>
 
-            <div class="d-flex gap-2 flex-wrap mt-4">
-                <a href="mailto:{{ $contactRequest->email }}" class="btn btn-outline-secondary">
+            <div class="d-flex gap-2 flex-wrap mt-4 pt-2 border-top">
+                <a href="{{ route('admin.contacts.index') }}" class="btn btn-outline-secondario">
+                    Torna alle richieste
+                </a>
+
+                <a href="mailto:{{ $contactRequest->email }}" class="btn btn-outline-secondario">
                     Rispondi via email
                 </a>
 
@@ -58,7 +58,7 @@
                     <form action="{{ route('admin.contacts.read', $contactRequest) }}" method="POST">
                         @csrf
                         @method('PATCH')
-                        <button type="submit" class="btn btn-outline-secondary">
+                        <button type="submit" class="btn btn-outline-secondario">
                             Segna letta
                         </button>
                     </form>
@@ -68,7 +68,7 @@
                     onsubmit="return confirm('Vuoi eliminare questa richiesta?')">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-outline-secondary">
+                    <button type="submit" class="btn btn-outline-secondario">
                         Elimina
                     </button>
                 </form>

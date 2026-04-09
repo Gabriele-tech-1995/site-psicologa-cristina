@@ -1,27 +1,55 @@
-<x-layout>
+<x-layout :metaTitle="'Aree di intervento | Psicologa a Tivoli per bambini, adolescenti e genitori'" :metaDescription="'Scopri le aree di intervento della Dott.ssa Cristina Pacifici, psicologa a Tivoli: supporto per ansia, umore basso, difficoltà relazionali, autostima, genitorialità, difficoltà scolastiche e benessere emotivo.'">
+
     <section class="section p-3">
         <div class="page-head">
             <span class="badge badge-soft mb-3">Aree di intervento</span>
+
             <h1 class="page-title mb-2">Aree di intervento</h1>
+
             <p class="page-lead mb-4">
-                Uno spazio di ascolto e supporto personalizzato, dedicato al benessere emotivo e relazionale.
+                Offro percorsi di supporto psicologico a <strong>Tivoli</strong> per bambini, adolescenti e genitori.
+                In questa sezione puoi approfondire le principali aree di intervento, tra cui
+                <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
+                    title="Ansia e gestione dello stress">
+                    ansia e gestione dello stress
+                </a>,
+                <a href="{{ route('areas.show', ['slug' => 'umore-basso']) }}" title="Umore basso">
+                    umore basso
+                </a>,
+                <a href="{{ route('areas.show', ['slug' => 'difficolta-relazionali']) }}" title="Difficoltà relazionali">
+                    difficoltà relazionali
+                </a>,
+                <a href="{{ route('areas.show', ['slug' => 'autostima']) }}" title="Autostima">
+                    autostima
+                </a>
+                e
+                <a href="{{ route('areas.show', ['slug' => 'genitorialita']) }}" title="Sostegno alla genitorialità">
+                    sostegno alla genitorialità
+                </a>.
             </p>
         </div>
 
         <div class="row g-4">
             @foreach ($areas as $area)
                 <div class="col-md-6 col-xl-4">
-                    <article class="card shadow-soft p-4 h-100 card-area-preview reveal">
+                    <article class="card p-4 h-100 card-area-preview reveal">
                         <div class="d-flex flex-column h-100">
-                            <h4 class="mb-3 area-card-title">{{ $area['title'] }}</h4>
+
+                            <h2 class="mb-3 area-card-title h4">
+                                <a href="{{ route('areas.show', ['slug' => $area['slug']]) }}"
+                                    class="text-decoration-none" title="{{ $area['title'] }}">
+                                    {{ $area['title'] }}
+                                </a>
+                            </h2>
 
                             <p class="mb-4 area-preview-text">
                                 {{ $area['preview'] }}
                             </p>
 
                             <div class="mt-auto">
-                                <a href="{{ route('areas.show', ['slug' => $area['slug']]) }}" class="btn btn-brand">
-                                    scopri di più
+                                <a href="{{ route('areas.show', ['slug' => $area['slug']]) }}" class="area-link"
+                                    title="Approfondisci l’area {{ $area['title'] }}">
+                                    Approfondisci l’area →
                                 </a>
                             </div>
                         </div>
@@ -30,5 +58,22 @@
             @endforeach
         </div>
 
+        <div class="mt-5 text-center">
+            <p class="mb-3">
+                Se desideri maggiori informazioni o vuoi capire quale percorso può essere più adatto,
+                puoi richiedere un primo colloquio.
+            </p>
+
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <a class="btn btn-brand" href="{{ route('contacts') }}">
+                    Richiedi un primo colloquio
+                </a>
+
+                <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
+                    href="https://wa.me/393441122785">
+                    Scrivimi su WhatsApp
+                </a>
+            </div>
+        </div>
     </section>
 </x-layout>

@@ -1,14 +1,23 @@
 <x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription">
     <section class="section page-head p-3">
         <span class="badge badge-soft mb-3">Contatti</span>
+
         <h1 class="mb-2 page-title">Contatti</h1>
+
         <p class="page-lead">
-            Ricevo online e in presenza a Tivoli, dal lunedì al venerdì.
+            È possibile richiedere un primo colloquio <strong>online</strong> o <strong>in presenza a Tivoli</strong>.
+            Ricevo dal lunedì al venerdì e puoi contattarmi tramite modulo, email o WhatsApp.
+            Se desideri conoscere meglio le
+            <a href="{{ route('areas') }}" title="Aree di intervento della psicologa a Tivoli">aree di intervento</a>
+            oppure approfondire il mio
+            <a href="{{ route('about') }}" title="Chi sono e come lavoro">approccio professionale</a>,
+            puoi consultare anche le pagine dedicate prima di inviare la richiesta.
         </p>
 
         <div class="row g-4 mt-1 align-items-stretch contacts-row">
             <div class="col-lg-5 d-flex">
                 <div class="contacts-left d-flex flex-column w-100 h-100">
+
                     <div class="card shadow-soft p-4 mb-4 card-info">
                         <h5 class="mb-3">Contatti diretti</h5>
 
@@ -18,60 +27,71 @@
                         </p>
 
                         <p class="mb-3">
-                            <strong>Telefono / Whatsapp:</strong>
-                            <a target="_blank" href="https://wa.me/3441122785">3441122785</a>
+                            <strong>Telefono / WhatsApp:</strong>
+                            <a target="_blank" rel="noopener noreferrer"
+                                href="https://wa.me/393441122785">3441122785</a>
                         </p>
 
                         <div class="d-flex gap-2 flex-wrap">
-                            <a class="btn btn-brand" target="_blank" href="https://wa.me/3441122785">Whatsapp</a>
-                            <a class="btn btn-outline-secondario" href="mailto:Dott.ssapacifici24@gmail.com">Email</a>
+                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer"
+                                href="https://wa.me/393441122785">
+                                WhatsApp
+                            </a>
+
+                            <a class="btn btn-outline-secondario" href="mailto:Dott.ssapacifici24@gmail.com">
+                                Email
+                            </a>
                         </div>
 
                         <hr class="my-4">
 
                         <p class="mb-0 small text-muted">
-                            Cancellazione entro 24 ore. durata seduta: 50 minuti.
+                            Cancellazione entro 24 ore. Durata della seduta: 50 minuti.
                         </p>
                     </div>
 
                     <div class="card shadow-soft p-4 card-sedi flex-grow-1">
-                        <h5 class="mb-3">Sedi (Tivoli)</h5>
+                        <h5 class="mb-3">Sedi in presenza</h5>
 
                         <div class="mb-3">
                             <strong>Centro Imago</strong>
-                            <div class="small text-muted">Piazza Santa Croce 12,Tivoli (RM)</div>
-                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
+                            <div class="small text-muted">Piazza Santa Croce 12, Tivoli (RM)</div>
+                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank" rel="noopener noreferrer"
                                 href="https://maps.google.com/?q=Centro+Imago+Tivoli">
-                                Apri su google maps
+                                Apri su Google Maps
                             </a>
                         </div>
 
                         <div class="mb-3">
                             <strong>Centro Empathia</strong>
                             <div class="small text-muted">Piazzale delle Nazioni Unite 16, Tivoli (RM)</div>
-                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
-                                href="https://maps.google.com/?q=Centro+Empatica+Tivoli">
-                                Apri su google maps
+                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank" rel="noopener noreferrer"
+                                href="https://maps.google.com/?q=Centro+Empathia+Tivoli">
+                                Apri su Google Maps
                             </a>
                         </div>
 
                         <div>
                             <strong>Centro Liberamente</strong>
-                            <div class="small text-muted">Via Tito Bernardini 13, Villanova (RM)</div>
-                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank"
+                            <div class="small text-muted">Via Tito Bernardini 13, Villanova di Guidonia (RM)</div>
+                            <a class="btn btn-sm btn-outline-secondario mt-2" target="_blank" rel="noopener noreferrer"
                                 href="https://maps.google.com/?q=Centro+Liberamente+Tivoli">
-                                Apri su google maps
+                                Apri su Google Maps
                             </a>
                         </div>
                     </div>
+
                 </div>
             </div>
 
             <div class="col-lg-7 d-flex">
                 <div class="card shadow-soft p-4 card-form w-100 h-100">
                     <h4 class="mb-3">Richiedi un primo colloquio</h4>
+
                     <p class="text-muted">
-                        Compila il modulo e verrai ricontattato/a il prima possibile.
+                        Compila il modulo per richiedere informazioni o un primo colloquio.
+                        Verrai ricontattato/a il prima possibile per valutare insieme la richiesta e la modalità più
+                        adatta.
                     </p>
 
                     @if (session('success'))
@@ -92,7 +112,7 @@
 
                         <div class="row g-3 flex-grow-1">
                             <div class="col-md-6">
-                                <label class="form-label">Nome e Cognome</label>
+                                <label class="form-label">Nome e cognome</label>
                                 <input type="text" class="form-control @error('name') is-invalid @enderror"
                                     name="name" value="{{ old('name') }}">
 
@@ -139,21 +159,23 @@
                                     <label class="form-check-label" for="privacy">
                                         Acconsento al trattamento dei dati personali secondo la normativa vigente.
                                     </label>
-
-                                    @error('privacy')
-                                        <div class="text-danger small mt-2">{{ $message }}</div>
-                                    @enderror
                                 </div>
+
                                 <div class="small text-muted mt-2">
                                     Si invita a non inserire nel primo messaggio informazioni cliniche dettagliate.
                                 </div>
                             </div>
-
+                            @error('privacy')
+                                <div class="text-danger small mt-2">{{ $message }}</div>
+                            @enderror
                             <div class="col-12 d-flex gap-2 flex-wrap contact-actions align-items-center">
-                                <button type="submit" class="btn btn-brand">Invia richiesta</button>
+                                <button type="submit" class="btn btn-brand">
+                                    Invia richiesta
+                                </button>
 
-                                <a class="btn btn-outline-secondario" target="_blank" href="https://wa.me/3441122785">
-                                    Scrivimi su whatsapp
+                                <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
+                                    href="https://wa.me/393441122785">
+                                    Scrivimi su WhatsApp
                                 </a>
                             </div>
                         </div>

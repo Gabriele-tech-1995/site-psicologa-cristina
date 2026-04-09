@@ -15,21 +15,34 @@
         </button>
 
         <div class="collapse navbar-collapse" id="mainNavbar">
-            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link @if (request()->routeIs('home')) active @endif"
-                        href="{{ route('home') }}">Home</a>
+                    <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
+                        Home
+                    </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link @if (request()->routeIs('about')) active @endif" href="{{ route('about') }}">Chi
-                        sono</a>
+                    <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">
+                        Chi sono
+                    </a>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link @if (request()->routeIs('areas')) active @endif"
-                        href="{{ route('areas') }}">Aree</a>
+                    <a class="nav-link {{ request()->routeIs('areas*') ? 'active' : '' }}" href="{{ route('areas') }}">
+                        Aree
+                    </a>
                 </li>
-                <li class="nav-item ms-lg-2">
-                    <a class="btn btn-brand btn-contatti @if (request()->routeIs('contacts')) active @endif"
+
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('testimonials*') ? 'active' : '' }}"
+                        href="{{ route('testimonials') }}">
+                        Testimonianze
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('contacts*') ? 'active' : '' }}"
                         href="{{ route('contacts') }}">
                         Contatti
                     </a>

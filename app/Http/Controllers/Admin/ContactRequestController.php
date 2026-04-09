@@ -11,12 +11,12 @@ class ContactRequestController extends Controller
     {
         $requests = ContactRequest::latest()->paginate(20);
 
-        return view('admin.index', compact('requests'));
+        return view('admin.contacts.index', compact('requests'));
     }
 
     public function show(ContactRequest $contactRequest)
     {
-        return view('admin.show', compact('contactRequest'));
+        return view('admin.contacts.show', compact('contactRequest'));
     }
 
     public function markAsRead(ContactRequest $contactRequest)
