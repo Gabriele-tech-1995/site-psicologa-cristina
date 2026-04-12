@@ -1,15 +1,32 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['resources/css/app.scss', 'resources/css/admin.scss', 'resources/js/app.js'],
             refresh: true,
         }),
-        tailwindcss(),
     ],
+    build: {
+        target: 'es2022',
+        cssTarget: 'chrome110',
+        cssMinify: 'lightningcss',
+        modulePreload: {
+            polyfill: false,
+        },
+        esbuild: {
+            legalComments: 'none',
+        },
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                quietDeps: true,
+                silenceDeprecations: ['import', 'global-builtin', 'color-functions'],
+            },
+        },
+    },
     server: {
         watch: {
             ignored: ['**/storage/framework/views/**'],

@@ -7,34 +7,49 @@ use App\Mail\ContactRequestMail;
 use App\Models\ContactRequest;
 use App\Models\Testimonial;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 
 class PublicController extends Controller
 {
+    private function seo(string $page): array
+    {
+        $pages = config('seo.pages', []);
+
+        return is_array($pages) ? ($pages[$page] ?? []) : [];
+    }
+
     public function home()
     {
+        $seo = $this->seo('home');
+
         return view('home', [
-            'metaTitle' => 'Dott.ssa Cristina Pacifici | Psicologa a Tivoli',
-            'metaDescription' => 'Psicologa a Tivoli per supporto psicologico rivolto a bambini, adolescenti e genitori. Colloqui in presenza e online.',
+            'metaTitle' => $seo['title'] ?? 'Dott.ssa Cristina Pacifici | Psicologa a Tivoli',
+            'metaDescription' => $seo['description'] ?? 'Psicologa a Tivoli per supporto psicologico rivolto a bambini, adolescenti e genitori. Colloqui in presenza e online.',
         ]);
     }
 
     public function about()
     {
+        $seo = $this->seo('about');
+
         return view('chi-sono', [
-            'metaTitle' => 'Chi sono | Psicologa a Tivoli',
-            'metaDescription' => 'Scopri il profilo professionale della Dott.ssa Cristina Pacifici, psicologa a Tivoli. Supporto psicologico per bambini, adolescenti, adulti e genitori.',
+            'metaTitle' => $seo['title'] ?? 'Chi sono | Psicologa a Tivoli',
+            'metaDescription' => $seo['description'] ?? 'Scopri il profilo professionale della Dott.ssa Cristina Pacifici, psicologa a Tivoli. Supporto psicologico per bambini, adolescenti, adulti e genitori.',
         ]);
     }
 
     public function areas()
     {
         $areas = $this->getAreas();
+        $seo = $this->seo('areas');
 
         return view('aree', [
             'areas' => $areas,
-            'metaTitle' => 'Aree di intervento | Psicologa a Tivoli',
-            'metaDescription' => 'Scopri le aree di intervento della Dott.ssa Cristina Pacifici: ansia, autostima, difficoltà scolastiche, genitorialità, disturbi del neurosviluppo e altro.',
+            'metaTitle' => $seo['title'] ?? 'Aree di intervento | Psicologa a Tivoli per bambini, adolescenti e genitori',
+            'metaDescription' => $seo['description'] ?? 'Scopri le aree di intervento della Dott.ssa Cristina Pacifici, psicologa a Tivoli: supporto per ansia, umore basso, difficoltà relazionali, autostima, genitorialità, difficoltà scolastiche e benessere emotivo.',
         ]);
     }
 
@@ -44,28 +59,172 @@ class PublicController extends Controller
 
         abort_if(! $area, 404);
 
+        $faqPairs = $this->extractAreaFaqPairs($area['body']);
+        $areaFaqSchema = $faqPairs !== [] ? $this->buildAreaFaqPageSchema($faqPairs) : null;
+
+        $area['image_alt'] = $area['image_alt'] ?? sprintf('%s — psicologa a Tivoli', $area['title']);
+        $area['body'] = $this->formatAreaFaqAsAccordion($area['body'], $area['slug']);
+
+        $localSuffix = config('seo.defaults.site_suffix_local', ' | Psicologa a Tivoli');
+
         return view('area-show', [
             'area' => $area,
-            'metaTitle' => $area['meta_title'] ?? $area['title'].' | Psicologa a Tivoli',
+            'metaTitle' => $area['meta_title'] ?? $area['title'].$localSuffix,
             'metaDescription' => $area['meta_description'] ?? $area['preview'],
+            'areaFaqSchema' => $areaFaqSchema,
         ]);
+    }
+
+    /**
+     * @return array<int, array{question: string, answer: string}>
+     */
+    private function extractAreaFaqPairs(string $body): array
+    {
+        $faqHeading = '<h2>Domande frequenti</h2>';
+        $faqPos = stripos($body, $faqHeading);
+
+        if ($faqPos === false) {
+            return [];
+        }
+
+        $faqSection = substr($body, $faqPos + strlen($faqHeading));
+        preg_match_all('/<h4>(.*?)<\/h4>\s*<p>(.*?)<\/p>/si', $faqSection, $matches, PREG_SET_ORDER);
+
+        if ($matches === []) {
+            return [];
+        }
+
+        $pairs = [];
+
+        foreach ($matches as $match) {
+            $question = trim(html_entity_decode(strip_tags($match[1]), ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+            $answer = trim(preg_replace('/\s+/u', ' ', html_entity_decode(strip_tags($match[2]), ENT_QUOTES | ENT_HTML5, 'UTF-8')));
+
+            if ($question !== '' && $answer !== '') {
+                $pairs[] = ['question' => $question, 'answer' => $answer];
+            }
+        }
+
+        return $pairs;
+    }
+
+    /**
+     * @param  array<int, array{question: string, answer: string}>  $pairs
+     */
+    private function buildAreaFaqPageSchema(array $pairs): array
+    {
+        return [
+            '@context' => 'https://schema.org',
+            '@type' => 'FAQPage',
+            'mainEntity' => array_map(fn (array $p) => [
+                '@type' => 'Question',
+                'name' => $p['question'],
+                'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text' => $p['answer'],
+                ],
+            ], $pairs),
+        ];
+    }
+
+    private function formatAreaFaqAsAccordion(string $body, string $slug): string
+    {
+        $faqHeading = '<h2>Domande frequenti</h2>';
+        $faqPos = stripos($body, $faqHeading);
+
+        if ($faqPos === false) {
+            return $body;
+        }
+
+        $beforeFaq = substr($body, 0, $faqPos);
+        $faqSection = substr($body, $faqPos + strlen($faqHeading));
+
+        preg_match_all('/<h4>(.*?)<\/h4>\s*<p>(.*?)<\/p>/si', $faqSection, $matches, PREG_SET_ORDER);
+
+        if (empty($matches)) {
+            return $body;
+        }
+
+        $accordionId = 'areaFaqAccordion'.preg_replace('/[^a-zA-Z0-9]/', '', ucfirst($slug));
+        $itemsHtml = '';
+
+        foreach ($matches as $index => $match) {
+            $question = trim($match[1]);
+            $answer = trim($match[2]);
+            $itemId = $accordionId.'Item'.$index;
+            $headingId = $accordionId.'Heading'.$index;
+            $collapseId = $accordionId.'Collapse'.$index;
+
+            $itemsHtml .= '
+                <div class="accordion-item">
+                    <h3 class="accordion-header" id="'.$headingId.'">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#'.$collapseId.'" aria-expanded="false" aria-controls="'.$collapseId.'">
+                            '.$question.'
+                        </button>
+                    </h3>
+                    <div id="'.$collapseId.'" class="accordion-collapse collapse" aria-labelledby="'.$headingId.'" data-bs-parent="#'.$accordionId.'">
+                        <div class="accordion-body">
+                            <p class="mb-0">'.$answer.'</p>
+                        </div>
+                    </div>
+                </div>';
+        }
+
+        return $beforeFaq.'
+            <h2>Domande frequenti</h2>
+            <div class="accordion contact-faq-accordion area-faq-accordion mt-3" id="'.$accordionId.'">
+                '.$itemsHtml.'
+            </div>';
     }
 
     public function contact()
     {
+        $seo = $this->seo('contacts');
+
         return view('contatti', [
-            'metaTitle' => 'Contatti | Dott.ssa Cristina Pacifici, Psicologa a Tivoli',
-            'metaDescription' => 'Contatta la Dott.ssa Cristina Pacifici, psicologa a Tivoli. Colloqui in presenza e online per bambini, adolescenti e genitori.',
+            'metaTitle' => $seo['title'] ?? 'Contatti | Dott.ssa Cristina Pacifici, Psicologa a Tivoli',
+            'metaDescription' => $seo['description'] ?? 'Contatta la Dott.ssa Cristina Pacifici, psicologa a Tivoli. Colloqui in presenza e online per bambini, adolescenti e genitori.',
         ]);
     }
 
     public function submit(Request $request)
     {
-        $validated = $request->validate(
+        $validator = Validator::make(
+            $request->all(),
             [
                 'name' => ['required', 'string', 'min:2', 'max:100', 'regex:/^[\pL\s\'’-]+$/u'],
-                'email' => ['required', 'email:rfc,dns', 'max:150'],
-                'phone' => ['required', 'string', 'regex:/^\+?[0-9\s\-]+$/', 'min:8', 'max:20'],
+                'email' => ['required', 'email:rfc', 'max:150'],
+                /*
+                 * Su mobile i tastierini inseriscono spesso punti, parentesi o slash: la vecchia regex
+                 * rigettava il numero e il modulo tornava indietro senza inviare nulla (percepito come “mail ko”).
+                 */
+                'phone' => [
+                    'required',
+                    'string',
+                    'max:42',
+                    function (string $attribute, mixed $value, \Closure $fail): void {
+                        if (! is_string($value)) {
+                            $fail('Inserisci un numero di telefono.');
+
+                            return;
+                        }
+                        $trimmed = trim($value);
+                        if ($trimmed === '' || ! preg_match('/^[\d\s\+\.\-\(\)\/]+$/u', $trimmed)) {
+                            $fail('Usa solo cifre e separatori comuni (spazio, +, trattino, punto, parentesi).');
+
+                            return;
+                        }
+                        $digits = preg_replace('/\D+/', '', $trimmed);
+                        if (strlen($digits) < 8) {
+                            $fail('Il numero di telefono deve contenere almeno 8 cifre.');
+
+                            return;
+                        }
+                        if (strlen($digits) > 15) {
+                            $fail('Il numero di telefono contiene troppe cifre.');
+                        }
+                    },
+                ],
                 'message' => ['required', 'string', 'min:10', 'max:2000'],
                 'privacy' => ['accepted'],
             ],
@@ -80,9 +239,6 @@ class PublicController extends Controller
                 'email.max' => 'L’email non può superare :max caratteri.',
 
                 'phone.required' => 'Inserisci un numero di telefono.',
-                'phone.min' => 'Il numero di telefono deve avere almeno :min caratteri.',
-                'phone.max' => 'Il numero di telefono non può superare :max caratteri.',
-                'phone.regex' => 'Il numero di telefono può contenere solo cifre, spazi, trattini e il simbolo + iniziale.',
 
                 'message.required' => 'Scrivi un breve messaggio.',
                 'message.min' => 'Il messaggio deve avere almeno :min caratteri.',
@@ -92,6 +248,17 @@ class PublicController extends Controller
             ]
         );
 
+        if ($validator->fails()) {
+            return redirect()
+                ->route('contacts')
+                ->withErrors($validator)
+                ->withInput()
+                ->withFragment('richiesta-colloquio');
+        }
+
+        $validated = $validator->validated();
+        $validated['phone'] = preg_replace('/\s+/u', ' ', trim((string) $validated['phone']));
+
         $contact = ContactRequest::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
@@ -100,11 +267,23 @@ class PublicController extends Controller
             'consent_privacy' => true,
         ]);
 
-        Mail::to(config('mail.contact.address'), config('mail.contact.name'))
-            ->send(new ContactRequestMail($contact));
+        try {
+            Mail::to(config('mail.contact.address'), config('mail.contact.name'))
+                ->send(new ContactRequestMail($contact));
 
-        Mail::to($contact->email, $contact->name)
-            ->send(new ContactRequestConfirmMail($contact));
+            Mail::to($contact->email, $contact->name)
+                ->send(new ContactRequestConfirmMail($contact));
+        } catch (TransportExceptionInterface $e) {
+            Log::warning('Invio email modulo contatti fallito', [
+                'contact_id' => $contact->id,
+                'message' => $e->getMessage(),
+            ]);
+
+            return redirect()
+                ->route('contacts')
+                ->with('warning', 'La richiesta è stata registrata, ma al momento non è stato possibile inviare le email automatiche (problema di rete o del server di posta). La ricontatterò comunque; in alternativa puoi usare WhatsApp o il telefono in alto in pagina.')
+                ->withFragment('richiesta-colloquio');
+        }
 
         return redirect()
             ->route('contacts')
@@ -116,10 +295,11 @@ class PublicController extends Controller
         $testimonials = Testimonial::where('is_approved', true)
             ->latest()
             ->get();
+        $seo = $this->seo('testimonials');
 
         return view('testimonianze', [
-            'metaTitle' => 'Testimonianze | Psicologa a Tivoli',
-            'metaDescription' => 'Leggi le testimonianze condivise da chi ha intrapreso un percorso di supporto psicologico con la Dott.ssa Cristina Pacifici, psicologa a Tivoli.',
+            'metaTitle' => $seo['title'] ?? 'Testimonianze | Psicologa a Tivoli',
+            'metaDescription' => $seo['description'] ?? 'Leggi le testimonianze condivise da chi ha intrapreso un percorso di supporto psicologico con la Dott.ssa Cristina Pacifici, psicologa a Tivoli.',
             'testimonials' => $testimonials,
         ]);
     }
@@ -127,11 +307,12 @@ class PublicController extends Controller
     public function storeTestimonial(Request $request)
     {
         $validated = $request->validate([
-            'name_label' => ['required', 'string', 'max:100'],
+            'name_label' => ['required', 'string', 'max:100', 'regex:/^[\pL][\pL\s\'’-]*\s[\pL]\.$/u'],
             'message' => ['required', 'string', 'min:20', 'max:2000'],
             'consent_publish' => ['accepted'],
         ], [
             'name_label.required' => 'Inserisci come vuoi firmare la testimonianza.',
+            'name_label.regex' => 'Inserisci nome e iniziale del cognome (es. Maria R.).',
             'message.required' => 'Inserisci la tua testimonianza.',
             'message.min' => 'La testimonianza deve contenere almeno 20 caratteri.',
             'consent_publish.accepted' => 'Devi accettare il consenso alla pubblicazione.',
@@ -158,7 +339,7 @@ class PublicController extends Controller
                 'meta_title' => 'Ansia e gestione dello stress | Psicologa a Tivoli',
                 'meta_description' => 'Supporto psicologico a Tivoli per ansia, stress e momenti di forte agitazione emotiva. Percorsi personalizzati in presenza e online.',
                 'preview' => 'Un percorso di supporto psicologico per comprendere e gestire ansia, stress e momenti di forte agitazione emotiva.',
-                'image' => '/img/stress.jpg',
+                'image' => '/img/stress.webp',
                 'intro' => 'L’ansia può manifestarsi in modi diversi e con intensità differenti, influenzando il sonno, le relazioni, la quotidianità e la capacità di affrontare impegni, responsabilità o momenti di cambiamento.',
 
                 'body' => '
@@ -280,7 +461,7 @@ class PublicController extends Controller
                 'meta_title' => 'Umore basso | Psicologa a Tivoli',
                 'meta_description' => 'Supporto psicologico a Tivoli per umore basso, tristezza e momenti di demotivazione. Percorsi personalizzati in presenza e online.',
                 'preview' => 'Un percorso di supporto psicologico per comprendere tristezza, demotivazione e perdita di energia emotiva.',
-                'image' => '/img/umoreBasso.jpg',
+                'image' => '/img/umoreBasso.webp',
                 'intro' => 'I momenti di umore basso possono influenzare la percezione di sé, la motivazione, le relazioni e la capacità di affrontare la quotidianità con continuità e fiducia.',
 
                 'body' => '
@@ -398,7 +579,7 @@ class PublicController extends Controller
                 'meta_title' => 'Difficoltà relazionali | Psicologa a Tivoli',
                 'meta_description' => 'Supporto psicologico a Tivoli per difficoltà relazionali, conflitti e problemi di comunicazione. Percorsi personalizzati per migliorare la qualità delle relazioni.',
                 'preview' => 'Un percorso di supporto psicologico per comprendere e migliorare la qualità delle relazioni familiari, scolastiche, lavorative o sociali.',
-                'image' => '/img/relazionali.jpg',
+                'image' => '/img/relazionali.webp',
                 'intro' => 'Le difficoltà relazionali possono emergere in diversi contesti della vita: nella coppia, in famiglia, con i figli, a scuola, nel lavoro o nelle amicizie, influenzando il benessere emotivo e la qualità della vita quotidiana.',
 
                 'body' => '
@@ -514,7 +695,7 @@ class PublicController extends Controller
                 'meta_title' => 'Autostima | Psicologa a Tivoli',
                 'meta_description' => 'Supporto psicologico a Tivoli per rafforzare autostima, fiducia in sé e sicurezza personale. Percorsi personalizzati in presenza e online.',
                 'preview' => 'Un percorso psicologico per rafforzare fiducia in sé, sicurezza personale e consapevolezza delle proprie risorse.',
-                'image' => '/img/autostima.jpg',
+                'image' => '/img/autostima.webp',
                 'intro' => 'L’autostima riguarda il modo in cui una persona percepisce sé stessa, il proprio valore e le proprie capacità nelle diverse aree della vita, influenzando scelte, relazioni e benessere emotivo.',
 
                 'body' => '
@@ -631,7 +812,7 @@ class PublicController extends Controller
                 'meta_title' => 'Difficoltà scolastiche | Psicologa a Tivoli',
                 'meta_description' => 'Supporto psicologico a Tivoli per difficoltà scolastiche, studio e motivazione. Percorsi personalizzati per bambini e adolescenti in presenza e online.',
                 'preview' => 'Un percorso di supporto psicologico per comprendere e affrontare difficoltà scolastiche, studio e motivazione.',
-                'image' => '/img/scuola.jpg',
+                'image' => '/img/scuola.webp',
                 'intro' => 'Le difficoltà scolastiche possono riguardare l’apprendimento, la concentrazione, l’organizzazione, il metodo di studio oppure il vissuto emotivo legato all’esperienza scolastica, influenzando il benessere del bambino o dell’adolescente.',
 
                 'body' => '
@@ -750,7 +931,7 @@ class PublicController extends Controller
                 'meta_title' => 'Disturbi del neurosviluppo | Psicologa a Tivoli',
                 'meta_description' => 'Supporto psicologico a Tivoli per disturbi del neurosviluppo. Percorsi personalizzati per bambini e famiglie, con attenzione agli aspetti cognitivi, emotivi e relazionali.',
                 'preview' => 'Interventi dedicati ai disturbi del neurosviluppo con attenzione ai bisogni del bambino, della famiglia e del contesto scolastico.',
-                'image' => '/img/neuro.jpg',
+                'image' => '/img/neuro.webp',
                 'intro' => 'I disturbi del neurosviluppo richiedono un’attenzione specifica alle caratteristiche cognitive, emotive, comportamentali e relazionali della persona, oltre che al contesto familiare e scolastico in cui cresce.',
 
                 'body' => '
@@ -872,7 +1053,7 @@ class PublicController extends Controller
                 'meta_title' => 'Genitorialità | Psicologa a Tivoli',
                 'meta_description' => 'Supporto psicologico a Tivoli per genitori e famiglie. Percorsi di sostegno alla genitorialità per affrontare difficoltà educative, relazionali e fasi delicate della crescita dei figli.',
                 'preview' => 'Sostegno ai genitori nelle diverse fasi evolutive dei figli e nelle dinamiche familiari.',
-                'image' => '/img/genitori.jpg',
+                'image' => '/img/genitori.webp',
                 'intro' => 'La genitorialità può portare con sé domande, dubbi, fatiche e momenti di disorientamento, soprattutto quando i figli attraversano fasi delicate di crescita o presentano difficoltà specifiche.',
 
                 'body' => '
@@ -991,7 +1172,7 @@ class PublicController extends Controller
                 'meta_title' => 'Valutazioni psicodiagnostiche | Psicologa a Tivoli',
                 'meta_description' => 'Valutazioni psicodiagnostiche a Tivoli per bambini e ragazzi. Un percorso per comprendere difficoltà di apprendimento, attenzione e funzionamento emotivo e cognitivo.',
                 'preview' => 'Percorso di valutazione per comprendere il funzionamento cognitivo, emotivo e degli apprendimenti della persona.',
-                'image' => '/img/valutazione.jpg',
+                'image' => '/img/valutazione.webp',
                 'intro' => 'Le valutazioni psicodiagnostiche rappresentano un percorso fondamentale per comprendere in modo approfondito il funzionamento cognitivo, emotivo e degli apprendimenti della persona.',
 
                 'body' => '
@@ -1109,7 +1290,7 @@ class PublicController extends Controller
                 'meta_title' => 'Potenziamento delle funzioni esecutive | Psicologa a Tivoli',
                 'meta_description' => 'Percorsi di potenziamento delle funzioni esecutive a Tivoli per bambini e ragazzi con difficoltà di attenzione, memoria di lavoro e organizzazione. Interventi personalizzati in presenza e online.',
                 'preview' => 'Intervento mirato al rafforzamento dei processi cognitivi che regolano comportamento, organizzazione e autoregolazione.',
-                'image' => '/img/funzioni.jpg',
+                'image' => '/img/funzioni.webp',
                 'intro' => 'Il potenziamento delle funzioni esecutive è un intervento mirato al rafforzamento dei processi cognitivi che regolano il comportamento, l’organizzazione e la gestione delle attività quotidiane.',
 
                 'body' => '
@@ -1229,7 +1410,7 @@ class PublicController extends Controller
                 'meta_title' => 'Potenziamento delle abilità scolastiche | Psicologa a Tivoli',
                 'meta_description' => 'Percorsi di potenziamento delle abilità scolastiche a Tivoli per bambini e ragazzi con difficoltà di lettura, scrittura, calcolo e metodo di studio. Interventi personalizzati in presenza e online.',
                 'preview' => 'Percorso finalizzato al miglioramento dei processi implicati negli apprendimenti scolastici, come lettura, scrittura e calcolo.',
-                'image' => '/img/scolastiche.jpg',
+                'image' => '/img/scolastiche.webp',
                 'intro' => 'Il potenziamento delle abilità scolastiche è un percorso mirato al miglioramento dei processi coinvolti negli apprendimenti, con particolare attenzione a lettura, scrittura e calcolo.',
 
                 'body' => '
@@ -1350,7 +1531,7 @@ class PublicController extends Controller
                 'meta_title' => 'Intervento di gruppo – Area emotiva e relazionale | Psicologa a Tivoli',
                 'meta_description' => 'Percorsi di gruppo a Tivoli per bambini e ragazzi, pensati per sviluppare autostima, competenze sociali, regolazione emotiva e capacità relazionali.',
                 'preview' => 'Percorsi di gruppo per sviluppare competenze sociali, sicurezza personale e capacità di relazione con i pari.',
-                'image' => '/img/gruppo.jpg',
+                'image' => '/img/gruppo.webp',
                 'intro' => 'Il lavoro di gruppo rappresenta uno spazio protetto in cui bambini e ragazzi possono sperimentarsi nella relazione con i pari, sviluppando maggiore consapevolezza di sé e degli altri.',
 
                 'body' => '
@@ -1475,7 +1656,7 @@ class PublicController extends Controller
                 'meta_title' => 'Tutor DSA, BES e ADHD | Psicologa a Tivoli',
                 'meta_description' => 'Supporto allo studio a Tivoli per bambini e ragazzi con DSA, BES e ADHD. Percorsi personalizzati per organizzazione, metodo di studio e autonomia scolastica.',
                 'preview' => 'Supporto allo studio per bambini e ragazzi con DSA, BES e difficoltà attentive e di autoregolazione.',
-                'image' => '/img/dsa.jpg',
+                'image' => '/img/dsa.webp',
                 'intro' => 'Il servizio di tutor DSA, BES e ADHD è rivolto a bambini e ragazzi che incontrano difficoltà nello studio, nell’organizzazione dei compiti e nella gestione delle attività scolastiche quotidiane.',
 
                 'body' => '

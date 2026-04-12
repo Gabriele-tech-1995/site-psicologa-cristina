@@ -1,0 +1,249 @@
+.form-control,
+.form-select {
+    background: rgba(255, 255, 255, 0.98);
+    border-color: var(--bordo-soft-strong);
+    border-radius: 0.65rem;
+    color: var(--testo-principale);
+    padding: 0.56rem 0.72rem;
+    transition:
+        border-color 0.18s ease,
+        box-shadow 0.18s ease,
+        background-color 0.18s ease;
+}
+.form-control::placeholder,
+textarea::placeholder {
+    color: rgba(100, 113, 105, 0.72);
+}
+.form-control:focus,
+.form-select:focus {
+    border-color: rgba(79, 118, 101, 0.38);
+    box-shadow: 0 0 0 0.14rem rgba(79, 118, 101, 0.1);
+}
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.45rem;
+}
+.form-check-input {
+    margin-top: 0.2rem;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--bordo-soft-strong);
+}
+.form-check-input:checked {
+    background-color: var(--color-salvia);
+    border-color: var(--color-salvia);
+}
+.form-check-label {
+    color: var(--testo-principale);
+    line-height: 1.42;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--color-salvia-active);
+    margin-bottom: 0.42rem;
+}
+
+.contact-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Alert a schermo intero: pagina oscurata; solo il pannello al centro (viewport), chiusura obbligatoria.
+   (Il partial SCSS del modal Bootstrap non è incluso nel bundle: definiamo shell + backdrop qui.) */
+body.contact-feedback-modal-open.modal-open .modal-backdrop.show {
+    --bs-backdrop-opacity: 1;
+    position: fixed;
+    inset: 0;
+    z-index: 2000 !important;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background-color: rgba(0, 0, 0, 0.92) !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+body.contact-feedback-modal-open .whatsapp-float {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Evita la “riga” sotto la navbar (bordo/ombra) che sbuca sopra l’alert: nascondi la barra finché è aperto. */
+body.contact-feedback-modal-open .navbar-custom {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.modal.contact-feedback-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2005 !important;
+    display: none;
+    width: 100%;
+    height: 100%;
+    max-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: none;
+
+    /* Centratura nel viewport. */
+    &.show {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: max(1rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+    }
+}
+
+.contact-feedback-modal {
+    /* Niente animazione translate sul dialog (Bootstrap fade): in chiusura “volava” in alto a sinistra col nostro flex. */
+    .modal-dialog {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .contact-feedback-modal__dialog {
+        width: 100%;
+        max-width: min(30rem, calc(100vw - 2rem));
+        max-height: calc(100dvh - 2rem);
+        margin: 0 !important;
+        overflow-y: auto;
+    }
+
+    /* Nessun bordo: evita linee scure in alto; ombra solo verso il basso (niente alone sopra). */
+    .contact-feedback-modal__panel {
+        border: none;
+        border-radius: 0.65rem;
+        overflow: hidden;
+        width: 100%;
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .contact-feedback-modal__panel--success {
+        background: #d1e7dd;
+        color: #0a3622;
+    }
+
+    .contact-feedback-modal__panel--warning {
+        background: #fff3cd;
+        color: #664d03;
+    }
+
+    .contact-feedback-modal__alert-body {
+        padding: 1.35rem 1.35rem 1.25rem;
+        border: none;
+        outline: none;
+    }
+
+    .contact-feedback-modal__heading {
+        margin: 0 0 0.75rem;
+        font-family: var(--font-titoli);
+        font-size: 1.35rem;
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: 0.01em;
+    }
+
+    .contact-feedback-modal__panel--success .contact-feedback-modal__heading {
+        color: #0a3622;
+    }
+
+    .contact-feedback-modal__panel--warning .contact-feedback-modal__heading {
+        color: #664d03;
+    }
+
+    .contact-feedback-modal__text {
+        font-size: 1.02rem;
+        line-height: 1.55;
+        font-weight: 500;
+    }
+
+    .contact-feedback-modal__panel--success .contact-feedback-modal__text {
+        color: #0f5132;
+    }
+
+    .contact-feedback-modal__panel--warning .contact-feedback-modal__text {
+        color: #664d03;
+    }
+
+    .contact-feedback-modal__actions {
+        margin-top: 1.35rem;
+        padding-top: 1.1rem;
+        border-top: 1px solid rgba(79, 118, 101, 0.12);
+        text-align: center;
+    }
+
+    .contact-feedback-modal__panel--success .contact-feedback-modal__actions {
+        border-top-color: rgba(79, 118, 101, 0.22);
+    }
+
+    .contact-feedback-modal__panel--warning .contact-feedback-modal__actions {
+        border-top-color: rgba(184, 154, 90, 0.35);
+    }
+
+    .contact-feedback-modal__ok-btn {
+        min-width: 12rem;
+        padding: 0.55rem 1.25rem;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        box-shadow: 0 2px 8px rgba(31, 42, 36, 0.12);
+    }
+
+    .contact-feedback-modal__panel--success .contact-feedback-modal__ok-btn {
+        background: var(--color-salvia);
+        color: #fff;
+    }
+
+    .contact-feedback-modal__panel--success .contact-feedback-modal__ok-btn:hover {
+        background: var(--color-salvia-hover);
+        color: #fff;
+    }
+
+    .contact-feedback-modal__panel--warning .contact-feedback-modal__ok-btn {
+        background: #8a7228;
+        color: #fff;
+    }
+
+    .contact-feedback-modal__panel--warning .contact-feedback-modal__ok-btn:hover {
+        background: #75601f;
+        color: #fff;
+    }
+}
+
+.contact-faq-accordion {
+    .accordion-item {
+        background: transparent;
+        border: 0;
+        border-bottom: 1px solid rgba(93, 119, 103, 0.14);
+    }
+
+    .accordion-button {
+        background: transparent;
+        color: var(--color-salvia-active);
+        font-weight: 600;
+        padding: 0.8rem 0;
+        box-shadow: none;
+
+        &:not(.collapsed) {
+            background: transparent;
+            color: var(--color-salvia);
+        }
+
+        &::after {
+            filter: hue-rotate(10deg) saturate(0.8);
+        }
+    }
+
+    .accordion-body {
+        padding: 0 0 0.9rem;
+        color: var(--testo-principale);
+        line-height: 1.6;
+    }
+}

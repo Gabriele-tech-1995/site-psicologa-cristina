@@ -1,0 +1,47 @@
+$btn-selectors: ".btn, .btn-brand, .btn-outline-secondario, .btn-outline-secondary, .btn-primary, .btn-secondary";
+
+:root {
+    --sfondo-body: #fbfcfb;
+    --sfondo-body-alt: #f4f6f4;
+    --sfondo-navbar-card: #ffffff;
+    --sfondo-soft: #edf2ee;
+
+    --color-salvia: #4f7665;
+    --color-salvia-hover: #446757;
+    --color-salvia-active: #3a584b;
+    --color-salvia-soft: #e8f0eb;
+
+    /* Oro titoli / brand: palette iniziale (elegante, come al primo deploy). */
+    --color-oro: #b89a5a;
+    --color-oro-hover: #a18449;
+    --color-oro-soft: #f5eedf;
+
+    --color-link: #2a4034;
+    --color-link-hover: #1f2f26;
+    --testo-principale: #1f2a24;
+    --testo-secondario: #3d4d43;
+    --testo-su-scuro: #fff;
+
+    --bordo-soft: rgba(79, 118, 101, 0.1);
+    --bordo-soft-strong: rgba(79, 118, 101, 0.16);
+    --bordo-gold: rgba(184, 154, 90, 0.26);
+
+    --font-titoli: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-testo:
+        system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, sans-serif;
+    --raggio: 0.75rem;
+    --raggio-lg: 0.9rem;
+    --raggio-xl: 1.05rem;
+    --raggio-pill: 0.85rem;
+    --ombra-soft: 0 6px 18px rgba(18, 34, 26, 0.035);
+    --ombra-hover: 0 12px 28px rgba(18, 34, 26, 0.06);
+    --ombra-navbar: 0 4px 14px rgba(18, 34, 26, 0.05);
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-5: 1.25rem;
+    --space-6: 1.5rem;
+    --space-7: 2rem;
+}

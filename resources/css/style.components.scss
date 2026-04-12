@@ -1,0 +1,195 @@
+@use "./style.tokens" as *;
+
+#{$btn-selectors} {
+    background: var(--color-salvia) !important;
+    border: 1px solid rgba(79, 118, 101, 0.9) !important;
+    color: #fff !important;
+    border-radius: var(--raggio-pill);
+    padding: 0.5rem 0.9rem;
+    font-weight: 600;
+    font-size: 0.92rem;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+    letter-spacing: 0.08px;
+    text-decoration: none !important;
+    box-shadow: 0 3px 10px rgba(24, 32, 28, 0.055);
+    min-height: 37px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    width: fit-content;
+    max-width: 100%;
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
+.d-grid > .btn {
+    width: fit-content !important;
+    max-width: 100%;
+    justify-self: center;
+}
+#{$btn-selectors}:hover {
+    background: var(--color-salvia-hover) !important;
+    border-color: var(--color-salvia-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(24, 32, 28, 0.075);
+}
+
+#{$btn-selectors}:focus,
+#{$btn-selectors}:focus-visible {
+    background: var(--color-salvia) !important;
+    border-color: var(--color-salvia) !important;
+    box-shadow:
+        0 0 0 0.16rem rgba(79, 118, 101, 0.2),
+        0 6px 14px rgba(28, 37, 31, 0.12) !important;
+}
+
+#{$btn-selectors}:active {
+    background: var(--color-salvia-active) !important;
+    border-color: var(--color-salvia-active) !important;
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(28, 37, 31, 0.14) !important;
+}
+
+#{$btn-selectors}.disabled,
+#{$btn-selectors}:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.badge-soft {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    background: var(--color-salvia-soft) !important;
+    color: var(--color-salvia-active) !important;
+    border: 1px solid rgba(90, 122, 106, 0.18);
+    font-weight: 600;
+    letter-spacing: 0.15px;
+    padding: 0.36rem 0.62rem;
+}
+
+.card {
+    background: var(--sfondo-navbar-card);
+    border: 1px solid var(--bordo-soft);
+    border-radius: var(--raggio);
+    color: var(--testo-principale);
+    box-shadow:
+        0 10px 24px rgba(17, 24, 39, 0.07),
+        0 1px 0 rgba(255, 255, 255, 0.7) inset;
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+            90deg,
+            rgba(90, 122, 106, 0.4) 0%,
+            rgba(168, 130, 86, 0.42) 100%
+        );
+        opacity: 0.5;
+    }
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow:
+            0 16px 34px rgba(17, 24, 39, 0.11),
+            0 1px 0 rgba(255, 255, 255, 0.78) inset;
+        border-color: rgba(90, 122, 106, 0.2);
+    }
+
+    h1,
+    h2,
+    h3 {
+        color: var(--color-oro);
+    }
+
+    h4,
+    h5 {
+        color: var(--color-salvia);
+    }
+
+    p,
+    li {
+        color: var(--testo-principale);
+    }
+
+    li::marker {
+        font-size: 0.95em;
+    }
+}
+
+.card-area-preview {
+    background: var(--sfondo-navbar-card);
+    border: 1px solid rgba(93, 119, 103, 0.22);
+    border-radius: var(--raggio);
+    box-shadow:
+        0 12px 28px rgba(17, 24, 39, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    position: relative;
+    overflow: hidden;
+    transition:
+        transform 0.22s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+.card-area-preview::after {
+    display: none;
+}
+.card-area-preview:hover {
+    transform: translateY(-3px);
+    border-color: rgba(93, 119, 103, 0.32);
+    box-shadow:
+        0 20px 38px rgba(17, 24, 39, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.62);
+}
+.area-card-title a,
+.area-link {
+    color: var(--color-salvia);
+    text-decoration: underline;
+    text-decoration-color: rgba(93, 119, 103, 0.42);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition:
+        color 0.2s ease,
+        text-decoration-color 0.2s ease;
+}
+.area-card-title a:hover,
+.area-link:hover {
+    color: var(--color-oro);
+    text-decoration-color: rgba(157, 119, 67, 0.6);
+}
+.area-card-title a:focus-visible,
+.area-link:focus-visible {
+    outline: 2px solid rgba(93, 119, 103, 0.35);
+    outline-offset: 2px;
+    border-radius: 0.4rem;
+}
+.area-preview-text {
+    color: var(--testo-principale);
+    line-height: 1.7;
+}
+.area-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+}

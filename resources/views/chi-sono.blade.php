@@ -6,7 +6,9 @@
                 <h1 class="page-title mb-2">Dott.ssa Cristina Pacifici</h1>
                 <p class="page-lead about-lead">
                     Psicologa · Esperta in valutazione e trattamento dei Disturbi Specifici dell’Apprendimento ·
-                    Specializzanda in psicoterapia umanistico-esperienziale
+                    Specializzanda in psicoterapia umanistico-esperienziale @if ($seoContact['aspic_url'] !== '')
+                        (<a href="{{ $seoContact['aspic_url'] }}" target="_blank" rel="noopener noreferrer">ASPIC</a>)
+                    @endif
                 </p>
             </div>
 
@@ -17,9 +19,14 @@
                         <div class="card shadow-soft p-4 mb-4 card-chi">
                             <p class="mb-3">
                                 Sono la <strong>Dott.ssa Cristina Pacifici</strong>,
-                                <strong>psicologa a Tivoli</strong> iscritta all’Albo degli Psicologi del Lazio
-                                (<strong>n. 32019</strong>) e specializzanda in <strong>psicoterapia ad orientamento
-                                    umanistico-esperienziale</strong>.
+                                <strong>psicologa a Tivoli</strong>
+                                @if ($seoContact['albo_registration_url'] !== '')
+                                    <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">iscritta all’Albo degli Psicologi del Lazio (<strong>n. 32019</strong>)</a>
+                                @else
+                                    iscritta all’Albo degli Psicologi del Lazio (<strong>n. 32019</strong>)
+                                @endif
+                                e specializzanda in <strong>psicoterapia ad orientamento
+                                    umanistico-esperienziale</strong>@if ($seoContact['aspic_url'] !== '') (<a href="{{ $seoContact['aspic_url'] }}" target="_blank" rel="noopener noreferrer">ASPIC</a>)@endif.
                                 Ogni persona porta con sé una storia, delle fragilità e delle risorse che meritano uno
                                 spazio di
                                 ascolto autentico.
@@ -132,7 +139,13 @@
                                 <h5 class="mb-3">Info utili</h5>
 
                                 <ul class="list-unstyled mb-0 info-list">
-                                    <li><strong>Albo:</strong> Psicologi del Lazio n. 32019</li>
+                                    <li><strong>Albo:</strong>
+                                        @if ($seoContact['albo_registration_url'] !== '')
+                                            <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">Psicologi del Lazio n. 32019</a>
+                                        @else
+                                            Psicologi del Lazio n. 32019
+                                        @endif
+                                    </li>
                                     <li><strong>Riceve:</strong> online e in presenza a Tivoli</li>
                                     <li><strong>Disponibilità:</strong> lun–ven</li>
                                     <li><strong>Durata seduta:</strong> 50 minuti</li>
@@ -154,13 +167,13 @@
                 </div>
             </div>
 
-            <div class="mt-4 d-flex container-btn gap-2 flex-wrap about-actions">
+            <div class="mt-4 d-flex container-btn flex-wrap about-actions">
                 <a class="btn btn-brand" href="{{ route('contacts') }}">
                     Richiedi un primo colloquio
                 </a>
 
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
-                    href="https://wa.me/393441122785">
+                    href="{{ $seoContact['whatsapp_url'] }}">
                     Scrivimi su WhatsApp
                 </a>
             </div>

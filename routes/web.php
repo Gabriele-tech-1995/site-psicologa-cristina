@@ -19,6 +19,51 @@ Route::post('/contatti', [PublicController::class, 'submit'])->name('contacts.su
 
 Route::get('/testimonianze', [PublicController::class, 'testimonials'])->name('testimonials');
 Route::post('/testimonianze', [PublicController::class, 'storeTestimonial'])->name('testimonials.store');
+Route::view('/privacy-policy', 'privacy')->name('privacy');
+Route::get('/sitemap.xml', function () {
+    $urls = [
+        ['loc' => route('home'), 'priority' => '1.0'],
+        ['loc' => route('about'), 'priority' => '0.9'],
+        ['loc' => route('areas'), 'priority' => '0.9'],
+        ['loc' => route('contacts'), 'priority' => '0.9'],
+        ['loc' => route('testimonials'), 'priority' => '0.8'],
+        ['loc' => route('privacy'), 'priority' => '0.5'],
+    ];
+
+    $areaSlugs = [
+        'ansia-e-gestione-dello-stress',
+        'umore-basso',
+        'difficolta-relazionali',
+        'autostima',
+        'difficolta-scolastiche',
+        'disturbi-del-neurosviluppo',
+        'genitorialita',
+        'valutazioni-psicodiagnostiche',
+        'potenziamento-funzioni-esecutive',
+        'potenziamento-abilita-scolastiche',
+        'intervento-di-gruppo-area-emotiva-relazionale',
+        'tutor-dsa-bes-adhd',
+    ];
+
+    foreach ($areaSlugs as $slug) {
+        $urls[] = ['loc' => route('areas.show', ['slug' => $slug]), 'priority' => '0.8'];
+    }
+
+    return response()
+        ->view('sitemap', ['urls' => $urls])
+        ->header('Content-Type', 'application/xml');
+})->name('sitemap');
+
+Route::get('/robots.txt', function () {
+    $content = implode("\n", [
+        'User-agent: *',
+        'Allow: /',
+        'Disallow: /admin',
+        'Sitemap: '.route('sitemap'),
+    ]);
+
+    return response($content, 200)->header('Content-Type', 'text/plain');
+});
 
 // rotte protette admin
 Route::middleware('basic.auth')->prefix('admin')->name('admin.')->group(function () {
