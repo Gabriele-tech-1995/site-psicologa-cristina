@@ -88,9 +88,7 @@ contact-faq
 contact-faq-accordion
 contact-form-layout
 contact-form-sticky
-contact-map-teaser
-contact-map-teaser__btn
-contact-map-teaser__hint
+contact-map-embed
 contacts-layout
 contacts-layout__faq
 contacts-layout__form

@@ -9,7 +9,7 @@ use Tests\TestCase;
 class SeoContactTest extends TestCase
 {
     #[Test]
-    public function locations_include_maps_open_url_from_address(): void
+    public function locations_include_maps_embed_src_from_address(): void
     {
         config()->set('seo.psychologist.locations', [
             [
@@ -25,15 +25,15 @@ class SeoContactTest extends TestCase
         $contact = SeoContact::forView();
         $this->assertArrayHasKey('locations', $contact);
         $this->assertCount(1, $contact['locations']);
-        $url = $contact['locations'][0]['maps_open_url'] ?? null;
-        $this->assertIsString($url);
-        $this->assertStringContainsString('https://www.google.com/maps/search/', $url);
-        $this->assertStringContainsString('query=', $url);
-        $this->assertStringContainsString(rawurlencode('Via Roma 1, Tivoli, RM, Italia'), $url);
+        $src = $contact['locations'][0]['maps_embed_src'] ?? null;
+        $this->assertIsString($src);
+        $this->assertStringContainsString('https://www.google.com/maps?', $src);
+        $this->assertStringContainsString('output=embed', $src);
+        $this->assertStringContainsString(rawurlencode('Via Roma 1, Tivoli, RM, Italia'), $src);
     }
 
     #[Test]
-    public function maps_embed_url_is_used_as_external_link_when_no_maps_url(): void
+    public function maps_embed_url_overrides_generated_src(): void
     {
         config()->set('seo.psychologist.locations', [
             [
@@ -45,12 +45,12 @@ class SeoContactTest extends TestCase
         $contact = SeoContact::forView();
         $this->assertSame(
             'https://www.google.com/maps/embed?pb=test',
-            $contact['locations'][0]['maps_open_url'] ?? null
+            $contact['locations'][0]['maps_embed_src'] ?? null
         );
     }
 
     #[Test]
-    public function maps_url_is_preferred_over_address_for_open_link(): void
+    public function maps_url_query_is_preferred_over_address(): void
     {
         config()->set('seo.psychologist.locations', [
             [
@@ -64,9 +64,9 @@ class SeoContactTest extends TestCase
         ]);
 
         $contact = SeoContact::forView();
-        $this->assertSame(
-            'https://maps.google.com/?q=Centro+Imago+Tivoli',
-            $contact['locations'][0]['maps_open_url'] ?? null
-        );
+        $src = $contact['locations'][0]['maps_embed_src'] ?? '';
+
+        $this->assertStringContainsString(rawurlencode('Centro Imago Tivoli'), $src);
+        $this->assertStringNotContainsString(rawurlencode('Via Roma 1, Tivoli, RM, Italia'), $src);
     }
 }

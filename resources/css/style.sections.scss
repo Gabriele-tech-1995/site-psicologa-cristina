@@ -714,25 +714,26 @@
     overflow: visible;
 }
 
-/* Link a Google Maps (niente iframe → Lighthouse / cookie terze parti). */
-.contact-map-teaser {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-    padding: 0.75rem 0.85rem;
+.contact-map-embed {
+    position: relative;
+    width: 100%;
     border-radius: var(--raggio);
+    overflow: hidden;
     border: 1px solid var(--bordo-soft);
+    box-shadow: var(--ombra-soft);
+    aspect-ratio: 16 / 10;
+    min-height: 168px;
+    max-height: 240px;
     background: var(--sfondo-soft);
-}
 
-.contact-map-teaser__btn {
-    align-self: flex-start;
-}
-
-.contact-map-teaser__hint {
-    line-height: 1.35;
-    max-width: 22rem;
+    iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+    }
 }
 .alert-success {
     background: rgba(93, 119, 103, 0.08);

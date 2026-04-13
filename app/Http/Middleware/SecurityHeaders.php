@@ -65,7 +65,7 @@ class SecurityHeaders
             'connect-src '.implode(' ', $connectPieces),
             "worker-src 'none'",
             "manifest-src 'self'",
-            "frame-src 'self'",
+            "frame-src 'self' https://www.google.com https://www.gstatic.com https://maps.google.com https://*.google.com",
             "object-src 'none'",
             "base-uri 'self'",
             "form-action 'self'",

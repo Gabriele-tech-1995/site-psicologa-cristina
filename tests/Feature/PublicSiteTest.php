@@ -35,7 +35,7 @@ class PublicSiteTest extends TestCase
             'home' => ['/', ['Dott.ssa Cristina Pacifici']],
             'about' => ['/chi-sono', ['Chi sono']],
             'areas' => ['/aree', ['Aree di intervento']],
-            'contacts' => ['/contatti', ['Contatti', 'Richiedi un primo colloquio', 'Apri in Google Maps']],
+            'contacts' => ['/contatti', ['Contatti', 'Richiedi un primo colloquio']],
             'testimonials' => ['/testimonianze', ['Testimonianze']],
             'privacy' => ['/privacy-policy', ['Privacy', 'titolare del trattamento']],
         ];
@@ -81,14 +81,6 @@ class PublicSiteTest extends TestCase
     public function test_unknown_area_slug_returns_404(): void
     {
         $this->get('/aree/questa-pagina-non-esiste')->assertNotFound();
-    }
-
-    public function test_contacts_page_has_no_google_maps_iframe(): void
-    {
-        $html = $this->get(route('contacts'))->assertOk()->getContent();
-        $this->assertStringNotContainsString('<iframe', $html);
-        $this->assertStringNotContainsString('output=embed', $html);
-        $this->assertStringNotContainsString('/maps/embed', $html);
     }
 
     public function test_sitemap_is_xml_and_lists_core_routes(): void

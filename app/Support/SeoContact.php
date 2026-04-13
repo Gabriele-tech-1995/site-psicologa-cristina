@@ -14,7 +14,7 @@ final class SeoContact
      *     whatsapp_url: string,
      *     albo_registration_url: string,
      *     aspic_url: string,
-     *     locations: array<int, array<string, mixed>> (chiavi: maps_open_url, …)
+     *     locations: array<int, array<string, mixed>>
      * }
      */
     public static function forView(): array
@@ -35,7 +35,7 @@ final class SeoContact
 
         $locations = $psy['locations'] ?? [];
         $locations = is_array($locations)
-            ? array_map(static fn ($loc) => is_array($loc) ? self::withMapsOpenUrl($loc) : $loc, $locations)
+            ? array_map(static fn ($loc) => is_array($loc) ? self::withMapsEmbed($loc) : $loc, $locations)
             : [];
 
         $alboUrl = (string) ($psy['albo_registration_url'] ?? '');
@@ -58,31 +58,25 @@ final class SeoContact
      * @param  array<string, mixed>  $loc
      * @return array<string, mixed>
      */
-    private static function withMapsOpenUrl(array $loc): array
+    private static function withMapsEmbed(array $loc): array
     {
-        $loc['maps_open_url'] = self::mapsOpenUrl($loc);
+        $loc['maps_embed_src'] = self::mapsEmbedSrc($loc);
 
         return $loc;
     }
 
     /**
-     * Link esterno a Google Maps (nessun iframe → niente cookie Google sulla nostra pagina, Lighthouse).
-     *
      * @param  array<string, mixed>  $loc
      */
-    private static function mapsOpenUrl(array $loc): ?string
+    private static function mapsEmbedSrc(array $loc): ?string
     {
-        $mapsUrl = isset($loc['maps_url']) ? trim((string) $loc['maps_url']) : '';
-        if ($mapsUrl !== '') {
-            return $mapsUrl;
-        }
-
         if (! empty($loc['maps_embed_url']) && is_string($loc['maps_embed_url'])) {
-            $legacy = trim($loc['maps_embed_url']);
+            $url = trim($loc['maps_embed_url']);
 
-            return $legacy !== '' ? $legacy : null;
+            return $url !== '' ? $url : null;
         }
 
+        // Prefer explicit map query/place data over plain address geocoding.
         $query = self::extractMapsQueryFromUrl($loc['maps_url'] ?? null);
         if ($query === '') {
             $query = self::locationGeocodeQuery($loc);
@@ -91,7 +85,7 @@ final class SeoContact
             return null;
         }
 
-        return 'https://www.google.com/maps/search/?api=1&query='.rawurlencode($query).'&hl=it';
+        return 'https://www.google.com/maps?q='.rawurlencode($query).'&hl=it&output=embed';
     }
 
     /**

@@ -30,9 +30,9 @@ return [
         | Sedi in presenza (allineate alla pagina Contatti). Il primo elemento è anche
         | l’indirizzo principale nel campo address dello schema Psychologist.
         |
-        | maps_url: link “Apri in Google Maps” (JSON-LD hasMap + Contatti). Consigliato.
-        | maps_embed_url: opzionale legacy; se maps_url manca, usato come stesso link esterno (mai iframe).
-        | Senza entrambi, si genera un link da indirizzo (maps/search).
+        | maps_embed_url: opzionale, src iframe da “Condividi > Inserisci una mappa” su Google Maps
+        | (più preciso del riquadro generato da indirizzo). Se assente, si usa l’indirizzo strutturato.
+        | maps_url: link per aprire la posizione in una nuova scheda (JSON-LD / uso futuro).
         */
         'locations' => [
             [

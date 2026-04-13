@@ -95,15 +95,15 @@
                                         ({{ $loc['address_region'] }})
                                     @endif
                                 </div>
-                                @if (!empty($loc['maps_open_url']))
-                                    <div class="contact-map-teaser mt-2">
-                                        <a class="btn btn-outline-secondario btn-sm contact-map-teaser__btn"
-                                            href="{{ $loc['maps_open_url'] }}" target="_blank" rel="noopener noreferrer"
-                                            title="Apri {{ $loc['name'] ?? 'la sede' }} su Google Maps (si apre in una nuova scheda)">
-                                            Apri in Google Maps
-                                        </a>
-                                        <span class="contact-map-teaser__hint small text-muted">Si apre fuori dal sito,
-                                            senza cookie di Google su questa pagina.</span>
+                                @if (!empty($loc['maps_embed_src']))
+                                    <div class="contact-map-embed mt-2">
+                                        <iframe
+                                            title="Mappa: {{ $loc['name'] ?? 'Sede' }}"
+                                            src="{{ $loc['maps_embed_src'] }}"
+                                            loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade"
+                                            allowfullscreen
+                                            credentialless></iframe>
                                     </div>
                                 @endif
                             </div>
