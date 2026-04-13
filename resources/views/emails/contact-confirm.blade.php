@@ -14,13 +14,13 @@
     </p>
 
     <p style="margin:0 0 16px;">
-        La ringrazio per avermi contattato. Ho ricevuto la sua richiesta e la ricontatterò il prima possibile
-        utilizzando i recapiti indicati.
+        La ringrazio per avermi contattato. Ho ricevuto la sua richiesta e le risponderò appena possibile,
+        ai recapiti che ha indicato.
     </p>
 
     <p style="margin:0 0 22px;padding:14px 16px;background-color:#f5eedf;border-left:4px solid #b89a5a;border-radius:0 8px 8px 0;font-size:15px;line-height:1.55;color:#3d4d43;">
-        Nel frattempo, se desidera aggiungere ulteriori informazioni o comunicare disponibilità orarie,
-        può rispondere direttamente a questa email.
+        Nel frattempo, se desidera aggiungere un dettaglio o indicare qualche preferenza di orario,
+        può rispondere tranquillamente a questa email.
     </p>
 
     <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"

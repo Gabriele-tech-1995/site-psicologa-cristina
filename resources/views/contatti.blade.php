@@ -1,34 +1,17 @@
 <x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription">
     @php
+        $strategicFaqs = config('strategic_faqs', []);
         $faqSchema = [
             '@context' => 'https://schema.org',
             '@type' => 'FAQPage',
-            'mainEntity' => [
-                [
-                    '@type' => 'Question',
-                    'name' => 'In quanto tempo ricevo risposta?',
-                    'acceptedAnswer' => [
-                        '@type' => 'Answer',
-                        'text' => 'Solitamente rispondo entro 24 ore lavorative. Nei periodi di maggiore richiesta i tempi possono estendersi leggermente.',
-                    ],
+            'mainEntity' => collect($strategicFaqs)->map(fn (array $item) => [
+                '@type' => 'Question',
+                'name' => $item['question'],
+                'acceptedAnswer' => [
+                    '@type' => 'Answer',
+                    'text' => $item['answer'],
                 ],
-                [
-                    '@type' => 'Question',
-                    'name' => 'Il primo colloquio è online o in presenza?',
-                    'acceptedAnswer' => [
-                        '@type' => 'Answer',
-                        'text' => 'Entrambe le modalità sono disponibili: insieme valutiamo quella più adatta in base alle esigenze.',
-                    ],
-                ],
-                [
-                    '@type' => 'Question',
-                    'name' => 'Quanto dura una seduta?',
-                    'acceptedAnswer' => [
-                        '@type' => 'Answer',
-                        'text' => 'La durata standard è di circa 50 minuti.',
-                    ],
-                ],
-            ],
+            ])->all(),
         ];
     @endphp
     <section class="section contacts-page">
@@ -38,20 +21,71 @@
 
                 <h1 class="mb-2 page-title">Contatti</h1>
 
-                <p class="page-lead mb-2">
-                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — riceve su appuntamento; puoi richiedere un
-                    primo colloquio <strong>online</strong> o <strong>in presenza</strong> compilando il modulo qui
-                    sotto: rispondo in tempi brevi e concordiamo la modalità più adatta.
-                    In presenza riceve presso <strong>Centro Imago</strong> e <strong>Centro Empathia</strong> a Tivoli,
-                    e presso <strong>Centro Liberamente</strong> a Villanova di Guidonia — sempre su appuntamento —
-                    oltre alla modalità online.
+                <p class="page-lead mb-3 contact-lead-primary">
+                    <strong>Dott.ssa Cristina Pacifici</strong> è <strong>psicologa a Tivoli</strong>; riceve su
+                    appuntamento <strong>online</strong> e <strong>in presenza</strong> presso
+                    <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
+                    <strong>Centro Liberamente</strong> (Villanova di Guidonia).
+                    Per un primo contatto può usare il <strong>modulo</strong> qui sotto, l’<strong>email</strong> o
+                    <strong>WhatsApp</strong> (stesso numero del telefono).
+                    Di solito rispondo entro <strong>24 ore lavorative</strong> (lun–ven); nei periodi di maggiore richiesta i tempi possono allungarsi leggermente.
                 </p>
-                <p class="page-lead">
-                    Se prima vuoi orientarti, consulta le
-                    <a href="{{ route('areas') }}" title="Aree di intervento della psicologa a Tivoli">aree di intervento</a>
-                    o approfondisci il mio
-                    <a href="{{ route('about') }}" title="Chi sono e come lavoro">approccio professionale</a>.
+
+                <div class="card shadow-soft border-0 contact-summary-highlight p-4 mb-4">
+                    <p class="mb-0">
+                        Può contattare la <strong>Dott.ssa Cristina Pacifici</strong> tramite <strong>modulo</strong>,
+                        <strong>email</strong> o <strong>WhatsApp</strong>.
+                        Riceverà una risposta nel più breve tempo possibile: leggo io ogni messaggio e, di norma, rispondo entro <strong>24 ore lavorative</strong> (lun–ven).
+                        È possibile svolgere il <strong>primo colloquio</strong> <strong>online</strong> oppure <strong>in presenza</strong>, in base a esigenze e preferenze.
+                        Non serve una richiesta perfetta: basta un messaggio sincero; se lo desidera, può aggiungere qualche riga su ciò che sente importante condividere.
+                    </p>
+                </div>
+
+                <div class="row g-3 g-lg-4 mb-2 contact-at-a-glance">
+                    <div class="col-md-4">
+                        <div class="card shadow-soft h-100 border-0 p-3 contact-glance-card">
+                            <h2 class="h6 mb-2 card-heading-oro">Chi è</h2>
+                            <p class="small mb-0">
+                                Psicologa, iscritta all’<strong>Albo degli Psicologi del Lazio</strong> (n. 32019), con
+                                percorso di specializzanda in psicoterapia umanistico-esperienziale.
+                                <a href="{{ route('about') }}">Approfondisca in Chi sono</a>.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-soft h-100 border-0 p-3 contact-glance-card">
+                            <h2 class="h6 text-uppercase text-muted mb-2">Dove riceve</h2>
+                            <p class="small mb-0">
+                                Sedute in presenza su appuntamento ai centri indicati; colloqui anche da remoto quando è la modalità più adatta.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card shadow-soft h-100 border-0 p-3 contact-glance-card">
+                            <h2 class="h6 mb-2 card-heading-oro">Modalità</h2>
+                            <p class="small mb-0">
+                                È possibile svolgere il primo colloquio <strong>online</strong> oppure <strong>in presenza</strong>, in base a esigenze e preferenze;
+                                la scelta si affronta con calma nel colloquio conoscitivo.
+                                Durata seduta: circa <strong>50 minuti</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="page-lead mb-0 small text-muted">
+                    Se le è utile farsi un’idea prima sul tipo di percorsi che offro, può anche dare un’occhiata alle
+                    <a href="{{ route('areas') }}">Aree di intervento</a>.
                 </p>
+            </div>
+
+            <div class="card shadow-soft p-4 mb-4 contact-steps">
+                <h2 class="h5 mb-3">Cosa succede dopo aver scritto</h2>
+                <ol class="contact-steps-list mb-0 ps-3">
+                    <li><strong>Riceve una mia risposta</strong> — di solito entro <strong>24 ore lavorative</strong> (lun–ven).</li>
+                    <li><strong>Insieme</strong> si trova la modalità più adatta: <strong>online</strong>, <strong>in presenza</strong> o quale sede le è più comoda.</li>
+                    <li><strong>Primo colloquio</strong> (circa 50 minuti): ascolto della richiesta, informazioni utili e
+                        spazio per le sue domande, senza pressioni sulla durata del percorso.</li>
+                </ol>
             </div>
 
             <div class="contacts-layout mt-1">
@@ -59,7 +93,8 @@
                     <div class="contacts-left d-flex flex-column w-100">
 
                     <div class="card shadow-soft p-4 mb-4 card-info">
-                        <h2 class="h5 mb-3">Contatti diretti</h2>
+                        <h2 class="h5 mb-2">Contatto rapido</h2>
+                        <p class="small text-muted mb-3">Per un contatto rapido: stesso numero su WhatsApp.</p>
 
                         <p class="mb-2">
                             <strong>Email:</strong>
@@ -79,14 +114,14 @@
                             </a>
 
                             <a class="btn btn-outline-secondario" href="{{ $seoContact['mailto'] }}">
-                                Email
+                                Invia un’email
                             </a>
                         </div>
 
                         <hr class="my-4">
 
                         <p class="mb-0 small text-muted">
-                            Cancellazione entro 24 ore. Durata della seduta: 50 minuti.
+                            Sedute di circa 50 minuti. Per disdire o spostare: preavviso di 24 ore quando possibile.
                         </p>
                     </div>
 
@@ -114,7 +149,7 @@
                                 @endif
                             </div>
                         @empty
-                            <p class="small text-muted mb-0">Sedi in aggiornamento: contattami per disponibilità in presenza.</p>
+                            <p class="small text-muted mb-0">Sedi in aggiornamento: mi contatti per disponibilità in presenza.</p>
                         @endforelse
                     </div>
 
@@ -124,16 +159,17 @@
                 <div class="contacts-layout__form">
                     <div class="contact-form-sticky">
                         <div id="richiesta-colloquio" class="card shadow-soft p-4 card-form w-100">
-                    <h2 class="h4 mb-3">Richiedi un primo colloquio</h2>
+                    <h2 class="h4 mb-2">Modulo per il primo colloquio</h2>
 
-                    <p class="text-muted">
-                        Inserisci i tuoi recapiti e una breve descrizione della richiesta.
-                        Ti ricontatterò il prima possibile per definire insieme il primo colloquio.
+                    <p class="text-muted mb-0">
+                        Se desidera un primo contatto o maggiori informazioni, può scrivermi tramite il modulo qui sotto:
+                        anche poche righe vanno bene. Rispondo di persona per capire come posso esserle utile e, se le sta bene,
+                        proporre un colloquio conoscitivo.
                     </p>
 
                     @if ($errors->any())
                         <div class="alert alert-danger" role="alert">
-                            <p class="mb-1 fw-semibold">Non è stato possibile inviare il modulo. Controlla:</p>
+                            <p class="mb-1 fw-semibold">Non è stato possibile inviare il modulo. Può controllare quanto segue:</p>
                             <ul class="mb-0 small">
                                 @foreach ($errors->all() as $err)
                                     <li>{{ $err }}</li>
@@ -206,7 +242,7 @@
                                 </div>
 
                                 <div class="small text-muted mt-2">
-                                    Si invita a non inserire nel primo messaggio informazioni cliniche dettagliate.
+                                    Nel primo messaggio, se può, eviti dettagli clinici molto specifici: ne potremo parlare con più calma dal vivo o online.
                                 </div>
                             </div>
                             @error('privacy')
@@ -214,13 +250,13 @@
                             @enderror
 
                             <div class="col-12 contact-actions mt-3 d-grid gap-2 d-sm-flex align-items-center">
-                                <button type="submit" class="btn btn-brand">
-                                    Invia richiesta
+                                <button type="submit" class="btn btn-brand btn-lg">
+                                    Invii il messaggio
                                 </button>
 
                                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_form"
                                     href="{{ $seoContact['whatsapp_url'] }}">
-                                    Scrivimi su WhatsApp
+                                    Mi scriva su WhatsApp
                                 </a>
                             </div>
                         </div>
@@ -231,51 +267,24 @@
 
                 <div class="contacts-layout__faq mt-4" id="domande-frequenti-contatti">
                 <div class="card shadow-soft p-4 contact-faq">
-                    <h2 class="h4 mb-3">Domande frequenti</h2>
+                    <h2 class="h4 mb-3 card-heading-oro">Domande frequenti</h2>
                     <div class="accordion accordion-flush contact-faq-accordion" id="contactFaq">
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faqOne" aria-expanded="false" aria-controls="faqOne">
-                                    In quanto tempo ricevo risposta?
-                                </button>
-                            </h3>
-                            <div id="faqOne" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
-                                <div class="accordion-body">
-                                    Solitamente rispondo entro 24 ore lavorative. Nei periodi di maggiore richiesta i
-                                    tempi possono estendersi leggermente.
+                        @foreach ($strategicFaqs as $index => $faq)
+                            @php
+                                $collapseId = 'contactStrategicFaq'.$index;
+                            @endphp
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#{{ $collapseId }}" aria-expanded="false" aria-controls="{{ $collapseId }}">
+                                        {{ $faq['question'] }}
+                                    </button>
+                                </h3>
+                                <div id="{{ $collapseId }}" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
+                                    @include('partials.strategic-faq-answer', ['faq' => $faq])
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faqTwo" aria-expanded="false" aria-controls="faqTwo">
-                                    Il primo colloquio è online o in presenza?
-                                </button>
-                            </h3>
-                            <div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
-                                <div class="accordion-body">
-                                    Entrambe le modalità sono disponibili: insieme valutiamo quella più adatta in base
-                                    alle esigenze.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faqThree" aria-expanded="false" aria-controls="faqThree">
-                                    Quanto dura una seduta?
-                                </button>
-                            </h3>
-                            <div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#contactFaq">
-                                <div class="accordion-body">
-                                    La durata standard è di circa 50 minuti.
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 </div>

@@ -5,10 +5,20 @@
                 <span class="badge badge-soft mb-3">Chi sono</span>
                 <h1 class="page-title mb-2">Dott.ssa Cristina Pacifici</h1>
                 <p class="page-lead about-lead">
-                    Psicologa · Esperta in valutazione e trattamento dei Disturbi Specifici dell’Apprendimento ·
-                    Specializzanda in psicoterapia umanistico-esperienziale @if ($seoContact['aspic_url'] !== '')
-                        (<a href="{{ $seoContact['aspic_url'] }}" target="_blank" rel="noopener noreferrer">ASPIC</a>)
+                    Sono la <strong>Dott.ssa Cristina Pacifici</strong>, <strong>psicologa a Tivoli</strong>, e mi occupo di
+                    <strong>supporto psicologico</strong> per <strong>bambini, adolescenti, adulti e genitori</strong>.
+                    Ricevo <strong>online</strong> e <strong>in presenza</strong> su appuntamento; sono
+                    @if ($seoContact['albo_registration_url'] !== '')
+                        <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">iscritta all’Albo degli Psicologi del Lazio (n. 32019)</a>
+                    @else
+                        iscritta all’<strong>Albo degli Psicologi del Lazio</strong> (n. 32019)
                     @endif
+                    e <strong>specializzanda in psicoterapia umanistico-esperienziale</strong>
+                    @if ($seoContact['aspic_url'] !== '')
+                        (<a href="{{ $seoContact['aspic_url'] }}" target="_blank" rel="noopener noreferrer">ASPIC</a>)
+                    @endif.
+                    Ho una forte esperienza nella <strong>valutazione e nel supporto nei Disturbi Specifici dell’Apprendimento (DSA)</strong>
+                    e nei <strong>disturbi del neurosviluppo</strong>; il mio approccio unisce competenza, ascolto e una relazione terapeutica autentica.
                 </p>
             </div>
 
@@ -18,26 +28,17 @@
 
                         <div class="card shadow-soft p-4 mb-4 card-chi">
                             <p class="mb-3">
-                                Sono la <strong>Dott.ssa Cristina Pacifici</strong>,
-                                <strong>psicologa a Tivoli</strong>
-                                @if ($seoContact['albo_registration_url'] !== '')
-                                    <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank"
-                                        rel="noopener noreferrer">iscritta all’Albo degli Psicologi del Lazio
-                                        (<strong>n. 32019</strong>)</a>
-                                @else
-                                    iscritta all’Albo degli Psicologi del Lazio (<strong>n. 32019</strong>)
-                                @endif
-                                con <strong>Laurea magistrale in Psicologia conseguita con votazione <span aria-hidden="true">🎓</span> 110/110 e
-                                    lode</strong>, e specializzanda in <strong>psicoterapia ad orientamento
+                                Ho conseguito la <strong>Laurea magistrale in Psicologia con votazione <span aria-hidden="true">🎓</span> 110/110 e
+                                    lode</strong> e sto completando la specializzazione in <strong>psicoterapia
                                     umanistico-esperienziale</strong>
                                 @if ($seoContact['aspic_url'] !== '')
                                     (
                                     <a href="{{ $seoContact['aspic_url'] }}" target="_blank"
                                         rel="noopener noreferrer">ASPIC</a>)
                                 @endif.
-                                Ogni persona porta con sé una storia, delle fragilità e delle risorse che meritano uno
-                                spazio di
-                                ascolto autentico.
+                                L’iscrizione all’Albo per me ha lo stesso peso del percorso di studi: lavorare con regole chiare e formazione continua.
+                                Credo che ogni persona porti con sé una storia che merita uno spazio di ascolto
+                                autentico, senza giudizio e con il tempo necessario.
                             </p>
 
                             <p class="mb-3">
@@ -132,16 +133,11 @@
                         <div class="card shadow-soft p-4 card-chi">
                             <p class="mb-0">
                                 Il primo colloquio ha una durata di circa 50 minuti, in linea con le sedute successive,
-                                ed è uno
-                                spazio dedicato all’ascolto e alla comprensione della richiesta.
-                                Durante l’incontro verrà data attenzione alla storia e alla situazione portata,
-                                raccogliendo le
-                                informazioni utili e iniziando a delineare insieme i possibili obiettivi del percorso.
-                                In questa fase verranno inoltre fornite le principali informazioni relative al percorso,
-                                compresi gli aspetti organizzativi e il consenso informato.
-                                Al termine del colloquio sarà possibile valutare come proseguire, nel rispetto dei tempi
-                                e delle
-                                esigenze della persona.
+                                ed è uno spazio dedicato all’ascolto e alla comprensione della richiesta.
+                                Durante l’incontro sarà possibile chiarire insieme esigenze, obiettivi e modalità del percorso,
+                                con attenzione alla sua storia e a ciò che oggi sente importante raccontare.
+                                Ci sarà anche spazio per le informazioni organizzative e per il consenso informato, con calma.
+                                Al termine potrà valutare con calma come proseguire, nel rispetto dei tempi e delle sue esigenze.
                             </p>
                         </div>
 
@@ -193,13 +189,13 @@
             </div>
 
             <div class="mt-4 d-flex container-btn flex-wrap about-actions">
-                <a class="btn btn-brand" href="{{ route('contacts') }}">
-                    Richiedi un primo colloquio
+                <a class="btn btn-brand btn-lg" href="{{ route('contacts') }}#richiesta-colloquio">
+                    Richieda il primo colloquio
                 </a>
 
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                     href="{{ $seoContact['whatsapp_url'] }}">
-                    Scrivimi su WhatsApp
+                    Mi scriva su WhatsApp
                 </a>
             </div>
         </div>

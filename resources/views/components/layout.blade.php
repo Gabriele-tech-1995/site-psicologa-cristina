@@ -131,7 +131,7 @@
     @stack('modals')
 
     <a href="{{ $seoContact['whatsapp_url'] }}" target="_blank" rel="noopener noreferrer" class="whatsapp-float" data-track="click_whatsapp_floating"
-        aria-label="Scrivimi su WhatsApp">
+        aria-label="Contatto WhatsApp">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 16 16"
             aria-hidden="true" focusable="false">
             <path

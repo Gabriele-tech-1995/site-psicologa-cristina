@@ -84,7 +84,7 @@
                 <div class="navbar-offcanvas__finale">
                     <div class="navbar-offcanvas__finale-glow" aria-hidden="true"></div>
                     <p class="navbar-offcanvas__finale-quote">
-                        Insieme, <span class="navbar-offcanvas__finale-quote-accent">al tuo ritmo.</span>
+                        Insieme, <span class="navbar-offcanvas__finale-quote-accent">al proprio ritmo.</span>
                     </p>
                     @if ($alboNavUrl)
                         <a class="navbar-offcanvas__finale-albo" href="{{ $alboNavUrl }}" target="_blank"

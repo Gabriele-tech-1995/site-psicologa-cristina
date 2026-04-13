@@ -95,7 +95,11 @@ contacts-layout__form
 contacts-layout__sidebar
 contacts-left
 contacts-page
+card-heading-oro
+contact-steps
+contact-steps-list
 container
+cta-final-lead
 container-btn
 container-fluid
 custom-toast
@@ -137,6 +141,10 @@ hamburger-icon
 hamburger-icon__bar
 hero
 hero-actions
+hero-actions-stack
+hero-cta-alt
+hero-cta-note
+hero-micro
 hero-box
 hero-box-home
 hero-dot

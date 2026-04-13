@@ -67,12 +67,46 @@ class PublicController extends Controller
 
         $localSuffix = config('seo.defaults.site_suffix_local', ' | Psicologa a Tivoli');
 
+        $relatedSlugs = $this->relatedAreaSlugsFor($slug);
+        $allAreas = $this->getAreas();
+        $relatedAreas = collect($relatedSlugs)
+            ->map(fn (string $s) => collect($allAreas)->firstWhere('slug', $s))
+            ->filter()
+            ->values()
+            ->all();
+
         return view('area-show', [
             'area' => $area,
             'metaTitle' => $area['meta_title'] ?? $area['title'].$localSuffix,
             'metaDescription' => $area['meta_description'] ?? $area['preview'],
             'areaFaqSchema' => $areaFaqSchema,
+            'relatedAreas' => $relatedAreas,
         ]);
+    }
+
+    /**
+     * Aree correlate per link interni (SEO e navigazione).
+     *
+     * @return list<string>
+     */
+    private function relatedAreaSlugsFor(string $slug): array
+    {
+        $map = [
+            'ansia-e-gestione-dello-stress' => ['autostima', 'difficolta-relazionali', 'umore-basso'],
+            'umore-basso' => ['ansia-e-gestione-dello-stress', 'autostima', 'difficolta-relazionali'],
+            'difficolta-relazionali' => ['autostima', 'genitorialita', 'ansia-e-gestione-dello-stress'],
+            'autostima' => ['ansia-e-gestione-dello-stress', 'difficolta-relazionali', 'umore-basso'],
+            'difficolta-scolastiche' => ['disturbi-del-neurosviluppo', 'potenziamento-abilita-scolastiche', 'genitorialita'],
+            'disturbi-del-neurosviluppo' => ['difficolta-scolastiche', 'valutazioni-psicodiagnostiche', 'tutor-dsa-bes-adhd'],
+            'genitorialita' => ['difficolta-relazionali', 'difficolta-scolastiche', 'disturbi-del-neurosviluppo'],
+            'valutazioni-psicodiagnostiche' => ['disturbi-del-neurosviluppo', 'potenziamento-funzioni-esecutive', 'difficolta-scolastiche'],
+            'potenziamento-funzioni-esecutive' => ['valutazioni-psicodiagnostiche', 'disturbi-del-neurosviluppo', 'potenziamento-abilita-scolastiche'],
+            'potenziamento-abilita-scolastiche' => ['difficolta-scolastiche', 'tutor-dsa-bes-adhd', 'disturbi-del-neurosviluppo'],
+            'intervento-di-gruppo-area-emotiva-relazionale' => ['difficolta-relazionali', 'genitorialita', 'umore-basso'],
+            'tutor-dsa-bes-adhd' => ['disturbi-del-neurosviluppo', 'difficolta-scolastiche', 'potenziamento-abilita-scolastiche'],
+        ];
+
+        return $map[$slug] ?? ['ansia-e-gestione-dello-stress', 'difficolta-relazionali', 'genitorialita'];
     }
 
     /**
@@ -204,24 +238,24 @@ class PublicController extends Controller
                     'max:42',
                     function (string $attribute, mixed $value, \Closure $fail): void {
                         if (! is_string($value)) {
-                            $fail('Inserisci un numero di telefono.');
+                            $fail('Può indicarmi un numero di telefono, così posso ricontattarla se serve.');
 
                             return;
                         }
                         $trimmed = trim($value);
                         if ($trimmed === '' || ! preg_match('/^[\d\s\+\.\-\(\)\/]+$/u', $trimmed)) {
-                            $fail('Usa solo cifre e separatori comuni (spazio, +, trattino, punto, parentesi).');
+                            $fail('Può usare solo cifre e i separatori abituali (spazio, +, trattino, punto, parentesi).');
 
                             return;
                         }
                         $digits = preg_replace('/\D+/', '', $trimmed);
                         if (strlen($digits) < 8) {
-                            $fail('Il numero di telefono deve contenere almeno 8 cifre.');
+                            $fail('Il numero sembra un po’ corto: può ricontrollare?');
 
                             return;
                         }
                         if (strlen($digits) > 15) {
-                            $fail('Il numero di telefono contiene troppe cifre.');
+                            $fail('Il numero contiene troppe cifre: può ricontrollare?');
                         }
                     },
                 ],
@@ -229,22 +263,22 @@ class PublicController extends Controller
                 'privacy' => ['accepted'],
             ],
             [
-                'name.required' => 'Inserisci nome e cognome.',
+                'name.required' => 'Può aggiungere nome e cognome: mi aiuta a risponderle con cura.',
                 'name.min' => 'Il nome deve avere almeno :min caratteri.',
                 'name.max' => 'Il nome non può superare :max caratteri.',
                 'name.regex' => 'Il nome può contenere solo lettere, spazi, apostrofi e trattini.',
 
-                'email.required' => 'Inserisci la tua email.',
-                'email.email' => 'Inserisci un indirizzo email valido.',
+                'email.required' => 'Può indicarmi anche un indirizzo email, così posso ricontattarla.',
+                'email.email' => 'L’indirizzo email non sembra valido: può ricontrollare?',
                 'email.max' => 'L’email non può superare :max caratteri.',
 
-                'phone.required' => 'Inserisci un numero di telefono.',
+                'phone.required' => 'Può lasciarmi anche un recapito telefonico.',
 
-                'message.required' => 'Scrivi un breve messaggio.',
+                'message.required' => 'Può scrivermi qualche riga (anche poche): così capisco meglio cosa la porta qui.',
                 'message.min' => 'Il messaggio deve avere almeno :min caratteri.',
                 'message.max' => 'Il messaggio non può superare :max caratteri.',
 
-                'privacy.accepted' => 'Per inviare la richiesta è necessario accettare il consenso al trattamento dei dati.',
+                'privacy.accepted' => 'Per completare l’invio, le chiedo anche il segno di consenso sulla privacy, in calce al modulo.',
             ]
         );
 
@@ -281,13 +315,13 @@ class PublicController extends Controller
 
             return redirect()
                 ->route('contacts')
-                ->with('warning', 'La richiesta è stata registrata, ma al momento non è stato possibile inviare le email automatiche (problema di rete o del server di posta). La ricontatterò comunque; in alternativa puoi usare WhatsApp o il telefono in alto in pagina.')
+                ->with('warning', 'Il suo messaggio è arrivato a me, ma in questo momento le notifiche automatiche via email non sono partite (rete o server di posta). La ricontatterò io comunque; se preferisce, può scrivermi anche su WhatsApp o al numero in alto in pagina.')
                 ->withFragment('richiesta-colloquio');
         }
 
         return redirect()
             ->route('contacts')
-            ->with('success', 'Richiesta inviata correttamente. La ricontatterò il prima possibile.');
+            ->with('success', 'Grazie per aver scritto. Riceverà una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
     }
 
     public function testimonials()
@@ -311,11 +345,11 @@ class PublicController extends Controller
             'message' => ['required', 'string', 'min:20', 'max:2000'],
             'consent_publish' => ['accepted'],
         ], [
-            'name_label.required' => 'Inserisci come vuoi firmare la testimonianza.',
-            'name_label.regex' => 'Inserisci nome e iniziale del cognome (es. Maria R.).',
-            'message.required' => 'Inserisci la tua testimonianza.',
+            'name_label.required' => 'Può indicare come desidera firmare (es. nome e iniziale del cognome).',
+            'name_label.regex' => 'Può usare nome e iniziale del cognome con il punto finale (es. Maria R.).',
+            'message.required' => 'Può aggiungere il testo della testimonianza, anche breve.',
             'message.min' => 'La testimonianza deve contenere almeno 20 caratteri.',
-            'consent_publish.accepted' => 'Devi accettare il consenso alla pubblicazione.',
+            'consent_publish.accepted' => 'Per poterla valutare in vista di una pubblicazione, le chiedo anche il consenso qui sotto.',
         ]);
 
         Testimonial::create([
@@ -327,7 +361,7 @@ class PublicController extends Controller
 
         return redirect()
             ->route('testimonials')
-            ->with('success', 'La tua testimonianza è stata inviata correttamente e sarà valutata prima della pubblicazione.');
+            ->with('success', 'Grazie: ho ricevuto la sua testimonianza e la leggerò con attenzione prima di una eventuale pubblicazione.');
     }
 
     private function getAreas(): array
@@ -344,7 +378,7 @@ class PublicController extends Controller
 
                 'body' => '
     <p>
-        Se stai vivendo <strong>ansia</strong>, agitazione costante o momenti di forte attivazione emotiva, affrontare tutto da soli può diventare faticoso.
+        Se sta vivendo <strong>ansia</strong>, agitazione costante o momenti di forte attivazione emotiva, affrontare tutto in solitudine può diventare faticoso.
         Come <strong>psicologa a Tivoli</strong>, offro supporto psicologico ad adolescenti, giovani adulti e genitori per comprendere l’origine dell’ansia e sviluppare strumenti concreti per gestirla nella vita quotidiana, ritrovando maggiore equilibrio e serenità.
     </p>
 
@@ -378,15 +412,15 @@ class PublicController extends Controller
         Quando questi segnali diventano frequenti o intensi, un <strong>supporto psicologico</strong> può aiutare a comprendere meglio ciò che sta accadendo e a intervenire in modo mirato.
     </p>
 
-    <h2>Come posso aiutarti a gestire ansia e stress</h2>
+    <h2>Come posso accompagnarla nella gestione di ansia e stress</h2>
 
     <p>
         Il percorso psicologico è uno spazio sicuro in cui poter parlare liberamente, senza giudizio, e dare significato a ciò che si sta vivendo.
-        Lavoreremo insieme per comprendere i meccanismi che alimentano l’ansia e costruire modalità più efficaci per affrontarla nel quotidiano.
+        Nel percorso si lavora insieme per comprendere i meccanismi che alimentano l’ansia e costruire modalità più efficaci per affrontarla nel quotidiano.
     </p>
 
     <p>
-        Durante il percorso potrai:
+        Durante il percorso potrà:
     </p>
 
     <ul>
@@ -416,10 +450,10 @@ class PublicController extends Controller
 
     <ul>
         <li>l’ansia è presente da tempo e fatica a diminuire</li>
-        <li>hai sperimentato momenti di forte agitazione o perdita di controllo</li>
-        <li>eviti situazioni per paura, disagio o senso di insicurezza</li>
+        <li>ha sperimentato momenti di forte agitazione o perdita di controllo</li>
+        <li>evita situazioni per paura, disagio o senso di insicurezza</li>
         <li>lo stress incide sul lavoro, sullo studio o sulle relazioni</li>
-        <li>hai difficoltà a dormire, rilassarti o sentirti realmente tranquillo</li>
+        <li>ha difficoltà a dormire, a rilassarsi o a ritrovare un senso di calma</li>
     </ul>
 
     <p>
@@ -448,7 +482,7 @@ class PublicController extends Controller
         Il primo colloquio serve proprio a valutare insieme la situazione e definire il percorso più adeguato.
     </p>
 
-    <h4>Come faccio a capire se l’ansia richiede un supporto professionale?</h4>
+    <h4>Come capire se l’ansia richiede un supporto professionale?</h4>
     <p>
         Può essere utile chiedere supporto quando l’ansia diventa frequente, intensa o inizia a interferire con il sonno, il lavoro, lo studio o le relazioni.
         Anche la presenza di preoccupazioni costanti, forte agitazione o difficoltà a rilassarsi può essere un segnale importante da ascoltare.
@@ -499,7 +533,7 @@ class PublicController extends Controller
         Quando questi segnali diventano frequenti o iniziano a condizionare il benessere personale, un <strong>supporto psicologico</strong> può aiutare a comprendere meglio il significato del disagio e a orientare un percorso di cambiamento.
     </p>
 
-    <h2>Come posso aiutarti in un percorso di supporto psicologico</h2>
+    <h2>Come posso accompagnarla in un percorso di supporto psicologico</h2>
 
     <p>
         Il percorso si sviluppa in uno spazio di ascolto autentico, in cui la persona può sentirsi accolta, compresa e accompagnata nel riconoscere i vissuti che stanno emergendo.
@@ -532,10 +566,10 @@ class PublicController extends Controller
     </p>
 
     <ul>
-        <li>ti senti spesso senza energia o senza motivazione</li>
-        <li>fatichi a provare interesse o piacere nelle attività quotidiane</li>
-        <li>avverti un senso di blocco, vuoto o distanza da te stesso</li>
-        <li>ti percepisci più fragile, scoraggiato o disorientato</li>
+        <li>si sente spesso senza energia o senza motivazione</li>
+        <li>fa fatica a provare interesse o piacere nelle attività quotidiane</li>
+        <li>avverte un senso di blocco, vuoto o distanza da sé</li>
+        <li>si percepisce più fragile, scoraggiato o disorientato</li>
         <li>il malessere influisce sulle relazioni o sulla qualità della vita</li>
     </ul>
 
@@ -618,7 +652,7 @@ class PublicController extends Controller
         Un percorso psicologico può aiutare a comprendere meglio ciò che accade e a individuare modalità più funzionali di stare in relazione con gli altri.
     </p>
 
-    <h2>Come posso aiutarti a migliorare la qualità delle relazioni</h2>
+    <h2>Come posso accompagnarla a migliorare la qualità delle relazioni</h2>
 
     <p>
         Il percorso psicologico permette di osservare con maggiore consapevolezza il proprio modo di comunicare, reagire e relazionarsi agli altri.
@@ -735,7 +769,7 @@ class PublicController extends Controller
         In questi casi, un percorso psicologico può aiutare a comprendere le origini di tali difficoltà e a costruire una percezione di sé più stabile e positiva.
     </p>
 
-    <h2>Come posso aiutarti a rafforzare l’autostima</h2>
+    <h2>Come posso accompagnarla a rafforzare l’autostima</h2>
 
     <p>
         Il lavoro psicologico si orienta al riconoscimento delle risorse personali, alla comprensione dei meccanismi di autosvalutazione e alla costruzione di un rapporto più autentico con sé stessi.
@@ -768,11 +802,11 @@ class PublicController extends Controller
     </p>
 
     <ul>
-        <li>ti senti spesso insicuro o inadeguato</li>
-        <li>hai difficoltà a prendere decisioni o a fidarti delle tue capacità</li>
-        <li>temi il giudizio degli altri o eviti alcune situazioni</li>
-        <li>tendi a svalutarti o a minimizzare i tuoi successi</li>
-        <li>fatichi a riconoscere il tuo valore personale</li>
+        <li>si sente spesso insicuro o inadeguato</li>
+        <li>ha difficoltà a prendere decisioni o a fidarsi delle proprie capacità</li>
+        <li>teme il giudizio degli altri o evita alcune situazioni</li>
+        <li>tende a svalutarsi o a minimizzare i propri successi</li>
+        <li>fa fatica a riconoscere il proprio valore personale</li>
     </ul>
 
     <p>
@@ -854,7 +888,7 @@ class PublicController extends Controller
         In questi casi, un intervento mirato può aiutare a comprendere le cause del disagio e a costruire modalità di studio più efficaci.
     </p>
 
-    <h2>Come posso aiutare bambini e adolescenti con difficoltà scolastiche</h2>
+    <h2>Supporto a bambini e adolescenti con difficoltà scolastiche</h2>
 
     <p>
         L’intervento viene costruito in base alle caratteristiche del minore, tenendo conto degli aspetti cognitivi, emotivi e relazionali coinvolti.
@@ -974,7 +1008,7 @@ class PublicController extends Controller
         che permette di comprendere con maggiore precisione i punti di forza e le difficoltà della persona.
     </p>
 
-    <h2>Come posso aiutare bambini e famiglie</h2>
+    <h2>Supporto a bambini e famiglie</h2>
 
     <p>
         Il supporto psicologico aiuta a comprendere il funzionamento della persona in modo più chiaro, individuare i bisogni specifici e costruire interventi mirati, rispettosi della sua unicità.

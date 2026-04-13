@@ -32,10 +32,10 @@ class PublicSiteTest extends TestCase
     public static function publicPageProvider(): array
     {
         return [
-            'home' => ['/', ['Dott.ssa Cristina Pacifici']],
+            'home' => ['/', ['Dott.ssa Cristina Pacifici', 'Domande frequenti']],
             'about' => ['/chi-sono', ['Chi sono']],
             'areas' => ['/aree', ['Aree di intervento']],
-            'contacts' => ['/contatti', ['Contatti', 'Richiedi un primo colloquio']],
+            'contacts' => ['/contatti', ['Contatti', 'Modulo per il primo colloquio', 'Come si svolge il primo colloquio?']],
             'testimonials' => ['/testimonianze', ['Testimonianze']],
             'privacy' => ['/privacy-policy', ['Privacy', 'titolare del trattamento']],
         ];
@@ -53,6 +53,7 @@ class PublicSiteTest extends TestCase
         $response->assertSee('Domande frequenti', false);
         $response->assertSee('"@type":"FAQPage"', false);
         $response->assertSee('"@type":"Article"', false);
+        $response->assertSee('Altri percorsi e contatti', false);
     }
 
     /**

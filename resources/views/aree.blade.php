@@ -9,7 +9,7 @@
 
                 <p class="page-lead mb-4">
                     Offro percorsi di supporto psicologico a <strong>Tivoli</strong> per bambini, adolescenti e genitori.
-                    In questa sezione puoi approfondire le principali aree di intervento, tra cui
+                    In questa sezione può approfondire le principali aree di intervento, tra cui
                     <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
                         title="Ansia e gestione dello stress">
                         ansia e gestione dello stress
@@ -61,18 +61,18 @@
 
             <div class="mt-5 text-center">
                 <p class="mb-3">
-                    Se desideri maggiori informazioni o vuoi capire quale percorso può essere più adatto,
-                    puoi richiedere un primo colloquio.
+                    Se desidera un primo contatto o maggiori informazioni, può scrivermi dalla pagina Contatti
+                    o richiedere un colloquio conoscitivo: sarà uno spazio per capire insieme quale percorso può avere più senso per lei.
                 </p>
 
                 <div class="d-flex justify-content-center gap-2 flex-wrap">
                     <a class="btn btn-brand" href="{{ route('contacts') }}">
-                        Richiedi un primo colloquio
+                        Richieda un primo colloquio
                     </a>
 
                     <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                         href="{{ $seoContact['whatsapp_url'] }}">
-                        Scrivimi su WhatsApp
+                        Mi scriva su WhatsApp
                     </a>
                 </div>
             </div>

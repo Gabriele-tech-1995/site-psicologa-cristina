@@ -81,6 +81,8 @@
                     per affrontare difficoltà educative e favorire un clima familiare più sereno.',
             ],
         ];
+
+        $homeStrategicFaqs = config('strategic_faqs', []);
     @endphp
 
     {{-- INTRO --}}
@@ -103,7 +105,116 @@
         </div>
     </section>
 
-    {{-- FORMAZIONE --}}
+    {{-- HERO PRINCIPALE --}}
+    <section class="hero">
+        <div class="container">
+            <div class="hero-box hero-box-home shadow-soft">
+                <div class="row align-items-center g-4 hero-home-row">
+                    <div class="col-lg-7">
+                        <span class="hero-kicker">Dott.ssa Cristina Pacifici · Psicologa · Tivoli, online e in
+                            presenza</span>
+
+                        <h1 class="hero-title mt-3 mb-3">Psicologa a Tivoli per bambini, adolescenti e genitori</h1>
+
+                        <p class="hero-subtitle mb-2">
+                            Sono la <strong>Dott.ssa Cristina Pacifici</strong>, psicologa e specializzanda in
+                            psicoterapia <strong>umanistico-esperienziale</strong>.
+                            Accompagno <strong>bambini, adolescenti, adulti e genitori</strong> con un ascolto attento e
+                            percorsi costruiti insieme, senza fretta e nel rispetto dei tempi di ciascuno.
+                        </p>
+                        <p class="hero-micro mb-0">
+                            <strong>Primo passo:</strong> un colloquio conoscitivo (circa 50 minuti): è possibile svolgerlo
+                            <strong>online</strong> oppure <strong>in presenza</strong>, in base a ciò che le è più comodo,
+                            per capire il bisogno e vedere se il percorso può esserle utile — in modo chiaro e senza impegno sulla durata.
+                        </p>
+
+                        <div class="hero-points mt-3">
+                            <div class="hero-point"><span class="hero-dot"></span><span><strong>Primo colloquio</strong>
+                                    online o in presenza • durata seduta: <strong>50 minuti</strong></span></div>
+                            <div class="hero-point"><span class="hero-dot"></span><span><strong>Disponibilità</strong>
+                                    lun–ven: di solito riscontro entro <strong>24 ore lavorative</strong></span></div>
+                            <div class="hero-point"><span class="hero-dot"></span><span>In presenza riceve presso
+                                    <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
+                                    <strong>Centro Liberamente</strong> (Villanova di Guidonia), su appuntamento; anche
+                                    <strong>online</strong></span></div>
+                        </div>
+
+                        <div class="hero-actions mt-4 hero-actions-stack">
+                            <div class="d-flex flex-column align-items-stretch align-items-sm-center gap-2">
+                                <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
+                                    data-track="cta_hero_colloquio">Richieda il primo colloquio</a>
+                                <span class="hero-cta-note text-center">Modulo sul sito · di solito riscontro entro
+                                    <strong>24 ore lavorative</strong> (lun–ven)</span>
+                            </div>
+                            <p class="hero-cta-alt mb-0 text-center">
+                                Preferisce scrivere prima su WhatsApp?
+                                <a target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_hero"
+                                    href="{{ $seoContact['whatsapp_url'] }}">Apra la chat</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="card shadow-soft p-4 h-100 card-aree">
+                            <span class="badge badge-soft mb-3">Aree principali</span>
+
+                            <ul class="mb-0 lista-aree">
+                                @foreach ($aree as $area)
+                                    <li>
+                                        <a href="{{ route('areas.show', ['slug' => $area['slug']]) }}"
+                                            title="{{ $area['title'] }}">
+                                            {{ $area['label'] }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+
+                            <div class="d-flex justify-content-center mt-4">
+                                <a class="btn btn-outline-secondario btn-sm" href="{{ route('areas') }}">Scopri tutte le
+                                    aree</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- TRUST BAR --}}
+    <section class="section pt-0">
+        <div class="container">
+            <div class="card p-3 p-md-4 trust-strip">
+                <div class="row g-3 text-center">
+                    <div class="col-md-4">
+                        <div class="trust-item">
+                            <strong>Iscritta all’Albo</strong>
+                            <span>
+                                @if ($seoContact['albo_registration_url'] !== '')
+                                    <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">Psicologi del Lazio n. 32019</a>
+                                @else
+                                    Psicologi del Lazio n. 32019
+                                @endif
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="trust-item">
+                            <strong>Dove e come</strong>
+                            <span>Online · In presenza a Tivoli (Centro Imago, Empathia) e a Villanova (Liberamente)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="trust-item">
+                            <strong>Sedute e tempi</strong>
+                            <span>50 minuti · Cancellazione con 24 ore di preavviso</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- FORMAZIONE (dopo hero: credenziali senza bloccare la CTA) --}}
     <section class="section formazione-section">
         <div class="container">
             <div class="formazione-wrapper">
@@ -153,103 +264,6 @@
         </div>
     </section>
 
-    {{-- HERO PRINCIPALE --}}
-    <section class="hero">
-        <div class="container">
-            <div class="hero-box hero-box-home shadow-soft">
-                <div class="row align-items-center g-4 hero-home-row">
-                    <div class="col-lg-7">
-                        <span class="hero-kicker">Supporto psicologico • Tivoli e online</span>
-
-                        <h1 class="hero-title mt-3 mb-3">Psicologa a Tivoli per bambini, adolescenti e genitori</h1>
-
-                        <p class="hero-subtitle mb-0">
-                            Sono la <strong>Dott.ssa Cristina Pacifici</strong>, psicologa e specializzanda in
-                            psicoterapia a orientamento <strong>umanistico-esperienziale</strong>.
-                            Offro uno spazio di ascolto e supporto per bambini, adolescenti e genitori, con percorsi
-                            personalizzati in base ai bisogni della persona.
-                        </p>
-
-                        <div class="hero-points mt-3">
-                            <div class="hero-point"><span class="hero-dot"></span><span><strong>Primo colloquio</strong>
-                                    online o in presenza • durata seduta: <strong>50 minuti</strong></span></div>
-                            <div class="hero-point"><span class="hero-dot"></span><span><strong>Disponibilità</strong>
-                                    lun–ven: di solito riscontro entro <strong>24 ore lavorative</strong></span></div>
-                            <div class="hero-point"><span class="hero-dot"></span><span>In presenza riceve presso
-                                    <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
-                                    <strong>Centro Liberamente</strong> (Villanova di Guidonia), su appuntamento; anche
-                                    <strong>online</strong></span></div>
-                        </div>
-
-                        <div class="hero-actions mt-4 d-flex gap-2 flex-wrap justify-content-center">
-                            <a class="btn btn-brand" href="{{ route('contacts') }}"
-                                data-track="cta_hero_colloquio">Richiedi un primo colloquio</a>
-                            <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
-                                data-track="click_whatsapp_hero" href="{{ $seoContact['whatsapp_url'] }}">Scrivimi su
-                                WhatsApp</a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-5">
-                        <div class="card shadow-soft p-4 h-100 card-aree">
-                            <span class="badge badge-soft mb-3">Aree principali</span>
-
-                            <ul class="mb-0 lista-aree">
-                                @foreach ($aree as $area)
-                                    <li>
-                                        <a href="{{ route('areas.show', ['slug' => $area['slug']]) }}"
-                                            title="{{ $area['title'] }}">
-                                            {{ $area['label'] }}
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
-
-                            <div class="d-flex justify-content-center mt-4">
-                                <a class="btn btn-outline-secondario btn-sm" href="{{ route('areas') }}">Scopri tutte le
-                                    aree</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- TRUST BAR --}}
-    <section class="section pt-0">
-        <div class="container">
-            <div class="card p-3 p-md-4 trust-strip">
-                <div class="row g-3 text-center">
-                    <div class="col-md-4">
-                        <div class="trust-item">
-                            <strong>Iscritta all’Albo</strong>
-                            <span>
-                                @if ($seoContact['albo_registration_url'] !== '')
-                                    <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">Psicologi del Lazio n. 32019</a>
-                                @else
-                                    Psicologi del Lazio n. 32019
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="trust-item">
-                            <strong>Modalità flessibile</strong>
-                            <span>Colloqui online e in presenza a Tivoli</span>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="trust-item">
-                            <strong>Tempi chiari</strong>
-                            <span>Seduta 50 minuti · Cancellazione entro 24h</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     {{-- A CHI MI RIVOLGO --}}
     <section class="section">
         <div class="container">
@@ -279,8 +293,8 @@
                 <p class="mb-0">
                     Il primo colloquio ha una durata di circa <strong>50 minuti</strong> ed è uno spazio dedicato
                     all’ascolto e alla comprensione della richiesta.
-                    Durante l’incontro verranno raccolte le informazioni utili e inizieremo a definire insieme i
-                    possibili obiettivi del percorso.
+                    Durante l’incontro sarà possibile chiarire insieme esigenze, obiettivi e modalità del percorso,
+                    con il tempo per le informazioni utili e per le sue domande.
                     In base alla situazione, il percorso potrà orientarsi verso un supporto mirato su aspetti come
                     <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
                         title="Ansia e gestione dello stress">ansia e gestione dello stress</a>,
@@ -296,16 +310,51 @@
         </div>
     </section>
 
+    {{-- FAQ STRATEGICHE (stesso contenuto della pagina Contatti; schema FAQPage solo su Contatti) --}}
+    <section class="section pt-0" id="domande-frequenti-home" aria-labelledby="home-faq-heading">
+        <div class="container">
+            <div class="card shadow-soft p-4 contact-faq">
+                <h2 class="h4 mb-2 card-heading-oro" id="home-faq-heading">Domande frequenti</h2>
+                <p class="text-muted small mb-3">
+                    Qui ho raccolto alcune risposte alle domande che mi vengono rivolte più spesso.
+                    Se desidera scrivermi o concordare un colloquio, può visitare la pagina
+                    <a href="{{ route('contacts') }}">Contatti</a>: lì trova il modulo, l’email e il numero anche su WhatsApp.
+                </p>
+                <div class="accordion accordion-flush contact-faq-accordion" id="homeStrategicFaq">
+                    @foreach ($homeStrategicFaqs as $index => $faq)
+                        @php
+                            $homeFaqCollapseId = 'homeStrategicFaq'.$index;
+                        @endphp
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#{{ $homeFaqCollapseId }}" aria-expanded="false" aria-controls="{{ $homeFaqCollapseId }}">
+                                    {{ $faq['question'] }}
+                                </button>
+                            </h3>
+                            <div id="{{ $homeFaqCollapseId }}" class="accordion-collapse collapse" data-bs-parent="#homeStrategicFaq">
+                                @include('partials.strategic-faq-answer', ['faq' => $faq])
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
+
     {{-- CTA FINALE --}}
     <section class="section text-center">
         <div class="container">
-            <h3 class="mb-3">Se senti il bisogno di un supporto, puoi richiedere un primo colloquio.</h3>
-            <div class="d-flex justify-content-center gap-2 flex-wrap mt-3">
-                <a class="btn btn-brand" href="{{ route('contacts') }}" data-track="cta_bottom_colloquio">Richiedi un
-                    primo colloquio</a>
+            <h3 class="mb-2">Desidera fare un primo passo?</h3>
+            <p class="text-muted mb-4 mx-auto cta-final-lead">
+                Bastano un messaggio o il modulo: rispondo personalmente e, se le sembra naturale, si può fissare insieme un
+                colloquio conoscitivo.
+            </p>
+            <div class="d-flex justify-content-center gap-2 flex-wrap mt-2">
+                <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
+                    data-track="cta_bottom_colloquio">Richieda il primo colloquio</a>
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
-                    data-track="click_whatsapp_bottom" href="{{ $seoContact['whatsapp_url'] }}">Scrivimi su
-                    WhatsApp</a>
+                    data-track="click_whatsapp_bottom" href="{{ $seoContact['whatsapp_url'] }}">Mi scriva su WhatsApp</a>
             </div>
         </div>
     </section>
