@@ -194,7 +194,7 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
         margin-right: 0;
         max-width: calc(100% - 5.6rem);
         min-width: 0;
-        gap: 0.55rem;
+        gap: 0.5rem;
         align-items: center !important;
     }
 
@@ -209,8 +209,8 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
     }
 
     .navbar-logo {
-        width: 44px;
-        height: 44px;
+        width: 42px;
+        height: 42px;
     }
 
     .brand-title-desktop,
@@ -222,23 +222,29 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
     .brand-subtitle-mobile {
         display: block;
         max-width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    }
+
+    .brand-text {
+        align-items: center;
+        text-align: center;
     }
 
     .brand-title-mobile {
-        font-size: clamp(0.88rem, 3.6vw, 1.05rem);
-        line-height: 1.06;
+        font-size: clamp(0.84rem, 3.3vw, 1rem);
+        line-height: 1.1;
+        white-space: normal;
+        overflow: visible;
+        text-overflow: clip;
     }
 
     .brand-subtitle-mobile {
-        font-size: clamp(0.66rem, 2.4vw, 0.74rem);
+        font-size: clamp(0.64rem, 2.2vw, 0.72rem);
         line-height: 1.18;
         letter-spacing: 0.015em;
         color: var(--testo-secondario);
         margin-top: 0.08rem;
         font-family: var(--font-testo);
+        white-space: nowrap;
     }
 
     .navbar-custom.scrolled {
@@ -250,25 +256,25 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
 
 @media (max-width: 575.98px) {
     .navbar-custom .container {
-        padding-right: calc(var(--bs-gutter-x, 0.75rem) + 5.4rem);
+        padding-right: calc(var(--bs-gutter-x, 0.75rem) + 5.2rem);
     }
 
     .navbar-logo {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
     }
 
     .navbar-brand {
-        max-width: calc(100% - 5.4rem);
+        max-width: calc(100% - 5.2rem);
         gap: 0.42rem;
     }
 
     .brand-title-mobile {
-        font-size: clamp(0.82rem, 4vw, 0.95rem);
+        font-size: clamp(0.8rem, 3.8vw, 0.9rem);
     }
 
     .brand-subtitle-mobile {
-        font-size: clamp(0.62rem, 2.8vw, 0.7rem);
+        font-size: clamp(0.62rem, 2.6vw, 0.68rem);
     }
 }
 
