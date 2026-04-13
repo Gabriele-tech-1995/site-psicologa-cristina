@@ -21,12 +21,20 @@
                                 Sono la <strong>Dott.ssa Cristina Pacifici</strong>,
                                 <strong>psicologa a Tivoli</strong>
                                 @if ($seoContact['albo_registration_url'] !== '')
-                                    <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">iscritta all’Albo degli Psicologi del Lazio (<strong>n. 32019</strong>)</a>
+                                    <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank"
+                                        rel="noopener noreferrer">iscritta all’Albo degli Psicologi del Lazio
+                                        (<strong>n. 32019</strong>)</a>
                                 @else
                                     iscritta all’Albo degli Psicologi del Lazio (<strong>n. 32019</strong>)
                                 @endif
-                                e specializzanda in <strong>psicoterapia ad orientamento
-                                    umanistico-esperienziale</strong>@if ($seoContact['aspic_url'] !== '') (<a href="{{ $seoContact['aspic_url'] }}" target="_blank" rel="noopener noreferrer">ASPIC</a>)@endif.
+                                con <strong>Laurea magistrale in Psicologia conseguita con votazione 110/110 e
+                                    lode</strong>, e specializzanda in <strong>psicoterapia ad orientamento
+                                    umanistico-esperienziale</strong>
+                                @if ($seoContact['aspic_url'] !== '')
+                                    (
+                                    <a href="{{ $seoContact['aspic_url'] }}" target="_blank"
+                                        rel="noopener noreferrer">ASPIC</a>)
+                                @endif.
                                 Ogni persona porta con sé una storia, delle fragilità e delle risorse che meritano uno
                                 spazio di
                                 ascolto autentico.
@@ -37,22 +45,24 @@
                                 ambiente
                                 accogliente e rispettoso in cui <strong>bambini, adolescenti, adulti e genitori</strong>
                                 possano sentirsi compresi e sostenuti.
-                                Offro <strong>sostegno psicologico</strong> nei momenti di difficoltà, disorientamento o
+                                Offro <strong><a href="{{ route('areas') }}" title="Aree di intervento psicologico">sostegno psicologico</a></strong> nei momenti di difficoltà, disorientamento o
                                 cambiamento, accompagnando la persona in un percorso di maggiore
                                 <strong>consapevolezza emotiva</strong> e stabilità.
                             </p>
 
                             <p class="mb-3">
                                 Mi occupo di <strong>valutazione e trattamento dei disturbi del neurosviluppo</strong>,
-                                con particolare attenzione ai <strong>Disturbi Specifici dell’Apprendimento
-                                    (DSA)</strong>.
+                                con particolare attenzione ai <strong><a href="{{ route('areas.show', ['slug' => 'disturbi-del-neurosviluppo']) }}"
+                                        title="Supporto per disturbi del neurosviluppo e DSA">Disturbi Specifici dell’Apprendimento
+                                        (DSA)</a></strong>.
                                 Integro il lavoro sugli aspetti cognitivi con una costante attenzione alla dimensione
                                 emotiva e
                                 relazionale, promuovendo un approccio globale al benessere della persona.
                             </p>
 
                             <p class="mb-3">
-                                Realizzo <strong>valutazioni psicodiagnostiche</strong>, percorsi di
+                                Realizzo <strong><a href="{{ route('areas.show', ['slug' => 'valutazioni-psicodiagnostiche']) }}"
+                                        title="Valutazioni psicodiagnostiche">valutazioni psicodiagnostiche</a></strong>, percorsi di
                                 <strong>potenziamento degli apprendimenti</strong> e delle
                                 <strong>funzioni esecutive</strong>, con l’obiettivo di comprendere in modo chiaro e
                                 condiviso
@@ -61,7 +71,8 @@
 
                             <p class="mb-3">
                                 Affianco inoltre i genitori attraverso percorsi di
-                                <strong>sostegno alla genitorialità</strong>, offrendo uno spazio di confronto e
+                                <strong><a href="{{ route('areas.show', ['slug' => 'genitorialita']) }}"
+                                        title="Percorsi di sostegno alla genitorialità">sostegno alla genitorialità</a></strong>, offrendo uno spazio di confronto e
                                 orientamento
                                 nel delicato compito educativo e nella gestione delle difficoltà evolutive dei figli.
                             </p>
@@ -103,11 +114,16 @@
                             </p>
 
                             <ul class="mb-0">
-                                <li>difficoltà emotive e relazionali</li>
-                                <li>ansia, stress e difficoltà nella gestione delle emozioni</li>
-                                <li>difficoltà scolastiche e di apprendimento</li>
-                                <li>potenziamento delle funzioni cognitive e degli apprendimenti</li>
-                                <li>sostegno alla genitorialità</li>
+                                <li><a href="{{ route('areas.show', ['slug' => 'difficolta-relazionali']) }}"
+                                        title="Supporto per difficoltà emotive e relazionali">difficoltà emotive e relazionali</a></li>
+                                <li><a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
+                                        title="Supporto per ansia e gestione dello stress">ansia, stress e difficoltà nella gestione delle emozioni</a></li>
+                                <li><a href="{{ route('areas.show', ['slug' => 'difficolta-scolastiche']) }}"
+                                        title="Supporto per difficoltà scolastiche e apprendimento">difficoltà scolastiche e di apprendimento</a></li>
+                                <li><a href="{{ route('areas.show', ['slug' => 'potenziamento-funzioni-esecutive']) }}"
+                                        title="Potenziamento delle funzioni cognitive e apprendimenti">potenziamento delle funzioni cognitive e degli apprendimenti</a></li>
+                                <li><a href="{{ route('areas.show', ['slug' => 'genitorialita']) }}"
+                                        title="Sostegno alla genitorialità">sostegno alla genitorialità</a></li>
                             </ul>
                         </div>
 
@@ -141,7 +157,8 @@
                                 <ul class="list-unstyled mb-0 info-list">
                                     <li><strong>Albo:</strong>
                                         @if ($seoContact['albo_registration_url'] !== '')
-                                            <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">Psicologi del Lazio n. 32019</a>
+                                            <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank"
+                                                rel="noopener noreferrer">Psicologi del Lazio n. 32019</a>
                                         @else
                                             Psicologi del Lazio n. 32019
                                         @endif

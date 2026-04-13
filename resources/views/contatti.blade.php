@@ -66,7 +66,7 @@
                                 href="{{ $seoContact['whatsapp_url'] }}">{{ $seoContact['telephone_display'] }}</a>
                         </p>
 
-                        <div class="d-flex gap-2 flex-wrap justify-content-center">
+                        <div class="d-flex gap-2 flex-wrap contact-actions">
                             <a class="btn btn-brand" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_box"
                                 href="{{ $seoContact['whatsapp_url'] }}">
                                 WhatsApp
