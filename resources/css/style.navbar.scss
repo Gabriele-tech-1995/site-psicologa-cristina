@@ -49,9 +49,9 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
     }
 }
 .navbar-logo {
-    /* Più grande e leggibile (prima 42px sembrava “lontano”) */
-    width: 58px;
-    height: 58px;
+    /* Leggermente sotto la versione “grandicella” per equilibrio col titolo */
+    width: 54px;
+    height: 54px;
     object-fit: contain;
     border-radius: 50%;
     border: 1px solid rgba(168, 130, 86, 0.22);
@@ -62,13 +62,13 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
         0 1px 0 rgba(255, 255, 255, 0.9) inset;
 
     @media (min-width: 576px) {
-        width: 66px;
-        height: 66px;
+        width: 60px;
+        height: 60px;
     }
 
     @media (min-width: 992px) {
-        width: 76px;
-        height: 76px;
+        width: 70px;
+        height: 70px;
     }
 }
 .brand-text {
