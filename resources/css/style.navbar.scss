@@ -181,27 +181,68 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
 
     .navbar-custom .container {
         position: relative;
-        align-items: flex-start;
-        padding-right: calc(var(--bs-gutter-x, 0.75rem) + 2.7rem);
+        align-items: center;
+        padding-right: calc(var(--bs-gutter-x, 0.75rem) + 3.2rem);
     }
 
     .navbar-brand {
         margin-right: 0;
         max-width: 100%;
+        gap: 0.55rem;
     }
 
     /* Riporta il pulsante menu in alto a destra su mobile. */
     .navbar-toggler {
         position: absolute;
-        top: 0.38rem;
+        top: 0.5rem;
         right: var(--bs-gutter-x, 0.75rem);
         margin-left: 0;
+    }
+
+    .navbar-logo {
+        width: 46px;
+        height: 46px;
+    }
+
+    .brand-title {
+        font-size: 1rem;
+        line-height: 1.05;
+    }
+
+    .brand-text small {
+        font-size: 0.57rem;
+        line-height: 1.15;
+        letter-spacing: 0.01em;
     }
 
     .navbar-custom.scrolled {
         transition:
             background-color 0.25s ease,
             border-color 0.25s ease;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar-custom .container {
+        padding-right: calc(var(--bs-gutter-x, 0.75rem) + 3.4rem);
+    }
+
+    .navbar-logo {
+        width: 42px;
+        height: 42px;
+    }
+
+    .navbar-brand {
+        gap: 0.42rem;
+    }
+
+    .brand-title {
+        font-size: clamp(0.72rem, 4.2vw, 0.9rem);
+        line-height: 1.03;
+    }
+
+    .brand-text small {
+        font-size: clamp(0.5rem, 2.5vw, 0.6rem);
     }
 }
 
