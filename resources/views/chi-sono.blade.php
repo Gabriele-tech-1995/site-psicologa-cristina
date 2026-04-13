@@ -27,7 +27,7 @@
                                 @else
                                     iscritta all’Albo degli Psicologi del Lazio (<strong>n. 32019</strong>)
                                 @endif
-                                con <strong>Laurea magistrale in Psicologia conseguita con votazione 110/110 e
+                                con <strong>Laurea magistrale in Psicologia conseguita con votazione <span aria-hidden="true">🎓</span> 110/110 e
                                     lode</strong>, e specializzanda in <strong>psicoterapia ad orientamento
                                     umanistico-esperienziale</strong>
                                 @if ($seoContact['aspic_url'] !== '')

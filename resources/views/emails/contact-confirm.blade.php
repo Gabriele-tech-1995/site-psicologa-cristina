@@ -52,7 +52,7 @@
 
 @section('footer')
     <p style="margin:0;">
-        <a href="{{ url('/') }}"
+        <a href="{{ config('app.url', 'https://psicologacristinapacifici.it') }}"
             style="color:#4f7665;font-weight:600;text-decoration:underline;">Visita di nuovo il sito</a>
         <span style="color:#7a8a80;"> — Tivoli, colloqui in presenza e online.</span>
     </p>

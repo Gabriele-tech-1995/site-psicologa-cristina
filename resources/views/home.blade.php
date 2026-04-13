@@ -107,7 +107,7 @@
                 <div class="formazione-box">
                     <h3 class="formazione-title">Formazione</h3>
                     <ul class="formazione-list">
-                        <li>Laurea magistrale in Psicologia <strong>(votazione 110/110 e lode)</strong></li>
+                        <li>Laurea magistrale in Psicologia <strong><span aria-hidden="true">🎓</span> (votazione 110/110 e lode)</strong></li>
                         <li>
                             @if ($seoContact['albo_registration_url'] !== '')
                                 <a href="{{ $seoContact['albo_registration_url'] }}" target="_blank" rel="noopener noreferrer">Iscrizione Albo Psicologi del Lazio n. 32019</a>
