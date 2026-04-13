@@ -92,6 +92,7 @@
                         height="148" loading="eager" decoding="async" fetchpriority="high">
                 </div>
                 <div class="intro-text">
+                    <p class="intro-eyebrow">Chi sono · in sintesi</p>
                     <p class="intro-lead">La Dott.ssa Cristina Pacifici è psicologa a Tivoli e offre supporto
                         psicologico a bambini, adolescenti, adulti e genitori, in presenza e online.</p>
                     <blockquote class="intro-quote">«Non contano i passi che fai, ma la direzione in cui stai
@@ -172,11 +173,12 @@
                         <div class="hero-points mt-3">
                             <div class="hero-point"><span class="hero-dot"></span><span><strong>Primo colloquio</strong>
                                     online o in presenza • durata seduta: <strong>50 minuti</strong></span></div>
-                            <div class="hero-point"><span class="hero-dot"></span><span>Risposta in tempi brevi •
-                                    disponibilità <strong>dal lunedì al venerdì</strong></span></div>
-                            <div class="hero-point"><span class="hero-dot"></span><span>Colloqui in presenza presso
-                                    <strong>sedi concordate</strong> a Tivoli e dintorni, oltre alla
-                                    <strong>modalità online</strong></span></div>
+                            <div class="hero-point"><span class="hero-dot"></span><span><strong>Disponibilità</strong>
+                                    lun–ven: di solito riscontro entro <strong>24 ore lavorative</strong></span></div>
+                            <div class="hero-point"><span class="hero-dot"></span><span>In presenza riceve presso
+                                    <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
+                                    <strong>Centro Liberamente</strong> (Villanova di Guidonia), su appuntamento; anche
+                                    <strong>online</strong></span></div>
                         </div>
 
                         <div class="hero-actions mt-4 d-flex gap-2 flex-wrap justify-content-center">

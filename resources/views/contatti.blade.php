@@ -39,11 +39,11 @@
                 <h1 class="mb-2 page-title">Contatti</h1>
 
                 <p class="page-lead mb-2">
-                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — riceve su
-                    appuntamento; puoi richiedere un primo colloquio <strong>online</strong> o
-                    <strong>in presenza</strong>
-                    compilando il modulo qui sotto: rispondo in tempi brevi e concordiamo la modalità più adatta.
-                    Riceve in presenza presso <strong>strutture professionali del territorio</strong> (su appuntamento)
+                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — riceve su appuntamento; puoi richiedere un
+                    primo colloquio <strong>online</strong> o <strong>in presenza</strong> compilando il modulo qui
+                    sotto: rispondo in tempi brevi e concordiamo la modalità più adatta.
+                    In presenza riceve presso <strong>Centro Imago</strong> e <strong>Centro Empathia</strong> a Tivoli,
+                    e presso <strong>Centro Liberamente</strong> a Villanova di Guidonia — sempre su appuntamento —
                     oltre alla modalità online.
                 </p>
                 <p class="page-lead">

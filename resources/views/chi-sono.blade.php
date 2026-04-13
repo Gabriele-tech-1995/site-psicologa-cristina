@@ -171,12 +171,19 @@
                             </div>
 
                             <div class="card shadow-soft p-4 mt-4 card-chi">
-                                <h5 class="mb-3">Presenza in loco</h5>
+                                <h5 class="mb-3">Dove riceve in presenza</h5>
 
+                                <p class="small mb-2">
+                                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — i colloqui in presenza si
+                                    tengono su appuntamento presso:
+                                </p>
+                                <ul class="small mb-2 ps-3">
+                                    <li><strong>Centro Imago</strong>, Tivoli</li>
+                                    <li><strong>Centro Empathia</strong>, Tivoli</li>
+                                    <li><strong>Centro Liberamente</strong>, Villanova di Guidonia</li>
+                                </ul>
                                 <p class="small mb-0">
-                                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — riceve su appuntamento in
-                                    presenza presso strutture professionali del territorio (Tivoli e dintorni), oltre ai
-                                    colloqui online. Per indirizzi e disponibilità, vedi la pagina
+                                    Riceve anche <strong>online</strong>. Indirizzi, mappe e modalità nella pagina
                                     <a href="{{ route('contacts') }}">Contatti</a>.
                                 </p>
                             </div>

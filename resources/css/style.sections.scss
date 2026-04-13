@@ -19,12 +19,23 @@
 .intro-text {
     max-width: 470px;
 }
+.intro-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--testo-secondario);
+    margin: 0 0 0.45rem;
+    opacity: 0.92;
+}
 .intro-lead {
-    font-size: 1.05rem;
-    line-height: 1.45;
-    color: var(--testo-principale);
-    margin: 0 0 0.85rem;
-    font-weight: 500;
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: var(--testo-secondario);
+    margin: 0 0 1rem;
+    font-weight: 400;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(79, 118, 101, 0.12);
 }
 .intro-quote {
     font-family: var(--font-titoli);

@@ -31,39 +31,37 @@ return [
             'https://wa.me/393441122785',
         ])),
         /*
-        | Sedi in presenza: il nome (`name`) descrive il colloquio in loco (soggetto = professionista),
-        | non la titolarità del “centro”. Indirizzi e mappe restano espliciti.
-        | maps_embed_url: opzionale, src iframe da “Condividi > Inserisci una mappa” su Google Maps
-        | (più preciso del riquadro generato da indirizzo). Se assente, si usa l’indirizzo strutturato.
-        | maps_url: query geografica per embed (preferita all’indirizzo se entrambe presenti).
+        | Sedi in presenza: `name` formula = professionista come soggetto, centro come luogo di ricezione
+        | (mai “Centro X – Dott.ssa”, sempre riceve presso / colloqui presso). JSON-LD: Place con nome descrittivo.
+        | maps_embed_url: opzionale. maps_url: query per embed (preferita all’indirizzo se presente).
         */
         'locations' => [
             [
-                'name' => 'Colloqui in presenza – Tivoli, Piazza Santa Croce 12',
+                'name' => 'Riceve in presenza presso Centro Imago, Tivoli',
                 'street_address' => 'Piazza Santa Croce 12',
                 'address_locality' => 'Tivoli',
                 'address_region' => 'RM',
                 'postal_code' => null,
                 'address_country' => 'IT',
-                'maps_url' => 'https://maps.google.com/?q=Piazza+Santa+Croce+12,+Tivoli,+Italia',
+                'maps_url' => 'https://maps.google.com/?q=Centro+Imago+Tivoli',
             ],
             [
-                'name' => 'Colloqui in presenza – Tivoli, Piazzale delle Nazioni Unite 16',
+                'name' => 'Riceve in presenza presso Centro Empathia, Tivoli',
                 'street_address' => 'Piazzale delle Nazioni Unite 16',
                 'address_locality' => 'Tivoli',
                 'address_region' => 'RM',
                 'postal_code' => null,
                 'address_country' => 'IT',
-                'maps_url' => 'https://maps.google.com/?q=Piazzale+delle+Nazioni+Unite+16,+Tivoli,+Italia',
+                'maps_url' => 'https://maps.google.com/?q=Centro+Empathia+Tivoli',
             ],
             [
-                'name' => 'Colloqui in presenza – Villanova di Guidonia, Via Tito Bernardini 13',
+                'name' => 'Riceve in presenza presso Centro Liberamente, Villanova di Guidonia',
                 'street_address' => 'Via Tito Bernardini 13',
                 'address_locality' => 'Villanova di Guidonia',
                 'address_region' => 'RM',
                 'postal_code' => null,
                 'address_country' => 'IT',
-                'maps_url' => 'https://maps.google.com/?q=Via+Tito+Bernardini+13,+Villanova+di+Guidonia,+Italia',
+                'maps_url' => 'https://maps.google.com/?q=Centro+Liberamente+Guidonia',
             ],
         ],
         'area_served' => [

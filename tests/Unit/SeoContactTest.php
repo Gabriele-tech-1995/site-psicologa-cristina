@@ -59,14 +59,14 @@ class SeoContactTest extends TestCase
                 'address_locality' => 'Tivoli',
                 'address_region' => 'RM',
                 'address_country' => 'IT',
-                'maps_url' => 'https://maps.google.com/?q=Piazza+Santa+Croce+12,+Tivoli',
+                'maps_url' => 'https://maps.google.com/?q=Centro+Imago+Tivoli',
             ],
         ]);
 
         $contact = SeoContact::forView();
         $src = $contact['locations'][0]['maps_embed_src'] ?? '';
 
-        $this->assertStringContainsString(rawurlencode('Piazza Santa Croce 12, Tivoli'), $src);
+        $this->assertStringContainsString(rawurlencode('Centro Imago Tivoli'), $src);
         $this->assertStringNotContainsString(rawurlencode('Via Roma 1, Tivoli, RM, Italia'), $src);
     }
 }

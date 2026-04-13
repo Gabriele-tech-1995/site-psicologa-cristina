@@ -221,7 +221,7 @@ class SeoTest extends TestCase
 
         $this->assertStringContainsString('Piazza Santa Croce 12', $html);
         $this->assertStringContainsString('"@type":"PostalAddress"', $html);
-        $this->assertStringContainsString('Colloqui in presenza', $html);
+        $this->assertStringContainsString('Riceve in presenza presso Centro Imago', $html);
     }
 
     public function test_contacts_page_has_additional_faq_json_ld(): void
