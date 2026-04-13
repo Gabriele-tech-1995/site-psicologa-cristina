@@ -227,8 +227,8 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
     }
 
     .navbar-logo {
-        width: 42px;
-        height: 42px;
+        width: 45px;
+        height: 45px;
         grid-column: 1;
         justify-self: start;
     }
@@ -279,7 +279,7 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
 
 @media (max-width: 575.98px) {
     .navbar-custom {
-        --navbar-mobile-side-space: 3.05rem;
+        --navbar-mobile-side-space: 3.2rem;
     }
 
     .navbar-custom .container {
@@ -287,8 +287,8 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
     }
 
     .navbar-logo {
-        width: 36px;
-        height: 36px;
+        width: 39px;
+        height: 39px;
     }
 
     .navbar-brand {
