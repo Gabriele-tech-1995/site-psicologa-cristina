@@ -138,4 +138,16 @@
             </div>
         </div>
     </section>
+
+    @if ($errors->any())
+        <script @isset($cspNonce) nonce="{{ $cspNonce }}" @endisset>
+            document.addEventListener('DOMContentLoaded', function () {
+                var el = document.getElementById('form-testimonianza');
+                if (el) {
+                    el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+                }
+            });
+        </script>
+    @endif
+
 </x-layout>
