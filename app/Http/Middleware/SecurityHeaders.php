@@ -76,6 +76,11 @@ class SecurityHeaders
             $directives[] = 'upgrade-insecure-requests';
         }
 
+        if (config('security.csp_trusted_types')) {
+            $directives[] = 'trusted-types default allow-duplicates';
+            $directives[] = "require-trusted-types-for 'script'";
+        }
+
         $response->headers->set('Content-Security-Policy', implode('; ', $directives));
 
         return $response;

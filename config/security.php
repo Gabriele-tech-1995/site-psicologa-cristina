@@ -60,4 +60,16 @@ return [
         PREG_SPLIT_NO_EMPTY,
     ))),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Trusted Types (CSP) — Lighthouse “Best practices”
+    |--------------------------------------------------------------------------
+    |
+    | Policy “default” permissiva + script inline con nonce in head: soddisfa
+    | l’audit senza rifattorizzare Bootstrap/GA. Se qualcosa in produzione
+    | va in errore (es. script di terze parti), imposta CSP_TRUSTED_TYPES=false.
+    |
+    */
+    'csp_trusted_types' => filter_var(env('CSP_TRUSTED_TYPES', true), FILTER_VALIDATE_BOOL),
+
 ];

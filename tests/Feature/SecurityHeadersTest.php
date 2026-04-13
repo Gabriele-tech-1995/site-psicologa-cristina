@@ -28,6 +28,8 @@ class SecurityHeadersTest extends TestCase
         $this->assertStringContainsString("'strict-dynamic'", $csp);
         $this->assertStringContainsString("'unsafe-inline'", $csp);
         $this->assertStringContainsString('frame-ancestors', $response->headers->get('Content-Security-Policy'));
+        $this->assertStringContainsString('trusted-types default allow-duplicates', $csp);
+        $this->assertStringContainsString("require-trusted-types-for 'script'", $csp);
     }
 
     public function test_hsts_includes_preload_when_https_and_config(): void

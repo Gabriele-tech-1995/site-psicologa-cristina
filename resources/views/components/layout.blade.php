@@ -19,6 +19,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
+    @if (config('security.csp_trusted_types'))
+        @isset($cspNonce)
+            <script nonce="{{ $cspNonce }}">
+                (function () {
+                    var tt = window.trustedTypes;
+                    if (!tt || !tt.createPolicy) return;
+                    try {
+                        tt.createPolicy('default', {
+                            createHTML: function (s) {
+                                return s;
+                            },
+                            createScript: function (s) {
+                                return s;
+                            },
+                            createScriptURL: function (s) {
+                                return s;
+                            },
+                        });
+                    } catch (e) {}
+                })();
+            </script>
+        @endisset
+    @endif
+
     @php
         $vitePreloadCss = null;
         $viteModulePreloadJs = null;
