@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center gap-3" href="{{ route('home') }}">
-            <img src="{{ asset('img/logo-84.webp') }}" alt="Logo Dott.ssa Cristina Pacifici" class="navbar-logo"
-                width="42" height="42" loading="eager" decoding="async" fetchpriority="low">
+            <img src="{{ asset('img/logo.webp') }}" alt="Logo Dott.ssa Cristina Pacifici" class="navbar-logo"
+                width="233" height="160" loading="eager" decoding="async" fetchpriority="low">
 
             <div class="brand-text">
                 <span class="brand-title">Dott.ssa Cristina Pacifici</span>

@@ -44,10 +44,12 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
     color: var(--color-salvia) !important;
 }
 .navbar-logo {
-    width: 42px;
     height: 42px;
-    object-fit: cover;
-    border-radius: 50%;
+    width: auto;
+    max-width: min(200px, 46vw);
+    object-fit: contain;
+    object-position: left center;
+    border-radius: 10px;
     border: 1px solid rgba(168, 130, 86, 0.2);
     background: #fff;
     flex-shrink: 0;
