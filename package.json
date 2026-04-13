@@ -17,7 +17,7 @@
         "vite": "^7.0.7"
     },
     "dependencies": {
-        "@fontsource/source-serif-4": "^5.2.9",
+        "@fontsource/playfair-display": "^5.2.8",
         "bootstrap": "^5.3.8"
     }
 }

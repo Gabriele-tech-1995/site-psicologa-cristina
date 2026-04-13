@@ -38,7 +38,7 @@ final class SeoLayoutLinkedData
             if (! is_string($key) || ! is_array($entry)) {
                 continue;
             }
-            if (! str_contains($key, 'source-serif-4-latin-600-normal.woff2')) {
+            if (! str_contains($key, 'playfair-display-latin-600-normal.woff2')) {
                 continue;
             }
             $file = $entry['file'] ?? null;
