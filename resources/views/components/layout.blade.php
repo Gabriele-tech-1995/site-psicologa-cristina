@@ -82,7 +82,10 @@
     <meta name="twitter:image" content="{{ $ogImage }}">
     <meta name="twitter:image:alt" content="Dott.ssa Cristina Pacifici, psicologa a Tivoli">
 
-    <link rel="icon" href="{{ asset('img/logo-84.webp') }}" type="image/webp">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="icon" href="{{ asset('img/favicon-48x48.png') }}" type="image/png" sizes="48x48">
+    <link rel="icon" href="{{ asset('img/favicon-32x32.png') }}" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
 
     @if (request()->is('admin*'))
         @vite(['resources/css/admin.scss'])
