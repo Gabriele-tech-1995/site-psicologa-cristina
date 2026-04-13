@@ -1,5 +1,5 @@
-<footer class="footer-minimal border-top ">
-    <div class="container py-5">
+<footer class="footer-minimal border-top">
+    <div class="container footer-minimal__container py-5">
         <h2 class="visually-hidden">Piè di pagina</h2>
         <div class="row gy-4">
 
