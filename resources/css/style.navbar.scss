@@ -42,18 +42,34 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
     font-weight: 700;
     letter-spacing: 0.1px;
     color: var(--color-salvia) !important;
+    gap: 0.85rem;
+
+    @media (min-width: 992px) {
+        gap: 1.05rem;
+    }
 }
 .navbar-logo {
-    height: 42px;
-    width: auto;
-    max-width: min(200px, 46vw);
+    /* Più grande e leggibile (prima 42px sembrava “lontano”) */
+    width: 58px;
+    height: 58px;
     object-fit: contain;
-    object-position: left center;
-    border-radius: 10px;
-    border: 1px solid rgba(168, 130, 86, 0.2);
+    border-radius: 50%;
+    border: 1px solid rgba(168, 130, 86, 0.22);
     background: #fff;
     flex-shrink: 0;
-    box-shadow: 0 5px 16px rgba(28, 37, 31, 0.1);
+    box-shadow:
+        0 4px 14px rgba(28, 37, 31, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.9) inset;
+
+    @media (min-width: 576px) {
+        width: 66px;
+        height: 66px;
+    }
+
+    @media (min-width: 992px) {
+        width: 76px;
+        height: 76px;
+    }
 }
 .brand-text {
     display: flex;
