@@ -19,6 +19,13 @@
 .intro-text {
     max-width: 470px;
 }
+.intro-lead {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--testo-principale);
+    margin: 0 0 0.85rem;
+    font-weight: 500;
+}
 .intro-quote {
     font-family: var(--font-titoli);
     font-weight: 600;

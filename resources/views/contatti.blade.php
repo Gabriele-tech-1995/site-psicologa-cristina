@@ -38,12 +38,18 @@
 
                 <h1 class="mb-2 page-title">Contatti</h1>
 
+                <p class="page-lead mb-2">
+                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — riceve su
+                    appuntamento; puoi richiedere un primo colloquio <strong>online</strong> o
+                    <strong>in presenza</strong>
+                    compilando il modulo qui sotto: rispondo in tempi brevi e concordiamo la modalità più adatta.
+                    Riceve in presenza presso <strong>strutture professionali del territorio</strong> (su appuntamento)
+                    oltre alla modalità online.
+                </p>
                 <p class="page-lead">
-                    Puoi richiedere un primo colloquio <strong>online</strong> o <strong>in presenza a Tivoli</strong>
-                    compilando il modulo qui sotto: rispondo in tempi brevi e concordiamo insieme la modalità più adatta.
-                    Se prima vuoi orientarti meglio, puoi consultare le
+                    Se prima vuoi orientarti, consulta le
                     <a href="{{ route('areas') }}" title="Aree di intervento della psicologa a Tivoli">aree di intervento</a>
-                    o approfondire il mio
+                    o approfondisci il mio
                     <a href="{{ route('about') }}" title="Chi sono e come lavoro">approccio professionale</a>.
                 </p>
             </div>

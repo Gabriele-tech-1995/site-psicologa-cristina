@@ -122,7 +122,7 @@ final class SeoContact
             }
         }
 
-        // Handle URLs like .../maps/place/Centro+Imago+Tivoli/...
+        // Handle URLs like .../maps/place/NomeLuogo+Tivoli/...
         $path = (string) ($parts['path'] ?? '');
         if ($path !== '' && preg_match('#/maps/place/([^/]+)#', $path, $matches) === 1) {
             return str_replace('+', ' ', urldecode($matches[1]));

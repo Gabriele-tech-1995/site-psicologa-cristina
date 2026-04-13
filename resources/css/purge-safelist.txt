@@ -147,6 +147,7 @@ hero-points
 hero-subtitle
 hero-title
 info-list
+intro-lead
 intro-name
 intro-photo
 intro-quote

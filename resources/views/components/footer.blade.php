@@ -4,13 +4,13 @@
         <div class="row gy-4">
 
             <div class="col-md-4">
-                <h3 class="footer-title">Dott.ssa Cristina Pacifici</h3>
+                <h3 class="footer-title">Dott.ssa Cristina Pacifici – Psicologa</h3>
                 <p class="small mb-1">
-                    Psicologa – Specializzanda in psicoterapia
+                    Specializzanda in psicoterapia
                     umanistico-esperienziale @if ($seoContact['aspic_url'] !== '')
-                        - <a href="{{ $seoContact['aspic_url'] }}" target="_blank" rel="noopener noreferrer">ASPIC</a>
+                        — <a href="{{ $seoContact['aspic_url'] }}" target="_blank" rel="noopener noreferrer">ASPIC</a>
                     @else
-                        - ASPIC
+                        — ASPIC
                     @endif
                 </p>
                 <p class="small mb-0">

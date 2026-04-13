@@ -5,8 +5,8 @@
                 width="165" height="160" loading="eager" decoding="async" fetchpriority="low">
 
             <div class="brand-text">
-                <span class="brand-title">Dott.ssa Cristina Pacifici</span>
-                <small>Psicologa • Tivoli</small>
+                <span class="brand-title">Dott.ssa Cristina Pacifici – Psicologa</span>
+                <small>Tivoli · online e in presenza</small>
             </div>
         </a>
 

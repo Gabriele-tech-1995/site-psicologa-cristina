@@ -1,7 +1,7 @@
 @props([
-    'metaTitle' => 'Psicologa a Tivoli per bambini, adolescenti e genitori | Dott.ssa Cristina Pacifici',
+    'metaTitle' => 'Cristina Pacifici | Psicologa a Tivoli per bambini, adolescenti e genitori',
     'metaDescription' =>
-        'Psicologa a Tivoli per bambini, adolescenti e genitori. Percorsi di supporto psicologico personalizzati per il benessere emotivo, relazionale e scolastico. Colloqui in presenza e online.',
+        'Psicologa a Tivoli e online: Dott.ssa Cristina Pacifici per bambini, adolescenti, adulti e genitori. Supporto psicologico, primo colloquio e contatti sul sito.',
 ])
 
 @php

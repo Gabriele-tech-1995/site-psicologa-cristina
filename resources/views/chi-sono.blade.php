@@ -171,13 +171,14 @@
                             </div>
 
                             <div class="card shadow-soft p-4 mt-4 card-chi">
-                                <h5 class="mb-3">Collaborazioni</h5>
+                                <h5 class="mb-3">Presenza in loco</h5>
 
-                                <ul class="mb-0 collaborazione-list">
-                                    <li>Centro Imago</li>
-                                    <li>Centro Empathia</li>
-                                    <li>Centro Liberamente</li>
-                                </ul>
+                                <p class="small mb-0">
+                                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — riceve su appuntamento in
+                                    presenza presso strutture professionali del territorio (Tivoli e dintorni), oltre ai
+                                    colloqui online. Per indirizzi e disponibilità, vedi la pagina
+                                    <a href="{{ route('contacts') }}">Contatti</a>.
+                                </p>
                             </div>
                         </aside>
                     </div>
