@@ -20,9 +20,9 @@ return [
     | HSTS (solo su richieste HTTPS)
     |--------------------------------------------------------------------------
     |
-    | preload: aggiunge la direttiva consigliata da Lighthouse; va inviato il sito
-    | all’elenco Chromium solo dopo aver verificato HTTPS su tutto il dominio.
-    | https://hstspreload.org/
+    | preload: default true (Lighthouse / hardening). Verifica HTTPS su tutto il dominio
+    | e sottodomini prima di inviare il dominio all’elenco Chromium.
+    | https://hstspreload.org/ — in caso di eccezioni: HSTS_PRELOAD=false in .env
     |
     */
     'hsts_max_age' => (int) env('HSTS_MAX_AGE', 63072000),
@@ -32,7 +32,7 @@ return [
         FILTER_VALIDATE_BOOL,
     ),
 
-    'hsts_preload' => filter_var(env('HSTS_PRELOAD', false), FILTER_VALIDATE_BOOL),
+    'hsts_preload' => filter_var(env('HSTS_PRELOAD', true), FILTER_VALIDATE_BOOL),
 
     /*
     |--------------------------------------------------------------------------

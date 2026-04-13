@@ -23,8 +23,10 @@ class SecurityHeadersTest extends TestCase
         $response->assertHeader('Content-Security-Policy');
         $response->assertHeader('Cross-Origin-Opener-Policy', 'same-origin');
         $response->assertHeader('Cross-Origin-Resource-Policy', 'same-origin');
-        $this->assertStringContainsString("script-src 'nonce-", $response->headers->get('Content-Security-Policy'));
-        $this->assertStringContainsString("'strict-dynamic'", $response->headers->get('Content-Security-Policy'));
+        $csp = $response->headers->get('Content-Security-Policy');
+        $this->assertStringContainsString("script-src 'nonce-", $csp);
+        $this->assertStringContainsString("'strict-dynamic'", $csp);
+        $this->assertStringContainsString("'unsafe-inline'", $csp);
         $this->assertStringContainsString('frame-ancestors', $response->headers->get('Content-Security-Policy'));
     }
 

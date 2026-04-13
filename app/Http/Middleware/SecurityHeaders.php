@@ -58,7 +58,7 @@ class SecurityHeaders
 
         $directives = [
             "default-src 'self'",
-            "script-src 'nonce-{$nonce}' 'strict-dynamic' https:",
+            "script-src 'nonce-{$nonce}' 'strict-dynamic' 'unsafe-inline' https:",
             "style-src 'self' 'unsafe-inline'",
             "img-src 'self' data: https: blob:",
             "font-src 'self'",
