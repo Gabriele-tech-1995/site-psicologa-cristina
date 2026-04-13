@@ -179,6 +179,25 @@ $navbar-mobile-surface: rgba(252, 248, 242, 0.98);
             border-color 0.25s ease;
     }
 
+    .navbar-custom .container {
+        position: relative;
+        align-items: flex-start;
+        padding-right: calc(var(--bs-gutter-x, 0.75rem) + 2.7rem);
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    /* Riporta il pulsante menu in alto a destra su mobile. */
+    .navbar-toggler {
+        position: absolute;
+        top: 0.38rem;
+        right: var(--bs-gutter-x, 0.75rem);
+        margin-left: 0;
+    }
+
     .navbar-custom.scrolled {
         transition:
             background-color 0.25s ease,
@@ -210,6 +229,12 @@ html.nav-offcanvas-open body {
     max-height: 100dvh;
     overscroll-behavior: contain;
     touch-action: manipulation;
+}
+
+.navbar-offcanvas.offcanvas-end {
+    top: 0;
+    right: 0;
+    left: auto;
 }
 
 .offcanvas-backdrop.fade {

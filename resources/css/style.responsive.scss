@@ -149,6 +149,30 @@
         justify-content: center !important;
     }
 
+    /* CTA su mobile sempre centrati, anche con wrapper misti flex/grid. */
+    .hero-actions,
+    .area-detail-actions,
+    .container-btn {
+        justify-content: center !important;
+        align-items: center;
+    }
+
+    .hero-actions-stack,
+    .hero-actions .d-flex {
+        width: 100%;
+        align-items: center !important;
+    }
+
+    .hero-actions .btn,
+    .contact-actions .btn,
+    .about-actions .btn,
+    .container-btn .btn,
+    .area-detail-actions .btn-area-primary,
+    .area-detail-actions .btn-area-secondary {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .page-head .badge,
     .page-head .badge-soft {
         margin-left: auto;
