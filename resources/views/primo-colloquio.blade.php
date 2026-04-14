@@ -43,8 +43,9 @@
                 <span class="badge badge-soft mb-3">Primo colloquio</span>
                 <h1 class="page-title mb-2">Primo colloquio psicologico: cosa aspettarti, con calma</h1>
                 <p class="page-lead mb-0">
-                    Se stai pensando di chiedere supporto, è normale avere dubbi: non devi arrivare con tutto chiaro.
-                    Il primo incontro è uno spazio accogliente e professionale in cui iniziare a capire insieme da dove partire.
+                    Se stai pensando di chiedere supporto, è naturale avere dubbi.
+                    In questa pagina trovi una guida chiara e rassicurante su come funziona il primo incontro,
+                    così puoi avvicinarti con più serenità e senza pressioni.
                 </p>
             </div>
 
@@ -74,7 +75,9 @@
                             <li>rispondo alle tue domande su percorso, modalità e organizzazione;</li>
                             <li>valutiamo insieme se e come proseguire.</li>
                         </ul>
-                        <p class="mb-0">È un incontro utile per fare ordine, non un esame da superare.</p>
+                        <p class="mb-0">
+                            È un incontro utile per fare ordine e orientarti, non un esame da superare.
+                        </p>
 
                         <h2 class="h4 mt-4 mb-3">Cosa puoi portare o raccontare</h2>
                         <p>Puoi partire da ciò che per te è più urgente oggi, ad esempio:</p>
@@ -92,7 +95,9 @@
                             Molte persone rimandano perché pensano di dover avere già le idee ordinate. In realtà non è così:
                             non devi avere già le parole giuste, né sapere già quale sia il problema preciso.
                         </p>
-                        <p class="mb-0">Il primo colloquio serve proprio a costruire chiarezza, passo dopo passo, insieme.</p>
+                        <p class="mb-0">
+                            Il primo colloquio serve proprio a costruire chiarezza, passo dopo passo, insieme.
+                        </p>
 
                         <h2 class="h4 mt-4 mb-3">Quanto dura il primo colloquio</h2>
                         <p class="mb-0">
@@ -139,22 +144,41 @@
                         </div>
 
                         <div class="card shadow-soft p-4">
-                            <h2 class="h5 mb-2">Vuoi fare un primo passo?</h2>
+                            <h2 class="h5 mb-2">Quando vuoi, puoi iniziare da qui</h2>
                             <p class="small text-muted mb-3">
                                 Se vuoi, puoi scrivermi per un primo colloquio: online o in presenza.
                                 Ti rispondo personalmente e possiamo capire insieme da dove partire.
                             </p>
                             <div class="d-grid gap-2">
                                 <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
-                                    Richiedi il primo colloquio
+                                    Scrivimi per il primo colloquio
                                 </a>
                                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                                     href="{{ $seoContact['whatsapp_url'] }}">
                                     Scrivimi su WhatsApp
                                 </a>
                             </div>
+                            <p class="small text-muted mt-3 mb-0">
+                                Di norma ricevi una risposta entro 24 ore lavorative (lun-ven).
+                            </p>
                         </div>
                     </aside>
+                </div>
+            </div>
+
+            <div class="card shadow-soft p-4 mt-4 text-center">
+                <h2 class="h4 mb-2">Se senti che può esserti utile, possiamo partire da un primo confronto</h2>
+                <p class="text-muted mb-3">
+                    Un messaggio può bastare per iniziare: poi valutiamo insieme, con calma, il passo successivo.
+                </p>
+                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                    <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
+                        Richiedi il primo colloquio
+                    </a>
+                    <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
+                        href="{{ $seoContact['whatsapp_url'] }}">
+                        Contatto WhatsApp
+                    </a>
                 </div>
             </div>
 
