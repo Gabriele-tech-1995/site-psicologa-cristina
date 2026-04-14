@@ -347,7 +347,7 @@
         <div class="container">
             <h3 class="mb-2">Desidera fare un primo passo?</h3>
             <p class="text-muted mb-4 mx-auto cta-final-lead">
-                Bastano un messaggio o il modulo: rispondo personalmente e, se le sembra naturale, si può fissare insieme un
+                Bastano un messaggio o il modulo: rispondo personalmente e, se lo desidera, si può fissare insieme un
                 colloquio conoscitivo.
             </p>
             <div class="d-flex justify-content-center gap-2 flex-wrap mt-2">
