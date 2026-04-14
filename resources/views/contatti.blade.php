@@ -26,18 +26,18 @@
                     appuntamento <strong>online</strong> e <strong>in presenza</strong> presso
                     <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
                     <strong>Centro Liberamente</strong> (Villanova di Guidonia).
-                    Per un primo contatto può usare il <strong>modulo</strong> qui sotto, l’<strong>email</strong> o
+                    Per un primo contatto puoi usare il <strong>modulo</strong> qui sotto, l’<strong>email</strong> o
                     <strong>WhatsApp</strong> (stesso numero del telefono).
                     Di solito rispondo entro <strong>24 ore lavorative</strong> (lun–ven); nei periodi di maggiore richiesta i tempi possono allungarsi leggermente.
                 </p>
 
                 <div class="card shadow-soft border-0 contact-summary-highlight p-4 mb-4">
                     <p class="mb-0">
-                        Può contattare la <strong>Dott.ssa Cristina Pacifici</strong> tramite <strong>modulo</strong>,
+                        Puoi contattare la <strong>Dott.ssa Cristina Pacifici</strong> tramite <strong>modulo</strong>,
                         <strong>email</strong> o <strong>WhatsApp</strong>.
                         Riceverà una risposta nel più breve tempo possibile: leggo io ogni messaggio e, di norma, rispondo entro <strong>24 ore lavorative</strong> (lun–ven).
                         È possibile svolgere il <strong>primo colloquio</strong> <strong>online</strong> oppure <strong>in presenza</strong>, in base a esigenze e preferenze.
-                        Non serve una richiesta perfetta: basta un messaggio sincero; se lo desidera, può aggiungere qualche riga su ciò che sente importante condividere.
+                        Non serve una richiesta perfetta: basta un messaggio sincero; se vuoi, puoi aggiungere qualche riga su ciò che senti importante condividere.
                     </p>
                 </div>
 
@@ -48,7 +48,7 @@
                             <p class="small mb-0">
                                 Psicologa, iscritta all’<strong>Albo degli Psicologi del Lazio</strong> (n. 32019), con
                                 percorso di specializzanda in psicoterapia umanistico-esperienziale.
-                                <a href="{{ route('about') }}">Approfondisca in Chi sono</a>.
+                                <a href="{{ route('about') }}">Approfondisci in Chi sono</a>.
                             </p>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                 </div>
 
                 <p class="page-lead mb-0 small text-muted">
-                    Se le è utile farsi un’idea prima sul tipo di percorsi che offro, può anche dare un’occhiata alle
+                    Se ti è utile farti un’idea prima sul tipo di percorsi che offro, puoi dare un’occhiata alle
                     <a href="{{ route('areas') }}">Aree di intervento</a>.
                 </p>
             </div>
@@ -81,10 +81,10 @@
             <div class="card shadow-soft p-4 mb-4 contact-steps">
                 <h2 class="h5 mb-3">Cosa succede dopo aver scritto</h2>
                 <ol class="contact-steps-list mb-0 ps-3">
-                    <li><strong>Riceve una mia risposta</strong> — di solito entro <strong>24 ore lavorative</strong> (lun–ven).</li>
-                    <li><strong>Insieme</strong> si trova la modalità più adatta: <strong>online</strong>, <strong>in presenza</strong> o quale sede le è più comoda.</li>
+                    <li><strong>Ricevi una mia risposta</strong> — di solito entro <strong>24 ore lavorative</strong> (lun–ven).</li>
+                    <li><strong>Insieme</strong> troviamo la modalità più adatta: <strong>online</strong>, <strong>in presenza</strong> o quale sede ti è più comoda.</li>
                     <li><strong>Primo colloquio</strong> (circa 50 minuti): ascolto della richiesta, informazioni utili e
-                        spazio per le sue domande, senza pressioni sulla durata del percorso.</li>
+                        spazio per le tue domande, senza pressioni sulla durata del percorso.</li>
                 </ol>
             </div>
 
@@ -149,7 +149,7 @@
                                 @endif
                             </div>
                         @empty
-                            <p class="small text-muted mb-0">Sedi in aggiornamento: mi contatti per disponibilità in presenza.</p>
+                            <p class="small text-muted mb-0">Sedi in aggiornamento: contattami per disponibilità in presenza.</p>
                         @endforelse
                     </div>
 
@@ -162,14 +162,14 @@
                     <h2 class="h4 mb-2">Modulo per il primo colloquio</h2>
 
                     <p class="text-muted mb-0">
-                        Se desidera un primo contatto o maggiori informazioni, può scrivermi tramite il modulo qui sotto:
-                        anche poche righe vanno bene. Rispondo di persona per capire come posso esserle utile e, se lo desidera,
+                        Se desideri un primo contatto o maggiori informazioni, puoi scrivermi tramite il modulo qui sotto:
+                        anche poche righe vanno bene. Rispondo di persona per capire come posso esserti utile e, se vuoi,
                         proporre un colloquio conoscitivo.
                     </p>
 
                     @if ($errors->any())
                         <div class="alert alert-danger" role="alert">
-                            <p class="mb-1 fw-semibold">Non è stato possibile inviare il modulo. Può controllare quanto segue:</p>
+                            <p class="mb-1 fw-semibold">Non è stato possibile inviare il modulo. Puoi controllare quanto segue:</p>
                             <ul class="mb-0 small">
                                 @foreach ($errors->all() as $err)
                                     <li>{{ $err }}</li>
@@ -243,7 +243,7 @@
                                 </div>
 
                                 <div class="small text-muted mt-2">
-                                    Nel primo messaggio, se può, eviti dettagli clinici molto specifici: ne potremo parlare con più calma dal vivo o online.
+                                    Nel primo messaggio, se puoi, evita dettagli clinici molto specifici: ne potremo parlare con più calma dal vivo o online.
                                 </div>
                             </div>
                             @error('privacy')
@@ -252,7 +252,7 @@
 
                             <div class="col-12 contact-actions mt-3 d-grid gap-2 d-sm-flex align-items-center">
                                 <button type="submit" class="btn btn-brand btn-lg">
-                                    Invii il messaggio
+                                    Invia il messaggio
                                 </button>
 
                                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_form"

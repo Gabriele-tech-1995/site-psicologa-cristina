@@ -134,10 +134,10 @@
                             <p class="mb-0">
                                 Il primo colloquio ha una durata di circa 50 minuti, in linea con le sedute successive,
                                 ed è uno spazio dedicato all’ascolto e alla comprensione della richiesta.
-                                Durante l’incontro sarà possibile chiarire insieme esigenze, obiettivi e modalità del percorso,
-                                con attenzione alla sua storia e a ciò che oggi sente importante raccontare.
+                                Durante l’incontro potremo chiarire insieme esigenze, obiettivi e modalità del percorso,
+                                con attenzione alla tua storia e a ciò che oggi senti importante raccontare.
                                 Ci sarà anche spazio per le informazioni organizzative e per il consenso informato, con calma.
-                                Al termine potrà valutare con calma come proseguire, nel rispetto dei tempi e delle sue esigenze.
+                                Al termine potrai valutare come proseguire, nel rispetto dei tuoi tempi e delle tue esigenze.
                             </p>
                         </div>
 
@@ -190,7 +190,7 @@
 
             <div class="mt-4 d-flex container-btn flex-wrap about-actions">
                 <a class="btn btn-brand btn-lg" href="{{ route('contacts') }}#richiesta-colloquio">
-                    Richieda il primo colloquio
+                    Richiedi il primo colloquio
                 </a>
 
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"

@@ -248,24 +248,24 @@ class PublicController extends Controller
                     'max:42',
                     function (string $attribute, mixed $value, \Closure $fail): void {
                         if (! is_string($value)) {
-                            $fail('Può indicarmi un numero di telefono, così posso ricontattarla se serve.');
+                            $fail('Puoi indicarmi un numero di telefono, così posso ricontattarti se serve.');
 
                             return;
                         }
                         $trimmed = trim($value);
                         if ($trimmed === '' || ! preg_match('/^[\d\s\+\.\-\(\)\/]+$/u', $trimmed)) {
-                            $fail('Può usare solo cifre e i separatori abituali (spazio, +, trattino, punto, parentesi).');
+                            $fail('Puoi usare solo cifre e i separatori abituali (spazio, +, trattino, punto, parentesi).');
 
                             return;
                         }
                         $digits = preg_replace('/\D+/', '', $trimmed);
                         if (strlen($digits) < 8) {
-                            $fail('Il numero sembra un po’ corto: può ricontrollare?');
+                            $fail('Il numero sembra un po’ corto: puoi ricontrollare?');
 
                             return;
                         }
                         if (strlen($digits) > 15) {
-                            $fail('Il numero contiene troppe cifre: può ricontrollare?');
+                            $fail('Il numero contiene troppe cifre: puoi ricontrollare?');
                         }
                     },
                 ],
@@ -273,22 +273,22 @@ class PublicController extends Controller
                 'privacy' => ['accepted'],
             ],
             [
-                'name.required' => 'Può aggiungere nome e cognome: mi aiuta a risponderle con cura.',
+                'name.required' => 'Puoi aggiungere nome e cognome: mi aiuta a risponderti con cura.',
                 'name.min' => 'Il nome deve avere almeno :min caratteri.',
                 'name.max' => 'Il nome non può superare :max caratteri.',
                 'name.regex' => 'Il nome può contenere solo lettere, spazi, apostrofi e trattini.',
 
-                'email.required' => 'Può indicarmi anche un indirizzo email, così posso ricontattarla.',
-                'email.email' => 'L’indirizzo email non sembra valido: può ricontrollare?',
+                'email.required' => 'Puoi indicarmi anche un indirizzo email, così posso ricontattarti.',
+                'email.email' => 'L’indirizzo email non sembra valido: puoi ricontrollare?',
                 'email.max' => 'L’email non può superare :max caratteri.',
 
-                'phone.required' => 'Può lasciarmi anche un recapito telefonico.',
+                'phone.required' => 'Puoi lasciarmi anche un recapito telefonico.',
 
-                'message.required' => 'Può scrivermi qualche riga (anche poche): così capisco meglio cosa la porta qui.',
+                'message.required' => 'Puoi scrivermi qualche riga (anche poche): così capisco meglio cosa ti porta qui.',
                 'message.min' => 'Il messaggio deve avere almeno :min caratteri.',
                 'message.max' => 'Il messaggio non può superare :max caratteri.',
 
-                'privacy.accepted' => 'Per completare l’invio, le chiedo anche il segno di consenso sulla privacy, in calce al modulo.',
+                'privacy.accepted' => 'Per completare l’invio, ti chiedo anche il segno di consenso sulla privacy, in calce al modulo.',
             ]
         );
 
@@ -307,7 +307,7 @@ class PublicController extends Controller
             return redirect()
                 ->route('contacts')
                 ->withErrors([
-                    'message' => 'Il messaggio sembra contenere contenuti promozionali automatici. Se desidera, può riscriverlo in modo più diretto e personale.',
+                    'message' => 'Il messaggio sembra contenere contenuti promozionali automatici. Se vuoi, puoi riscriverlo in modo più diretto e personale.',
                 ])
                 ->withInput($request->except(['message', $honeypotField]))
                 ->withFragment('richiesta-colloquio');
@@ -335,7 +335,7 @@ class PublicController extends Controller
 
             return redirect()
                 ->route('contacts')
-                ->with('warning', 'Il suo messaggio è arrivato a me, ma in questo momento le notifiche automatiche via email non sono partite (rete o server di posta). La ricontatterò io comunque; se preferisce, può scrivermi anche su WhatsApp o al numero in alto in pagina.')
+                ->with('warning', 'Il tuo messaggio è arrivato a me, ma in questo momento le notifiche automatiche via email non sono partite (rete o server di posta). Ti ricontatterò io comunque; se preferisci, puoi scrivermi anche su WhatsApp o al numero in alto in pagina.')
                 ->withFragment('richiesta-colloquio');
         }
 
@@ -365,11 +365,11 @@ class PublicController extends Controller
             'message' => ['required', 'string', 'min:20', 'max:2000'],
             'consent_publish' => ['accepted'],
         ], [
-            'name_label.required' => 'Può indicare come desidera firmare (es. nome e iniziale del cognome).',
-            'name_label.regex' => 'Può usare nome e iniziale del cognome con il punto finale (es. Maria R.).',
-            'message.required' => 'Può aggiungere il testo della testimonianza, anche breve.',
-            'message.min' => 'La testimonianza deve contenere almeno 20 caratteri.',
-            'consent_publish.accepted' => 'Per poterla valutare in vista di una pubblicazione, le chiedo anche il consenso qui sotto.',
+                'name_label.required' => 'Puoi indicare come desideri firmare (es. nome e iniziale del cognome).',
+                'name_label.regex' => 'Puoi usare nome e iniziale del cognome con il punto finale (es. Maria R.).',
+                'message.required' => 'Puoi aggiungere il testo della testimonianza, anche breve.',
+                'message.min' => 'La testimonianza deve contenere almeno 20 caratteri.',
+                'consent_publish.accepted' => 'Per poterla valutare in vista di una pubblicazione, ti chiedo anche il consenso qui sotto.',
         ]);
 
         Testimonial::create([
@@ -381,7 +381,7 @@ class PublicController extends Controller
 
         return redirect()
             ->route('testimonials')
-            ->with('success', 'Grazie: ho ricevuto la sua testimonianza e la leggerò con attenzione prima di una eventuale pubblicazione.');
+            ->with('success', 'Grazie: ho ricevuto la tua testimonianza e la leggerò con attenzione prima di una eventuale pubblicazione.');
     }
 
     private function getAreas(): array

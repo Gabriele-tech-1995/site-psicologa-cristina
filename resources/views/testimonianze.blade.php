@@ -9,7 +9,7 @@
                     più serene nel chiedere supporto.
                 </p>
                 <div class="d-lg-none mt-2">
-                    <a href="#form-testimonianza" class="area-link">Lasci una testimonianza</a>
+                    <a href="#form-testimonianza" class="area-link">Lascia una testimonianza</a>
                 </div>
             </div>
 
@@ -65,10 +65,10 @@
                     <aside class="about-sidebar-sticky">
 
                         <div id="form-testimonianza" class="card shadow-soft p-4 card-chi testimonial-form-card">
-                            <h2 class="h4 mb-3 section-subtitle">Invii una testimonianza</h2>
+                            <h2 class="h4 mb-3 section-subtitle">Invia una testimonianza</h2>
 
                             <p class="mb-3">
-                                Se desidera condividere la sua esperienza, può inviare una testimonianza
+                                Se desideri condividere la tua esperienza, puoi inviare una testimonianza
                                 che leggo con attenzione prima di una eventuale pubblicazione.
                             </p>
 
@@ -81,7 +81,7 @@
                                         class="form-control @error('name_label') is-invalid @enderror"
                                         value="{{ old('name_label') }}" placeholder="Es. Francesco M."
                                         autocomplete="name">
-                                    <div class="small text-muted mt-1">Può firmare con nome e iniziale del cognome, punto finale incluso (es. Maria R.).</div>
+                                    <div class="small text-muted mt-1">Puoi firmare con nome e iniziale del cognome, punto finale incluso (es. Maria R.).</div>
 
                                     @error('name_label')
                                         <div class="text-danger small mt-1">{{ $message }}</div>
@@ -92,7 +92,7 @@
                                     <label class="form-label" for="testimonial-message">Testo della testimonianza</label>
                                     <textarea id="testimonial-message" name="message" rows="6"
                                         class="form-control @error('message') is-invalid @enderror"
-                                        placeholder="Scriva qui la sua esperienza in modo spontaneo, nel rispetto della privacy.">{{ old('message') }}</textarea>
+                                        placeholder="Scrivi qui la tua esperienza in modo spontaneo, nel rispetto della privacy.">{{ old('message') }}</textarea>
 
                                     @error('message')
                                         <div class="text-danger small mt-1">{{ $message }}</div>
@@ -123,7 +123,7 @@
 
                                 <div class="d-flex gap-2 flex-wrap justify-content-center">
                                     <button type="submit" class="btn btn-brand">
-                                        Invii la testimonianza
+                                        Invia la testimonianza
                                     </button>
 
                                     <a class="btn btn-outline-secondario" href="{{ route('contacts') }}">

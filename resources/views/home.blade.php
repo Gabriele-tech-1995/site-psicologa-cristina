@@ -124,8 +124,8 @@
                         </p>
                         <p class="hero-micro mb-0">
                             <strong>Primo passo:</strong> un colloquio conoscitivo (circa 50 minuti): è possibile svolgerlo
-                            <strong>online</strong> oppure <strong>in presenza</strong>, in base a ciò che le è più comodo,
-                            per capire il bisogno e vedere se il percorso può esserle utile — in modo chiaro e senza impegno sulla durata.
+                            <strong>online</strong> oppure <strong>in presenza</strong>, in base a ciò che ti è più comodo,
+                            per capire il bisogno e vedere se il percorso può esserti utile — in modo chiaro e senza impegno sulla durata.
                         </p>
 
                         <div class="hero-points mt-3">
@@ -142,14 +142,14 @@
                         <div class="hero-actions mt-4 hero-actions-stack">
                             <div class="d-flex flex-column align-items-stretch align-items-sm-center gap-2">
                                 <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
-                                    data-track="cta_hero_colloquio">Richieda il primo colloquio</a>
+                                    data-track="cta_hero_colloquio">Richiedi il primo colloquio</a>
                                 <span class="hero-cta-note text-center">Modulo sul sito · di solito riscontro entro
                                     <strong>24 ore lavorative</strong> (lun–ven)</span>
                             </div>
                             <p class="hero-cta-alt mb-0 text-center">
-                                Preferisce scrivere prima su WhatsApp?
+                                Preferisci scrivere prima su WhatsApp?
                                 <a target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_hero"
-                                    href="{{ $seoContact['whatsapp_url'] }}">Apra la chat</a>
+                                    href="{{ $seoContact['whatsapp_url'] }}">Apri la chat</a>
                             </p>
                         </div>
                     </div>
@@ -294,7 +294,7 @@
                     Il primo colloquio ha una durata di circa <strong>50 minuti</strong> ed è uno spazio dedicato
                     all’ascolto e alla comprensione della richiesta.
                     Durante l’incontro sarà possibile chiarire insieme esigenze, obiettivi e modalità del percorso,
-                    con il tempo per le informazioni utili e per le sue domande.
+                    con il tempo per le informazioni utili e per le tue domande.
                     In base alla situazione, il percorso potrà orientarsi verso un supporto mirato su aspetti come
                     <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
                         title="Ansia e gestione dello stress">ansia e gestione dello stress</a>,
@@ -317,8 +317,8 @@
                 <h2 class="h4 mb-2 card-heading-oro" id="home-faq-heading">Domande frequenti</h2>
                 <p class="text-muted small mb-3">
                     Qui ho raccolto alcune risposte alle domande che mi vengono rivolte più spesso.
-                    Se desidera scrivermi o concordare un colloquio, può visitare la pagina
-                    <a href="{{ route('contacts') }}">Contatti</a>: lì trova il modulo, l’email e il numero anche su WhatsApp.
+                    Se desideri scrivermi o concordare un colloquio, puoi visitare la pagina
+                    <a href="{{ route('contacts') }}">Contatti</a>: lì trovi il modulo, l’email e il numero anche su WhatsApp.
                 </p>
                 <div class="accordion accordion-flush contact-faq-accordion" id="homeStrategicFaq">
                     @foreach ($homeStrategicFaqs as $index => $faq)
@@ -345,14 +345,14 @@
     {{-- CTA FINALE --}}
     <section class="section text-center">
         <div class="container">
-            <h3 class="mb-2">Desidera fare un primo passo?</h3>
+            <h3 class="mb-2">Vuoi fare un primo passo?</h3>
             <p class="text-muted mb-4 mx-auto cta-final-lead">
-                Bastano un messaggio o il modulo: rispondo personalmente e, se lo desidera, si può fissare insieme un
+                Bastano un messaggio o il modulo: rispondo personalmente e, se lo desideri, possiamo fissare insieme un
                 colloquio conoscitivo.
             </p>
             <div class="d-flex justify-content-center gap-2 flex-wrap mt-2">
                 <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
-                    data-track="cta_bottom_colloquio">Richieda il primo colloquio</a>
+                    data-track="cta_bottom_colloquio">Richiedi il primo colloquio</a>
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                     data-track="click_whatsapp_bottom" href="{{ $seoContact['whatsapp_url'] }}">Mi scriva su WhatsApp</a>
             </div>
