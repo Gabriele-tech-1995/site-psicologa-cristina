@@ -163,7 +163,7 @@
 
                     <p class="text-muted mb-0">
                         Se desidera un primo contatto o maggiori informazioni, può scrivermi tramite il modulo qui sotto:
-                        anche poche righe vanno bene. Rispondo di persona per capire come posso esserle utile e, se le sta bene,
+                        anche poche righe vanno bene. Rispondo di persona per capire come posso esserle utile e, se lo desidera,
                         proporre un colloquio conoscitivo.
                     </p>
 
