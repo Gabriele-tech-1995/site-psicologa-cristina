@@ -3,23 +3,23 @@
         $firstInterviewFaqs = [
             [
                 'question' => 'Il primo colloquio mi obbliga a iniziare un percorso?',
-                'answer' => 'No. Il primo incontro è uno spazio di conoscenza e orientamento. Al termine puoi valutare con calma se proseguire.',
+                'answer' => 'No. Il primo incontro è uno spazio di ascolto e orientamento: serve a capire se ti senti a tuo agio e se questo percorso fa per te. Al termine scegli tu, con calma, se proseguire.',
             ],
             [
                 'question' => 'E se non so bene cosa dire?',
-                'answer' => 'Va benissimo così. Puoi partire da come ti senti oggi o da ciò che ti sta pesando di più. Costruiamo insieme il filo del discorso.',
+                'answer' => 'Va benissimo così. Non devi prepararti in anticipo: puoi partire anche da poche parole, da un dubbio o da una sensazione confusa. Ti aiuto io a mettere ordine, passo dopo passo.',
             ],
             [
                 'question' => 'Posso scegliere tra online e presenza?',
-                'answer' => 'Sì. Puoi fare il primo colloquio online o in presenza. La modalità viene scelta in base a ciò che è più adatto per te.',
+                'answer' => 'Sì. Puoi scegliere il primo colloquio online o in presenza. Decidiamo insieme la modalità più adatta al tuo momento, ai tuoi tempi e alla tua quotidianità.',
             ],
             [
                 'question' => 'Il primo colloquio è adatto anche per genitori o adolescenti?',
-                'answer' => 'Sì. La Dott.ssa Cristina Pacifici lavora con bambini, adolescenti, adulti e genitori, con un approccio personalizzato.',
+                'answer' => 'Sì. Il primo colloquio è pensato per bambini, adolescenti, adulti e genitori. Ogni incontro viene adattato alla storia personale e al bisogno specifico di chi ho davanti.',
             ],
             [
                 'question' => 'Quanto tempo passa prima di ricevere risposta dopo il messaggio?',
-                'answer' => 'Di norma ricevi una risposta entro 24 ore lavorative (lun-ven), salvo periodi di maggiore richiesta.',
+                'answer' => 'Di norma ricevi una risposta personale entro 24 ore lavorative (lun-ven), salvo periodi di maggiore richiesta.',
             ],
         ];
 
@@ -43,9 +43,9 @@
                 <span class="badge badge-soft mb-3">Primo colloquio</span>
                 <h1 class="page-title mb-2">Primo colloquio psicologico: cosa aspettarti, con calma</h1>
                 <p class="page-lead mb-0">
-                    Se stai pensando di chiedere supporto, è naturale avere dubbi.
-                    In questa pagina trovi una guida chiara e rassicurante su come funziona il primo incontro,
-                    così puoi avvicinarti con più serenità e senza pressioni.
+                    Se stai pensando di chiedere supporto, è normale sentirti incerto o preoccupato.
+                    In questa pagina trovi una guida semplice e umana su come funziona il primo incontro,
+                    per aiutarti a sentirti più tranquillo già da adesso.
                 </p>
             </div>
 
@@ -54,33 +54,37 @@
                     <article class="card shadow-soft p-4 p-lg-5">
                         <h2 class="h4 mb-3">A volte il primo passo è anche il più difficile</h2>
                         <p>
-                            Potresti chiederti: “Da dove comincio?”, “Cosa devo dire?”, “E se non riesco a spiegarmi bene?”.
-                            Sono domande frequenti e comprensibili. Il primo colloquio serve proprio a offrire uno spazio
-                            chiaro, rispettoso e senza giudizio, dove puoi portare quello che senti adesso.
+                            Chiedere aiuto non è semplice, e non c’è nulla di sbagliato in questo.
+                            Potresti chiederti: “Da dove comincio?”, “Riuscirò a spiegarmi?”, “E se mi blocco?”.
+                            Sono dubbi comuni, e meritano rispetto.
                         </p>
                         <p>
-                            Con la <strong>Dott.ssa Cristina Pacifici, psicologa a Tivoli</strong>, il primo incontro è un
-                            momento di ascolto autentico, costruito sui tuoi tempi.
+                            Con la <strong>Dott.ssa Cristina Pacifici, psicologa a Tivoli</strong>, il primo incontro è uno
+                            spazio protetto in cui puoi sentirti accolto, ascoltato e mai giudicato.
+                            Lavoriamo insieme con delicatezza, seguendo i tuoi tempi.
                         </p>
 
                         <h2 class="h4 mt-4 mb-3">Cosa succede durante il primo colloquio</h2>
                         <p>
-                            Nel primo incontro non devi dimostrare nulla. L’obiettivo è capire insieme la tua situazione e
-                            orientarti con chiarezza.
+                            Nel primo colloquio non devi dimostrare nulla e non devi “essere pronto”.
+                            L’obiettivo è capire cosa stai vivendo e offrirti un orientamento chiaro, concreto e rispettoso.
                         </p>
                         <ul>
-                            <li>ti ascolto e raccolgo la tua richiesta;</li>
-                            <li>esploriamo il momento che stai attraversando;</li>
-                            <li>chiarisco con te bisogni, obiettivi e priorità;</li>
-                            <li>rispondo alle tue domande su percorso, modalità e organizzazione;</li>
-                            <li>valutiamo insieme se e come proseguire.</li>
+                            <li>ti ascolto con attenzione, partendo da quello che senti più urgente;</li>
+                            <li>mettiamo a fuoco insieme il momento che stai attraversando;</li>
+                            <li>chiariamo bisogni, obiettivi e possibili direzioni del percorso;</li>
+                            <li>ti spiego in modo semplice modalità, tempi e aspetti organizzativi;</li>
+                            <li>valutiamo insieme, senza fretta, se e come proseguire.</li>
                         </ul>
                         <p class="mb-0">
-                            È un incontro utile per fare ordine e orientarti, non un esame da superare.
+                            È un incontro per fare chiarezza e iniziare a respirare un po’ di più, non una prova da superare.
                         </p>
 
                         <h2 class="h4 mt-4 mb-3">Cosa puoi portare o raccontare</h2>
-                        <p>Puoi partire da ciò che per te è più urgente oggi, ad esempio:</p>
+                        <p>
+                            Puoi portare ciò che in questo momento pesa di più, anche se ti sembra “disordinato” o difficile da spiegare.
+                            Per esempio:
+                        </p>
                         <ul>
                             <li>un periodo di ansia, stress o stanchezza emotiva;</li>
                             <li>difficoltà relazionali o familiari;</li>
@@ -88,45 +92,48 @@
                             <li>fatica scolastica, organizzativa o motivazionale;</li>
                             <li>una sensazione di blocco che non riesci a decifrare.</li>
                         </ul>
-                        <p class="mb-0">Puoi anche portare poche informazioni: basta un punto di partenza sincero.</p>
+                        <p class="mb-0">
+                            Anche poche parole possono bastare: da lì possiamo costruire insieme un primo filo.
+                        </p>
 
                         <h2 class="h4 mt-4 mb-3">Non serve arrivare con tutto chiaro</h2>
                         <p>
-                            Molte persone rimandano perché pensano di dover avere già le idee ordinate. In realtà non è così:
-                            non devi avere già le parole giuste, né sapere già quale sia il problema preciso.
+                            Molte persone rimandano perché pensano di dover avere già tutto chiaro.
+                            In realtà non è così: non devi trovare per forza le parole perfette
+                            e non devi arrivare con una “spiegazione giusta”.
                         </p>
                         <p class="mb-0">
-                            Il primo colloquio serve proprio a costruire chiarezza, passo dopo passo, insieme.
+                            Il primo colloquio nasce proprio per questo: aiutarti a fare ordine, con calma, insieme.
                         </p>
 
                         <h2 class="h4 mt-4 mb-3">Quanto dura il primo colloquio</h2>
                         <p class="mb-0">
-                            Il primo colloquio dura circa <strong>50 minuti</strong>, in linea con la durata delle sedute successive.
-                            Questo tempo permette di affrontare con calma ciò che per te è importante, senza fretta e senza pressione.
+                            Il primo colloquio dura circa <strong>50 minuti</strong>, come le sedute successive.
+                            È un tempo pensato per permetterti di parlare senza fretta e sentirti davvero ascoltato.
                         </p>
 
                         <h2 class="h4 mt-4 mb-3">Modalità: online o in presenza</h2>
-                        <p>Puoi scegliere la modalità che senti più adatta:</p>
+                        <p>Puoi scegliere la modalità che in questo momento ti fa sentire più comodo:</p>
                         <ul>
                             <li><strong>online</strong>, se preferisci comodità, continuità o distanza;</li>
                             <li><strong>in presenza</strong>, presso le sedi di riferimento a Tivoli e zona.</li>
                         </ul>
                         <p class="mb-0">
-                            La scelta della modalità può essere valutata insieme, in base al tuo momento e alle tue esigenze pratiche.
+                            Possiamo valutare insieme la soluzione migliore in base alle tue esigenze pratiche e personali.
                         </p>
 
                         <h2 class="h4 mt-4 mb-3">Se senti paura, imbarazzo o incertezza</h2>
                         <p>
-                            È assolutamente normale. Capita spesso di arrivare al primo incontro con emozioni contrastanti:
-                            sollievo, timore, vergogna o confusione.
+                            È assolutamente normale. Molte persone arrivano al primo incontro con emozioni contrastanti:
+                            sollievo, timore, vergogna, confusione.
                         </p>
                         <p>
-                            In colloquio trovi uno spazio professionale e accogliente in cui puoi parlare con il tuo ritmo,
+                            In colloquio trovi uno spazio professionale e accogliente in cui puoi parlare al tuo ritmo,
                             anche iniziando da poche parole.
                         </p>
                         <p class="mb-0">
-                            Chiedere un primo confronto non significa “stare male abbastanza”: significa darti la possibilità
-                            di prenderti cura di te.
+                            Chiedere un primo confronto non significa “stare male abbastanza”:
+                            significa scegliere di prenderti cura di te, con rispetto.
                         </p>
                     </article>
                 </div>
@@ -146,8 +153,8 @@
                         <div class="card shadow-soft p-4">
                             <h2 class="h5 mb-2">Quando vuoi, puoi iniziare da qui</h2>
                             <p class="small text-muted mb-3">
-                                Se vuoi, puoi scrivermi per un primo colloquio: online o in presenza.
-                                Ti rispondo personalmente e possiamo capire insieme da dove partire.
+                                Se senti che è il momento, puoi scrivermi per un primo colloquio, online o in presenza.
+                                Ti rispondo personalmente e capiamo insieme, con calma, da dove partire.
                             </p>
                             <div class="d-grid gap-2">
                                 <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
@@ -159,7 +166,7 @@
                                 </a>
                             </div>
                             <p class="small text-muted mt-3 mb-0">
-                                Di norma ricevi una risposta entro 24 ore lavorative (lun-ven).
+                                Ricevi una risposta personale, di norma entro 24 ore lavorative (lun-ven).
                             </p>
                         </div>
                     </aside>
@@ -167,9 +174,10 @@
             </div>
 
             <div class="card shadow-soft p-4 mt-4 text-center">
-                <h2 class="h4 mb-2">Se senti che può esserti utile, possiamo partire da un primo confronto</h2>
+                <h2 class="h4 mb-2">Se senti che può esserti utile, possiamo fare un primo passo insieme</h2>
                 <p class="text-muted mb-3">
-                    Un messaggio può bastare per iniziare: poi valutiamo insieme, con calma, il passo successivo.
+                    Anche solo un messaggio può bastare per iniziare.
+                    Poi valutiamo insieme, con serenità, il passo successivo.
                 </p>
                 <div class="d-flex justify-content-center gap-2 flex-wrap">
                     <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
