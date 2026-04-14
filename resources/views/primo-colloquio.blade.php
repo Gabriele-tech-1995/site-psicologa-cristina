@@ -41,7 +41,7 @@
         <div class="container">
             <div class="page-head mb-4">
                 <span class="badge badge-soft mb-3">Primo colloquio</span>
-                <h1 class="page-title mb-2">Primo colloquio psicologico: cosa aspettarti, con calma</h1>
+                <h1 class="page-title mb-2">Primo colloquio psicologico: cosa aspettarti</h1>
                 <p class="page-lead mb-0">
                     Se stai pensando di chiedere supporto, è normale sentirti incerto o preoccupato.
                     In questa pagina trovi una guida semplice e umana su come funziona il primo incontro,
@@ -96,14 +96,14 @@
                             Anche poche parole possono bastare: da lì possiamo costruire insieme un primo filo.
                         </p>
 
-                        <h2 class="h4 mt-4 mb-3">Non serve arrivare con tutto chiaro</h2>
+                        <h2 class="h4 mt-4 mb-3">Possiamo partire anche se ti senti confuso</h2>
                         <p>
                             Molte persone rimandano perché pensano di dover avere già tutto chiaro.
                             In realtà non è così: non devi trovare per forza le parole perfette
                             e non devi arrivare con una “spiegazione giusta”.
                         </p>
                         <p class="mb-0">
-                            Il primo colloquio nasce proprio per questo: aiutarti a fare ordine, con calma, insieme.
+                            Il primo colloquio nasce proprio per questo: aiutarti a fare ordine, insieme, un passo alla volta.
                         </p>
 
                         <h2 class="h4 mt-4 mb-3">Quanto dura il primo colloquio</h2>

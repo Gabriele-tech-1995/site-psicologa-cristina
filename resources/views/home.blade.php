@@ -299,8 +299,6 @@
                     all’ascolto e alla comprensione della richiesta.
                     Durante l’incontro sarà possibile chiarire insieme esigenze, obiettivi e modalità del percorso,
                     con il tempo per le informazioni utili e per le tue domande.
-                    Se desideri, puoi leggere una spiegazione completa nella pagina dedicata al
-                    <a href="{{ route('first-interview') }}">primo colloquio psicologico</a>.
                     In base alla situazione, possiamo orientare il percorso verso un supporto mirato su aspetti come
                     <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
                         title="Ansia e gestione dello stress">ansia e gestione dello stress</a>,
@@ -311,6 +309,8 @@
                     o
                     <a href="{{ route('areas.show', ['slug' => 'valutazioni-psicodiagnostiche']) }}"
                         title="Valutazioni psicodiagnostiche">valutazioni psicodiagnostiche</a>.
+                    Se vuoi approfondire meglio cosa succede nel primo incontro, puoi leggere la
+                    <a href="{{ route('first-interview') }}">pagina dedicata al primo colloquio</a>.
                 </p>
             </div>
         </div>
