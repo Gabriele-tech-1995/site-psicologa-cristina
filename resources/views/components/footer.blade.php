@@ -25,7 +25,7 @@
             <div class="col-md-4">
                 <h3 class="footer-title">Riceve</h3>
                 <p class="small mb-1">Online e in presenza su appuntamento</p>
-                <p class="small mb-1">In loco: Centro Imago e Centro Empathia (Tivoli), Centro Liberamente (Villanova)</p>
+                <p class="small mb-1">In presenza: Centro Imago e Centro Empathia (Tivoli), Centro Liberamente (Villanova)</p>
                 <p class="small mb-1">Dal lunedì al venerdì</p>
                 <p class="small mb-0">Durata seduta: 50 minuti</p>
             </div>
