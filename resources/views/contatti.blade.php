@@ -181,7 +181,8 @@
                     <form method="POST" action="{{ route('contacts.submit') }}" data-track-submit="submit_form_contatti"
                         class="contact-form-layout">
                         @csrf
-
+                        <input type="text" name="{{ config('antispam.contact.honeypot_field', 'contact_website') }}" value="" tabindex="-1" autocomplete="off"
+                            class="contact-honeypot" aria-hidden="true">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label" for="contact-name">Nome e cognome</label>

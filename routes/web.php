@@ -15,7 +15,9 @@ Route::get('/aree/{slug}', [PublicController::class, 'areaShow'])->name('areas.s
 
 Route::get('/contatti', [PublicController::class, 'contact'])->name('contacts');
 
-Route::post('/contatti', [PublicController::class, 'submit'])->name('contacts.submit');
+Route::post('/contatti', [PublicController::class, 'submit'])
+    ->middleware('throttle:contact-form-submit')
+    ->name('contacts.submit');
 
 Route::get('/testimonianze', [PublicController::class, 'testimonials'])->name('testimonials');
 Route::post('/testimonianze', [PublicController::class, 'storeTestimonial'])->name('testimonials.store');

@@ -6,6 +6,7 @@ use App\Mail\ContactRequestConfirmMail;
 use App\Mail\ContactRequestMail;
 use App\Models\ContactRequest;
 use App\Models\Testimonial;
+use App\Support\SpamDetector;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -223,6 +224,15 @@ class PublicController extends Controller
 
     public function submit(Request $request)
     {
+        $honeypotField = (string) config('antispam.contact.honeypot_field', 'contact_website');
+
+        // Honeypot invisibile: i bot compilano campi non mostrati agli utenti reali.
+        if (trim((string) $request->input($honeypotField)) !== '') {
+            return redirect()
+                ->route('contacts')
+                ->with('success', 'Grazie per aver scritto. Riceverà una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
+        }
+
         $validator = Validator::make(
             $request->all(),
             [
@@ -292,6 +302,16 @@ class PublicController extends Controller
 
         $validated = $validator->validated();
         $validated['phone'] = preg_replace('/\s+/u', ' ', trim((string) $validated['phone']));
+
+        if (SpamDetector::isLikelySpam((string) $validated['message'])) {
+            return redirect()
+                ->route('contacts')
+                ->withErrors([
+                    'message' => 'Il messaggio sembra contenere contenuti promozionali automatici. Se desidera, può riscriverlo in modo più diretto e personale.',
+                ])
+                ->withInput($request->except(['message', $honeypotField]))
+                ->withFragment('richiesta-colloquio');
+        }
 
         $contact = ContactRequest::create([
             'name' => $validated['name'],

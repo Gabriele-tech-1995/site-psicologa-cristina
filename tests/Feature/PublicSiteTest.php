@@ -7,6 +7,8 @@ use App\Mail\ContactRequestMail;
 use App\Models\ContactRequest;
 use App\Models\Testimonial;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -175,6 +177,76 @@ class PublicSiteTest extends TestCase
         $this->assertDatabaseHas('contact_requests', [
             'email' => 'mario.rossi@example.com',
         ]);
+    }
+
+    public function test_contact_form_honeypot_blocks_submission(): void
+    {
+        Mail::fake();
+
+        $payload = [
+            'name' => 'Mario Rossi',
+            'email' => 'mario.rossi@example.com',
+            'phone' => '+39 340 1234567',
+            'message' => 'Messaggio di prova per il test automatico, almeno dieci caratteri.',
+            'privacy' => '1',
+            'contact_website' => 'https://spam.example.com',
+        ];
+
+        $response = $this->from(route('contacts'))
+            ->post(route('contacts.submit'), $payload);
+
+        $response->assertRedirect(route('contacts'));
+        $response->assertSessionHas('success');
+        $this->assertSame(0, ContactRequest::count());
+        Mail::assertNothingSent();
+    }
+
+    public function test_contact_form_blocks_obvious_commercial_spam_copy(): void
+    {
+        Mail::fake();
+
+        $payload = [
+            'name' => 'Mario Rossi',
+            'email' => 'mario.rossi@example.com',
+            'phone' => '+39 340 1234567',
+            'message' => 'Hi, we offer SEO services with backlinks to boost traffic and rank on Google first page.',
+            'privacy' => '1',
+        ];
+
+        $response = $this->from(route('contacts'))
+            ->post(route('contacts.submit'), $payload);
+
+        $response->assertRedirect(route('contacts').'#richiesta-colloquio');
+        $response->assertSessionHasErrors(['message']);
+        $this->assertSame(0, ContactRequest::count());
+        Mail::assertNothingSent();
+    }
+
+    public function test_contact_form_throttle_limits_repeated_submissions(): void
+    {
+        Mail::fake();
+        Config::set('antispam.contact.max_attempts_per_minute', 2);
+        Config::set('antispam.contact.max_attempts_per_hour', 20);
+        Config::set('antispam.contact.max_attempts_per_hour_per_email', 20);
+        Cache::flush();
+
+        $payload = [
+            'name' => 'Mario Rossi',
+            'email' => 'mario.rossi@example.com',
+            'phone' => '+39 340 1234567',
+            'message' => 'Messaggio di prova per il test automatico, almeno dieci caratteri.',
+            'privacy' => '1',
+        ];
+
+        $first = $this->from(route('contacts'))->post(route('contacts.submit'), $payload);
+        $first->assertRedirect(route('contacts'));
+
+        $second = $this->from(route('contacts'))->post(route('contacts.submit'), $payload);
+        $second->assertRedirect(route('contacts'));
+
+        $third = $this->from(route('contacts'))->post(route('contacts.submit'), $payload);
+        $third->assertRedirect(route('contacts').'#richiesta-colloquio');
+        $third->assertSessionHasErrors(['message']);
     }
 
     public function test_testimonial_form_validation_errors_on_empty_payload(): void
