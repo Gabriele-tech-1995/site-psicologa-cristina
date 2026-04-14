@@ -94,6 +94,10 @@ return [
             'title' => 'Ambiti di intervento | Psicologa a Tivoli – Cristina Pacifici',
             'description' => 'Aree di intervento della Dott.ssa Cristina Pacifici, psicologa tra Tivoli e Guidonia Montecelio: ansia, umore basso, relazioni, autostima, genitorialità, scuola e benessere emotivo.',
         ],
+        'firstInterview' => [
+            'title' => 'Primo colloquio psicologico a Tivoli | Dott.ssa Cristina Pacifici',
+            'description' => 'Scopri come si svolge il primo colloquio psicologico con la Dott.ssa Cristina Pacifici, psicologa a Tivoli: online o in presenza, in un clima accogliente e senza pressioni.',
+        ],
         'contacts' => [
             'title' => 'Contatti e sedi | Dott.ssa Cristina Pacifici, Psicologa a Tivoli',
             'description' => 'Contatta la Dott.ssa Cristina Pacifici, psicologa a Tivoli. Informazioni, sedi, modalità online e in presenza, WhatsApp e modulo contatti.',

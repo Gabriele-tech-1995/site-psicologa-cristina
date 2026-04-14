@@ -40,6 +40,7 @@ class SeoTest extends TestCase
             'home' => ['home', 'home'],
             'about' => ['about', 'about'],
             'areas' => ['areas', 'areas'],
+            'first interview' => ['first-interview', 'firstInterview'],
             'contacts' => ['contacts', 'contacts'],
             'testimonials' => ['testimonials', 'testimonials'],
             'privacy' => ['privacy', 'privacy'],
@@ -101,6 +102,7 @@ class SeoTest extends TestCase
             'home' => ['home'],
             'about' => ['about'],
             'areas' => ['areas'],
+            'first interview' => ['first-interview'],
             'contacts' => ['contacts'],
             'testimonials' => ['testimonials'],
             'privacy' => ['privacy'],
@@ -232,6 +234,27 @@ class SeoTest extends TestCase
 
         $this->assertGreaterThanOrEqual(2, substr_count($html, 'application/ld+json'));
         $this->assertStringContainsString('"@type":"FAQPage"', $html);
+    }
+
+    public function test_first_interview_page_has_additional_faq_json_ld(): void
+    {
+        $response = $this->get(route('first-interview'));
+        $response->assertOk();
+        $html = $response->getContent();
+
+        $this->assertGreaterThanOrEqual(2, substr_count($html, 'application/ld+json'));
+        $this->assertStringContainsString('"@type":"FAQPage"', $html);
+    }
+
+    public function test_first_interview_page_has_additional_faq_json_ld(): void
+    {
+        $response = $this->get(route('first-interview'));
+        $response->assertOk();
+        $html = $response->getContent();
+
+        $this->assertGreaterThanOrEqual(2, substr_count($html, 'application/ld+json'));
+        $this->assertStringContainsString('"@type":"FAQPage"', $html);
+        $this->assertStringContainsString('Primo colloquio psicologico: cosa aspettarti, con calma', $html);
     }
 
     public function test_area_page_json_ld_includes_service_and_breadcrumb(): void

@@ -37,6 +37,7 @@ class PublicSiteTest extends TestCase
             'home' => ['/', ['Dott.ssa Cristina Pacifici', 'Domande frequenti']],
             'about' => ['/chi-sono', ['Chi sono']],
             'areas' => ['/aree', ['Aree di intervento']],
+            'first-interview' => ['/primo-colloquio', ['Primo colloquio psicologico', 'Domande frequenti']],
             'contacts' => ['/contatti', ['Contatti', 'Modulo per il primo colloquio', 'Come si svolge il primo colloquio?']],
             'testimonials' => ['/testimonianze', ['Testimonianze']],
             'privacy' => ['/privacy-policy', ['Privacy', 'titolare del trattamento']],

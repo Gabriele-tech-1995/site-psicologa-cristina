@@ -21,6 +21,12 @@
     </li>
 
     <li class="nav-item">
+        <a class="nav-link {{ request()->routeIs('first-interview') ? 'active' : '' }}" href="{{ route('first-interview') }}">
+            Primo colloquio
+        </a>
+    </li>
+
+    <li class="nav-item">
         <a class="nav-link {{ request()->routeIs('testimonials*') ? 'active' : '' }}"
             href="{{ route('testimonials') }}">
             Testimonianze

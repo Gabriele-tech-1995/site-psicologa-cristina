@@ -54,6 +54,16 @@ class PublicController extends Controller
         ]);
     }
 
+    public function firstInterview()
+    {
+        $seo = $this->seo('firstInterview');
+
+        return view('primo-colloquio', [
+            'metaTitle' => $seo['title'] ?? 'Primo colloquio psicologico a Tivoli | Dott.ssa Cristina Pacifici',
+            'metaDescription' => $seo['description'] ?? 'Scopri come si svolge il primo colloquio psicologico con la Dott.ssa Cristina Pacifici, psicologa a Tivoli: online o in presenza, in un clima accogliente e senza pressioni.',
+        ]);
+    }
+
     public function areaShow(string $slug)
     {
         $area = collect($this->getAreas())->firstWhere('slug', $slug);

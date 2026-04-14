@@ -143,6 +143,10 @@
                             <div class="d-flex flex-column align-items-stretch align-items-sm-center gap-2">
                                 <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
                                     data-track="cta_hero_colloquio">Richiedi il primo colloquio</a>
+                                <a class="btn btn-outline-secondario btn-sm align-self-center"
+                                    href="{{ route('first-interview') }}" data-track="cta_hero_primo_colloquio_page">
+                                    Scopri come funziona il primo colloquio
+                                </a>
                                 <span class="hero-cta-note text-center">Modulo sul sito · di solito riscontro entro
                                     <strong>24 ore lavorative</strong> (lun–ven)</span>
                             </div>
@@ -295,6 +299,8 @@
                     all’ascolto e alla comprensione della richiesta.
                     Durante l’incontro sarà possibile chiarire insieme esigenze, obiettivi e modalità del percorso,
                     con il tempo per le informazioni utili e per le tue domande.
+                    Se desideri, puoi leggere una spiegazione completa nella pagina dedicata al
+                    <a href="{{ route('first-interview') }}">primo colloquio psicologico</a>.
                     In base alla situazione, il percorso potrà orientarsi verso un supporto mirato su aspetti come
                     <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
                         title="Ansia e gestione dello stress">ansia e gestione dello stress</a>,

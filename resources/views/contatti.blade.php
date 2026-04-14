@@ -88,6 +88,17 @@
                 </ol>
             </div>
 
+            <div class="card shadow-soft p-4 mb-4">
+                <h2 class="h5 mb-2">Hai dubbi sul primo colloquio?</h2>
+                <p class="small text-muted mb-3">
+                    Se vuoi capire meglio come funziona il primo incontro (cosa succede, cosa puoi portare, durata e modalità),
+                    trovi una guida semplice e rassicurante nella pagina dedicata.
+                </p>
+                <a class="btn btn-outline-secondario" href="{{ route('first-interview') }}">
+                    Leggi la pagina sul primo colloquio
+                </a>
+            </div>
+
             <div class="contacts-layout mt-1">
                 <div class="contacts-layout__sidebar">
                     <div class="contacts-left d-flex flex-column w-100">

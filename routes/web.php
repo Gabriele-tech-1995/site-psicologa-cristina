@@ -13,6 +13,8 @@ Route::get('/aree', [PublicController::class, 'areas'])->name('areas');
 
 Route::get('/aree/{slug}', [PublicController::class, 'areaShow'])->name('areas.show');
 
+Route::get('/primo-colloquio', [PublicController::class, 'firstInterview'])->name('first-interview');
+
 Route::get('/contatti', [PublicController::class, 'contact'])->name('contacts');
 
 Route::post('/contatti', [PublicController::class, 'submit'])
@@ -27,6 +29,7 @@ Route::get('/sitemap.xml', function () {
         ['loc' => route('home'), 'priority' => '1.0'],
         ['loc' => route('about'), 'priority' => '0.9'],
         ['loc' => route('areas'), 'priority' => '0.9'],
+        ['loc' => route('first-interview'), 'priority' => '0.8'],
         ['loc' => route('contacts'), 'priority' => '0.9'],
         ['loc' => route('testimonials'), 'priority' => '0.8'],
         ['loc' => route('privacy'), 'priority' => '0.5'],
