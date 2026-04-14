@@ -22,7 +22,7 @@
                 <h1 class="mb-2 page-title">Contatti</h1>
 
                 <p class="page-lead mb-3 contact-lead-primary">
-                    <strong>Dott.ssa Cristina Pacifici</strong> è <strong>psicologa a Tivoli</strong>; riceve su
+                    Sono la <strong>Dott.ssa Cristina Pacifici</strong>, <strong>psicologa a Tivoli</strong>; ricevo su
                     appuntamento <strong>online</strong> e <strong>in presenza</strong> presso
                     <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
                     <strong>Centro Liberamente</strong> (Villanova di Guidonia).
@@ -33,9 +33,9 @@
 
                 <div class="card shadow-soft border-0 contact-summary-highlight p-4 mb-4">
                     <p class="mb-0">
-                        Puoi contattare la <strong>Dott.ssa Cristina Pacifici</strong> tramite <strong>modulo</strong>,
+                        Puoi contattarmi tramite <strong>modulo</strong>,
                         <strong>email</strong> o <strong>WhatsApp</strong>.
-                        Riceverà una risposta nel più breve tempo possibile: leggo io ogni messaggio e, di norma, rispondo entro <strong>24 ore lavorative</strong> (lun–ven).
+                        Ricevi una risposta nel più breve tempo possibile: leggo io ogni messaggio e, di norma, rispondo entro <strong>24 ore lavorative</strong> (lun–ven).
                         È possibile svolgere il <strong>primo colloquio</strong> <strong>online</strong> oppure <strong>in presenza</strong>, in base a esigenze e preferenze.
                         Non serve una richiesta perfetta: basta un messaggio sincero; se vuoi, puoi aggiungere qualche riga su ciò che senti importante condividere.
                     </p>
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow-soft h-100 border-0 p-3 contact-glance-card">
-                            <h2 class="h6 text-uppercase text-muted mb-2">Dove riceve</h2>
+                            <h2 class="h6 text-uppercase text-muted mb-2">Dove ricevo</h2>
                             <p class="small mb-0">
                                 Sedute in presenza su appuntamento ai centri indicati; colloqui anche da remoto quando è la modalità più adatta.
                             </p>
@@ -268,7 +268,7 @@
 
                                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_form"
                                     href="{{ $seoContact['whatsapp_url'] }}">
-                                    Mi scriva su WhatsApp
+                                    Scrivimi su WhatsApp
                                 </a>
                             </div>
                         </div>

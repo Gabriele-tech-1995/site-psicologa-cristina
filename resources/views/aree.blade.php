@@ -72,7 +72,7 @@
 
                     <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                         href="{{ $seoContact['whatsapp_url'] }}">
-                        Mi scriva su WhatsApp
+                        Scrivimi su WhatsApp
                     </a>
                 </div>
             </div>

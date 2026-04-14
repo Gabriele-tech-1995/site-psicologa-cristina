@@ -50,7 +50,7 @@ class PublicController extends Controller
         return view('aree', [
             'areas' => $areas,
             'metaTitle' => $seo['title'] ?? 'Aree di intervento | Psicologa a Tivoli per bambini, adolescenti e genitori',
-            'metaDescription' => $seo['description'] ?? 'Scopri le aree di intervento della Dott.ssa Cristina Pacifici, psicologa a Tivoli: supporto per ansia, umore basso, difficoltà relazionali, autostima, genitorialità, difficoltà scolastiche e benessere emotivo.',
+            'metaDescription' => $seo['description'] ?? 'Scopri le mie aree di intervento come psicologa a Tivoli: supporto per ansia, umore basso, difficoltà relazionali, autostima, genitorialità, difficoltà scolastiche e benessere emotivo.',
         ]);
     }
 
@@ -240,7 +240,7 @@ class PublicController extends Controller
         if (trim((string) $request->input($honeypotField)) !== '') {
             return redirect()
                 ->route('contacts')
-                ->with('success', 'Grazie per aver scritto. Riceverà una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
+                ->with('success', 'Grazie per aver scritto. Riceverai una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
         }
 
         $validator = Validator::make(
@@ -351,7 +351,7 @@ class PublicController extends Controller
 
         return redirect()
             ->route('contacts')
-            ->with('success', 'Grazie per aver scritto. Riceverà una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
+            ->with('success', 'Grazie per aver scritto. Riceverai una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
     }
 
     public function testimonials()
@@ -408,7 +408,7 @@ class PublicController extends Controller
 
                 'body' => '
     <p>
-        Se sta vivendo <strong>ansia</strong>, agitazione costante o momenti di forte attivazione emotiva, affrontare tutto in solitudine può diventare faticoso.
+        Se stai vivendo <strong>ansia</strong>, agitazione costante o momenti di forte attivazione emotiva, affrontare tutto in solitudine può diventare faticoso.
         Come <strong>psicologa a Tivoli</strong>, offro supporto psicologico ad adolescenti, giovani adulti e genitori per comprendere l’origine dell’ansia e sviluppare strumenti concreti per gestirla nella vita quotidiana, ritrovando maggiore equilibrio e serenità.
     </p>
 
@@ -442,7 +442,7 @@ class PublicController extends Controller
         Quando questi segnali diventano frequenti o intensi, un <strong>supporto psicologico</strong> può aiutare a comprendere meglio ciò che sta accadendo e a intervenire in modo mirato.
     </p>
 
-    <h2>Come posso accompagnarla nella gestione di ansia e stress</h2>
+    <h2>Come posso accompagnarti nella gestione di ansia e stress</h2>
 
     <p>
         Il percorso psicologico è uno spazio sicuro in cui poter parlare liberamente, senza giudizio, e dare significato a ciò che si sta vivendo.
@@ -450,7 +450,7 @@ class PublicController extends Controller
     </p>
 
     <p>
-        Durante il percorso potrà:
+        Durante il percorso potrai:
     </p>
 
     <ul>
@@ -469,21 +469,21 @@ class PublicController extends Controller
     </p>
 
     <p>
-        Ogni percorso viene costruito in modo personalizzato, nel rispetto della storia, dei tempi e dei bisogni della persona.
+        Ogni percorso viene costruito in modo personalizzato, nel rispetto della tua storia, dei tuoi tempi e dei tuoi bisogni.
     </p>
 
     <h2>Quando rivolgersi a una psicologa per l’ansia</h2>
 
     <p>
-        Rivolgersi a una psicologa può essere utile quando l’ansia non è più un episodio occasionale, ma una presenza che condiziona la quotidianità e limita il benessere personale.
+        Chiedermi un supporto può essere utile quando l’ansia non è più un episodio occasionale, ma una presenza che condiziona la quotidianità e limita il benessere personale.
     </p>
 
     <ul>
         <li>l’ansia è presente da tempo e fatica a diminuire</li>
-        <li>ha sperimentato momenti di forte agitazione o perdita di controllo</li>
+        <li>hai sperimentato momenti di forte agitazione o perdita di controllo</li>
         <li>evita situazioni per paura, disagio o senso di insicurezza</li>
         <li>lo stress incide sul lavoro, sullo studio o sulle relazioni</li>
-        <li>ha difficoltà a dormire, a rilassarsi o a ritrovare un senso di calma</li>
+        <li>hai difficoltà a dormire, a rilassarti o a ritrovare un senso di calma</li>
     </ul>
 
     <p>
@@ -502,7 +502,7 @@ class PublicController extends Controller
     <p>
         La durata del percorso dipende dalla situazione individuale, dall’intensità dei sintomi e dagli obiettivi condivisi.
         Alcuni percorsi possono essere più brevi e focalizzati sulla gestione di momenti specifici di ansia o stress, mentre altri richiedono tempi più graduali e approfonditi.
-        Durante il lavoro, il percorso viene sempre adattato ai bisogni della persona.
+        Durante il lavoro, il percorso viene sempre adattato ai tuoi bisogni.
     </p>
 
     <h4>Serve una diagnosi per iniziare un percorso psicologico?</h4>
@@ -563,7 +563,7 @@ class PublicController extends Controller
         Quando questi segnali diventano frequenti o iniziano a condizionare il benessere personale, un <strong>supporto psicologico</strong> può aiutare a comprendere meglio il significato del disagio e a orientare un percorso di cambiamento.
     </p>
 
-    <h2>Come posso accompagnarla in un percorso di supporto psicologico</h2>
+    <h2>Come posso accompagnarti in un percorso di supporto psicologico</h2>
 
     <p>
         Il percorso si sviluppa in uno spazio di ascolto autentico, in cui la persona può sentirsi accolta, compresa e accompagnata nel riconoscere i vissuti che stanno emergendo.
@@ -589,14 +589,14 @@ class PublicController extends Controller
         rendendo utile un lavoro più ampio e personalizzato.
     </p>
 
-    <h2>Quando può essere utile rivolgersi a una psicologa</h2>
+    <h2>Quando può essere utile chiedermi un supporto psicologico</h2>
 
     <p>
         Chiedere un supporto può essere utile quando il senso di tristezza, svuotamento o demotivazione persiste nel tempo e rende più difficile affrontare lavoro, studio, relazioni o attività quotidiane.
     </p>
 
     <ul>
-        <li>si sente spesso senza energia o senza motivazione</li>
+        <li>ti senti spesso senza energia o senza motivazione</li>
         <li>fa fatica a provare interesse o piacere nelle attività quotidiane</li>
         <li>avverte un senso di blocco, vuoto o distanza da sé</li>
         <li>si percepisce più fragile, scoraggiato o disorientato</li>
@@ -632,7 +632,7 @@ class PublicController extends Controller
 
     <h4>Il primo colloquio serve già a iniziare un percorso?</h4>
     <p>
-        Il primo colloquio è uno spazio dedicato all’ascolto e alla comprensione della richiesta. Permette di inquadrare il momento che la persona sta vivendo e di valutare insieme come procedere.
+        Il primo colloquio è uno spazio dedicato all’ascolto e alla comprensione della richiesta. Permette di inquadrare il momento che stai vivendo e di valutare insieme come procedere.
     </p>
     ',
             ],
@@ -682,7 +682,7 @@ class PublicController extends Controller
         Un percorso psicologico può aiutare a comprendere meglio ciò che accade e a individuare modalità più funzionali di stare in relazione con gli altri.
     </p>
 
-    <h2>Come posso accompagnarla a migliorare la qualità delle relazioni</h2>
+    <h2>Come posso accompagnarti a migliorare la qualità delle relazioni</h2>
 
     <p>
         Il percorso psicologico permette di osservare con maggiore consapevolezza il proprio modo di comunicare, reagire e relazionarsi agli altri.
@@ -719,7 +719,7 @@ class PublicController extends Controller
         <li>si fatica a comunicare in modo chiaro e costruttivo</li>
         <li>si prova senso di distanza, incomprensione o solitudine nelle relazioni</li>
         <li>le relazioni generano stress, frustrazione o insicurezza</li>
-        <li>si desidera migliorare la qualità dei rapporti con gli altri</li>
+        <li>desideri migliorare la qualità dei rapporti con gli altri</li>
     </ul>
 
     <p>
@@ -799,7 +799,7 @@ class PublicController extends Controller
         In questi casi, un percorso psicologico può aiutare a comprendere le origini di tali difficoltà e a costruire una percezione di sé più stabile e positiva.
     </p>
 
-    <h2>Come posso accompagnarla a rafforzare l’autostima</h2>
+    <h2>Come posso accompagnarti a rafforzare l’autostima</h2>
 
     <p>
         Il lavoro psicologico si orienta al riconoscimento delle risorse personali, alla comprensione dei meccanismi di autosvalutazione e alla costruzione di un rapporto più autentico con sé stessi.
@@ -828,12 +828,12 @@ class PublicController extends Controller
     <h2>Quando può essere utile un supporto psicologico</h2>
 
     <p>
-        Rivolgersi a una psicologa può essere utile quando la percezione di sé diventa fonte di sofferenza o limita la possibilità di vivere con serenità le relazioni, il lavoro o le scelte personali.
+        Chiedermi un supporto può essere utile quando la percezione di sé diventa fonte di sofferenza o limita la possibilità di vivere con serenità le relazioni, il lavoro o le scelte personali.
     </p>
 
     <ul>
-        <li>si sente spesso insicuro o inadeguato</li>
-        <li>ha difficoltà a prendere decisioni o a fidarsi delle proprie capacità</li>
+        <li>ti senti spesso insicuro o inadeguato</li>
+        <li>hai difficoltà a prendere decisioni o a fidarti delle tue capacità</li>
         <li>teme il giudizio degli altri o evita alcune situazioni</li>
         <li>tende a svalutarsi o a minimizzare i propri successi</li>
         <li>fa fatica a riconoscere il proprio valore personale</li>
@@ -1073,11 +1073,11 @@ class PublicController extends Controller
     </p>
 
     <ul>
-        <li>si osservano difficoltà persistenti nell’apprendimento o nell’attenzione</li>
+        <li>osservi difficoltà persistenti nell’apprendimento o nell’attenzione</li>
         <li>il bambino fatica a organizzarsi o a gestire le attività quotidiane</li>
         <li>emergono difficoltà emotive o comportamentali</li>
         <li>la famiglia sente il bisogno di maggiore chiarezza sul funzionamento del minore</li>
-        <li>si desidera individuare strategie educative più efficaci</li>
+        <li>desideri individuare strategie educative più efficaci</li>
     </ul>
 
     <p>
@@ -1194,10 +1194,10 @@ class PublicController extends Controller
     </p>
 
     <ul>
-        <li>si osservano cambiamenti nel comportamento del figlio</li>
+        <li>osservi cambiamenti nel comportamento di tuo figlio</li>
         <li>emergono difficoltà nella gestione delle emozioni</li>
         <li>la comunicazione in famiglia diventa difficile</li>
-        <li>si desidera maggiore sicurezza nel proprio ruolo educativo</li>
+        <li>desideri maggiore sicurezza nel tuo ruolo educativo</li>
         <li>si sente il bisogno di confronto e orientamento</li>
     </ul>
 
@@ -1249,7 +1249,7 @@ class PublicController extends Controller
     <h2>Quando è utile una valutazione psicodiagnostica</h2>
 
     <p>
-        Una valutazione può essere richiesta quando si osservano difficoltà persistenti nello sviluppo, nell’apprendimento o nella regolazione emotiva.
+        Una valutazione può essere utile quando osservi difficoltà persistenti nello sviluppo, nell’apprendimento o nella regolazione emotiva.
         In questi casi, comprendere il funzionamento della persona è il primo passo per individuare un intervento adeguato.
     </p>
 

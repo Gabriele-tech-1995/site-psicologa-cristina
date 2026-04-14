@@ -95,7 +95,7 @@
                 </div>
                 <div class="intro-text">
                     <p class="intro-eyebrow">Chi sono · in sintesi</p>
-                    <p class="intro-lead">La Dott.ssa Cristina Pacifici è psicologa a Tivoli e offre supporto
+                    <p class="intro-lead">Sono la Dott.ssa Cristina Pacifici, psicologa a Tivoli: offro supporto
                         psicologico a bambini, adolescenti, adulti e genitori, in presenza e online.</p>
                     <blockquote class="intro-quote">«Non contano i passi che fai, ma la direzione in cui stai
                         andando.»</blockquote>
@@ -133,7 +133,7 @@
                                     online o in presenza • durata seduta: <strong>50 minuti</strong></span></div>
                             <div class="hero-point"><span class="hero-dot"></span><span><strong>Disponibilità</strong>
                                     lun–ven: di solito riscontro entro <strong>24 ore lavorative</strong></span></div>
-                            <div class="hero-point"><span class="hero-dot"></span><span>In presenza riceve presso
+                            <div class="hero-point"><span class="hero-dot"></span><span>In presenza ricevo presso
                                     <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
                                     <strong>Centro Liberamente</strong> (Villanova di Guidonia), su appuntamento; anche
                                     <strong>online</strong></span></div>
@@ -301,7 +301,7 @@
                     con il tempo per le informazioni utili e per le tue domande.
                     Se desideri, puoi leggere una spiegazione completa nella pagina dedicata al
                     <a href="{{ route('first-interview') }}">primo colloquio psicologico</a>.
-                    In base alla situazione, il percorso potrà orientarsi verso un supporto mirato su aspetti come
+                    In base alla situazione, possiamo orientare il percorso verso un supporto mirato su aspetti come
                     <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}"
                         title="Ansia e gestione dello stress">ansia e gestione dello stress</a>,
                     <a href="{{ route('areas.show', ['slug' => 'difficolta-relazionali']) }}"
@@ -360,7 +360,7 @@
                 <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
                     data-track="cta_bottom_colloquio">Richiedi il primo colloquio</a>
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
-                    data-track="click_whatsapp_bottom" href="{{ $seoContact['whatsapp_url'] }}">Mi scriva su WhatsApp</a>
+                    data-track="click_whatsapp_bottom" href="{{ $seoContact['whatsapp_url'] }}">Scrivimi su WhatsApp</a>
             </div>
         </div>
     </section>

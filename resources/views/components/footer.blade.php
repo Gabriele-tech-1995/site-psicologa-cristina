@@ -23,7 +23,7 @@
             </div>
 
             <div class="col-md-4">
-                <h3 class="footer-title">Riceve</h3>
+                <h3 class="footer-title">Ricevo</h3>
                 <p class="small mb-1">Online e in presenza su appuntamento</p>
                 <p class="small mb-1">Centro Imago e Centro Empathia (Tivoli), Centro Liberamente (Villanova)</p>
                 <p class="small mb-1">Dal lunedì al venerdì</p>

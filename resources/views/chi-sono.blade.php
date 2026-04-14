@@ -159,7 +159,7 @@
                                             Psicologi del Lazio n. 32019
                                         @endif
                                     </li>
-                                    <li><strong>Riceve:</strong> online e in presenza a Tivoli</li>
+                                    <li><strong>Ricevo:</strong> online e in presenza a Tivoli</li>
                                     <li><strong>Disponibilità:</strong> lun–ven</li>
                                     <li><strong>Durata seduta:</strong> 50 minuti</li>
                                     <li><strong>Cancellazione:</strong> entro 24 ore</li>
@@ -167,7 +167,7 @@
                             </div>
 
                             <div class="card shadow-soft p-4 mt-4 card-chi">
-                                <h5 class="mb-3">Dove riceve in presenza</h5>
+                                <h5 class="mb-3">Dove ricevo in presenza</h5>
 
                                 <p class="small mb-2">
                                     <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — i colloqui in presenza si
@@ -179,7 +179,7 @@
                                     <li><strong>Centro Liberamente</strong>, Villanova di Guidonia</li>
                                 </ul>
                                 <p class="small mb-0">
-                                    Riceve anche <strong>online</strong>. Indirizzi, mappe e modalità nella pagina
+                                    Ricevo anche <strong>online</strong>. Indirizzi, mappe e modalità nella pagina
                                     <a href="{{ route('contacts') }}">Contatti</a>.
                                 </p>
                             </div>
@@ -195,7 +195,7 @@
 
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                     href="{{ $seoContact['whatsapp_url'] }}">
-                    Mi scriva su WhatsApp
+                    Scrivimi su WhatsApp
                 </a>
             </div>
         </div>
