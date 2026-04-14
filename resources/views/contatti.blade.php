@@ -28,14 +28,14 @@
                     <strong>Centro Liberamente</strong> (Villanova di Guidonia).
                     Per un primo contatto puoi usare il <strong>modulo</strong> qui sotto, l’<strong>email</strong> o
                     <strong>WhatsApp</strong> (stesso numero del telefono).
-                    Di solito rispondo entro <strong>24 ore lavorative</strong> (lun–ven); nei periodi di maggiore richiesta i tempi possono allungarsi leggermente.
+                    Di solito rispondo entro <strong>24 ore</strong> (lun–ven); nei periodi di maggiore richiesta i tempi possono allungarsi leggermente.
                 </p>
 
                 <div class="card shadow-soft border-0 contact-summary-highlight p-4 mb-4">
                     <p class="mb-0">
                         Puoi contattarmi tramite <strong>modulo</strong>,
                         <strong>email</strong> o <strong>WhatsApp</strong>.
-                        Ricevi una risposta nel più breve tempo possibile: leggo io ogni messaggio e, di norma, rispondo entro <strong>24 ore lavorative</strong> (lun–ven).
+                        Ricevi una risposta nel più breve tempo possibile: leggo io ogni messaggio e, di norma, rispondo entro <strong>24 ore</strong> (lun–ven).
                         È possibile svolgere il <strong>primo colloquio</strong> <strong>online</strong> oppure <strong>in presenza</strong>, in base a esigenze e preferenze.
                         Non serve una richiesta perfetta: basta un messaggio sincero; se vuoi, puoi aggiungere qualche riga su ciò che senti importante condividere.
                     </p>
@@ -81,7 +81,7 @@
             <div class="card shadow-soft p-4 mb-4 contact-steps">
                 <h2 class="h5 mb-3">Cosa succede dopo aver scritto</h2>
                 <ol class="contact-steps-list mb-0 ps-3">
-                    <li><strong>Ricevi una mia risposta</strong> — di solito entro <strong>24 ore lavorative</strong> (lun–ven).</li>
+                    <li><strong>Ricevi una mia risposta</strong> — di solito entro <strong>24 ore</strong> (lun–ven).</li>
                     <li><strong>Insieme</strong> troviamo la modalità più adatta: <strong>online</strong>, <strong>in presenza</strong> o quale sede ti è più comoda.</li>
                     <li><strong>Primo colloquio</strong> (circa 50 minuti): ascolto della richiesta, informazioni utili e
                         spazio per le tue domande, senza pressioni sulla durata del percorso.</li>

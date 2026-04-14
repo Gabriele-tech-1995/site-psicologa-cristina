@@ -19,7 +19,7 @@
             ],
             [
                 'question' => 'Quanto tempo passa prima di ricevere risposta dopo il messaggio?',
-                'answer' => 'Di norma ricevi una risposta personale entro 24 ore lavorative (lun-ven), salvo periodi di maggiore richiesta.',
+                'answer' => 'Di norma ricevi una risposta personale entro 24 ore (lun-ven), salvo periodi di maggiore richiesta.',
             ],
         ];
 
@@ -154,7 +154,7 @@
                                 <li>Durata: circa 50 minuti</li>
                                 <li>Modalità: online o in presenza</li>
                                 <li>Nessun obbligo di proseguire</li>
-                                <li>Risposta: di norma entro 24 ore lavorative</li>
+                                <li>Risposta: di norma entro 24 ore</li>
                             </ul>
                         </div>
 
@@ -174,7 +174,7 @@
                                 </a>
                             </div>
                             <p class="small text-muted mt-3 mb-0">
-                                Ricevi una risposta personale, di norma entro 24 ore lavorative (lun-ven).
+                                Ricevi una risposta personale, di norma entro 24 ore (lun-ven).
                             </p>
                         </div>
                     </aside>

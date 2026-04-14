@@ -28,7 +28,7 @@ return [
     ],
     [
         'question' => 'Come puoi richiedermi un primo contatto?',
-        'answer' => 'Puoi usare la pagina Contatti del sito: modulo, indirizzo email e WhatsApp (stesso numero di telefono). Di solito ricevi una risposta entro 24 ore lavorative (lunedì–venerdì); nei periodi di maggiore richiesta i tempi possono allungarsi leggermente.',
-        'answer_html' => 'Il modo più semplice è passare dalla <a href="__CONTATTI__">pagina Contatti</a>: lì puoi lasciare un messaggio con il modulo, scrivere una mail o scrivermi su WhatsApp (è lo stesso numero che trovi sul sito). Di solito rispondo entro 24 ore lavorative, dal lunedì al venerdì; nei periodi di maggiore richiesta può capitare che serva qualche giorno in più.',
+        'answer' => 'Puoi usare la pagina Contatti del sito: modulo, indirizzo email e WhatsApp (stesso numero di telefono). Di solito ricevi una risposta entro 24 ore (lunedì–venerdì); nei periodi di maggiore richiesta i tempi possono allungarsi leggermente.',
+        'answer_html' => 'Il modo più semplice è passare dalla <a href="__CONTATTI__">pagina Contatti</a>: lì puoi lasciare un messaggio con il modulo, scrivere una mail o scrivermi su WhatsApp (è lo stesso numero che trovi sul sito). Di solito rispondo entro 24 ore, dal lunedì al venerdì; nei periodi di maggiore richiesta può capitare che serva qualche giorno in più.',
     ],
 ];

@@ -132,7 +132,7 @@
                             <div class="hero-point"><span class="hero-dot"></span><span><strong>Primo colloquio</strong>
                                     online o in presenza • durata seduta: <strong>50 minuti</strong></span></div>
                             <div class="hero-point"><span class="hero-dot"></span><span><strong>Disponibilità</strong>
-                                    lun–ven: di solito riscontro entro <strong>24 ore lavorative</strong></span></div>
+                                    lun–ven: di solito riscontro entro <strong>24 ore</strong></span></div>
                             <div class="hero-point"><span class="hero-dot"></span><span>In presenza ricevo presso
                                     <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
                                     <strong>Centro Liberamente</strong> (Villanova di Guidonia), su appuntamento; anche
@@ -148,7 +148,7 @@
                                     Scopri come funziona il primo colloquio
                                 </a>
                                 <span class="hero-cta-note text-center">Modulo sul sito · di solito riscontro entro
-                                    <strong>24 ore lavorative</strong> (lun–ven)</span>
+                                    <strong>24 ore</strong> (lun–ven)</span>
                             </div>
                             <p class="hero-cta-alt mb-0 text-center">
                                 Preferisci scrivere prima su WhatsApp?

@@ -240,7 +240,7 @@ class PublicController extends Controller
         if (trim((string) $request->input($honeypotField)) !== '') {
             return redirect()
                 ->route('contacts')
-                ->with('success', 'Grazie per aver scritto. Riceverai una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
+                ->with('success', 'Grazie per aver scritto. Riceverai una risposta da me nel più breve tempo possibile, di solito entro 24 ore.');
         }
 
         $validator = Validator::make(
@@ -351,7 +351,7 @@ class PublicController extends Controller
 
         return redirect()
             ->route('contacts')
-            ->with('success', 'Grazie per aver scritto. Riceverai una risposta da me nel più breve tempo possibile, di solito entro 24 ore lavorative.');
+            ->with('success', 'Grazie per aver scritto. Riceverai una risposta da me nel più breve tempo possibile, di solito entro 24 ore.');
     }
 
     public function testimonials()
