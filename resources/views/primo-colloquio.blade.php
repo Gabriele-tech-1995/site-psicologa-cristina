@@ -61,7 +61,8 @@
                         <p>
                             Con la <strong>Dott.ssa Cristina Pacifici, psicologa a Tivoli</strong>, il primo incontro è uno
                             spazio protetto in cui puoi sentirti accolto, ascoltato e mai giudicato.
-                            Lavoriamo insieme con delicatezza, seguendo i tuoi tempi.
+                            Se vuoi <a href="{{ route('about') }}">scoprire qualcosa in più su di me</a>,
+                            nella pagina <a href="{{ route('about') }}">chi sono</a> trovi il mio approccio e il modo in cui lavoro.
                         </p>
 
                         <h2 class="h4 mt-4 mb-3">Cosa succede durante il primo colloquio</h2>
@@ -86,9 +87,16 @@
                             Per esempio:
                         </p>
                         <ul>
-                            <li>un periodo di ansia, stress o stanchezza emotiva;</li>
+                            <li>
+                                un periodo di
+                                <a href="{{ route('areas.show', ['slug' => 'ansia-e-gestione-dello-stress']) }}">ansia e gestione dello stress</a>,
+                                stanchezza emotiva o preoccupazione costante;
+                            </li>
                             <li>difficoltà relazionali o familiari;</li>
-                            <li>dubbi legati a tuo figlio o a tua figlia;</li>
+                            <li>
+                                dubbi legati a tuo figlio o a tua figlia, oppure bisogno di
+                                <a href="{{ route('areas.show', ['slug' => 'genitorialita']) }}">sostegno alla genitorialità</a>;
+                            </li>
                             <li>fatica scolastica, organizzativa o motivazionale;</li>
                             <li>una sensazione di blocco che non riesci a decifrare.</li>
                         </ul>
@@ -177,7 +185,9 @@
                 <h2 class="h4 mb-2">Se senti che può esserti utile, possiamo fare un primo passo insieme</h2>
                 <p class="text-muted mb-3">
                     Anche solo un messaggio può bastare per iniziare.
-                    Poi valutiamo insieme, con serenità, il passo successivo.
+                    Se vuoi <a href="{{ route('contacts') }}#richiesta-colloquio">contattarmi</a>,
+                    trovi tutto nella <a href="{{ route('contacts') }}">pagina contatti</a>.
+                    Da lì puoi anche <a href="{{ route('contacts') }}#richiesta-colloquio">richiedere un primo colloquio</a>.
                 </p>
                 <div class="d-flex justify-content-center gap-2 flex-wrap">
                     <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
