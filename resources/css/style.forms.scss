@@ -51,6 +51,22 @@ textarea::placeholder {
     gap: 0.5rem;
 }
 
+/* Honeypot anti-spam: resta nel DOM ma invisibile e non cliccabile. */
+.contact-honeypot {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    clip-path: inset(50%) !important;
+    border: 0 !important;
+    white-space: nowrap !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
 /* Alert a schermo intero: pagina oscurata; solo il pannello al centro (viewport), chiusura obbligatoria.
    (Il partial SCSS del modal Bootstrap non è incluso nel bundle: definiamo shell + backdrop qui.) */
 body.contact-feedback-modal-open.modal-open .modal-backdrop.show {
