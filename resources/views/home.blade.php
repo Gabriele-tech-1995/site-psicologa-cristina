@@ -223,10 +223,11 @@
     <section class="section pt-0">
         <div class="container">
             <div class="card shadow-soft p-4 local-proof-card">
-                <h2 class="h4 mb-2">Fiducia e presenza sul territorio</h2>
+                <h2 class="h4 mb-2">Un percorso chiaro, vicino al territorio</h2>
                 <p class="small text-muted mb-3">
-                    Lavoro con persone e famiglie di <strong>Tivoli</strong>, <strong>Guidonia</strong>,
-                    <strong>Villanova</strong> e anche <strong>online</strong>.
+                    Il lavoro clinico si sviluppa con attenzione alla persona, alla storia individuale e al contesto
+                    familiare, in presenza a <strong>Tivoli</strong> e in zona, oppure <strong>online</strong> quando
+                    la modalita e piu adatta.
                 </p>
                 @if ($seoContact['google_business_profile_url'] !== '')
                     <p class="small mb-3">
@@ -236,17 +237,17 @@
                     </p>
                 @endif
                 <ul class="small mb-3 local-proof-list">
-                    <li>“Mi sono sentita ascoltata davvero, fin dal primo incontro.”</li>
-                    <li>“Percorso chiaro, umano e rispettoso dei miei tempi.”</li>
-                    <li>“Con mio figlio abbiamo trovato un supporto concreto e accogliente.”</li>
+                    <li>Ascolto attento fin dal primo colloquio, con uno spazio dedicato a esigenze e domande.</li>
+                    <li>Obiettivi condivisi e percorso costruito con chiarezza, nel rispetto dei tempi della persona.</li>
+                    <li>Continuita del lavoro tra colloqui in presenza sul territorio e colloqui online, quando utile.</li>
                 </ul>
                 <div class="d-flex justify-content-center gap-2 flex-wrap">
                     <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
-                        Richiedi il primo colloquio
+                        Richieda il primo colloquio
                     </a>
                     <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                         href="{{ $seoContact['whatsapp_url'] }}">
-                        Scrivimi su WhatsApp
+                        Mi scriva su WhatsApp
                     </a>
                 </div>
             </div>
