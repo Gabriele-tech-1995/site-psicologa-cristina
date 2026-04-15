@@ -44,7 +44,7 @@
                 <div class="row g-3 g-lg-4 mb-2 contact-at-a-glance">
                     <div class="col-md-4">
                         <div class="card shadow-soft h-100 border-0 p-3 contact-glance-card">
-                            <h2 class="h6 mb-2 card-heading-oro">Chi è</h2>
+                            <h2 class="h6 mb-2 card-heading-oro">Chi sono</h2>
                             <p class="small mb-0">
                                 Psicologa, iscritta all’<strong>Albo degli Psicologi del Lazio</strong> (n. 32019), con
                                 percorso di specializzanda in psicoterapia umanistico-esperienziale.
@@ -54,7 +54,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="card shadow-soft h-100 border-0 p-3 contact-glance-card">
-                            <h2 class="h6 text-uppercase text-muted mb-2">Dove ricevo</h2>
+                            <h2 class="h6 mb-2 card-heading-oro">Dove ricevo</h2>
                             <p class="small mb-0">
                                 Sedute in presenza su appuntamento ai centri indicati; colloqui anche da remoto quando è la modalità più adatta.
                             </p>

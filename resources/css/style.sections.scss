@@ -750,6 +750,17 @@
     font-size: 0.72rem;
 }
 
+/* Uniforma i tre box "a colpo d'occhio" nella pagina Contatti */
+.contact-glance-card .h6 {
+    color: var(--color-oro);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1.2;
+    min-height: 1.8rem;
+}
+
 .area-internal-links .card-heading-oro {
     font-family: var(--font-titoli);
     font-weight: 600;
