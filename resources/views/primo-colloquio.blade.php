@@ -37,7 +37,7 @@
         ];
     @endphp
 
-    <section class="section">
+    <section class="section first-interview-page">
         <div class="container">
             <div class="page-head mb-4">
                 <span class="badge badge-soft mb-3">Primo colloquio</span>

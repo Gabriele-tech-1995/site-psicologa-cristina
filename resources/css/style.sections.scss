@@ -342,6 +342,13 @@
 .area-detail-content ol > li::marker {
     color: var(--color-salvia);
 }
+
+/* Primo colloquio: marker allineati all'oro usato nel sito */
+.first-interview-page .card ul > li::marker,
+.first-interview-page .card ol > li::marker {
+    color: var(--color-oro);
+}
+
 .card-chi li + li {
     margin-top: 0.42rem;
 }
