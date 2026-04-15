@@ -33,6 +33,43 @@
         top: 100px;
         z-index: 10;
     }
+
+    /* Desktop: CTA centrate (allineamento uniforme su tutto il sito). */
+    .cta-row,
+    .contact-actions,
+    .about-actions,
+    .container-btn,
+    .area-detail-actions,
+    .hero-actions {
+        justify-content: center !important;
+    }
+
+    .hero-actions-stack > .d-flex {
+        align-items: center !important;
+    }
+
+    .hero-primary-cta-row {
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        width: auto;
+        margin-left: 0;
+        margin-right: 0;
+        align-items: center !important;
+    }
+
+    .hero-actions.hero-actions-stack {
+        width: 100%;
+        align-items: center !important;
+    }
+
+    .hero-actions.hero-actions-stack .hero-cta-note,
+    .hero-actions.hero-actions-stack .hero-cta-alt {
+        text-align: center;
+    }
+
+    .cta-row-center-desktop {
+        justify-content: center !important;
+    }
 }
 @media (max-width: 1399.98px) {
     .admin-detail-grid {
@@ -146,6 +183,24 @@
 
     .contacts-layout__faq {
         order: 3;
+    }
+
+    /* Tablet e mobile: CTA centrate. */
+    .cta-row,
+    .contact-actions,
+    .about-actions,
+    .container-btn,
+    .area-detail-actions,
+    .hero-actions {
+        justify-content: center !important;
+    }
+
+    .hero-actions-stack > .d-flex {
+        align-items: center !important;
+    }
+
+    .hero-primary-cta-row {
+        flex-wrap: wrap !important;
     }
 }
 @media (max-width: 768px) {

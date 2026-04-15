@@ -69,7 +69,7 @@
                                 <strong>Ti rispondo io personalmente entro 24 ore lavorative</strong>, così possiamo
                                 capire insieme da dove partire.
                             </p>
-                            <div class="d-flex gap-2 flex-wrap">
+                            <div class="d-flex gap-2 flex-wrap cta-row cta-row-center-desktop">
                                 <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
                                     Richiedi il primo colloquio
                                 </a>
@@ -179,7 +179,7 @@
                                 Se senti che è il momento, puoi scrivermi per un primo colloquio, online o in presenza.
                                 Ti rispondo personalmente e capiamo insieme, con calma, da dove partire.
                             </p>
-                            <div class="d-grid gap-2">
+                            <div class="d-flex flex-column align-items-center gap-2">
                                 <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
                                     Richiedi il primo colloquio
                                 </a>
@@ -204,7 +204,7 @@
                     trovi tutto nella <a href="{{ route('contacts') }}">pagina contatti</a>.
                     Da lì puoi anche <a href="{{ route('contacts') }}#richiesta-colloquio">richiedere un primo colloquio</a>.
                 </p>
-                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <div class="d-flex justify-content-center gap-2 flex-wrap cta-row cta-row-center-desktop">
                     <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
                         Richiedi il primo colloquio
                     </a>

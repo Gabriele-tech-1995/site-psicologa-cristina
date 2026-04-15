@@ -88,15 +88,17 @@
                 </ol>
             </div>
 
-            <div class="card shadow-soft p-4 mb-4">
+            <div class="card shadow-soft p-4 mb-4 text-center">
                 <h2 class="h5 mb-2">Hai dubbi sul primo colloquio?</h2>
-                <p class="small text-muted mb-3">
+                <p class="small text-muted mb-3 mx-auto" style="max-width: 56ch;">
                     Se vuoi capire meglio come funziona il primo incontro (cosa succede, cosa puoi portare, durata e modalità),
                     trovi una guida semplice e rassicurante nella pagina dedicata.
                 </p>
-                <a class="btn btn-outline-secondario" href="{{ route('first-interview') }}">
-                    Leggi la pagina sul primo colloquio
-                </a>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-outline-secondario" href="{{ route('first-interview') }}">
+                        Leggi la pagina sul primo colloquio
+                    </a>
+                </div>
             </div>
 
             <div class="card shadow-soft p-4 mb-4 local-proof-card">

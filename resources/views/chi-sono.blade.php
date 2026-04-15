@@ -187,7 +187,7 @@
                 </div>
             </div>
 
-            <div class="mt-4 d-flex container-btn flex-wrap about-actions">
+            <div class="mt-4 d-flex container-btn flex-wrap about-actions about-actions-left">
                 <a class="btn btn-brand btn-lg" href="{{ route('contacts') }}#richiesta-colloquio">
                     Richiedi il primo colloquio
                 </a>

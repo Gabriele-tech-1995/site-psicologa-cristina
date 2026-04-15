@@ -140,16 +140,16 @@
                         </div>
 
                         <div class="hero-actions mt-4 hero-actions-stack">
-                            <div class="d-flex flex-column align-items-stretch align-items-sm-center gap-2">
+                            <div class="d-flex flex-row justify-content-center align-items-center gap-2 hero-primary-cta-row">
                                 <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
                                     data-track="cta_hero_colloquio">Richiedi il primo colloquio</a>
                                 <a class="btn btn-outline-secondario btn-lg px-4" target="_blank" rel="noopener noreferrer"
                                     data-track="click_whatsapp_hero" href="{{ $seoContact['whatsapp_url'] }}">
                                     Scrivimi su WhatsApp
                                 </a>
-                                <span class="hero-cta-note text-center">Ti rispondo personalmente entro
-                                    <strong>24 ore</strong> (lun–ven)</span>
                             </div>
+                            <span class="hero-cta-note text-center">Ti rispondo personalmente entro
+                                <strong>24 ore</strong> (lun–ven)</span>
                             <p class="hero-cta-alt mb-0 text-center">
                                 <a class="btn btn-outline-secondario btn-sm align-self-center"
                                     href="{{ route('first-interview') }}" data-track="cta_hero_primo_colloquio_page">
@@ -174,7 +174,7 @@
                                 @endforeach
                             </ul>
 
-                            <div class="d-flex justify-content-center mt-4">
+                            <div class="d-flex justify-content-center mt-4 cta-row cta-row-center-desktop">
                                 <a class="btn btn-outline-secondario btn-sm" href="{{ route('areas') }}">Scopri tutte le
                                     aree</a>
                             </div>
@@ -223,7 +223,7 @@
     <section class="section pt-0">
         <div class="container">
             <div class="card shadow-soft p-4 local-proof-card">
-                <h2 class="h4 mb-2">Un percorso chiaro, vicino al territorio</h2>
+                <h2 class="h4 mb-2">Un percorso fondato su ascolto, chiarezza e continuità</h2>
                 <p class="small text-muted mb-3">
                     Il lavoro clinico si sviluppa con attenzione alla persona, alla storia individuale e al contesto
                     familiare, in presenza a <strong>Tivoli</strong> e in zona, oppure <strong>online</strong> quando
@@ -232,7 +232,7 @@
                 @if ($seoContact['google_business_profile_url'] !== '')
                     <p class="small mb-3">
                         <a href="{{ $seoContact['google_business_profile_url'] }}" target="_blank" rel="noopener noreferrer">
-                            Vedi la mia scheda Google Business e le recensioni
+                            Consulta la mia scheda Google e le recensioni
                         </a>
                     </p>
                 @endif
@@ -241,13 +241,13 @@
                     <li>Obiettivi condivisi e percorso costruito con chiarezza, nel rispetto dei tempi della persona.</li>
                     <li>Continuita del lavoro tra colloqui in presenza sul territorio e colloqui online, quando utile.</li>
                 </ul>
-                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <div class="d-flex justify-content-center gap-2 flex-wrap cta-row">
                     <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
-                        Richieda il primo colloquio
+                        Richiedi il primo colloquio
                     </a>
                     <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                         href="{{ $seoContact['whatsapp_url'] }}">
-                        Mi scriva su WhatsApp
+                        Scrivimi su WhatsApp
                     </a>
                 </div>
             </div>
@@ -392,7 +392,7 @@
                 Bastano un messaggio o il modulo: rispondo personalmente e, se lo desideri, possiamo fissare insieme un
                 colloquio conoscitivo.
             </p>
-            <div class="d-flex justify-content-center gap-2 flex-wrap mt-2">
+            <div class="d-flex justify-content-center gap-2 flex-wrap mt-2 cta-row cta-row-center-desktop">
                 <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
                     data-track="cta_bottom_colloquio">Richiedi il primo colloquio</a>
                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"

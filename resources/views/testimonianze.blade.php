@@ -121,7 +121,7 @@
                                     dettagliate.
                                 </div>
 
-                                <div class="d-flex gap-2 flex-wrap justify-content-center">
+                                <div class="d-flex gap-2 flex-wrap justify-content-center cta-row cta-row-center-desktop">
                                     <button type="submit" class="btn btn-brand">
                                         Invia la testimonianza
                                     </button>

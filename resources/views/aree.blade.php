@@ -65,7 +65,7 @@
                     o richiedere un colloquio conoscitivo: sarà uno spazio per capire insieme quale percorso può avere più senso per te.
                 </p>
 
-                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                <div class="d-flex justify-content-center gap-2 flex-wrap cta-row">
                     <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
                         Richiedi il primo colloquio
                     </a>
