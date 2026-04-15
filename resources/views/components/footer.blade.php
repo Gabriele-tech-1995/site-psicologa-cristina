@@ -46,9 +46,9 @@
                         {{ $seoContact['telephone_display_spaced'] }}
                     </a>
                 </p>
-                <div class="d-flex gap-2 flex-wrap mt-2">
-                    <a class="btn btn-brand btn-sm" href="{{ route('contacts') }}#richiesta-colloquio">Richiedi il primo colloquio</a>
-                    <a class="btn btn-outline-secondario btn-sm" href="{{ $seoContact['whatsapp_url'] }}" target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
+                <div class="d-flex flex-column mt-2">
+                    <a class="area-link" href="{{ route('contacts') }}#richiesta-colloquio">Richiedi il primo colloquio →</a>
+                    <a class="area-link" href="{{ $seoContact['whatsapp_url'] }}" target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp →</a>
                 </div>
                 <p class="small mb-0">
                     Cancellazione entro 24 ore
