@@ -76,9 +76,13 @@ class SeoTest extends TestCase
         );
         $this->assertStringContainsString('<html lang="it">', $html);
 
-        $this->assertStringContainsString('<meta property="og:type" content="website">', $html);
+        $expectedOgType = $routeName === 'home' ? 'website' : 'article';
+        $this->assertStringContainsString('<meta property="og:type" content="'.$expectedOgType.'">', $html);
         $this->assertStringContainsString('<meta property="og:url" content="'.$canonicalUrl.'">', $html);
+        $this->assertStringContainsString('<meta property="og:image" content="http', $html);
+        $this->assertStringContainsString('<meta property="og:image:alt" content="', $html);
         $this->assertStringContainsString('<meta name="twitter:card" content="summary_large_image">', $html);
+        $this->assertStringContainsString('<meta name="twitter:image" content="http', $html);
     }
 
     #[DataProvider('singleH1PageProvider')]
@@ -107,15 +111,6 @@ class SeoTest extends TestCase
             'testimonials' => ['testimonials'],
             'privacy' => ['privacy'],
         ];
-    }
-
-    public function test_home_og_image_uses_absolute_url(): void
-    {
-        $response = $this->get(route('home'));
-        $html = $response->getContent();
-        preg_match('#<meta property="og:image" content="([^"]+)"#', $html, $m);
-        $this->assertArrayHasKey(1, $m);
-        $this->assertMatchesRegularExpression('#^https?://#', $m[1]);
     }
 
     public function test_area_pages_match_get_areas_meta_and_canonical(): void
@@ -159,6 +154,11 @@ class SeoTest extends TestCase
                 $html,
                 "og:url non allineato per [{$slug}]"
             );
+            $this->assertStringContainsString(
+                '<meta property="og:image" content="'.asset(ltrim((string) $area['image'], '/')).'">',
+                $html,
+                "og:image non allineata all'immagine area per [{$slug}]"
+            );
 
             $this->assertStringContainsString(
                 '"headline":"'.$expectedTitle.'"',
@@ -187,7 +187,10 @@ class SeoTest extends TestCase
     public function test_every_sitemap_url_returns_ok(): void
     {
         $sitemap = $this->get(route('sitemap'))->getContent();
-        $locs = $this->parseSitemapLocs($sitemap);
+        $locs = array_map(
+            static fn (array $entry): string => $entry['loc'],
+            $this->parseSitemapEntries($sitemap)
+        );
         $this->assertNotEmpty($locs);
 
         foreach ($locs as $loc) {
@@ -214,6 +217,35 @@ class SeoTest extends TestCase
         $this->assertStringContainsString('"@type":"Psychologist"', $html);
         $this->assertStringContainsString('"@type":"WebPage"', $html);
         $this->assertStringContainsString('"inLanguage":"it-IT"', $html);
+    }
+
+    #[DataProvider('staticSchemaProvider')]
+    public function test_static_pages_have_route_specific_schema_nodes(
+        string $routeName,
+        string $expectedWebPageType,
+        string $expectedBreadcrumbLabel
+    ): void {
+        $response = $this->get(route($routeName));
+        $response->assertOk();
+        $html = $response->getContent();
+
+        $this->assertStringContainsString('"@type":"'.$expectedWebPageType.'"', $html);
+        $this->assertStringContainsString('"@type":"BreadcrumbList"', $html);
+        $this->assertStringContainsString('"name":"'.$expectedBreadcrumbLabel.'"', $html);
+    }
+
+    /**
+     * @return array<string, array{0: string, 1: string, 2: string}>
+     */
+    public static function staticSchemaProvider(): array
+    {
+        return [
+            'about' => ['about', 'ProfilePage', 'Chi sono'],
+            'areas' => ['areas', 'WebPage', 'Aree di intervento'],
+            'first interview' => ['first-interview', 'WebPage', 'Primo colloquio'],
+            'contacts' => ['contacts', 'ContactPage', 'Contatti'],
+            'testimonials' => ['testimonials', 'WebPage', 'Testimonianze'],
+        ];
     }
 
     public function test_psychologist_json_ld_contains_address_and_locations(): void
@@ -244,17 +276,7 @@ class SeoTest extends TestCase
 
         $this->assertGreaterThanOrEqual(2, substr_count($html, 'application/ld+json'));
         $this->assertStringContainsString('"@type":"FAQPage"', $html);
-    }
-
-    public function test_first_interview_page_has_additional_faq_json_ld(): void
-    {
-        $response = $this->get(route('first-interview'));
-        $response->assertOk();
-        $html = $response->getContent();
-
-        $this->assertGreaterThanOrEqual(2, substr_count($html, 'application/ld+json'));
-        $this->assertStringContainsString('"@type":"FAQPage"', $html);
-        $this->assertStringContainsString('Primo colloquio psicologico: cosa aspettarti, con calma', $html);
+        $this->assertStringContainsString('Primo colloquio psicologico: cosa aspettarti', $html);
     }
 
     public function test_area_page_json_ld_includes_service_and_breadcrumb(): void
@@ -269,22 +291,21 @@ class SeoTest extends TestCase
         $this->assertStringContainsString('"@type":"FAQPage"', $html);
     }
 
-    public function test_sitemap_xml_urls_are_unique_and_include_priorities(): void
+    public function test_sitemap_xml_urls_are_unique_and_include_priorities_and_lastmod(): void
     {
         $response = $this->get(route('sitemap'));
         $response->assertOk();
 
-        $xml = simplexml_load_string($response->getContent());
-        $this->assertNotFalse($xml);
+        $entries = $this->parseSitemapEntries($response->getContent());
+        $this->assertNotEmpty($entries);
 
         $locs = [];
-        foreach ($xml->url as $url) {
-            $loc = (string) $url->loc;
-            $locs[] = $loc;
-            $this->assertNotSame('', $loc);
-            $this->assertStringContainsString('http', $loc);
-            $priority = (string) $url->priority;
-            $this->assertNotSame('', $priority);
+        foreach ($entries as $entry) {
+            $locs[] = $entry['loc'];
+            $this->assertNotSame('', $entry['loc']);
+            $this->assertStringContainsString('http', $entry['loc']);
+            $this->assertNotSame('', $entry['priority']);
+            $this->assertMatchesRegularExpression('/^\d{4}-\d{2}-\d{2}T/', $entry['lastmod']);
         }
 
         $this->assertSame(count($locs), count(array_unique($locs)), 'Le URL nella sitemap devono essere uniche.');
@@ -299,5 +320,31 @@ class SeoTest extends TestCase
 
         $this->assertStringContainsString('Sitemap: '.route('sitemap'), $body);
         $this->assertStringContainsString('Disallow: /admin', $body);
+    }
+
+    /**
+     * @return list<array{loc: string, priority: string, lastmod: string}>
+     */
+    private function parseSitemapEntries(string $xml): array
+    {
+        $doc = simplexml_load_string($xml);
+        if ($doc === false) {
+            return [];
+        }
+
+        $ns = $doc->getNamespaces(true);
+        $sitemapNs = $ns[''] ?? null;
+        $urls = $sitemapNs ? $doc->children($sitemapNs)->url : $doc->url;
+
+        $entries = [];
+        foreach ($urls as $url) {
+            $entries[] = [
+                'loc' => trim((string) $url->loc),
+                'priority' => trim((string) $url->priority),
+                'lastmod' => trim((string) $url->lastmod),
+            ];
+        }
+
+        return $entries;
     }
 }

@@ -1,7 +1,10 @@
-<x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription">
+@php
+    $areaImageWebp = asset(ltrim($area['image'], '/'));
+    $areaImageJpg = asset(ltrim(preg_replace('/\.webp$/', '.jpg', $area['image']), '/'));
+@endphp
+
+<x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription" :ogImage="$areaImageWebp" :ogImageAlt="$area['image_alt']">
     @php
-        $areaImageWebp = asset(ltrim($area['image'], '/'));
-        $areaImageJpg = asset(ltrim(preg_replace('/\.webp$/', '.jpg', $area['image']), '/'));
         $practiceId = url('/') . '/#practice';
         $psyName = config('seo.psychologist.name', 'Dott.ssa Cristina Pacifici');
         $psyPractice = config('seo.psychologist.practice_name', $psyName);

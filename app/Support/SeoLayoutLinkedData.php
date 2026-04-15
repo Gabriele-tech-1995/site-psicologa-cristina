@@ -12,11 +12,42 @@ final class SeoLayoutLinkedData
 {
     private const CACHE_TTL_SECONDS = 3600;
 
-    public static function ogImage(): string
+    /**
+     * @return array{url: string, type: string, width: string, height: string, alt: string}
+     */
+    public static function ogImageForRoute(?string $routeName): array
     {
         $psy = config('seo.psychologist', []);
+        $pages = config('seo.pages', []);
+        $routeToPageKey = [
+            'home' => 'home',
+            'about' => 'about',
+            'areas' => 'areas',
+            'first-interview' => 'firstInterview',
+            'contacts' => 'contacts',
+            'testimonials' => 'testimonials',
+            'privacy' => 'privacy',
+        ];
+        $pageKey = $routeToPageKey[$routeName ?? ''] ?? null;
+        $pageSeo = $pageKey !== null && isset($pages[$pageKey]) && is_array($pages[$pageKey]) ? $pages[$pageKey] : [];
 
-        return asset($psy['og_image'] ?? 'img/og-image.jpg');
+        $path = (string) ($pageSeo['og_image'] ?? $psy['og_image'] ?? 'img/og-image.jpg');
+        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+        $type = match ($extension) {
+            'webp' => 'image/webp',
+            'png' => 'image/png',
+            'jpg', 'jpeg' => 'image/jpeg',
+            default => 'image/jpeg',
+        };
+        $alt = (string) ($pageSeo['og_image_alt'] ?? 'Dott.ssa Cristina Pacifici, psicologa a Tivoli');
+
+        return [
+            'url' => asset($path),
+            'type' => $type,
+            'width' => '1200',
+            'height' => '630',
+            'alt' => $alt,
+        ];
     }
 
     /**
@@ -58,25 +89,85 @@ final class SeoLayoutLinkedData
     public static function graph(string $currentUrl, string $metaTitle, string $metaDescription): array
     {
         $siteUrl = url('/');
+        $routeName = request()->route()?->getName();
         $static = self::cachedStaticGraphNodes($siteUrl);
+        $webPageType = self::schemaWebPageTypeForRoute($routeName);
+        $breadcrumb = self::breadcrumbForRoute($routeName, $currentUrl);
+        $graphNodes = [
+            $static['website'],
+            $static['person'],
+            $static['psychologist'],
+            [
+                '@type' => $webPageType,
+                '@id' => $currentUrl.'#webpage',
+                'url' => $currentUrl,
+                'name' => $metaTitle,
+                'description' => $metaDescription,
+                'isPartOf' => ['@id' => $siteUrl.'/#website'],
+                'about' => ['@id' => $siteUrl.'/#person'],
+                'inLanguage' => 'it-IT',
+            ],
+        ];
+        if ($breadcrumb !== null) {
+            $graphNodes[] = $breadcrumb;
+        }
 
         return [
             '@context' => 'https://schema.org',
-            '@graph' => [
-                $static['website'],
-                $static['person'],
-                $static['psychologist'],
-                [
-                    '@type' => 'WebPage',
-                    '@id' => $currentUrl.'#webpage',
-                    'url' => $currentUrl,
-                    'name' => $metaTitle,
-                    'description' => $metaDescription,
-                    'isPartOf' => ['@id' => $siteUrl.'/#website'],
-                    'about' => ['@id' => $siteUrl.'/#person'],
-                    'inLanguage' => 'it-IT',
-                ],
+            '@graph' => $graphNodes,
+        ];
+    }
+
+    private static function schemaWebPageTypeForRoute(?string $routeName): string
+    {
+        return match ($routeName) {
+            'about' => 'ProfilePage',
+            'contacts' => 'ContactPage',
+            default => 'WebPage',
+        };
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    private static function breadcrumbForRoute(?string $routeName, string $currentUrl): ?array
+    {
+        $breadcrumbs = match ($routeName) {
+            'about' => [
+                ['position' => 1, 'name' => 'Home', 'item' => route('home')],
+                ['position' => 2, 'name' => 'Chi sono', 'item' => $currentUrl],
             ],
+            'areas' => [
+                ['position' => 1, 'name' => 'Home', 'item' => route('home')],
+                ['position' => 2, 'name' => 'Aree di intervento', 'item' => $currentUrl],
+            ],
+            'first-interview' => [
+                ['position' => 1, 'name' => 'Home', 'item' => route('home')],
+                ['position' => 2, 'name' => 'Primo colloquio', 'item' => $currentUrl],
+            ],
+            'contacts' => [
+                ['position' => 1, 'name' => 'Home', 'item' => route('home')],
+                ['position' => 2, 'name' => 'Contatti', 'item' => $currentUrl],
+            ],
+            'testimonials' => [
+                ['position' => 1, 'name' => 'Home', 'item' => route('home')],
+                ['position' => 2, 'name' => 'Testimonianze', 'item' => $currentUrl],
+            ],
+            default => null,
+        };
+
+        if ($breadcrumbs === null) {
+            return null;
+        }
+
+        return [
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => array_map(static fn (array $item): array => [
+                '@type' => 'ListItem',
+                'position' => $item['position'],
+                'name' => $item['name'],
+                'item' => $item['item'],
+            ], $breadcrumbs),
         ];
     }
 
@@ -86,7 +177,7 @@ final class SeoLayoutLinkedData
     private static function cachedStaticGraphNodes(string $siteUrl): array
     {
         $psy = config('seo.psychologist', []);
-        $cacheKey = 'seo.ld.static.v1.'.md5(serialize($psy).$siteUrl);
+        $cacheKey = 'seo.ld.static.v2.'.md5(serialize($psy).$siteUrl);
 
         return Cache::remember($cacheKey, self::CACHE_TTL_SECONDS, static function () use ($siteUrl, $psy): array {
             $sameAs = $psy['same_as'] ?? ['https://wa.me/393441122785'];

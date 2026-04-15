@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ContactRequestController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\PublicController;
+use App\Support\SitemapLastmod;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'home'])->name('home');
@@ -26,13 +27,13 @@ Route::post('/testimonianze', [PublicController::class, 'storeTestimonial'])->na
 Route::view('/privacy-policy', 'privacy')->name('privacy');
 Route::get('/sitemap.xml', function () {
     $urls = [
-        ['loc' => route('home'), 'priority' => '1.0'],
-        ['loc' => route('about'), 'priority' => '0.9'],
-        ['loc' => route('areas'), 'priority' => '0.9'],
-        ['loc' => route('first-interview'), 'priority' => '0.8'],
-        ['loc' => route('contacts'), 'priority' => '0.9'],
-        ['loc' => route('testimonials'), 'priority' => '0.8'],
-        ['loc' => route('privacy'), 'priority' => '0.5'],
+        ['route' => 'home', 'loc' => route('home'), 'priority' => '1.0'],
+        ['route' => 'about', 'loc' => route('about'), 'priority' => '0.9'],
+        ['route' => 'areas', 'loc' => route('areas'), 'priority' => '0.9'],
+        ['route' => 'first-interview', 'loc' => route('first-interview'), 'priority' => '0.8'],
+        ['route' => 'contacts', 'loc' => route('contacts'), 'priority' => '0.9'],
+        ['route' => 'testimonials', 'loc' => route('testimonials'), 'priority' => '0.8'],
+        ['route' => 'privacy', 'loc' => route('privacy'), 'priority' => '0.5'],
     ];
 
     $areaSlugs = [
@@ -51,8 +52,17 @@ Route::get('/sitemap.xml', function () {
     ];
 
     foreach ($areaSlugs as $slug) {
-        $urls[] = ['loc' => route('areas.show', ['slug' => $slug]), 'priority' => '0.8'];
+        $urls[] = [
+            'route' => 'areas.show',
+            'loc' => route('areas.show', ['slug' => $slug]),
+            'priority' => '0.8',
+        ];
     }
+
+    foreach ($urls as &$item) {
+        $item['lastmod'] = SitemapLastmod::forRoute((string) $item['route']);
+    }
+    unset($item);
 
     return response()
         ->view('sitemap', ['urls' => $urls])

@@ -2,11 +2,35 @@
     'metaTitle' => 'Cristina Pacifici | Psicologa a Tivoli per bambini, adolescenti e genitori',
     'metaDescription' =>
         'Psicologa a Tivoli e online: Dott.ssa Cristina Pacifici per bambini, adolescenti, adulti e genitori. Supporto psicologico, primo colloquio e contatti sul sito.',
+    'ogImage' => null,
+    'ogImageAlt' => null,
 ])
 
 @php
     $currentUrl = url()->current();
-    $ogImage = \App\Support\SeoLayoutLinkedData::ogImage();
+    $routeName = request()->route()?->getName();
+    $ogImageData = \App\Support\SeoLayoutLinkedData::ogImageForRoute($routeName);
+    $inferOgImageType = static function (string $url): string {
+        $path = parse_url($url, PHP_URL_PATH);
+        if (! is_string($path) || $path === '') {
+            return 'image/jpeg';
+        }
+        $extension = strtolower(pathinfo($path, PATHINFO_EXTENSION));
+
+        return match ($extension) {
+            'webp' => 'image/webp',
+            'png' => 'image/png',
+            'jpg', 'jpeg' => 'image/jpeg',
+            default => 'image/jpeg',
+        };
+    };
+    if (is_string($ogImage) && $ogImage !== '') {
+        $ogImageData['url'] = $ogImage;
+        $ogImageData['type'] = $inferOgImageType($ogImage);
+    }
+    if (is_string($ogImageAlt) && $ogImageAlt !== '') {
+        $ogImageData['alt'] = $ogImageAlt;
+    }
     $seoGraph = \App\Support\SeoLayoutLinkedData::graph($currentUrl, $metaTitle, $metaDescription);
     $headingFontWoff2 = request()->is('admin*') ? null : \App\Support\SeoLayoutLinkedData::headingFontLatin600Woff2Url();
 @endphp
@@ -89,22 +113,22 @@
 
     <meta property="og:title" content="{{ $metaTitle }}">
     <meta property="og:description" content="{{ $metaDescription }}">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="{{ request()->routeIs('home') ? 'website' : 'article' }}">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ $ogImage }}">
-    <meta property="og:image:secure_url" content="{{ $ogImage }}">
-    <meta property="og:image:type" content="image/jpeg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Dott.ssa Cristina Pacifici, psicologa a Tivoli">
+    <meta property="og:image" content="{{ $ogImageData['url'] }}">
+    <meta property="og:image:secure_url" content="{{ $ogImageData['url'] }}">
+    <meta property="og:image:type" content="{{ $ogImageData['type'] }}">
+    <meta property="og:image:width" content="{{ $ogImageData['width'] }}">
+    <meta property="og:image:height" content="{{ $ogImageData['height'] }}">
+    <meta property="og:image:alt" content="{{ $ogImageData['alt'] }}">
     <meta property="og:site_name" content="Dott.ssa Cristina Pacifici">
     <meta property="og:locale" content="it_IT">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ $metaTitle }}">
     <meta name="twitter:description" content="{{ $metaDescription }}">
-    <meta name="twitter:image" content="{{ $ogImage }}">
-    <meta name="twitter:image:alt" content="Dott.ssa Cristina Pacifici, psicologa a Tivoli">
+    <meta name="twitter:image" content="{{ $ogImageData['url'] }}">
+    <meta name="twitter:image:alt" content="{{ $ogImageData['alt'] }}">
 
     <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
     <link rel="icon" href="{{ asset('img/favicon-48x48.png') }}" type="image/png" sizes="48x48">

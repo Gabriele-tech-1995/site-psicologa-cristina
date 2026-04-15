@@ -31,24 +31,6 @@ trait ParsesHtmlMeta
     }
 
     /**
-     * @return list<string>
-     */
-    protected function parseSitemapLocs(string $xml): array
-    {
-        $doc = simplexml_load_string($xml);
-        if ($doc === false) {
-            return [];
-        }
-
-        $locs = [];
-        foreach ($doc->url as $url) {
-            $locs[] = (string) $url->loc;
-        }
-
-        return $locs;
-    }
-
-    /**
      * @return list<array<string, mixed>>
      */
     protected function areasFromController(): array
