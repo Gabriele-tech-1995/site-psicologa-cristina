@@ -442,20 +442,40 @@
     }
 
     body {
-        background: linear-gradient(
-            180deg,
-            var(--sfondo-body) 0%,
-            var(--sfondo-body-alt) 100%
-        );
+        background:
+            radial-gradient(
+                820px 320px at -10% 12%,
+                rgba(168, 130, 86, 0.12) 0%,
+                rgba(168, 130, 86, 0.03) 62%,
+                rgba(168, 130, 86, 0) 78%
+            ),
+            radial-gradient(
+                760px 300px at 112% 88%,
+                rgba(90, 122, 106, 0.12) 0%,
+                rgba(90, 122, 106, 0.04) 62%,
+                rgba(90, 122, 106, 0) 78%
+            ),
+            linear-gradient(
+                180deg,
+                var(--sfondo-body) 0%,
+                var(--sfondo-body-alt) 100%
+            );
     }
     .navbar-custom {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        background: rgba(252, 248, 242, 0.98);
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(246, 239, 226, 0.92) 100%
+        );
     }
     .card,
     .hero-box {
-        box-shadow: 0 8px 18px rgba(28, 37, 31, 0.08);
+        box-shadow:
+            0 12px 24px rgba(41, 34, 22, 0.12),
+            0 2px 8px rgba(41, 34, 22, 0.07);
+        border-color: rgba(104, 123, 109, 0.24);
     }
     .card:hover {
         transform: none;
@@ -577,6 +597,10 @@
         --bs-gutter-x: 0.9rem;
         --bs-gutter-y: 0.9rem;
         padding: 0.8rem;
+        border-color: rgba(104, 123, 109, 0.22);
+        box-shadow:
+            0 12px 24px rgba(41, 34, 22, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.64);
     }
 
     /* Home mobile: titoli e testi centrati in modo coerente */
@@ -602,6 +626,24 @@
 
     .hero-home-row .hero-point span {
         text-align: center;
+    }
+
+    .cta-final-section {
+        background: linear-gradient(
+            180deg,
+            rgba(236, 244, 237, 0.62) 0%,
+            rgba(244, 235, 220, 0.8) 100%
+        );
+        border-top-color: rgba(104, 123, 109, 0.14);
+        border-bottom-color: rgba(157, 119, 67, 0.16);
+    }
+
+    .cta-final-section .cta-final-lead {
+        background: rgba(255, 255, 255, 0.74);
+        border-color: rgba(104, 123, 109, 0.2);
+        box-shadow:
+            0 12px 24px rgba(41, 34, 22, 0.08),
+            0 1px 0 rgba(255, 255, 255, 0.72) inset;
     }
 
     .formazione-section .formazione-title {

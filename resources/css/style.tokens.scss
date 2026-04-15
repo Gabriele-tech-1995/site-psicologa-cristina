@@ -1,10 +1,12 @@
 $btn-selectors: ".btn, .btn-brand, .btn-outline-secondario, .btn-outline-secondary, .btn-primary, .btn-secondary";
 
 :root {
-    --sfondo-body: #fbfcfb;
-    --sfondo-body-alt: #f4f6f4;
-    --sfondo-navbar-card: #ffffff;
-    --sfondo-soft: #edf2ee;
+    --sfondo-body: #f8f5ef;
+    --sfondo-body-alt: #f2ede3;
+    --sfondo-navbar-card: #fffdf9;
+    --sfondo-soft: #eef2ec;
+    --sfondo-soft-warm: #f6f1e8;
+    --sfondo-soft-sage: #edf3ed;
 
     --color-salvia: #4f7665;
     --color-salvia-hover: #446757;
@@ -22,9 +24,10 @@ $btn-selectors: ".btn, .btn-brand, .btn-outline-secondario, .btn-outline-seconda
     --testo-secondario: #3d4d43;
     --testo-su-scuro: #fff;
 
-    --bordo-soft: rgba(79, 118, 101, 0.1);
-    --bordo-soft-strong: rgba(79, 118, 101, 0.16);
-    --bordo-gold: rgba(184, 154, 90, 0.26);
+    --bordo-soft: rgba(118, 106, 82, 0.14);
+    --bordo-soft-strong: rgba(104, 123, 109, 0.2);
+    --bordo-gold: rgba(184, 154, 90, 0.32);
+    --bordo-warm: rgba(157, 119, 67, 0.2);
 
     --font-titoli: "Playfair Display", Georgia, serif;
     --font-testo:
@@ -34,9 +37,15 @@ $btn-selectors: ".btn, .btn-brand, .btn-outline-secondario, .btn-outline-seconda
     --raggio-lg: 0.9rem;
     --raggio-xl: 1.05rem;
     --raggio-pill: 0.85rem;
-    --ombra-soft: 0 6px 18px rgba(18, 34, 26, 0.035);
-    --ombra-hover: 0 12px 28px rgba(18, 34, 26, 0.06);
-    --ombra-navbar: 0 4px 14px rgba(18, 34, 26, 0.05);
+    --ombra-soft:
+        0 12px 28px rgba(41, 34, 22, 0.07),
+        0 2px 6px rgba(41, 34, 22, 0.04);
+    --ombra-hover:
+        0 18px 36px rgba(41, 34, 22, 0.11),
+        0 4px 12px rgba(41, 34, 22, 0.07);
+    --ombra-navbar:
+        0 10px 24px rgba(31, 29, 23, 0.08),
+        0 2px 6px rgba(31, 29, 23, 0.04);
     --space-1: 0.25rem;
     --space-2: 0.5rem;
     --space-3: 0.75rem;

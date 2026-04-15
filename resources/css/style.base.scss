@@ -1,32 +1,40 @@
 body {
     background:
         radial-gradient(
-            880px 400px at -4% 22%,
-            rgba(90, 122, 106, 0.05) 0%,
-            rgba(90, 122, 106, 0) 65%
+            1180px 520px at -8% 18%,
+            rgba(168, 130, 86, 0.13) 0%,
+            rgba(168, 130, 86, 0.04) 58%,
+            rgba(168, 130, 86, 0) 76%
         ),
         radial-gradient(
-            920px 440px at 104% 78%,
-            rgba(168, 130, 86, 0.055) 0%,
-            rgba(168, 130, 86, 0) 68%
+            980px 440px at 108% 74%,
+            rgba(90, 122, 106, 0.1) 0%,
+            rgba(90, 122, 106, 0.03) 56%,
+            rgba(90, 122, 106, 0) 74%
         ),
         radial-gradient(
-            1000px 380px at 10% -2%,
-            rgba(255, 255, 255, 0.85) 0%,
-            rgba(255, 255, 255, 0) 55%
+            860px 360px at 18% -8%,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0) 60%
         ),
         linear-gradient(
-            125deg,
-            rgba(255, 255, 255, 0.65) 0%,
+            158deg,
+            rgba(255, 255, 255, 0.48) 0%,
             rgba(255, 255, 255, 0) 42%
         ),
-        linear-gradient(180deg, var(--sfondo-body) 0%, var(--sfondo-body-alt) 100%);
+        linear-gradient(
+            180deg,
+            var(--sfondo-body) 0%,
+            var(--sfondo-body-alt) 58%,
+            #efe7db 100%
+        );
     color: var(--testo-principale);
     font-family: var(--font-testo);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     overflow-x: visible !important;
+    min-height: 100vh;
 }
 
 main {
@@ -35,9 +43,34 @@ main {
 }
 .section {
     padding: clamp(1.8rem, 3.4vw, 3.05rem) 0;
+    position: relative;
+}
+
+main > section.section {
+    background: transparent;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+main > section.section:nth-of-type(even) {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.58) 0%,
+        rgba(246, 239, 229, 0.64) 100%
+    );
+    border-top-color: rgba(157, 119, 67, 0.06);
+    border-bottom-color: rgba(104, 123, 109, 0.08);
+}
+
+main > section.section:nth-of-type(odd) {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.22) 0%,
+        rgba(238, 243, 236, 0.34) 100%
+    );
 }
 hr {
-    border-color: var(--bordo-gold) !important;
+    border-color: var(--bordo-warm) !important;
     opacity: 1;
     margin: 0.9rem 0;
 }
@@ -130,6 +163,14 @@ select:focus-visible {
 }
 .shadow-soft {
     box-shadow: var(--ombra-soft);
+}
+.surface-soft {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.88) 0%,
+        rgba(246, 241, 232, 0.86) 100%
+    );
+    border: 1px solid var(--bordo-soft);
 }
 .container-btn {
     display: flex;

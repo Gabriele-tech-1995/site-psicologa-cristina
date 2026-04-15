@@ -385,7 +385,7 @@
     </section>
 
     {{-- CTA FINALE --}}
-    <section class="section text-center">
+    <section class="section text-center cta-final-section">
         <div class="container">
             <h3 class="mb-2">Vuoi fare un primo passo?</h3>
             <p class="text-muted mb-4 mx-auto cta-final-lead">

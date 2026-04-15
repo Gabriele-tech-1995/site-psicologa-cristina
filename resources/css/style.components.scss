@@ -1,8 +1,12 @@
 @use "./style.tokens" as *;
 
 #{$btn-selectors} {
-    background: var(--color-salvia) !important;
-    border: 1px solid rgba(79, 118, 101, 0.9) !important;
+    background: linear-gradient(
+        180deg,
+        rgba(83, 122, 104, 1) 0%,
+        rgba(70, 105, 89, 1) 100%
+    ) !important;
+    border: 1px solid rgba(73, 107, 91, 0.94) !important;
     color: #fff !important;
     border-radius: var(--raggio-pill);
     padding: 0.5rem 0.9rem;
@@ -16,7 +20,9 @@
         color 0.2s ease;
     letter-spacing: 0.08px;
     text-decoration: none !important;
-    box-shadow: 0 3px 10px rgba(24, 32, 28, 0.055);
+    box-shadow:
+        0 8px 18px rgba(41, 34, 22, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.2) inset;
     min-height: 37px;
     display: inline-flex;
     align-items: center;
@@ -35,26 +41,36 @@
     justify-self: center;
 }
 #{$btn-selectors}:hover {
-    background: var(--color-salvia-hover) !important;
+    background: linear-gradient(
+        180deg,
+        rgba(72, 108, 92, 1) 0%,
+        rgba(62, 95, 80, 1) 100%
+    ) !important;
     border-color: var(--color-salvia-hover) !important;
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(24, 32, 28, 0.075);
+    box-shadow:
+        0 12px 24px rgba(41, 34, 22, 0.16),
+        0 1px 0 rgba(255, 255, 255, 0.16) inset;
 }
 
 #{$btn-selectors}:focus,
 #{$btn-selectors}:focus-visible {
-    background: var(--color-salvia) !important;
+    background: linear-gradient(
+        180deg,
+        rgba(83, 122, 104, 1) 0%,
+        rgba(70, 105, 89, 1) 100%
+    ) !important;
     border-color: var(--color-salvia) !important;
     box-shadow:
-        0 0 0 0.16rem rgba(79, 118, 101, 0.2),
-        0 6px 14px rgba(28, 37, 31, 0.12) !important;
+        0 0 0 0.16rem rgba(79, 118, 101, 0.24),
+        0 10px 22px rgba(41, 34, 22, 0.16) !important;
 }
 
 #{$btn-selectors}:active {
     background: var(--color-salvia-active) !important;
     border-color: var(--color-salvia-active) !important;
     transform: translateY(0);
-    box-shadow: 0 4px 10px rgba(28, 37, 31, 0.14) !important;
+    box-shadow: 0 6px 14px rgba(41, 34, 22, 0.16) !important;
 }
 
 #{$btn-selectors}.disabled,
@@ -70,27 +86,37 @@
     align-items: center;
     width: fit-content;
     max-width: 100%;
-    background: var(--color-salvia-soft) !important;
+    background: linear-gradient(
+        180deg,
+        rgba(232, 240, 235, 0.9) 0%,
+        rgba(244, 236, 223, 0.84) 100%
+    ) !important;
     color: var(--color-salvia-active) !important;
-    border: 1px solid rgba(90, 122, 106, 0.18);
+    border: 1px solid rgba(104, 123, 109, 0.24);
     font-weight: 600;
     letter-spacing: 0.15px;
     padding: 0.36rem 0.62rem;
 }
 
 .card {
-    background: var(--sfondo-navbar-card);
-    border: 1px solid var(--bordo-soft);
+    background: linear-gradient(
+        172deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(252, 248, 241, 0.95) 100%
+    );
+    border: 1px solid var(--bordo-soft-strong);
     border-radius: var(--raggio);
     color: var(--testo-principale);
     box-shadow:
-        0 10px 24px rgba(17, 24, 39, 0.07),
-        0 1px 0 rgba(255, 255, 255, 0.7) inset;
+        var(--ombra-soft),
+        0 1px 0 rgba(255, 255, 255, 0.86) inset;
     position: relative;
     overflow: hidden;
     transition:
         transform 0.2s ease,
-        box-shadow 0.2s ease;
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
 
     &::before {
         content: "";
@@ -107,12 +133,25 @@
         opacity: 0.5;
     }
 
+    &::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0 0;
+        height: 22%;
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(246, 238, 225, 0.24) 100%
+        );
+        pointer-events: none;
+    }
+
     &:hover {
         transform: translateY(-3px);
         box-shadow:
-            0 16px 34px rgba(17, 24, 39, 0.11),
-            0 1px 0 rgba(255, 255, 255, 0.78) inset;
-        border-color: rgba(90, 122, 106, 0.2);
+            var(--ombra-hover),
+            0 1px 0 rgba(255, 255, 255, 0.88) inset;
+        border-color: rgba(104, 123, 109, 0.28);
     }
 
     h1,
@@ -137,12 +176,16 @@
 }
 
 .card-area-preview {
-    background: var(--sfondo-navbar-card);
-    border: 1px solid rgba(93, 119, 103, 0.22);
+    background: linear-gradient(
+        170deg,
+        rgba(255, 255, 255, 0.99) 0%,
+        rgba(249, 243, 233, 0.94) 100%
+    );
+    border: 1px solid rgba(104, 123, 109, 0.24);
     border-radius: var(--raggio);
     box-shadow:
-        0 12px 28px rgba(17, 24, 39, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+        0 14px 30px rgba(41, 34, 22, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
     position: relative;
     overflow: hidden;
     transition:
@@ -156,10 +199,10 @@
 }
 .card-area-preview:hover {
     transform: translateY(-3px);
-    border-color: rgba(93, 119, 103, 0.32);
+    border-color: rgba(104, 123, 109, 0.32);
     box-shadow:
-        0 20px 38px rgba(17, 24, 39, 0.12),
-        inset 0 1px 0 rgba(255, 255, 255, 0.62);
+        0 24px 44px rgba(41, 34, 22, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 .area-card-title a,
 .area-link {
