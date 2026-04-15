@@ -466,7 +466,11 @@ html.nav-offcanvas-open body {
     min-height: 0;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
 }
 
 .navbar-offcanvas__nav {
@@ -475,7 +479,7 @@ html.nav-offcanvas-open body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .navbar-offcanvas .navbar-offcanvas__nav-list {
@@ -487,6 +491,7 @@ html.nav-offcanvas-open body {
     align-items: stretch;
     margin: 0;
     gap: 0;
+    overflow: visible;
 }
 
 .navbar-offcanvas__nav-list .nav-item {
@@ -878,5 +883,114 @@ html.nav-offcanvas-open body {
 
     .navbar-offcanvas__finale-glow {
         height: 2px;
+    }
+}
+
+/* Landscape mobile e viewport bassi: priorità assoluta alla navigazione. */
+@media (max-width: 991.98px) and (orientation: landscape), (max-height: 560px) {
+    .navbar-offcanvas.offcanvas {
+        max-height: 100svh;
+    }
+
+    .navbar-offcanvas__header {
+        padding-top: 0.38rem;
+        padding-bottom: 0.38rem;
+    }
+
+    .navbar-offcanvas .offcanvas-body.navbar-offcanvas__body {
+        overflow-y: auto;
+    }
+
+    .navbar-offcanvas__fill {
+        padding-top: 0.18rem;
+        padding-bottom: calc(0.42rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .navbar-offcanvas__intro {
+        padding-bottom: 0.2rem;
+        margin-bottom: 0.08rem;
+    }
+
+    .navbar-offcanvas__intro-name {
+        margin-bottom: 0.1rem;
+        font-size: clamp(0.76rem, 2vw, 0.9rem);
+        line-height: 1.14;
+    }
+
+    .navbar-offcanvas__intro-tag {
+        margin-bottom: 0.1rem;
+        font-size: clamp(0.56rem, 1.45vw, 0.66rem);
+        letter-spacing: 0.035em;
+    }
+
+    .navbar-offcanvas__intro-quote {
+        display: none;
+    }
+
+    .navbar-offcanvas__intro-mail {
+        font-size: clamp(0.54rem, 1.45vw, 0.64rem);
+        line-height: 1.15;
+    }
+
+    .navbar-offcanvas__main-nav {
+        padding-right: 0.04rem;
+    }
+
+    .navbar-offcanvas .navbar-offcanvas__nav-list .nav-link {
+        font-size: clamp(0.78rem, 2vw, 0.9rem);
+        padding-top: 0.26rem;
+        padding-bottom: 0.26rem;
+        line-height: 1.2;
+    }
+
+    .navbar-offcanvas__footer {
+        margin-top: 0.2rem;
+        padding-top: 0.28rem;
+        padding-bottom: 0.06rem;
+    }
+
+    .navbar-offcanvas__footer-label--pill {
+        margin-bottom: 0.2rem;
+        padding: 0.2rem 0.64rem;
+        font-size: 0.52rem;
+        letter-spacing: 0.08em;
+    }
+
+    .navbar-offcanvas__actions {
+        gap: 0.2rem;
+    }
+
+    .navbar-offcanvas .navbar-offcanvas__action-btn.btn {
+        min-height: 1.86rem;
+        padding: 0.28rem 0.72rem !important;
+        font-size: clamp(0.66rem, 1.65vw, 0.75rem) !important;
+        line-height: 1.14;
+    }
+
+    .navbar-offcanvas__action-primary {
+        font-size: 0.56rem;
+    }
+
+    .navbar-offcanvas__action-secondary {
+        font-size: clamp(0.64rem, 1.65vw, 0.74rem);
+    }
+
+    .navbar-offcanvas__finale {
+        margin-top: 0.18rem;
+        padding-top: 0.18rem;
+        padding-bottom: 0;
+    }
+
+    .navbar-offcanvas__finale-glow,
+    .navbar-offcanvas__finale-quote,
+    .navbar-offcanvas__finale-albo {
+        display: none;
+    }
+
+    .navbar-offcanvas__finale-dismiss {
+        margin-top: 0.08rem;
+        padding: 0.22rem 0.5rem 0.18rem;
+        font-size: 0.56rem;
+        letter-spacing: 0.045em;
     }
 }
