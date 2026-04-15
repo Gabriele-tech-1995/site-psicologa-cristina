@@ -16,7 +16,7 @@
             </div>
         @endif
 
-        <div class="card shadow-soft p-4 admin-card">
+        <div class="card shadow-soft p-4 admin-card admin-detail-card">
             <div class="mb-3">
                 <strong>Stato:</strong>
                 @if ($testimonial->is_approved)
@@ -36,9 +36,9 @@
                 {{ $testimonial->name_label }}
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4 admin-message-box">
                 <strong>Messaggio:</strong>
-                <div class="mt-2 p-3 border rounded bg-white">
+                <div class="mt-2 admin-message-content">
                     {{ $testimonial->message }}
                 </div>
             </div>
