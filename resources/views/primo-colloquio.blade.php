@@ -64,6 +64,21 @@
                             Se vuoi <a href="{{ route('about') }}">scoprire qualcosa in più su di me</a>,
                             nella pagina <a href="{{ route('about') }}">chi sono</a> trovi il mio approccio e il modo in cui lavoro.
                         </p>
+                        <div class="card shadow-soft border-0 p-3 p-lg-4 mt-3 first-interview-quick-cta">
+                            <p class="small mb-3">
+                                <strong>Ti rispondo io personalmente entro 24 ore lavorative</strong>, così possiamo
+                                capire insieme da dove partire.
+                            </p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
+                                    Richiedi il primo colloquio
+                                </a>
+                                <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
+                                    href="{{ $seoContact['whatsapp_url'] }}">
+                                    Scrivimi su WhatsApp
+                                </a>
+                            </div>
+                        </div>
 
                         <h2 class="h4 mt-4 mb-3">Cosa succede durante il primo colloquio</h2>
                         <p>
@@ -166,7 +181,7 @@
                             </p>
                             <div class="d-grid gap-2">
                                 <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
-                                    Scrivimi per il primo colloquio
+                                    Richiedi il primo colloquio
                                 </a>
                                 <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                                     href="{{ $seoContact['whatsapp_url'] }}">
@@ -195,7 +210,7 @@
                     </a>
                     <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
                         href="{{ $seoContact['whatsapp_url'] }}">
-                        Contatto WhatsApp
+                        Scrivimi su WhatsApp
                     </a>
                 </div>
             </div>

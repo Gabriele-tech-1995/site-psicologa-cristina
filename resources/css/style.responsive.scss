@@ -135,6 +135,18 @@
     .privacy-index {
         position: static;
     }
+
+    .contacts-layout__form {
+        order: 1;
+    }
+
+    .contacts-layout__sidebar {
+        order: 2;
+    }
+
+    .contacts-layout__faq {
+        order: 3;
+    }
 }
 @media (max-width: 768px) {
     .d-grid > .btn {

@@ -23,8 +23,8 @@
 
                 <p class="page-lead mb-3 contact-lead-primary">
                     Sono la <strong>Dott.ssa Cristina Pacifici</strong>, <strong>psicologa a Tivoli</strong>; ricevo su
-                    appuntamento <strong>online</strong> e <strong>in presenza</strong> presso
-                    <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
+                    appuntamento <strong>online</strong> e <strong>in presenza</strong>.
+                    Ti accolgo personalmente presso <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
                     <strong>Centro Liberamente</strong> (Villanova di Guidonia).
                     Per un primo contatto puoi usare il <strong>modulo</strong> qui sotto, l’<strong>email</strong> o
                     <strong>WhatsApp</strong> (stesso numero del telefono).
@@ -56,7 +56,7 @@
                         <div class="card shadow-soft h-100 border-0 p-3 contact-glance-card">
                             <h2 class="h6 mb-2 card-heading-oro">Dove ricevo</h2>
                             <p class="small mb-0">
-                                Sedute in presenza su appuntamento ai centri indicati; colloqui anche da remoto quando è la modalità più adatta.
+                                Ricevo personalmente in presenza su appuntamento nelle sedi indicate; svolgo colloqui anche da remoto quando è la modalità più adatta.
                             </p>
                         </div>
                     </div>
@@ -99,7 +99,145 @@
                 </a>
             </div>
 
+            <div class="card shadow-soft p-4 mb-4 local-proof-card">
+                <h2 class="h5 mb-2">Recensioni e fiducia locale</h2>
+                <p class="small text-muted mb-2">
+                    Seguo persone e famiglie di <strong>Tivoli</strong>, <strong>Guidonia</strong>, <strong>Villanova</strong> e anche <strong>online</strong>.
+                </p>
+                @if ($seoContact['google_business_profile_url'] !== '')
+                    <p class="small mb-3">
+                        <a href="{{ $seoContact['google_business_profile_url'] }}" target="_blank" rel="noopener noreferrer">
+                            Guarda la mia scheda Google Business e le recensioni complete
+                        </a>
+                    </p>
+                @endif
+                <ul class="small mb-3 local-proof-list">
+                    <li>“Mi sono sentita ascoltata con attenzione fin dal primo contatto.”</li>
+                    <li>“Percorso professionale, umano e chiaro negli obiettivi.”</li>
+                    <li>“Supporto concreto anche nelle fasi più delicate in famiglia.”</li>
+                </ul>
+                <div class="d-flex gap-2 flex-wrap contact-actions">
+                    <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
+                        Richiedi il primo colloquio
+                    </a>
+                    <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
+                        href="{{ $seoContact['whatsapp_url'] }}">
+                        Scrivimi su WhatsApp
+                    </a>
+                </div>
+            </div>
+
             <div class="contacts-layout mt-1">
+                <div class="contacts-layout__form">
+                    <div class="contact-form-sticky">
+                        <div id="richiesta-colloquio" class="card shadow-soft p-4 card-form w-100">
+                            <h2 class="h4 mb-2">Modulo per il primo colloquio</h2>
+
+                            <p class="text-muted mb-0">
+                                Se desideri un primo contatto o maggiori informazioni, puoi scrivermi tramite il modulo qui sotto:
+                                anche poche righe vanno bene. Rispondo di persona per capire come posso esserti utile e, se vuoi,
+                                proporre un colloquio conoscitivo.
+                            </p>
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger" role="alert">
+                                    <p class="mb-1 fw-semibold">Non è stato possibile inviare il modulo. Puoi controllare quanto segue:</p>
+                                    <ul class="mb-0 small">
+                                        @foreach ($errors->all() as $err)
+                                            <li>{{ $err }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
+                            <form method="POST" action="{{ route('contacts.submit') }}" data-track-submit="submit_form_contatti"
+                                class="contact-form-layout">
+                                @csrf
+                                <input type="text" name="{{ config('antispam.contact.honeypot_field', 'contact_website') }}" value="" tabindex="-1" autocomplete="off"
+                                    class="contact-honeypot" aria-hidden="true" role="presentation" inputmode="none">
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="contact-name">Nome e cognome</label>
+                                        <input id="contact-name" type="text"
+                                            class="form-control @error('name') is-invalid @enderror" name="name"
+                                            value="{{ old('name') }}" autocomplete="name">
+
+                                        @error('name')
+                                            <div class="text-danger small mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="form-label" for="contact-phone">Telefono</label>
+                                        <input id="contact-phone" type="tel"
+                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
+                                            value="{{ old('phone') }}" autocomplete="tel">
+
+                                        @error('phone')
+                                            <div class="text-danger small mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label" for="contact-email">Email</label>
+                                        <input id="contact-email" type="email"
+                                            class="form-control @error('email') is-invalid @enderror" name="email"
+                                            value="{{ old('email') }}" autocomplete="email">
+
+                                        @error('email')
+                                            <div class="text-danger small mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-12">
+                                        <label class="form-label" for="contact-message">Messaggio</label>
+                                        <textarea id="contact-message"
+                                            class="form-control @error('message') is-invalid @enderror" name="message"
+                                            rows="5" autocomplete="off">{{ old('message') }}</textarea>
+
+                                        @error('message')
+                                            <div class="text-danger small mt-1">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-check">
+                                            <input id="privacy" type="checkbox" name="privacy" value="1"
+                                                class="form-check-input @error('privacy') is-invalid @enderror"
+                                                @checked(old('privacy'))>
+
+                                            <label class="form-check-label" for="privacy">
+                                                Acconsento al trattamento dei dati personali secondo la normativa vigente.
+                                                <a href="{{ route('privacy') }}" target="_blank" rel="noopener noreferrer">
+                                                    Leggi la Privacy Policy
+                                                </a>.
+                                            </label>
+                                        </div>
+
+                                        <div class="small text-muted mt-2">
+                                            Nel primo messaggio, se puoi, evita dettagli clinici molto specifici: ne potremo parlare con più calma dal vivo o online.
+                                        </div>
+                                    </div>
+                                    @error('privacy')
+                                        <div class="text-danger small mt-2">{{ $message }}</div>
+                                    @enderror
+
+                                    <div class="col-12 contact-actions mt-3 d-grid gap-2 d-sm-flex align-items-center">
+                                        <button type="submit" class="btn btn-brand btn-lg">
+                                            Invia il messaggio
+                                        </button>
+
+                                        <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_form"
+                                            href="{{ $seoContact['whatsapp_url'] }}">
+                                            Scrivimi su WhatsApp
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="contacts-layout__sidebar">
                     <div class="contacts-left d-flex flex-column w-100">
 
@@ -119,13 +257,13 @@
                         </p>
 
                         <div class="d-flex gap-2 flex-wrap contact-actions">
-                            <a class="btn btn-brand" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_box"
-                                href="{{ $seoContact['whatsapp_url'] }}">
-                                WhatsApp
+                            <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
+                                Richiedi il primo colloquio
                             </a>
 
-                            <a class="btn btn-outline-secondario" href="{{ $seoContact['mailto'] }}">
-                                Invia un’email
+                            <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_box"
+                                href="{{ $seoContact['whatsapp_url'] }}">
+                                Scrivimi su WhatsApp
                             </a>
                         </div>
 
@@ -137,7 +275,7 @@
                     </div>
 
                     <div class="card shadow-soft p-4 card-sedi">
-                        <h2 class="h5 mb-3">Sedi in presenza</h2>
+                        <h2 class="h5 mb-3">Dove ti accolgo in presenza</h2>
 
                         @forelse ($seoContact['locations'] as $loc)
                             <div @class(['mb-3' => ! $loop->last])>
@@ -164,116 +302,6 @@
                         @endforelse
                     </div>
 
-                    </div>
-                </div>
-
-                <div class="contacts-layout__form">
-                    <div class="contact-form-sticky">
-                        <div id="richiesta-colloquio" class="card shadow-soft p-4 card-form w-100">
-                    <h2 class="h4 mb-2">Modulo per il primo colloquio</h2>
-
-                    <p class="text-muted mb-0">
-                        Se desideri un primo contatto o maggiori informazioni, puoi scrivermi tramite il modulo qui sotto:
-                        anche poche righe vanno bene. Rispondo di persona per capire come posso esserti utile e, se vuoi,
-                        proporre un colloquio conoscitivo.
-                    </p>
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger" role="alert">
-                            <p class="mb-1 fw-semibold">Non è stato possibile inviare il modulo. Puoi controllare quanto segue:</p>
-                            <ul class="mb-0 small">
-                                @foreach ($errors->all() as $err)
-                                    <li>{{ $err }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
-                    <form method="POST" action="{{ route('contacts.submit') }}" data-track-submit="submit_form_contatti"
-                        class="contact-form-layout">
-                        @csrf
-                        <input type="text" name="{{ config('antispam.contact.honeypot_field', 'contact_website') }}" value="" tabindex="-1" autocomplete="off"
-                            class="contact-honeypot" aria-hidden="true" role="presentation" inputmode="none">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label" for="contact-name">Nome e cognome</label>
-                                <input id="contact-name" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ old('name') }}" autocomplete="name">
-
-                                @error('name')
-                                    <div class="text-danger small mt-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label" for="contact-phone">Telefono</label>
-                                <input id="contact-phone" type="tel"
-                                    class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                    value="{{ old('phone') }}" autocomplete="tel">
-
-                                @error('phone')
-                                    <div class="text-danger small mt-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="col-12">
-                                <label class="form-label" for="contact-email">Email</label>
-                                <input id="contact-email" type="email"
-                                    class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" autocomplete="email">
-
-                                @error('email')
-                                    <div class="text-danger small mt-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="col-12">
-                                <label class="form-label" for="contact-message">Messaggio</label>
-                                <textarea id="contact-message"
-                                    class="form-control @error('message') is-invalid @enderror" name="message"
-                                    rows="5" autocomplete="off">{{ old('message') }}</textarea>
-
-                                @error('message')
-                                    <div class="text-danger small mt-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-check">
-                                    <input id="privacy" type="checkbox" name="privacy" value="1"
-                                        class="form-check-input @error('privacy') is-invalid @enderror"
-                                        @checked(old('privacy'))>
-
-                                    <label class="form-check-label" for="privacy">
-                                        Acconsento al trattamento dei dati personali secondo la normativa vigente.
-                                        <a href="{{ route('privacy') }}" target="_blank" rel="noopener noreferrer">
-                                            Leggi la Privacy Policy
-                                        </a>.
-                                    </label>
-                                </div>
-
-                                <div class="small text-muted mt-2">
-                                    Nel primo messaggio, se puoi, evita dettagli clinici molto specifici: ne potremo parlare con più calma dal vivo o online.
-                                </div>
-                            </div>
-                            @error('privacy')
-                                <div class="text-danger small mt-2">{{ $message }}</div>
-                            @enderror
-
-                            <div class="col-12 contact-actions mt-3 d-grid gap-2 d-sm-flex align-items-center">
-                                <button type="submit" class="btn btn-brand btn-lg">
-                                    Invia il messaggio
-                                </button>
-
-                                <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_contatti_form"
-                                    href="{{ $seoContact['whatsapp_url'] }}">
-                                    Scrivimi su WhatsApp
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                        </div>
                     </div>
                 </div>
 

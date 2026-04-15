@@ -133,7 +133,7 @@
                                     online o in presenza • durata seduta: <strong>50 minuti</strong></span></div>
                             <div class="hero-point"><span class="hero-dot"></span><span><strong>Disponibilità</strong>
                                     lun–ven: di solito riscontro entro <strong>24 ore</strong></span></div>
-                            <div class="hero-point"><span class="hero-dot"></span><span>In presenza ricevo presso
+                            <div class="hero-point"><span class="hero-dot"></span><span>Ricevo personalmente in presenza presso
                                     <strong>Centro Imago</strong>, <strong>Centro Empathia</strong> (Tivoli) e
                                     <strong>Centro Liberamente</strong> (Villanova di Guidonia), su appuntamento; anche
                                     <strong>online</strong></span></div>
@@ -143,17 +143,18 @@
                             <div class="d-flex flex-column align-items-stretch align-items-sm-center gap-2">
                                 <a class="btn btn-brand btn-lg px-4" href="{{ route('contacts') }}#richiesta-colloquio"
                                     data-track="cta_hero_colloquio">Richiedi il primo colloquio</a>
+                                <a class="btn btn-outline-secondario btn-lg px-4" target="_blank" rel="noopener noreferrer"
+                                    data-track="click_whatsapp_hero" href="{{ $seoContact['whatsapp_url'] }}">
+                                    Scrivimi su WhatsApp
+                                </a>
+                                <span class="hero-cta-note text-center">Ti rispondo personalmente entro
+                                    <strong>24 ore</strong> (lun–ven)</span>
+                            </div>
+                            <p class="hero-cta-alt mb-0 text-center">
                                 <a class="btn btn-outline-secondario btn-sm align-self-center"
                                     href="{{ route('first-interview') }}" data-track="cta_hero_primo_colloquio_page">
                                     Scopri come funziona il primo colloquio
                                 </a>
-                                <span class="hero-cta-note text-center">Modulo sul sito · di solito riscontro entro
-                                    <strong>24 ore</strong> (lun–ven)</span>
-                            </div>
-                            <p class="hero-cta-alt mb-0 text-center">
-                                Preferisci scrivere prima su WhatsApp?
-                                <a target="_blank" rel="noopener noreferrer" data-track="click_whatsapp_hero"
-                                    href="{{ $seoContact['whatsapp_url'] }}">Apri la chat</a>
                             </p>
                         </div>
                     </div>
@@ -204,7 +205,7 @@
                     <div class="col-md-4">
                         <div class="trust-item">
                             <strong>Dove e come</strong>
-                            <span>Online · In presenza a Tivoli (Centro Imago, Empathia) e a Villanova (Liberamente)</span>
+                            <span>Ti accolgo online e ricevo personalmente in presenza a Tivoli e Villanova di Guidonia</span>
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -213,6 +214,40 @@
                             <span>50 minuti · Cancellazione con 24 ore di preavviso</span>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- TRUST + LOCAL --}}
+    <section class="section pt-0">
+        <div class="container">
+            <div class="card shadow-soft p-4 local-proof-card">
+                <h2 class="h4 mb-2">Fiducia e presenza sul territorio</h2>
+                <p class="small text-muted mb-3">
+                    Lavoro con persone e famiglie di <strong>Tivoli</strong>, <strong>Guidonia</strong>,
+                    <strong>Villanova</strong> e anche <strong>online</strong>.
+                </p>
+                @if ($seoContact['google_business_profile_url'] !== '')
+                    <p class="small mb-3">
+                        <a href="{{ $seoContact['google_business_profile_url'] }}" target="_blank" rel="noopener noreferrer">
+                            Vedi la mia scheda Google Business e le recensioni
+                        </a>
+                    </p>
+                @endif
+                <ul class="small mb-3 local-proof-list">
+                    <li>“Mi sono sentita ascoltata davvero, fin dal primo incontro.”</li>
+                    <li>“Percorso chiaro, umano e rispettoso dei miei tempi.”</li>
+                    <li>“Con mio figlio abbiamo trovato un supporto concreto e accogliente.”</li>
+                </ul>
+                <div class="d-flex justify-content-center gap-2 flex-wrap">
+                    <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
+                        Richiedi il primo colloquio
+                    </a>
+                    <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"
+                        href="{{ $seoContact['whatsapp_url'] }}">
+                        Scrivimi su WhatsApp
+                    </a>
                 </div>
             </div>
         </div>

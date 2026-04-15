@@ -136,7 +136,7 @@
 
                 <div class="area-detail-actions">
                     <a href="{{ route('areas') }}" class="btn-area-secondary" data-track="cta_area_back">← Tutte le aree</a>
-                    <a href="{{ route('contacts') }}" class="btn-area-primary" data-track="cta_area_colloquio">Richiedi un primo colloquio</a>
+                    <a href="{{ route('contacts') }}#richiesta-colloquio" class="btn-area-primary" data-track="cta_area_colloquio">Richiedi il primo colloquio</a>
                 </div>
 
             </div>

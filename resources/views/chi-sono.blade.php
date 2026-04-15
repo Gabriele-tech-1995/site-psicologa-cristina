@@ -169,9 +169,8 @@
                             <div class="card shadow-soft p-4 mt-4 card-chi">
                                 <h5 class="mb-3">Dove ricevo in presenza</h5>
 
-                                <p class="small mb-2">
-                                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — i colloqui in presenza si
-                                    tengono su appuntamento presso:
+                            <p class="small mb-2">
+                                    <strong>Dott.ssa Cristina Pacifici – Psicologa</strong> — ricevo personalmente in presenza su appuntamento presso:
                                 </p>
                                 <ul class="small mb-2 ps-3">
                                     <li><strong>Centro Imago</strong>, Tivoli</li>

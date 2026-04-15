@@ -12,6 +12,7 @@ final class SeoContact
      *     telephone_display: string,
      *     telephone_display_spaced: string,
      *     whatsapp_url: string,
+     *     google_business_profile_url: string,
      *     albo_registration_url: string,
      *     aspic_url: string,
      *     locations: array<int, array<string, mixed>>
@@ -28,6 +29,9 @@ final class SeoContact
         $whatsappUrl = $psy['whatsapp_url']
             ?? collect($psy['same_as'] ?? [])->first(static fn ($u) => is_string($u) && str_contains($u, 'wa.me'))
             ?? ($digits !== '' ? 'https://wa.me/'.$digits : '#');
+        $googleBusinessProfileUrl = collect($psy['same_as'] ?? [])->first(
+            static fn ($u) => is_string($u) && $u !== '' && ! str_contains($u, 'wa.me')
+        );
 
         $nationalDigits = self::nationalDigits($digits);
         $telDisplay = $nationalDigits;
@@ -48,6 +52,7 @@ final class SeoContact
             'telephone_display' => $telDisplay,
             'telephone_display_spaced' => $telDisplaySpaced,
             'whatsapp_url' => is_string($whatsappUrl) ? $whatsappUrl : '#',
+            'google_business_profile_url' => is_string($googleBusinessProfileUrl) ? $googleBusinessProfileUrl : '',
             'albo_registration_url' => $alboUrl,
             'aspic_url' => $aspicUrl,
             'locations' => $locations,

@@ -66,8 +66,8 @@
                 </p>
 
                 <div class="d-flex justify-content-center gap-2 flex-wrap">
-                    <a class="btn btn-brand" href="{{ route('contacts') }}">
-                        Richiedi un primo colloquio
+                    <a class="btn btn-brand" href="{{ route('contacts') }}#richiesta-colloquio">
+                        Richiedi il primo colloquio
                     </a>
 
                     <a class="btn btn-outline-secondario" target="_blank" rel="noopener noreferrer"

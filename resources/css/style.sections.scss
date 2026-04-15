@@ -169,6 +169,8 @@
     margin-top: 0.65rem;
     font-size: 0.88rem;
     color: var(--testo-secondario);
+    display: flex;
+    justify-content: center;
 }
 .hero-cta-alt a {
     font-weight: 600;
@@ -253,6 +255,14 @@
     border-color: rgba(90, 122, 106, 0.2) !important;
     color: var(--color-salvia) !important;
     box-shadow: 0 6px 14px rgba(24, 32, 28, 0.045);
+}
+
+.hero-actions .btn-lg {
+    min-height: 46px;
+}
+
+.hero-actions .hero-cta-alt .btn {
+    min-height: 38px;
 }
 
 .about-shell {
@@ -386,6 +396,25 @@
     color: #5a675f;
     font-size: 0.91rem;
     line-height: 1.45;
+}
+
+.local-proof-card {
+    border: 1px solid rgba(90, 122, 106, 0.12);
+    background: rgba(255, 255, 255, 0.88);
+}
+
+.first-interview-quick-cta {
+    background: rgba(252, 248, 242, 0.76);
+    border: 1px solid rgba(157, 119, 67, 0.2);
+}
+
+.local-proof-list {
+    padding-left: 1.05rem;
+}
+
+.local-proof-list li {
+    margin-bottom: 0.4rem;
+    line-height: 1.5;
 }
 
 .testimonials-layout .about-sidebar-sticky {
@@ -785,15 +814,22 @@
     display: grid;
     gap: 1.5rem;
     align-items: stretch;
+    grid-template-areas:
+        "sidebar"
+        "form"
+        "faq";
 }
 
 @media (min-width: 992px) {
     .contacts-layout {
         grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+        grid-template-areas:
+            "sidebar form"
+            "faq faq";
     }
 
     .contacts-layout__faq {
-        grid-column: 1 / -1;
+        grid-area: faq;
     }
 
     .contact-form-sticky {
@@ -804,11 +840,34 @@
 }
 
 @media (max-width: 991.98px) {
+    .contacts-layout__form {
+        grid-area: form;
+        order: -3;
+    }
+
+    .contacts-layout__sidebar {
+        grid-area: sidebar;
+        order: -2;
+    }
+
+    .contacts-layout__faq {
+        grid-area: faq;
+        order: -1;
+    }
+
     .contact-form-sticky {
         position: static;
         top: auto;
         z-index: auto;
     }
+}
+
+.contacts-layout__sidebar {
+    grid-area: sidebar;
+}
+
+.contacts-layout__form {
+    grid-area: form;
 }
 
 .contacts-left {

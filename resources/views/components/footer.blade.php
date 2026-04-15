@@ -25,7 +25,7 @@
             <div class="col-md-4">
                 <h3 class="footer-title">Ricevo</h3>
                 <p class="small mb-1">Online e in presenza su appuntamento</p>
-                <p class="small mb-1">Centro Imago e Centro Empathia (Tivoli), Centro Liberamente (Villanova)</p>
+                <p class="small mb-1">Ricevo personalmente presso Centro Imago e Centro Empathia (Tivoli), Centro Liberamente (Villanova)</p>
                 <p class="small mb-1">Dal lunedì al venerdì</p>
                 <p class="small mb-0">Durata seduta: 50 minuti</p>
             </div>
@@ -46,6 +46,10 @@
                         {{ $seoContact['telephone_display_spaced'] }}
                     </a>
                 </p>
+                <div class="d-flex gap-2 flex-wrap mt-2">
+                    <a class="btn btn-brand btn-sm" href="{{ route('contacts') }}#richiesta-colloquio">Richiedi il primo colloquio</a>
+                    <a class="btn btn-outline-secondario btn-sm" href="{{ $seoContact['whatsapp_url'] }}" target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp</a>
+                </div>
                 <p class="small mb-0">
                     Cancellazione entro 24 ore
                 </p>
