@@ -8,7 +8,7 @@
                     Le parole di chi ha intrapreso un percorso possono aiutare altre persone a sentirsi
                     più serene nel chiedere supporto.
                 </p>
-                <div class="d-lg-none mt-2">
+                <div class="d-lg-none mt-2 text-center">
                     <a href="#form-testimonianza" class="area-link">Lascia una testimonianza</a>
                 </div>
             </div>

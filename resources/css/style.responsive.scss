@@ -204,18 +204,6 @@
     }
 }
 @media (max-width: 768px) {
-    .d-grid > .btn {
-        justify-self: center;
-    }
-
-    .contact-actions {
-        justify-content: center !important;
-    }
-
-    .about-actions {
-        justify-content: center !important;
-    }
-
     /* CTA su mobile sempre centrati, anche con wrapper misti flex/grid. */
     .hero-actions,
     .area-detail-actions,
@@ -253,6 +241,17 @@
         text-align: center;
     }
 
+    /* Titoli non necessariamente h* (classe "title") centrati su mobile */
+    .formazione-title,
+    .intro-name,
+    .footer-title,
+    .footer-title-link,
+    .brand-title,
+    .brand-subtitle,
+    .navbar-offcanvas__intro-name {
+        text-align: center;
+    }
+
     .about-head .page-title {
         font-size: clamp(1.75rem, 7.2vw, 2.15rem);
         line-height: 1.12;
@@ -267,11 +266,10 @@
         margin-right: 0;
     }
 
-    .about-section .about-head .page-title,
     .about-section .about-head .page-lead {
-        text-align: left;
-        margin-left: 0;
-        margin-right: 0;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .areas-page .page-head .badge,
@@ -280,11 +278,10 @@
         margin-right: 0;
     }
 
-    .areas-page .page-head .page-title,
     .areas-page .page-head .page-lead {
-        text-align: left;
-        margin-left: 0;
-        margin-right: 0;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .testimonials-page .page-head .badge,
@@ -295,20 +292,22 @@
         margin-right: 0;
     }
 
-    .testimonials-page .page-head .page-title,
     .testimonials-page .page-head .page-lead,
-    .contacts-page .page-head .page-title,
     .contacts-page .page-head .page-lead {
-        text-align: left;
-        margin-left: 0;
-        margin-right: 0;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .page-head .page-lead,
     .about-head .page-lead,
-    .hero-subtitle,
-    .about-section p,
-    .about-section li,
+    .hero-subtitle {
+        text-align: center;
+    }
+
+    /* Mantieni leggibilità del contenuto esteso */
+    .about-section .about-main-col p,
+    .about-section .about-main-col li,
     .area-preview-text {
         text-align: left;
     }
@@ -319,6 +318,127 @@
         max-width: 60ch;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    /* ---------------------------------------------------------------------
+       Rifinitura mobile globale: tipografia + allineamenti coerenti.
+       ------------------------------------------------------------------ */
+    html {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 1.35rem 0;
+    }
+
+    p,
+    li {
+        line-height: 1.64;
+        margin-bottom: 0.72rem;
+    }
+
+    .small {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .page-title,
+    .hero-title,
+    .area-page-title {
+        text-wrap: balance;
+        line-height: 1.12;
+    }
+
+    .page-title {
+        font-size: clamp(1.82rem, 7.2vw, 2.28rem);
+        margin-bottom: 0.58rem !important;
+    }
+
+    h2:not(.accordion-button),
+    .section-subtitle {
+        line-height: 1.2;
+        text-wrap: balance;
+    }
+
+    .badge-soft,
+    .hero-kicker,
+    .intro-eyebrow {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+
+    .btn,
+    .btn-brand,
+    .btn-outline-secondario,
+    .btn-outline-secondary,
+    .btn-primary,
+    .btn-secondary {
+        min-height: 2.75rem;
+        padding: 0.5rem 1rem !important;
+        line-height: 1.22;
+        white-space: normal;
+    }
+
+    .hero-home-row,
+    .card {
+        --bs-gutter-x: 0.95rem;
+        --bs-gutter-y: 0.95rem;
+    }
+
+    .card {
+        border-radius: 0.82rem;
+    }
+
+    /* Card informative: titolo + contenuto allineati in modo coerente */
+    .contact-summary-highlight,
+    .contact-glance-card,
+    .contact-steps,
+    .local-proof-card,
+    .card-info,
+    .card-sedi,
+    .area-internal-links,
+    .first-interview-quick-cta,
+    .testimonials-intro-card,
+    .trust-item {
+        text-align: center;
+    }
+
+    .contact-summary-highlight p,
+    .contact-glance-card p,
+    .contact-steps p,
+    .contact-steps li,
+    .local-proof-card p,
+    .local-proof-card li,
+    .card-info p,
+    .card-sedi p,
+    .card-sedi li,
+    .area-internal-links p,
+    .area-internal-links li,
+    .first-interview-quick-cta p,
+    .trust-item span {
+        text-align: center;
+    }
+
+    .contact-steps-list,
+    .local-proof-list,
+    .card-sedi ul,
+    .area-internal-links ul {
+        padding-left: 0;
+        list-style-position: inside;
+    }
+
+    /* Mantieni i form leggibili (non forzare centratura totale) */
+    .card-form,
+    .testimonial-form-card,
+    .contact-faq,
+    .privacy-content,
+    .area-detail-content {
+        text-align: left;
+    }
+
+    .form-label,
+    .form-check-label {
+        line-height: 1.45;
     }
 
     body {
@@ -373,7 +493,9 @@
 
     .intro-section .card-chi ul {
         display: inline-block;
-        text-align: left;
+        text-align: center;
+        list-style-position: inside;
+        padding-left: 0;
         margin-left: auto;
         margin-right: auto;
     }
@@ -382,6 +504,69 @@
     .intro-section .card-chi h6,
     .intro-section .card-chi .section-subtitle {
         text-align: center;
+    }
+
+    /* Chi sono (sidebar): centra anche i titoli "Info utili" e "Dove ricevo in presenza" su mobile */
+    .about-section .about-sidebar .card h5 {
+        text-align: center;
+    }
+
+    /* Contatti (sidebar): centra i titoli card su mobile */
+    .contacts-page .contacts-left .card h2.h5 {
+        text-align: center;
+    }
+
+    .contacts-page .contacts-left .card p.small,
+    .contacts-page .contacts-left .card p.small.text-muted {
+        text-align: center;
+    }
+
+    /* Card informative: centratura coerente (titolo + contenuto) */
+    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel),
+    .testimonials-page .card:not(.testimonial-form-card),
+    .first-interview-page .card:not(.contact-faq),
+    .about-section .about-sidebar .card,
+    .hero-home-row .card,
+    .local-proof-card,
+    .trust-item,
+    .area-internal-links {
+        text-align: center;
+    }
+
+    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel)
+        :is(h2, h3, h4, h5, h6, p, .small),
+    .testimonials-page .card:not(.testimonial-form-card)
+        :is(h2, h3, h4, h5, h6, p, .small),
+    .first-interview-page .card:not(.contact-faq)
+        :is(h2, h3, h4, h5, h6, p, .small),
+    .about-section .about-sidebar .card :is(h2, h3, h4, h5, h6, p, .small),
+    .hero-home-row .card :is(h2, h3, h4, h5, h6, p, .small),
+    .local-proof-card :is(h2, h3, h4, h5, h6, p, .small),
+    .trust-item :is(strong, span),
+    .area-internal-links :is(h2, h3, h4, h5, h6, p, .small) {
+        text-align: center;
+    }
+
+    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel) ul,
+    .testimonials-page .card:not(.testimonial-form-card) ul,
+    .first-interview-page .card:not(.contact-faq) ul,
+    .about-section .about-sidebar .card ul,
+    .hero-home-row .card ul,
+    .local-proof-card ul,
+    .area-internal-links ul {
+        text-align: left;
+        padding-left: 1.1rem;
+        list-style-position: outside;
+    }
+
+    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel) li,
+    .testimonials-page .card:not(.testimonial-form-card) li,
+    .first-interview-page .card:not(.contact-faq) li,
+    .about-section .about-sidebar .card li,
+    .hero-home-row .card li,
+    .local-proof-card li,
+    .area-internal-links li {
+        text-align: left;
     }
     .area-page-title {
         font-size: 1.65rem;
@@ -392,6 +577,49 @@
         --bs-gutter-x: 0.9rem;
         --bs-gutter-y: 0.9rem;
         padding: 0.8rem;
+    }
+
+    /* Home mobile: titoli e testi centrati in modo coerente */
+    .intro-section .intro-text :is(.intro-eyebrow, .intro-lead, .intro-quote, .intro-name),
+    .hero-home-row .col-lg-7 > :is(.hero-title, .hero-subtitle, .hero-micro),
+    .home-target-cards .card :is(h2, h3, h4, p),
+    .home-first-talk-card :is(h2, h3, h4, p),
+    .formazione-section .formazione-box :is(.formazione-title, p) {
+        text-align: center;
+    }
+
+    .hero-home-row .hero-kicker {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .hero-home-row .hero-point {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-home-row .hero-point span {
+        text-align: center;
+    }
+
+    .formazione-section .formazione-title {
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center !important;
+    }
+
+    .formazione-section .formazione-box p,
+    .formazione-section .formazione-list,
+    .formazione-section .formazione-list li {
+        text-align: left !important;
+    }
+
+    .formazione-section .formazione-box:last-child p {
+        text-align: center !important;
     }
     .hero-actions {
         justify-content: center !important;

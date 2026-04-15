@@ -312,7 +312,7 @@
                 <h2 class="page-title">Percorsi pensati per diverse fasi della vita</h2>
             </div>
 
-            <div class="row g-4">
+            <div class="row g-4 home-target-cards">
                 @foreach ($targetCards as $card)
                     <div class="col-md-4">
                         <div class="card shadow-soft p-4 h-100">
@@ -328,7 +328,7 @@
     {{-- PRIMO COLLOQUIO --}}
     <section class="section">
         <div class="container">
-            <div class="card shadow-soft p-4">
+            <div class="card shadow-soft p-4 home-first-talk-card">
                 <h3 class="mb-3">Come si svolge il primo colloquio</h3>
                 <p class="mb-0">
                     Il primo colloquio ha una durata di circa <strong>50 minuti</strong> ed è uno spazio dedicato
