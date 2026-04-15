@@ -225,6 +225,16 @@
     }
 }
 @media (max-width: 768px) {
+    .home-page .hero-home-row .hero-points,
+    .home-page .hero-home-row .hero-points .hero-point,
+    .home-page .hero-home-row .hero-points .hero-point span {
+        text-align: left !important;
+    }
+
+    .home-page .hero-home-row .hero-points .hero-point {
+        justify-content: flex-start !important;
+    }
+
     /* CTA su mobile sempre centrati, anche con wrapper misti flex/grid. */
     .hero-actions,
     .area-detail-actions,
@@ -640,15 +650,6 @@
         text-align: center;
     }
 
-    .hero-home-row .hero-point {
-        justify-content: center;
-        text-align: center;
-    }
-
-    .hero-home-row .hero-point span {
-        text-align: center;
-    }
-
     .cta-final-section {
         background: linear-gradient(
             180deg,
@@ -748,42 +749,71 @@
         margin-right: auto;
     }
 
+    .footer-minimal .footer-quick-links {
+        margin-top: 0.42rem !important;
+        margin-bottom: 0.34rem;
+        gap: 0.14rem;
+        align-items: center;
+    }
+
+    .footer-minimal .footer-quick-links .area-link,
+    .footer-minimal .footer-quick-links .footer-quick-link {
+        justify-content: center;
+        font-size: 0.82rem;
+        line-height: 1.2;
+        min-height: 1.8rem;
+        padding: 0.04rem 0.1rem;
+    }
+
     .footer-minimal {
-        padding: 0.58rem 0 0.2rem;
+        padding: 0.42rem 0 0.14rem;
     }
 
     .footer-minimal .footer-minimal__container {
-        padding-top: 0.95rem !important;
-        padding-bottom: 0.4rem !important;
+        padding-top: 0.72rem !important;
+        padding-bottom: 0.2rem !important;
     }
 
     .footer-minimal .row.gy-4 {
-        --bs-gutter-y: 0.85rem;
+        --bs-gutter-y: 0.56rem;
     }
 
     .footer-bottom {
-        margin-top: 0.5rem !important;
-        padding-top: 0.42rem !important;
+        margin-top: 0.34rem !important;
+        padding-top: 0.26rem !important;
     }
 }
 @media (max-width: 575.98px) {
     .footer-minimal {
-        padding: 0.5rem 0 0.16rem;
+        padding: 0.34rem 0 0.1rem;
     }
 
     .footer-minimal .footer-minimal__container {
-        padding-top: 0.78rem !important;
-        padding-bottom: 0.3rem !important;
+        padding-top: 0.6rem !important;
+        padding-bottom: 0.12rem !important;
     }
 
     .footer-minimal .row.gy-4 {
-        --bs-gutter-y: 0.68rem;
+        --bs-gutter-y: 0.42rem;
+    }
+
+    .footer-minimal .footer-quick-links {
+        margin-top: 0.34rem !important;
+        margin-bottom: 0.26rem;
+        gap: 0.12rem;
+    }
+
+    .footer-minimal .footer-quick-links .area-link,
+    .footer-minimal .footer-quick-links .footer-quick-link {
+        font-size: 0.78rem;
+        min-height: 1.7rem;
+        line-height: 1.15;
     }
 
     .footer-bottom {
-        margin-top: 0.4rem !important;
-        padding-top: 0.34rem !important;
-        font-size: 0.76rem;
+        margin-top: 0.24rem !important;
+        padding-top: 0.22rem !important;
+        font-size: 0.72rem;
     }
 
     .area-hero-wrapper {

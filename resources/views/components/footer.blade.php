@@ -30,7 +30,7 @@
                 <p class="small mb-0">Durata seduta: 50 minuti</p>
             </div>
 
-            <div class="col-md-4">
+            <div class="col-md-4 footer-contact-col">
                 <h3 class="mb-0">
                     <a href="{{ route('contacts') }}" class="footer-title-link">
                         <span class="footer-title">Contatti</span>
@@ -46,7 +46,7 @@
                         {{ $seoContact['telephone_display_spaced'] }}
                     </a>
                 </p>
-                <div class="d-flex flex-column mt-2">
+                <div class="d-flex flex-column mt-2 footer-quick-links">
                     <a class="area-link" href="{{ route('contacts') }}#richiesta-colloquio">Richiedi il primo colloquio →</a>
                     <a class="area-link" href="{{ $seoContact['whatsapp_url'] }}" target="_blank" rel="noopener noreferrer">Scrivimi su WhatsApp →</a>
                 </div>
