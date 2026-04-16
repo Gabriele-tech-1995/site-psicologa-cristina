@@ -28,7 +28,7 @@
                 <table role="presentation" class="email-shell" width="560" cellpadding="0" cellspacing="0" border="0"
                     style="max-width:560px;width:100%;border-collapse:collapse;background-color:#ffffff;border-radius:14px;overflow:hidden;border:1px solid #dce5df;box-shadow:0 8px 28px rgba(31,42,36,0.06);">
                     <tr>
-                        <td style="background-color:#4f7665;padding:22px 28px;border-bottom:3px solid #b89a5a;">
+                        <td style="background-color:#5a7a6a;padding:22px 28px;border-bottom:3px solid #b89a5a;">
                             <p
                                 style="margin:0 0 6px;font-family:Georgia,'Times New Roman',serif;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.78);">
                                 @yield('email_kicker', 'Dott.ssa Cristina Pacifici')

@@ -146,7 +146,7 @@ $navbar-mobile-surface: linear-gradient(
         }
 
         &:focus-visible {
-            outline: 2px solid rgba(79, 118, 101, 0.38);
+            outline: 2px solid rgba(90, 122, 106, 0.38);
             outline-offset: 3px;
         }
     }
@@ -600,7 +600,7 @@ html.nav-offcanvas-open body {
 }
 
 .navbar-offcanvas .navbar-offcanvas__nav-list .nav-link:focus-visible {
-    box-shadow: 0 0 0 2px rgba(79, 118, 101, 0.32);
+    box-shadow: 0 0 0 2px rgba(90, 122, 106, 0.32);
     outline: none;
 }
 
@@ -740,9 +740,9 @@ html.nav-offcanvas-open body {
     background: linear-gradient(
         90deg,
         transparent 0%,
-        rgba(79, 118, 101, 0.35) 22%,
+        rgba(90, 122, 106, 0.35) 22%,
         rgba(157, 119, 67, 0.75) 50%,
-        rgba(79, 118, 101, 0.35) 78%,
+        rgba(90, 122, 106, 0.35) 78%,
         transparent 100%
     );
     opacity: 0.92;
@@ -796,7 +796,7 @@ html.nav-offcanvas-open body {
     text-transform: uppercase;
     text-decoration: none;
     color: var(--color-salvia-active);
-    border-bottom: 1px solid rgba(79, 118, 101, 0.25);
+    border-bottom: 1px solid rgba(90, 122, 106, 0.25);
     padding-bottom: 0.12rem;
     transition:
         color 0.18s ease,
@@ -833,7 +833,7 @@ html.nav-offcanvas-open body {
 }
 
 .navbar-offcanvas__finale-dismiss:focus-visible {
-    outline: 2px solid rgba(79, 118, 101, 0.35);
+    outline: 2px solid rgba(90, 122, 106, 0.35);
     outline-offset: 3px;
     border-radius: 0.35rem;
 }

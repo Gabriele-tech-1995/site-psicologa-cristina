@@ -42,7 +42,7 @@
     margin: 0 0 1rem;
     font-weight: 400;
     padding-bottom: 1rem;
-    border-bottom: 1px solid rgba(79, 118, 101, 0.12);
+    border-bottom: 1px solid rgba(90, 122, 106, 0.12);
 }
 .intro-quote {
     font-family: var(--font-titoli);
@@ -163,8 +163,8 @@
     gap: 7px;
     font-weight: 600;
     color: var(--color-salvia-active);
-    background: rgba(93, 119, 103, 0.08);
-    border: 1px solid rgba(93, 119, 103, 0.12);
+    background: rgba(90, 122, 106, 0.08);
+    border: 1px solid rgba(90, 122, 106, 0.12);
     padding: 0.28rem 0.58rem;
     border-radius: var(--raggio-pill);
     font-size: 0.88rem;
@@ -589,7 +589,7 @@
 }
 
 .testimonial-entry {
-    border-left: 3px solid rgba(79, 118, 101, 0.34);
+    border-left: 3px solid rgba(90, 122, 106, 0.34);
     box-shadow:
         0 14px 24px rgba(41, 34, 22, 0.09),
         0 1px 0 rgba(255, 255, 255, 0.78) inset;
@@ -611,7 +611,7 @@
     content: "";
     width: 18px;
     height: 1px;
-    background: rgba(79, 118, 101, 0.36);
+    background: rgba(90, 122, 106, 0.36);
 }
 
 .testimonial-form-card {
@@ -813,7 +813,7 @@
     border: 1px solid var(--bordo-soft-strong);
 }
 .btn-area-secondary:hover {
-    background: rgba(93, 119, 103, 0.06);
+    background: rgba(90, 122, 106, 0.06);
     color: var(--color-salvia-hover);
 }
 
@@ -842,9 +842,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-position: 86% top;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: no-repeat 76% top/cover;
     color: var(--testo-principale);
 }
 .area-hero-gradient {
@@ -860,7 +858,7 @@
             rgba(252, 251, 249, 0.95) 44%,
             rgba(250, 248, 245, 0.82) 56%,
             rgba(250, 248, 245, 0.52) 70%,
-            rgba(250, 248, 245, 0.16) 86%,
+            rgba(250, 248, 245, 0.16) 76%,
             rgba(250, 248, 245, 0) 100%
         ),
         linear-gradient(
@@ -1164,8 +1162,8 @@
     }
 }
 .alert-success {
-    background: rgba(93, 119, 103, 0.08);
-    border: 1px solid rgba(93, 119, 103, 0.18);
+    background: rgba(90, 122, 106, 0.08);
+    border: 1px solid rgba(90, 122, 106, 0.18);
     color: var(--color-salvia-active);
     border-radius: var(--raggio);
     padding: 0.7rem 0.85rem;
@@ -1309,7 +1307,7 @@
     word-break: break-word;
 }
 .admin-message-box {
-    border-top: 1px solid rgba(93, 119, 103, 0.14);
+    border-top: 1px solid rgba(90, 122, 106, 0.14);
     padding-top: 0.85rem;
 }
 .admin-message-content {
@@ -1536,22 +1534,22 @@
         text-decoration: none;
         border: 1px solid transparent;
         border-radius: 0.62rem;
-        background: rgba(93, 119, 103, 0.05);
+        background: rgba(90, 122, 106, 0.05);
         color: var(--color-salvia-active);
         font-weight: 500;
         padding: 0.45rem 0.6rem;
         transition: all 0.2s ease;
 
         &:hover {
-            background: rgba(93, 119, 103, 0.1);
-            border-color: rgba(93, 119, 103, 0.16);
+            background: rgba(90, 122, 106, 0.1);
+            border-color: rgba(90, 122, 106, 0.16);
             color: var(--color-salvia);
         }
     }
 }
 
 .privacy-content section + section {
-    border-top: 1px solid rgba(93, 119, 103, 0.12);
+    border-top: 1px solid rgba(90, 122, 106, 0.12);
     margin-top: 1rem;
     padding-top: 1rem;
 }
@@ -1561,8 +1559,8 @@
 }
 
 .privacy-update {
-    background: rgba(93, 119, 103, 0.04);
-    border: 1px dashed rgba(93, 119, 103, 0.22);
+    background: rgba(90, 122, 106, 0.04);
+    border: 1px dashed rgba(90, 122, 106, 0.22);
     border-radius: 0.72rem;
     padding: 0.15rem 0.8rem 0.8rem;
 }

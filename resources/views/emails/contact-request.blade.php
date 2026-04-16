@@ -18,7 +18,7 @@
         <tr>
             <td style="padding:18px 20px;">
                 <p
-                    style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4f7665;">
+                    style="margin:0 0 14px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a7a6a;">
                     Recapiti
                 </p>
                 <p style="margin:0 0 12px;padding-bottom:12px;border-bottom:1px solid #dce5df;">
@@ -44,7 +44,7 @@
         <tr>
             <td style="padding:18px 20px;">
                 <p
-                    style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4f7665;">
+                    style="margin:0 0 10px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a7a6a;">
                     Messaggio
                 </p>
                 <p style="margin:0;white-space:pre-line;color:#1f2a24;font-size:15px;line-height:1.6;">

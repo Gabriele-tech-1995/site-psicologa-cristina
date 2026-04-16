@@ -3,7 +3,7 @@
 /* Responsive */
 @media (min-width: 1400px) {
     .area-hero-illustrata {
-        background-position: 73% center;
+        background-position: 69% center;
         min-height: 720px;
     }
     .area-hero-text {
@@ -645,6 +645,51 @@
         box-shadow:
             0 12px 24px rgba(41, 34, 22, 0.08),
             0 1px 0 rgba(255, 255, 255, 0.72) inset;
+    }
+
+    .formazione-section .formazione-title {
+        display: block;
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center !important;
+    }
+
+    .formazione-section .formazione-box p,
+    .formazione-section .formazione-list,
+    .formazione-section .formazione-list li {
+        text-align: left !important;
+    }
+
+    .formazione-section .formazione-box:last-child p {
+        text-align: center !important;
+    }
+
+    /* Home mobile: titoli e testi centrati in modo coerente */
+    .intro-section
+        .intro-text
+        :is(.intro-eyebrow, .intro-lead, .intro-quote, .intro-name),
+    .hero-home-row .col-lg-7 > :is(.hero-title, .hero-subtitle, .hero-micro),
+    .home-target-cards .card :is(h2, h3, h4, p),
+    .home-first-talk-card :is(h2, h3, h4, p),
+    .formazione-section .formazione-box :is(.formazione-title, p) {
+        text-align: center;
+    }
+
+    .hero-home-row .hero-kicker {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .hero-home-row .hero-point {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-home-row .hero-point span {
+        text-align: center;
     }
 
     .formazione-section .formazione-title {

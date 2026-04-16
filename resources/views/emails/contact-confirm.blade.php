@@ -28,7 +28,7 @@
         <tr>
             <td style="padding:18px 20px;">
                 <p
-                    style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#4f7665;">
+                    style="margin:0 0 12px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#5a7a6a;">
                     Riepilogo recapiti inviati
                 </p>
                 <p style="margin:0 0 10px;">
@@ -45,7 +45,7 @@
 
     <p style="margin:24px 0 0;padding-top:20px;border-top:1px solid #e3ebe4;font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.5;color:#1f2a24;">
         Cordiali saluti,<br>
-        <strong style="color:#4f7665;">Dott.ssa Cristina Pacifici</strong><br>
+        <strong style="color:#5a7a6a;">Dott.ssa Cristina Pacifici</strong><br>
         <span style="font-size:15px;color:#5a6b60;">Psicologa</span>
     </p>
 @endsection
@@ -53,7 +53,7 @@
 @section('footer')
     <p style="margin:0;">
         <a href="{{ config('app.url', 'https://psicologacristinapacifici.it') }}"
-            style="color:#4f7665;font-weight:600;text-decoration:underline;">Visita di nuovo il sito</a>
+            style="color:#5a7a6a;font-weight:600;text-decoration:underline;">Visita di nuovo il sito</a>
         <span style="color:#7a8a80;"> — Tivoli, colloqui in presenza e online.</span>
     </p>
 @endsection

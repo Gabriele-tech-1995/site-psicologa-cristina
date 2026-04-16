@@ -103,16 +103,46 @@
                     {!! $area['body'] !!}
                 </div>
 
+                @if (!empty($relatedAreas))
+                    <div class="area-internal-links card shadow-soft border-0 p-4 mb-4">
+                        <h2 class="h5 mb-3 card-heading-oro">Altri percorsi e contatti</h2>
+                        <p class="small text-muted mb-3">
+                            Se vuoi, qui trovi anche altre aree vicine a questo tema, la pagina Chi sono e i contatti
+                            per un primo colloquio:
+                        </p>
+                        <ul class="mb-0 small">
+                            @foreach ($relatedAreas as $rel)
+                                <li>
+                                    <a href="{{ route('areas.show', ['slug' => $rel['slug']]) }}"
+                                        data-track="internal_area_{{ $rel['slug'] }}">{{ $rel['title'] }}</a>
+                                </li>
+                            @endforeach
+                            <li><a href="{{ route('about') }}" data-track="internal_about_from_area">Chi sono</a></li>
+                            <li>
+                                <a href="{{ route('contacts') }}#richiesta-colloquio"
+                                    data-track="internal_contacts_from_area">
+                                    Contatti e richiesta di primo colloquio
+                                </a>
+                            </li>
+                            <li><a href="{{ route('areas') }}" data-track="internal_all_areas">Tutte le aree di
+                                    intervento</a></li>
+                        </ul>
+                    </div>
+                @endif
+
                 <div class="area-closing-text">
                     <p>
                         Se senti che questa area riguarda il momento che stai vivendo, puoi contattarmi per un primo
-                        colloquio: sarà l’occasione per incontrarci e capire insieme, con calma, quale percorso può essere più adatto a te.
+                        colloquio: sarà l’occasione per incontrarci e capire insieme, con calma, quale percorso può
+                        essere più adatto a te.
                     </p>
                 </div>
 
                 <div class="area-detail-actions">
-                    <a href="{{ route('areas') }}" class="btn-area-secondary" data-track="cta_area_back">← Tutte le aree</a>
-                    <a href="{{ route('contacts') }}#richiesta-colloquio" class="btn-area-primary" data-track="cta_area_colloquio">Richiedi il primo colloquio</a>
+                    <a href="{{ route('areas') }}" class="btn-area-secondary" data-track="cta_area_back">← Tutte le
+                        aree</a>
+                    <a href="{{ route('contacts') }}#richiesta-colloquio" class="btn-area-primary"
+                        data-track="cta_area_colloquio">Richiedi il primo colloquio</a>
                 </div>
 
             </div>

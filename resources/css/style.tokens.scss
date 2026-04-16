@@ -8,10 +8,11 @@ $btn-selectors: ".btn, .btn-brand, .btn-outline-secondario, .btn-outline-seconda
     --sfondo-soft-warm: #f6f1e8;
     --sfondo-soft-sage: #edf3ed;
 
-    --color-salvia: #4f7665;
-    --color-salvia-hover: #446757;
-    --color-salvia-active: #3a584b;
-    --color-salvia-soft: #e8f0eb;
+    /* Allineato al verde “area” (accento .area-closing-text / btn-area-primary). */
+    --color-salvia: #5a7a6a;
+    --color-salvia-hover: #4c6a5b;
+    --color-salvia-active: #3f5a4d;
+    --color-salvia-soft: #e9f1ec;
 
     /* Oro titoli / brand: palette iniziale (elegante, come al primo deploy). */
     --color-oro: #b89a5a;

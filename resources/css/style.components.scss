@@ -62,7 +62,7 @@
     ) !important;
     border-color: var(--color-salvia) !important;
     box-shadow:
-        0 0 0 0.16rem rgba(79, 118, 101, 0.24),
+        0 0 0 0.16rem rgba(90, 122, 106, 0.24),
         0 10px 22px rgba(41, 34, 22, 0.16) !important;
 }
 
@@ -217,7 +217,7 @@
 .area-link {
     color: var(--color-salvia);
     text-decoration: underline;
-    text-decoration-color: rgba(93, 119, 103, 0.42);
+    text-decoration-color: rgba(90, 122, 106, 0.42);
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
     transition:
@@ -231,7 +231,7 @@
 }
 .area-card-title a:focus-visible,
 .area-link:focus-visible {
-    outline: 2px solid rgba(93, 119, 103, 0.35);
+    outline: 2px solid rgba(90, 122, 106, 0.35);
     outline-offset: 2px;
     border-radius: 0.4rem;
 }
