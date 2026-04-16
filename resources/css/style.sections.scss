@@ -842,10 +842,10 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* Longhand: non sovrascrivere background-image inline da area-show. */
+    /* No shorthand `background:`: preserva background-image inline in area-show. */
+    background-position: 76% top;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 76% center;
     color: var(--testo-principale);
 }
 .area-hero-gradient {

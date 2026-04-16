@@ -552,7 +552,10 @@
     }
 
     /* Card informative: centratura coerente (titolo + contenuto) */
-    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel),
+    .contacts-page
+        .card:not(.card-form):not(.contact-faq):not(
+            .contact-feedback-modal__panel
+        ),
     .testimonials-page .card:not(.testimonial-form-card),
     .first-interview-page .card:not(.contact-faq),
     .about-section .about-sidebar .card,
@@ -563,11 +566,16 @@
         text-align: center;
     }
 
-    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel)
+    .contacts-page
+        .card:not(.card-form):not(.contact-faq):not(
+            .contact-feedback-modal__panel
+        )
         :is(h2, h3, h4, h5, h6, p, .small),
-    .testimonials-page .card:not(.testimonial-form-card)
+    .testimonials-page
+        .card:not(.testimonial-form-card)
         :is(h2, h3, h4, h5, h6, p, .small),
-    .first-interview-page .card:not(.contact-faq)
+    .first-interview-page
+        .card:not(.contact-faq)
         :is(h2, h3, h4, h5, h6, p, .small),
     .about-section .about-sidebar .card :is(h2, h3, h4, h5, h6, p, .small),
     .hero-home-row .card :is(h2, h3, h4, h5, h6, p, .small),
@@ -577,7 +585,11 @@
         text-align: center;
     }
 
-    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel) ul,
+    .contacts-page
+        .card:not(.card-form):not(.contact-faq):not(
+            .contact-feedback-modal__panel
+        )
+        ul,
     .testimonials-page .card:not(.testimonial-form-card) ul,
     .first-interview-page .card:not(.contact-faq) ul,
     .about-section .about-sidebar .card ul,
@@ -589,7 +601,11 @@
         list-style-position: outside;
     }
 
-    .contacts-page .card:not(.card-form):not(.contact-faq):not(.contact-feedback-modal__panel) li,
+    .contacts-page
+        .card:not(.card-form):not(.contact-faq):not(
+            .contact-feedback-modal__panel
+        )
+        li,
     .testimonials-page .card:not(.testimonial-form-card) li,
     .first-interview-page .card:not(.contact-faq) li,
     .about-section .about-sidebar .card li,
@@ -614,7 +630,9 @@
     }
 
     /* Home mobile: titoli e testi centrati in modo coerente */
-    .intro-section .intro-text :is(.intro-eyebrow, .intro-lead, .intro-quote, .intro-name),
+    .intro-section
+        .intro-text
+        :is(.intro-eyebrow, .intro-lead, .intro-quote, .intro-name),
     .hero-home-row .col-lg-7 > :is(.hero-title, .hero-subtitle, .hero-micro),
     .home-target-cards .card :is(h2, h3, h4, p),
     .home-first-talk-card :is(h2, h3, h4, p),
