@@ -4,7 +4,7 @@
 @media (min-width: 1400px) {
     .area-hero-illustrata {
         background-color: var(--sfondo-body);
-        background-position: 76% center;
+        background-position: 70% center;
         min-height: 720px;
         isolation: isolate;
     }
@@ -19,11 +19,12 @@
         background: linear-gradient(
             90deg,
             var(--sfondo-body) 0%,
-            rgba(255, 255, 255, 0.96) 14%,
-            rgba(255, 255, 255, 0.85) 28%,
-            rgba(255, 255, 255, 0.5) 42%,
-            rgba(255, 255, 255, 0.12) 52%,
-            transparent 58%
+            rgba(255, 255, 255, 0.96) 12%,
+            rgba(255, 255, 255, 0.88) 26%,
+            rgba(255, 255, 255, 0.62) 44%,
+            rgba(255, 255, 255, 0.3) 58%,
+            rgba(255, 255, 255, 0.1) 70%,
+            transparent 78%
         );
     }
 
