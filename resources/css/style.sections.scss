@@ -842,14 +842,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* Longhand: non resettare background-image inline da area-show. */
     background-position: 76% center;
     background-repeat: no-repeat;
     background-size: cover;
     color: var(--testo-principale);
+    isolation: isolate;
 }
 
-/* Un solo velo: sfumatura orizzontale verso il testo (sinistra). Niente wash globale sull’immagine. */
 .area-hero-illustrata::after {
     content: "";
     position: absolute;
@@ -859,10 +858,12 @@
     background: linear-gradient(
         90deg,
         var(--sfondo-body) 0%,
-        rgba(248, 245, 239, 0.94) 18%,
-        rgba(248, 245, 239, 0.55) 38%,
-        rgba(255, 255, 255, 0.12) 52%,
-        transparent 62%
+        rgba(251, 249, 245, 0.98) 16%,
+        rgba(251, 249, 245, 0.9) 30%,
+        rgba(251, 249, 245, 0.62) 43%,
+        rgba(251, 249, 245, 0.28) 54%,
+        rgba(251, 249, 245, 0.08) 61%,
+        transparent 68%
     );
 }
 .area-hero-wrapper {
