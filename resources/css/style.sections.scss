@@ -835,36 +835,14 @@
     color: var(--testo-secondario);
 }
 
+/* Hero area: layout condiviso. Sfondo foto + velo lettura solo da min-width 1400px (style.responsive.scss). */
 .area-hero-illustrata {
     position: relative;
-    min-height: 720px;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-position: 76% center;
-    background-repeat: no-repeat;
-    background-size: cover;
     color: var(--testo-principale);
-    isolation: isolate;
-}
-
-.area-hero-illustrata::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    pointer-events: none;
-    background: linear-gradient(
-        90deg,
-        var(--sfondo-body) 0%,
-        rgba(251, 249, 245, 0.98) 16%,
-        rgba(251, 249, 245, 0.9) 30%,
-        rgba(251, 249, 245, 0.62) 43%,
-        rgba(251, 249, 245, 0.28) 54%,
-        rgba(251, 249, 245, 0.08) 61%,
-        transparent 68%
-    );
 }
 .area-hero-wrapper {
     position: relative;
