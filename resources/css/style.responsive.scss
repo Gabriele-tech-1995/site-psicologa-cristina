@@ -3,7 +3,6 @@
 /* Responsive */
 @media (min-width: 1400px) {
     .area-hero-illustrata {
-        background-position: 76% center;
         min-height: 720px;
     }
     .area-hero-text {
@@ -96,8 +95,7 @@
         min-height: auto;
         padding: 1.5rem 0 2rem;
     }
-    .area-hero-gradient,
-    .area-hero-illustrata::before {
+    .area-hero-illustrata::after {
         display: none;
     }
     .area-hero-wrapper {

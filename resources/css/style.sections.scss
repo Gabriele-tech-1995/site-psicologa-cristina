@@ -842,48 +842,28 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* No shorthand `background:`: preserva background-image inline in area-show. */
-    background-position: 76% top;
+    /* Longhand: non resettare background-image inline da area-show. */
+    background-position: 76% center;
     background-repeat: no-repeat;
     background-size: cover;
     color: var(--testo-principale);
 }
-.area-hero-gradient {
+
+/* Un solo velo: sfumatura orizzontale verso il testo (sinistra). Niente wash globale sull’immagine. */
+.area-hero-illustrata::after {
+    content: "";
     position: absolute;
     inset: 0;
     z-index: 1;
     pointer-events: none;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(255, 255, 255, 0.995) 0%,
-            rgba(255, 255, 255, 0.985) 30%,
-            rgba(252, 251, 249, 0.95) 44%,
-            rgba(250, 248, 245, 0.82) 56%,
-            rgba(250, 248, 245, 0.52) 70%,
-            rgba(250, 248, 245, 0.16) 76%,
-            rgba(250, 248, 245, 0) 100%
-        ),
-        linear-gradient(
-            to top,
-            rgba(255, 255, 255, 0.7) 0%,
-            rgba(255, 255, 255, 0.45) 12%,
-            rgba(250, 248, 245, 0.22) 26%,
-            rgba(250, 248, 245, 0) 46%
-        ),
-        linear-gradient(
-            to top,
-            rgba(255, 255, 255, 0.36) 0%,
-            rgba(255, 255, 255, 0.18) 10%,
-            rgba(255, 255, 255, 0) 24%
-        );
-}
-.area-hero-illustrata::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(255, 255, 255, 0.04);
-    z-index: 0;
+    background: linear-gradient(
+        90deg,
+        var(--sfondo-body) 0%,
+        rgba(248, 245, 239, 0.94) 18%,
+        rgba(248, 245, 239, 0.55) 38%,
+        rgba(255, 255, 255, 0.12) 52%,
+        transparent 62%
+    );
 }
 .area-hero-wrapper {
     position: relative;

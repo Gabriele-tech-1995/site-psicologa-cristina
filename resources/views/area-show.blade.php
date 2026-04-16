@@ -68,8 +68,6 @@
 
     <section class="section area-hero-illustrata"
         style="background-image: url('{{ $areaImageJpg }}'); background-image: image-set(url('{{ $areaImageWebp }}') type('image/webp'), url('{{ $areaImageJpg }}') type('image/jpeg'));">
-        <div class="area-hero-gradient"></div>
-
         <div class="container-fluid px-lg-5 area-hero-wrapper">
             <div class="area-hero-text">
 

@@ -37,7 +37,6 @@ area-card-title
 area-closing-text
 area-detail-actions
 area-detail-content
-area-hero-gradient
 area-hero-illustrata
 area-hero-image-mobile
 area-hero-image-mobile-wrap
