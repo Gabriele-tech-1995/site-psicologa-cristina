@@ -66,7 +66,7 @@
         ];
     @endphp
 
-    <section class="section area-hero-illustrata area-hero-surface"
+    <section class="section area-hero-illustrata"
         style="background-image: url('{{ $areaImageJpg }}'); background-image: image-set(url('{{ $areaImageWebp }}') type('image/webp'), url('{{ $areaImageJpg }}') type('image/jpeg'));">
         <div class="area-hero-gradient"></div>
 

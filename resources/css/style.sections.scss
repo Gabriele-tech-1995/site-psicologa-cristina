@@ -745,14 +745,10 @@
     margin-top: 1.5rem;
     padding: 1rem 1.1rem;
     border-radius: var(--raggio);
-    border: 1px solid rgba(104, 123, 109, 0.22);
-    background: linear-gradient(
-        170deg,
-        rgba(255, 255, 255, 0.82) 0%,
-        rgba(247, 240, 228, 0.74) 100%
-    );
+    border: 1px solid rgba(90, 122, 106, 0.16);
+    background: rgba(255, 255, 255, 0.72);
     box-shadow:
-        0 14px 30px rgba(41, 34, 22, 0.1),
+        0 10px 24px rgba(17, 24, 39, 0.08),
         0 1px 0 rgba(255, 255, 255, 0.82) inset;
     color: var(--testo-secondario);
     font-size: 0.92rem;
@@ -760,18 +756,6 @@
     max-width: 38rem;
     position: relative;
     overflow: hidden;
-    transition:
-        transform 0.22s ease,
-        box-shadow 0.22s ease,
-        border-color 0.22s ease;
-}
-
-.area-closing-text:hover {
-    transform: translateY(-2px);
-    border-color: rgba(104, 123, 109, 0.28);
-    box-shadow:
-        0 18px 34px rgba(41, 34, 22, 0.12),
-        0 1px 0 rgba(255, 255, 255, 0.82) inset;
 }
 .area-closing-text::before {
     content: "";
@@ -811,75 +795,26 @@
     font-weight: 600;
     border-radius: var(--raggio-pill);
     text-decoration: none;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background-color 0.2s ease,
-        border-color 0.2s ease,
-        color 0.2s ease;
+    transition: all 0.2s ease;
 }
 .btn-area-primary {
-    background: linear-gradient(
-        180deg,
-        rgba(83, 122, 104, 1) 0%,
-        rgba(70, 105, 89, 1) 100%
-    );
+    background: var(--color-salvia);
     color: #fff;
-    border: 1px solid rgba(73, 107, 91, 0.94);
-    box-shadow:
-        0 10px 20px rgba(41, 34, 22, 0.14),
-        0 1px 0 rgba(255, 255, 255, 0.2) inset;
+    border: 1px solid var(--color-salvia);
 }
 .btn-area-primary:hover {
-    background: linear-gradient(
-        180deg,
-        rgba(72, 108, 92, 1) 0%,
-        rgba(62, 95, 80, 1) 100%
-    );
+    background: var(--color-salvia-hover);
     border-color: var(--color-salvia-hover);
     color: #fff;
-    transform: translateY(-1px);
-    box-shadow:
-        0 14px 24px rgba(41, 34, 22, 0.16),
-        0 1px 0 rgba(255, 255, 255, 0.16) inset;
-}
-.btn-area-primary:focus-visible {
-    outline: none;
-    box-shadow:
-        0 0 0 3px rgba(79, 118, 101, 0.24),
-        0 14px 24px rgba(41, 34, 22, 0.16),
-        0 1px 0 rgba(255, 255, 255, 0.16) inset;
 }
 .btn-area-secondary {
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.88) 0%,
-        rgba(246, 239, 227, 0.74) 100%
-    );
+    background: transparent;
     color: var(--color-salvia);
-    border: 1px solid rgba(104, 123, 109, 0.28);
-    box-shadow:
-        0 8px 16px rgba(41, 34, 22, 0.09),
-        0 1px 0 rgba(255, 255, 255, 0.52) inset;
+    border: 1px solid var(--bordo-soft-strong);
 }
 .btn-area-secondary:hover {
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.94) 0%,
-        rgba(240, 246, 240, 0.72) 100%
-    );
+    background: rgba(93, 119, 103, 0.06);
     color: var(--color-salvia-hover);
-    transform: translateY(-1px);
-    box-shadow:
-        0 12px 22px rgba(41, 34, 22, 0.12),
-        0 1px 0 rgba(255, 255, 255, 0.52) inset;
-}
-.btn-area-secondary:focus-visible {
-    outline: none;
-    box-shadow:
-        0 0 0 3px rgba(79, 118, 101, 0.2),
-        0 12px 22px rgba(41, 34, 22, 0.12),
-        0 1px 0 rgba(255, 255, 255, 0.52) inset;
 }
 
 .area-breadcrumb {
@@ -888,15 +823,6 @@
     gap: 0.4rem;
     font-size: 0.9rem;
     color: var(--testo-secondario);
-    padding: 0.32rem 0.62rem;
-    border-radius: var(--raggio-pill);
-    background: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(104, 123, 109, 0.16);
-    width: fit-content;
-    max-width: 100%;
-    box-shadow:
-        0 8px 16px rgba(41, 34, 22, 0.07),
-        0 1px 0 rgba(255, 255, 255, 0.76) inset;
 }
 .area-breadcrumb a {
     color: var(--color-salvia);
@@ -904,11 +830,6 @@
 }
 .area-breadcrumb a:hover {
     color: var(--color-oro);
-}
-.area-breadcrumb a:focus-visible {
-    outline: 2px solid rgba(79, 118, 101, 0.34);
-    outline-offset: 2px;
-    border-radius: 0.32rem;
 }
 .area-breadcrumb span[aria-current="page"] {
     color: var(--testo-secondario);
@@ -923,15 +844,6 @@
     justify-content: flex-start;
     background: no-repeat 86% top/cover;
     color: var(--testo-principale);
-    border-top: 1px solid rgba(104, 123, 109, 0.12);
-    border-bottom: 1px solid rgba(157, 119, 67, 0.18);
-    box-shadow:
-        inset 0 -28px 46px rgba(41, 34, 22, 0.1),
-        inset 0 20px 40px rgba(255, 255, 255, 0.2);
-}
-
-.area-hero-surface {
-    isolation: isolate;
 }
 .area-hero-gradient {
     position: absolute;
@@ -941,25 +853,25 @@
     background:
         linear-gradient(
             90deg,
-            rgba(255, 255, 255, 0.996) 0%,
-            rgba(255, 255, 255, 0.988) 25%,
-            rgba(252, 249, 244, 0.94) 40%,
-            rgba(247, 241, 231, 0.84) 55%,
-            rgba(240, 246, 240, 0.58) 70%,
-            rgba(240, 246, 240, 0.2) 85%,
-            rgba(240, 246, 240, 0) 100%
+            rgba(255, 255, 255, 0.995) 0%,
+            rgba(255, 255, 255, 0.985) 30%,
+            rgba(252, 251, 249, 0.95) 44%,
+            rgba(250, 248, 245, 0.82) 56%,
+            rgba(250, 248, 245, 0.52) 70%,
+            rgba(250, 248, 245, 0.16) 86%,
+            rgba(250, 248, 245, 0) 100%
         ),
         linear-gradient(
             to top,
-            rgba(245, 236, 222, 0.58) 0%,
-            rgba(248, 242, 233, 0.38) 14%,
-            rgba(240, 246, 240, 0.18) 28%,
-            rgba(240, 246, 240, 0) 48%
+            rgba(255, 255, 255, 0.7) 0%,
+            rgba(255, 255, 255, 0.45) 12%,
+            rgba(250, 248, 245, 0.22) 26%,
+            rgba(250, 248, 245, 0) 46%
         ),
         linear-gradient(
             to top,
-            rgba(255, 255, 255, 0.32) 0%,
-            rgba(255, 255, 255, 0.14) 10%,
+            rgba(255, 255, 255, 0.36) 0%,
+            rgba(255, 255, 255, 0.18) 10%,
             rgba(255, 255, 255, 0) 24%
         );
 }
@@ -967,11 +879,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(255, 255, 255, 0.04) 0%,
-        rgba(243, 235, 221, 0.14) 100%
-    );
+    background: rgba(255, 255, 255, 0.04);
     z-index: 0;
 }
 .area-hero-wrapper {
@@ -982,19 +890,6 @@
 }
 .area-hero-text {
     max-width: 560px;
-    padding: clamp(1rem, 2.2vw, 1.4rem);
-    border-radius: var(--raggio-lg);
-    background: linear-gradient(
-        172deg,
-        rgba(255, 255, 255, 0.8) 0%,
-        rgba(246, 239, 228, 0.72) 62%,
-        rgba(237, 245, 239, 0.68) 100%
-    );
-    border: 1px solid rgba(104, 123, 109, 0.2);
-    box-shadow:
-        0 18px 36px rgba(41, 34, 22, 0.14),
-        0 1px 0 rgba(255, 255, 255, 0.8) inset;
-    backdrop-filter: blur(2px);
 }
 .area-badge {
     display: inline-flex;

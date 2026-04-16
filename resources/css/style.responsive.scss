@@ -92,16 +92,9 @@
     }
     .area-hero-illustrata {
         background-image: none !important;
-        background: linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.34) 0%,
-            rgba(245, 237, 223, 0.72) 54%,
-            rgba(237, 245, 239, 0.64) 100%
-        );
+        background: var(--sfondo-body);
         min-height: auto;
         padding: 1.5rem 0 2rem;
-        border-top: 1px solid rgba(104, 123, 109, 0.12);
-        border-bottom: 1px solid rgba(157, 119, 67, 0.14);
     }
     .area-hero-gradient,
     .area-hero-illustrata::before {
@@ -116,23 +109,9 @@
         max-width: 100%;
         display: flex;
         flex-direction: column;
-        padding: 0.95rem;
-        border-radius: var(--raggio-lg);
-        background: linear-gradient(
-            170deg,
-            rgba(255, 255, 255, 0.9) 0%,
-            rgba(246, 239, 227, 0.8) 58%,
-            rgba(237, 245, 239, 0.72) 100%
-        );
-        border: 1px solid rgba(104, 123, 109, 0.22);
-        box-shadow:
-            0 14px 28px rgba(41, 34, 22, 0.1),
-            0 1px 0 rgba(255, 255, 255, 0.76) inset;
     }
     .area-hero-text .area-breadcrumb {
         order: 1;
-        margin-left: auto;
-        margin-right: auto;
     }
     .area-hero-text .area-badge {
         order: 2;
@@ -695,11 +674,6 @@
     .area-breadcrumb {
         justify-content: center;
     }
-    .area-hero-text .area-breadcrumb {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
     .area-hero-text {
         text-align: left;
     }
