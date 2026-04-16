@@ -46,13 +46,14 @@ main {
     position: relative;
 }
 
-main > section.section {
+/* Escludi hero area dettaglio: lo shorthand `background` qui sovrascriveva l’immagine inline e peggiorava repeat/stacking. */
+main > section.section:not(.area-hero-illustrata) {
     background: transparent;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
 }
 
-main > section.section:nth-of-type(even) {
+main > section.section:nth-of-type(even):not(.area-hero-illustrata) {
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.58) 0%,
@@ -62,7 +63,7 @@ main > section.section:nth-of-type(even) {
     border-bottom-color: rgba(104, 123, 109, 0.08);
 }
 
-main > section.section:nth-of-type(odd) {
+main > section.section:nth-of-type(odd):not(.area-hero-illustrata) {
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 0.22) 0%,

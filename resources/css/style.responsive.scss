@@ -2,33 +2,11 @@
 
 /* Responsive */
 @media (min-width: 1400px) {
-    /* Desktop grande: immagine = background della section (inline da Blade) + velo lettura. */
     .area-hero-illustrata {
-        min-height: 720px;
+        background-color: var(--sfondo-body);
         background-position: 76% center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        isolation: isolate;
+        min-height: 720px;
     }
-
-    .area-hero-illustrata::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        pointer-events: none;
-        background: linear-gradient(
-            90deg,
-            var(--sfondo-body) 0%,
-            rgba(251, 249, 245, 0.98) 16%,
-            rgba(251, 249, 245, 0.9) 30%,
-            rgba(251, 249, 245, 0.62) 43%,
-            rgba(251, 249, 245, 0.28) 54%,
-            rgba(251, 249, 245, 0.08) 61%,
-            transparent 68%
-        );
-    }
-
     .area-hero-text {
         max-width: 580px;
     }
@@ -115,10 +93,9 @@
     }
     .area-hero-illustrata {
         background-image: none !important;
-        background: var(--sfondo-body);
+        background-color: var(--sfondo-body);
         min-height: auto;
         padding: 1.5rem 0 2rem;
-        isolation: auto;
     }
     .area-hero-wrapper {
         max-width: 720px;

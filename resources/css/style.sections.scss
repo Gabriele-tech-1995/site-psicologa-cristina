@@ -835,7 +835,7 @@
     color: var(--testo-secondario);
 }
 
-/* Hero area: layout condiviso. Sfondo foto + velo lettura solo da min-width 1400px (style.responsive.scss). */
+/* Hero area: layout condiviso. Repeat/size fissi quando c’è background-image (desktop, inline Blade). */
 .area-hero-illustrata {
     position: relative;
     overflow: hidden;
@@ -843,6 +843,8 @@
     align-items: center;
     justify-content: flex-start;
     color: var(--testo-principale);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .area-hero-wrapper {
     position: relative;
