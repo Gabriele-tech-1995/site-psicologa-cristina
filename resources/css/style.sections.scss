@@ -842,7 +842,9 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background: no-repeat 86% top/cover;
+    background-position: 86% top;
+    background-repeat: no-repeat;
+    background-size: cover;
     color: var(--testo-principale);
 }
 .area-hero-gradient {
