@@ -91,31 +91,31 @@ return [
         'about' => [
             'title' => 'Chi è Cristina Pacifici | Psicologa a Tivoli e online',
             'description' => 'Scopri il profilo della Dott.ssa Cristina Pacifici, psicologa a Tivoli. Approccio, esperienza, aree di intervento e modalità di lavoro.',
-            'og_image' => 'img/cristina.webp',
+            'og_image' => 'img/cristina.jpg',
             'og_image_alt' => 'Dott.ssa Cristina Pacifici, psicologa a Tivoli',
         ],
         'areas' => [
             'title' => 'Ambiti di intervento | Psicologa a Tivoli – Cristina Pacifici',
             'description' => 'Aree di intervento della Dott.ssa Cristina Pacifici, psicologa tra Tivoli e Guidonia Montecelio: ansia, umore basso, relazioni, autostima, genitorialità, scuola e benessere emotivo.',
-            'og_image' => 'img/stress.webp',
+            'og_image' => 'img/stress.jpg',
             'og_image_alt' => 'Aree di intervento psicologico a Tivoli',
         ],
         'firstInterview' => [
             'title' => 'Primo colloquio psicologico a Tivoli | Dott.ssa Cristina Pacifici',
             'description' => 'Scopri come si svolge il primo colloquio psicologico con la Dott.ssa Cristina Pacifici, psicologa a Tivoli: online o in presenza, in un clima accogliente e senza pressioni.',
-            'og_image' => 'img/cristina.webp',
+            'og_image' => 'img/cristina.jpg',
             'og_image_alt' => 'Primo colloquio psicologico con la Dott.ssa Cristina Pacifici',
         ],
         'contacts' => [
             'title' => 'Contatti e sedi | Dott.ssa Cristina Pacifici, Psicologa a Tivoli',
             'description' => 'Contatta la Dott.ssa Cristina Pacifici, psicologa a Tivoli. Informazioni, sedi, modalità online e in presenza, WhatsApp e modulo contatti.',
-            'og_image' => 'img/logo.webp',
+            'og_image' => 'img/logo.jpg',
             'og_image_alt' => 'Contatti e sedi della Dott.ssa Cristina Pacifici',
         ],
         'testimonials' => [
             'title' => 'Testimonianze | Psicologa a Tivoli e Guidonia Montecelio',
             'description' => 'Testimonianze su percorsi con la Dott.ssa Cristina Pacifici, psicologa a Tivoli e Guidonia Montecelio. Esperienze condivise in forma anonima.',
-            'og_image' => 'img/og-image.webp',
+            'og_image' => 'img/og-image.jpg',
             'og_image_alt' => 'Testimonianze sui percorsi psicologici',
         ],
         'privacy' => [

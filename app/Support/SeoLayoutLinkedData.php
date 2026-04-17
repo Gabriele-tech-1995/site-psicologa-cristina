@@ -93,20 +93,25 @@ final class SeoLayoutLinkedData
         $static = self::cachedStaticGraphNodes($siteUrl);
         $webPageType = self::schemaWebPageTypeForRoute($routeName);
         $breadcrumb = self::breadcrumbForRoute($routeName, $currentUrl);
+        $webPageNode = [
+            '@type' => $webPageType,
+            '@id' => $currentUrl.'#webpage',
+            'url' => $currentUrl,
+            'name' => $metaTitle,
+            'description' => $metaDescription,
+            'isPartOf' => ['@id' => $siteUrl.'/#website'],
+            'about' => ['@id' => $siteUrl.'/#person'],
+            'inLanguage' => 'it-IT',
+        ];
+        if ($routeName === 'about') {
+            $webPageNode['mainEntity'] = ['@id' => $siteUrl.'/#person'];
+        }
+
         $graphNodes = [
             $static['website'],
             $static['person'],
             $static['psychologist'],
-            [
-                '@type' => $webPageType,
-                '@id' => $currentUrl.'#webpage',
-                'url' => $currentUrl,
-                'name' => $metaTitle,
-                'description' => $metaDescription,
-                'isPartOf' => ['@id' => $siteUrl.'/#website'],
-                'about' => ['@id' => $siteUrl.'/#person'],
-                'inLanguage' => 'it-IT',
-            ],
+            $webPageNode,
         ];
         if ($breadcrumb !== null) {
             $graphNodes[] = $breadcrumb;
