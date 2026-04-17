@@ -121,6 +121,8 @@ class SeoTest extends TestCase
             $slug = $area['slug'];
             $expectedTitle = $area['meta_title'] ?? $area['title'].$suffix;
             $expectedDescription = $area['meta_description'] ?? $area['preview'];
+            $areaImagePath = (string) ($area['image'] ?? '');
+            $expectedOgImage = asset(ltrim((string) preg_replace('/\.webp$/', '.jpg', $areaImagePath), '/'));
 
             $response = $this->get(route('areas.show', ['slug' => $slug]));
             $response->assertOk();
@@ -155,9 +157,14 @@ class SeoTest extends TestCase
                 "og:url non allineato per [{$slug}]"
             );
             $this->assertStringContainsString(
-                '<meta property="og:image" content="'.asset(ltrim((string) $area['image'], '/')).'">',
+                '<meta property="og:image" content="'.$expectedOgImage.'">',
                 $html,
                 "og:image non allineata all'immagine area per [{$slug}]"
+            );
+            $this->assertStringContainsString(
+                '<meta name="twitter:image" content="'.$expectedOgImage.'">',
+                $html,
+                "twitter:image non allineata all'immagine area per [{$slug}]"
             );
 
             $this->assertStringContainsString(

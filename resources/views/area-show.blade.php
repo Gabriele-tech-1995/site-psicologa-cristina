@@ -3,7 +3,7 @@
     $areaImageJpg = asset(ltrim(preg_replace('/\.webp$/', '.jpg', $area['image']), '/'));
 @endphp
 
-<x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription" :ogImage="$areaImageWebp" :ogImageAlt="$area['image_alt']">
+<x-layout :metaTitle="$metaTitle" :metaDescription="$metaDescription" :ogImage="$areaImageJpg" :ogImageAlt="$area['image_alt']">
     @php
         $practiceId = url('/') . '/#practice';
         $psyName = config('seo.psychologist.name', 'Dott.ssa Cristina Pacifici');
@@ -56,7 +56,7 @@
                         '@type' => 'Organization',
                         'name' => $psyPractice,
                     ],
-                    'image' => [$areaImageWebp],
+                    'image' => [$areaImageJpg],
                     'mainEntityOfPage' => [
                         '@type' => 'WebPage',
                         '@id' => url()->current() . '#webpage',
