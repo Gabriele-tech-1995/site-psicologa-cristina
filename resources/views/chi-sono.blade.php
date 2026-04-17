@@ -131,13 +131,17 @@
                         <h2 class="mb-3 section-subtitle">Primo colloquio</h2>
 
                         <div class="card shadow-soft p-4 card-chi">
-                            <p class="mb-0">
+                            <p class="mb-3">
                                 Il primo colloquio ha una durata di circa 50 minuti, in linea con le sedute successive,
                                 ed è uno spazio dedicato all’ascolto e alla comprensione della richiesta.
                                 Durante l’incontro potremo chiarire insieme esigenze, obiettivi e modalità del percorso,
                                 con attenzione alla tua storia e a ciò che oggi senti importante raccontare.
                                 Ci sarà anche spazio per le informazioni organizzative e per il consenso informato, con calma.
                                 Al termine potrai valutare come proseguire, nel rispetto dei tuoi tempi e delle tue esigenze.
+                            </p>
+                            <p class="mb-0 text-muted small">
+                                Se vuoi approfondire cosa succede nel primo incontro, puoi visitare la
+                                <a href="{{ route('first-interview') }}">pagina dedicata al primo colloquio</a>.
                             </p>
                         </div>
 

@@ -60,76 +60,101 @@
     color: var(--color-salvia);
 }
 
-/* Home: niente border netti — filo da box-shadow + ombre morbide (solo route home). */
+/* Home: sezioni e card più fuse al fondo; “blocco” = volume (ombra), non bordi netti. */
 .home-page {
+    /* Override zebra `main > section.section`: bande quasi impercettibili + alone morbido sotto la sezione. */
+    main > section.section:not(.area-hero-illustrata) {
+        border: none !important;
+    }
+
+    main > section.section:nth-of-type(even):not(.area-hero-illustrata) {
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.16) 0%,
+            rgba(246, 239, 229, 0.22) 38%,
+            rgba(248, 245, 239, 0.04) 100%
+        );
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.2),
+            0 36px 72px -52px rgba(41, 34, 22, 0.045);
+    }
+
+    main > section.section:nth-of-type(odd):not(.area-hero-illustrata) {
+        background: linear-gradient(
+            180deg,
+            rgba(255, 255, 255, 0.07) 0%,
+            rgba(238, 243, 236, 0.14) 40%,
+            rgba(250, 248, 244, 0.03) 100%
+        );
+        box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.16),
+            0 32px 68px -50px rgba(41, 34, 22, 0.038);
+    }
+
     .intro-section {
         border-top: none;
         border-bottom: none;
-        box-shadow:
-            inset 0 1px 0 0 rgba(104, 123, 109, 0.07),
-            inset 0 -1px 0 0 rgba(157, 119, 67, 0.075);
+        box-shadow: 0 32px 64px -48px rgba(41, 34, 22, 0.04);
     }
 
     .intro-lead {
         border-bottom: none;
-        box-shadow: inset 0 -1px 0 0 rgba(90, 122, 106, 0.1);
+        box-shadow: inset 0 -1px 0 0 rgba(90, 122, 106, 0.06);
     }
 
     .hero {
         border-top: none;
         border-bottom: none;
-        box-shadow:
-            inset 0 1px 0 0 rgba(157, 119, 67, 0.07),
-            inset 0 -1px 0 0 rgba(104, 123, 109, 0.08);
+        box-shadow: 0 28px 60px -46px rgba(41, 34, 22, 0.045);
     }
 
     .hero-box,
     .hero-box-home {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(104, 123, 109, 0.11),
-            0 22px 50px -28px rgba(41, 34, 22, 0.12),
-            0 1px 0 rgba(255, 255, 255, 0.9) inset;
+            0 28px 58px -34px rgba(41, 34, 22, 0.1),
+            0 14px 32px -20px rgba(41, 34, 22, 0.05),
+            0 1px 0 rgba(255, 255, 255, 0.88) inset;
     }
 
     .hero-home-row {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(104, 123, 109, 0.1),
-            0 16px 36px -22px rgba(41, 34, 22, 0.08),
-            inset 0 1px 0 rgba(255, 255, 255, 0.75);
+            0 22px 48px -28px rgba(41, 34, 22, 0.08),
+            0 10px 26px -16px rgba(41, 34, 22, 0.045),
+            inset 0 1px 0 rgba(255, 255, 255, 0.72);
     }
 
     .hero-home-row .card {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(104, 123, 109, 0.12),
-            0 16px 28px rgba(41, 34, 22, 0.1),
+            0 20px 42px -26px rgba(41, 34, 22, 0.09),
+            0 10px 24px -14px rgba(41, 34, 22, 0.05),
             0 1px 0 rgba(255, 255, 255, 0.78) inset;
     }
 
     .hero-kicker {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(90, 122, 106, 0.11),
-            0 2px 10px rgba(41, 34, 22, 0.04);
+            0 10px 24px -14px rgba(41, 34, 22, 0.06),
+            0 2px 8px rgba(41, 34, 22, 0.03);
     }
 
     .formazione-section {
         border-top: none;
         border-bottom: none;
         box-shadow:
-            inset 0 1px 0 0 rgba(104, 123, 109, 0.07),
-            inset 0 -1px 0 0 rgba(157, 119, 67, 0.075);
+            inset 0 1px 0 rgba(255, 255, 255, 0.14),
+            0 28px 60px -48px rgba(41, 34, 22, 0.035);
     }
 
     .trust-strip,
     .local-proof-card {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(104, 123, 109, 0.11),
-            0 20px 42px -22px rgba(41, 34, 22, 0.09),
-            0 1px 0 rgba(255, 255, 255, 0.6) inset;
+            0 26px 52px -30px rgba(41, 34, 22, 0.085),
+            0 12px 30px -18px rgba(41, 34, 22, 0.045),
+            0 1px 0 rgba(255, 255, 255, 0.58) inset;
     }
 
     /* Tre card “Bambini / Adolescenti / Genitori” + “Primo colloquio”: niente contorno netto, solo volume sfumato. */
@@ -180,24 +205,24 @@
     .trust-item {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(104, 123, 109, 0.1),
-            0 12px 26px -18px rgba(41, 34, 22, 0.07),
+            0 18px 40px -22px rgba(41, 34, 22, 0.07),
+            0 8px 20px -12px rgba(41, 34, 22, 0.04),
             0 1px 0 rgba(255, 255, 255, 0.72) inset;
     }
 
     main .section .card {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(104, 123, 109, 0.11),
-            var(--ombra-soft),
+            0 28px 56px -36px rgba(41, 34, 22, 0.075),
+            0 12px 32px -20px rgba(41, 34, 22, 0.04),
             0 1px 0 rgba(255, 255, 255, 0.86) inset;
 
         &:hover {
             border: none;
             transform: translateY(-3px);
             box-shadow:
-                0 0 0 1px rgba(104, 123, 109, 0.16),
-                var(--ombra-hover),
+                0 34px 64px -34px rgba(41, 34, 22, 0.1),
+                0 16px 40px -22px rgba(41, 34, 22, 0.055),
                 0 1px 0 rgba(255, 255, 255, 0.88) inset;
         }
 
@@ -214,15 +239,15 @@
         border-top: none;
         border-bottom: none;
         box-shadow:
-            inset 0 1px 0 0 rgba(104, 123, 109, 0.08),
-            inset 0 -1px 0 0 rgba(157, 119, 67, 0.09);
+            inset 0 1px 0 rgba(255, 255, 255, 0.12),
+            0 32px 68px -50px rgba(41, 34, 22, 0.04);
     }
 
     .cta-final-section .cta-final-lead {
         border: none;
         box-shadow:
-            0 0 0 1px rgba(104, 123, 109, 0.11),
-            0 14px 28px -16px rgba(41, 34, 22, 0.07),
+            0 24px 48px -28px rgba(41, 34, 22, 0.08),
+            0 10px 26px -14px rgba(41, 34, 22, 0.045),
             0 1px 0 rgba(255, 255, 255, 0.75) inset;
     }
 }
@@ -1498,13 +1523,19 @@
         }
     }
 
-    /* Link che avvolge solo lo span .footer-title (stessa gerarchia delle altre colonne) */
+    /* Titolo "Contatti": stesso oro degli altri h3 del footer (il blocco `a` sopra lo sovrascriveva). */
     a.footer-title-link {
         text-decoration: none;
         display: inline-block;
+        color: var(--color-oro) !important;
 
+        &:hover,
         &:hover .footer-title {
-            color: var(--color-oro-hover);
+            color: var(--color-oro-hover) !important;
+        }
+
+        .footer-title {
+            color: inherit !important;
         }
     }
 }
