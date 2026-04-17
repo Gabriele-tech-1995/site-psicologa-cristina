@@ -142,6 +142,7 @@ h4
 h5
 hamburger-icon
 hamburger-icon__bar
+home-page
 hero
 hero-actions
 hero-actions-stack

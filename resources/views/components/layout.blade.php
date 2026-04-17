@@ -142,7 +142,7 @@
     @endif
 </head>
 
-<body>
+<body @class(['home-page' => request()->routeIs('home')])>
 
     <x-nav />
 

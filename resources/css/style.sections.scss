@@ -60,6 +60,95 @@
     color: var(--color-salvia);
 }
 
+/* Home: bordi più tenui + ombre più “sfumate” verso il fondo pagina (solo route home). */
+.home-page {
+    .intro-section {
+        border-top-color: rgba(104, 123, 109, 0.04);
+        border-bottom-color: rgba(157, 119, 67, 0.045);
+    }
+
+    .intro-lead {
+        border-bottom-color: rgba(90, 122, 106, 0.07);
+    }
+
+    .hero {
+        border-top-color: rgba(157, 119, 67, 0.045);
+        border-bottom-color: rgba(104, 123, 109, 0.055);
+    }
+
+    .hero-box,
+    .hero-box-home {
+        border-color: rgba(104, 123, 109, 0.1);
+        box-shadow:
+            0 22px 50px -28px rgba(41, 34, 22, 0.12),
+            0 1px 0 rgba(255, 255, 255, 0.9) inset;
+    }
+
+    .hero-home-row {
+        border-color: rgba(104, 123, 109, 0.09);
+        box-shadow:
+            0 16px 36px -22px rgba(41, 34, 22, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.75);
+    }
+
+    .hero-home-row .card {
+        border-color: rgba(104, 123, 109, 0.11);
+    }
+
+    .hero-kicker {
+        border-color: rgba(90, 122, 106, 0.09);
+    }
+
+    .formazione-section {
+        border-top-color: rgba(104, 123, 109, 0.045);
+        border-bottom-color: rgba(157, 119, 67, 0.05);
+    }
+
+    .trust-strip,
+    .local-proof-card,
+    .home-first-talk-card {
+        border-color: rgba(104, 123, 109, 0.11);
+        box-shadow:
+            0 20px 42px -22px rgba(41, 34, 22, 0.09),
+            0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    }
+
+    .trust-item {
+        border-color: rgba(104, 123, 109, 0.09);
+        box-shadow:
+            0 12px 26px -18px rgba(41, 34, 22, 0.07),
+            0 1px 0 rgba(255, 255, 255, 0.72) inset;
+    }
+
+    main .section .card {
+        border-color: rgba(104, 123, 109, 0.1);
+
+        &:hover {
+            border-color: rgba(104, 123, 109, 0.16);
+        }
+
+        &::before {
+            opacity: 0.35;
+        }
+
+        &::after {
+            opacity: 0.65;
+        }
+    }
+
+    .cta-final-section {
+        border-top-color: rgba(104, 123, 109, 0.07);
+        border-bottom-color: rgba(157, 119, 67, 0.08);
+    }
+
+    .cta-final-section .cta-final-lead {
+        border-color: rgba(104, 123, 109, 0.11);
+        box-shadow:
+            0 14px 28px -16px rgba(41, 34, 22, 0.07),
+            0 1px 0 rgba(255, 255, 255, 0.75) inset;
+    }
+}
+
 .hero {
     padding: 1.8rem 0;
     background: linear-gradient(
